@@ -17,6 +17,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors({}));
 app.use(cookieParser());
 
+app.get('/', (req, res) => {
+  res.json({
+    message: 'ola o dm uno ta vivo'
+  });
+});
+
 const redis = new Redis({
   port: REDIS_PORT, // Redis port
   host: REDIS_HOST, // Redis host
@@ -35,6 +41,7 @@ server.listen(port, err => {
     process.exit(); 
   } 
   console.log('O servidor está escutando porta ' + port); 
+  console.log(`http://localhost:${port}`); 
 }); 
 
 /* const wss = new WebSocket.Server({ server });
