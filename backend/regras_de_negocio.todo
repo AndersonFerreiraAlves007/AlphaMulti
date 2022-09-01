@@ -1,47 +1,48 @@
 Entrar na sala:
-  ☐ Verificar salas disponíveis
-  ☐ Escolher melhor sala apartir de alguns critérios;
-  ☐ Criar sala caso não tenha salas disponíveis;
-  ☐ Caso alcance o número máximo de jogadores iniciar o jogo;
-  ☐ Caso alcance o número mínimo e um tempo máximo de desde a criação da sala iniciar o jogo, sendo os participantes restantes bots;
-  ☐ Criar dados da sala (horario de inicio, id, ect...);
-  ☐ Se todos se desconectarem antes do inicio do jogo, fechar e destruir a sala;
-  ☐ Não entrar na sala caso o jogo ja tenha inicíado;
+  ✔ Verificar salas disponíveis @done(22-09-01 15:05)
+  ✔ Escolher melhor sala apartir de alguns critérios; @done(22-09-01 15:50)
+  ✔ Criar sala caso não tenha salas disponíveis; @done(22-09-01 15:35)
+  ✔ Caso alcance o número máximo de jogadores iniciar o jogo; @done(22-09-01 15:48)
+  ✔ Caso alcance o número mínimo e um tempo máximo de desde a criação da sala iniciar o jogo, sendo os participantes restantes bots; @done(22-09-01 15:48)
+  ✔ Criar dados da sala (horario de inicio, id, ect...); @done(22-09-01 15:06)
+  ✔ Se todos se desconectarem antes do inicio do jogo, fechar e destruir a sala; @done(22-09-01 15:34)
+  ✔ Não entrar na sala caso o jogo ja tenha inicíado; @done(22-09-01 15:33)
+  ✔ guardar ordem dos jogadores @done(22-09-01 15:28)
   ao iniciar o jogo:
-    ☐ embaralhar deck de compra;
-    ☐ sortear carta inicial da pilha de descarte;
-    ☐ decidir primeiro jogador;
-    ☐ distribuir cartas iniciais para os jogadores;
-    ☐ notificar jogarores;
+    ✔ embaralhar deck de compra; @done(22-09-01 14:59)
+    ✔ sortear carta inicial da pilha de descarte; @done(22-09-01 15:31)
+    ✔ decidir primeiro jogador; @done(22-09-01 15:40)
+    ✔ distribuir cartas iniciais para os jogadores; @done(22-09-01 15:40)
+    ✔ notificar jogarores; @done(22-09-01 15:22)
 
 Sair da sala:
-  ☐ Remover jogador da sala;
-  ☐ substiruir jogador por bot;
-  ☐ caso todos os jogadores se desconectem da sala, fechar sala e destruir seus dados;
-  ☐ notificar jogadores restantes sobre a saida de um jogador da sala;
+  ✔ Remover jogador da sala; @done(22-09-01 15:26)
+  ✔ substiruir jogador por bot; @done(22-09-01 15:46)
+  ✔ caso todos os jogadores se desconectem da sala, fechar sala e destruir seus dados; @done(22-09-01 15:46)
+  ✔ notificar jogadores restantes sobre a saida de um jogador da sala; @done(22-09-01 15:22)
 
 Fazer jogada:
-  ☐ Jogar carta;
-  ☐ Realizar efeito da carta;
-  ☐ tirar carta da mão e colocar no topo da pilha de descarte;
-  ☐ verificar se deve comprar card;
+  ✔ Jogar carta; @done(22-09-01 15:24)
+  ✔ Realizar efeito da carta; @done(22-09-01 15:45)
+  ✔ tirar carta da mão e colocar no topo da pilha de descarte; @done(22-09-01 15:45)
+  ✔ verificar se deve comprar card; @done(22-09-01 15:45)
   tempo máximo de jogada:
-    ☐ forçar jogada;
-    ☐ forçar compra de carta;
-    ☐ penalidade (opcioal);
+    ✔ forçar jogada; @done(22-09-01 15:45)
+    ✔ forçar compra de carta; @done(22-09-01 15:45)
+    ✔ penalidade (opcioal); @done(22-09-01 15:45)
   detectar se houve vencedor:
-    ☐ notificar vencedor;
-    ☐ calcular ganho e aumentar pontuação do vencedor;
-    ☐ destruir sala e seus dados;
+    ✔ notificar vencedor; @done(22-09-01 15:23)
+    ✔ calcular ganho e aumentar pontuação do vencedor; @done(22-09-01 15:45)
+    ✔ destruir sala e seus dados; @done(22-09-01 15:23)
 
 Get dados jogador:
-  ☐ obter dados do jogador;
-  ☐ obter mão do jogador;
+  ✔ obter dados do jogador; @done(22-09-01 15:22)
+  ✔ obter mão do jogador; @done(22-09-01 15:22)
 
 Get dados da sala:
-  ☐ obter dados da sala;
-  ☐ obter jogadores e seus números de cards na mão;
-  ☐ obter carta do topo da pilha de descarte;
-  ☐ obter jogador ativo;
-  ☐ obter tempo partida;
-  ☐ obter tempo turno;
+  ✔ obter dados da sala; @done(22-09-01 15:22)
+  ✔ obter jogadores e seus números de cards na mão; @done(22-09-01 15:23)
+  ✔ obter carta do topo da pilha de descarte; @done(22-09-01 15:22)
+  ✔ obter jogador ativo; @done(22-09-01 15:22)
+  ✔ obter tempo partida; @done(22-09-01 15:22)
+  ✔ obter tempo turno; @done(22-09-01 15:22)
