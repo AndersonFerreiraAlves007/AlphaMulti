@@ -1,0 +1,47 @@
+Entrar na sala:
+  ☐ Verificar salas disponíveis
+  ☐ Escolher melhor sala apartir de alguns critérios;
+  ☐ Criar sala caso não tenha salas disponíveis;
+  ☐ Caso alcance o número máximo de jogadores iniciar o jogo;
+  ☐ Caso alcance o número mínimo e um tempo máximo de desde a criação da sala iniciar o jogo, sendo os participantes restantes bots;
+  ☐ Criar dados da sala (horario de inicio, id, ect...);
+  ☐ Se todos se desconectarem antes do inicio do jogo, fechar e destruir a sala;
+  ☐ Não entrar na sala caso o jogo ja tenha inicíado;
+  ao iniciar o jogo:
+    ☐ embaralhar deck de compra;
+    ☐ sortear carta inicial da pilha de descarte;
+    ☐ decidir primeiro jogador;
+    ☐ distribuir cartas iniciais para os jogadores;
+    ☐ notificar jogarores;
+
+Sair da sala:
+  ☐ Remover jogador da sala;
+  ☐ substiruir jogador por bot;
+  ☐ caso todos os jogadores se desconectem da sala, fechar sala e destruir seus dados;
+  ☐ notificar jogadores restantes sobre a saida de um jogador da sala;
+
+Fazer jogada:
+  ☐ Jogar carta;
+  ☐ Realizar efeito da carta;
+  ☐ tirar carta da mão e colocar no topo da pilha de descarte;
+  ☐ verificar se deve comprar card;
+  tempo máximo de jogada:
+    ☐ forçar jogada;
+    ☐ forçar compra de carta;
+    ☐ penalidade (opcioal);
+  detectar se houve vencedor:
+    ☐ notificar vencedor;
+    ☐ calcular ganho e aumentar pontuação do vencedor;
+    ☐ destruir sala e seus dados;
+
+Get dados jogador:
+  ☐ obter dados do jogador;
+  ☐ obter mão do jogador;
+
+Get dados da sala:
+  ☐ obter dados da sala;
+  ☐ obter jogadores e seus números de cards na mão;
+  ☐ obter carta do topo da pilha de descarte;
+  ☐ obter jogador ativo;
+  ☐ obter tempo partida;
+  ☐ obter tempo turno;
