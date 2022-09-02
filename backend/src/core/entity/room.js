@@ -4,6 +4,18 @@ class Room {
     this.startDate = startDate;
     this.startLastTurn = startLastTurn;
   }
+
+  getScore() {
+
+  }
+
+  getNumberPlayers() {
+
+  }
+
+  getNumberPlayersHumans() {
+    
+  }
 }
 
 module.exports = Room;

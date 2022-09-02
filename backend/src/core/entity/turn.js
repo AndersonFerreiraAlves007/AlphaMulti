@@ -3,6 +3,9 @@ class Turn {
     this.deck = deck;
     this.players = players;
   }
+
+  
+
 }
 
 module.exports = Turn;

@@ -2,10 +2,16 @@ class RoomRepository {
   async getRoomAvaliables() {
 
   }
+  async getRoom(id) {
+
+  }
   async createRoom() {
 
   }
-  async deleteRoom() {
+  async deleteRoom(id) {
+    
+  }
+  async updateRoom() {
     
   }
 }

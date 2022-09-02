@@ -1,14 +1,17 @@
 class PlayerRepository {
-  async getPlayer() {
+  async getPlayer(id) {
 
   }
-  async createPlayer() {
+  async createPlayer(username) {
 
   }
   async deletePlayer() {
     
   }
-  async getPlayersRoom() {
+  async getPlayersRoom(idRoom) {
 
+  }
+  async updatePlayer() {
+    
   }
 }
