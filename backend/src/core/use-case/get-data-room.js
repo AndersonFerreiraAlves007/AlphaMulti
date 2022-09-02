@@ -7,6 +7,7 @@ class GetDataRoom {
   async execute (idRoom) {
     const room = await this.roomRepository.getRoom(idRoom);
     const players = await this.playerRepository.getPlayersRoom(room.id);
+    
   }
 }
 

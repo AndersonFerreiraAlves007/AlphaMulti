@@ -6,6 +6,10 @@ class Player {
     this.cards = cards;
     this.roomId = roomId;
   }
+
+  isWiner() {
+    return this.cards.length === 0;
+  }
 }
 
 module.exports = Player;
