@@ -1,17 +1,15 @@
 class PlayerNotification {
-  async startGame() {
+  async startGame() {}
 
-  }
-  async endGame() {
+  async endGame() {}
 
-  }
-  async enterPlayer() {
+  async enterPlayer() {}
 
-  }
-  async levePlayer() {
+  async levePlayer() {}
 
-  }
-  async makeMove() {
-    
-  }
+  async makeMove() {}
+}
+
+export {
+  PlayerNotification
 }

@@ -1,17 +1,21 @@
 class PlayerRepository {
-  async getPlayer(id) {
+  async getPlayer(id) {}
 
-  }
-  async createPlayer(username) {
+  async createPlayerHuman(username) {}
 
-  }
-  async deletePlayer() {
-    
-  }
-  async getPlayersRoom(idRoom) {
+  async createPlayerBot(username) {}
 
-  }
-  async updatePlayer() {
-    
-  }
+  async deletePlayer(id) {}
+
+  async getPlayersRoom(idRoom) {}
+
+  async getPlayersHumanRoom(idRoom) {}
+
+  async getPlayersBotRoom(idRoom) {}
+  
+  async updatePlayer(id, data) {}
+}
+
+export {
+  PlayerRepository
 }

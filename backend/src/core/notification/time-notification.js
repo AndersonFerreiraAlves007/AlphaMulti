@@ -1,8 +1,9 @@
 class TimeNotification {
-  async createRoom() {
+  async createRoom() {}
 
-  }
-  async makeMove() {
-    
-  }
+  async makeMove() {}
+}
+
+export {
+  TimeNotification
 }

@@ -46,5 +46,5 @@ Get dados da sala:
   ☐ obter jogadores e seus números de cards na mão;
   ☐ obter carta do topo da pilha de descarte;
   ☐ obter jogador ativo;
-  ☐ obter tempo partida;
-  ☐ obter tempo turno;
+  ✔ obter tempo partida; @done(22-09-05 22:05)
+  ✔ obter tempo turno; @done(22-09-05 22:05)

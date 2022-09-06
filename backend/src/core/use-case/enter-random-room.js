@@ -19,21 +19,35 @@ class EnterRandomRoom {
       room = roomsAvaliables.sort((a, b) => b.getScore() - a.getScore())[0];
     } else {
       room = await this.roomRepository.createRoom();
-      this.timeNotification.createRoom();
+      this.timeNotification.createRoom(room.id);
     }
-    await this.playerRepository.updatePlayer(player.id, player.username, player.score, player.cards, player.roomId);
+    await this.playerRepository.updatePlayer(player.id, {
+      roomId: player.roomId
+    });
     const players = await this.playerRepository.getPlayersRoom(room.id);
     if(players.length === maxPlayers) {
-      await this.roomRepository.updateRoom();
-      // setar a ordem
-      players.forEach(item => {
+      players.forEach((item, index) => {
         for(let i = 0; i < initialCards; i++) {
           item.push(deck.drawFromDeck());
         }
+        item.setOrder(index + 1);
       });
-      // save players
-      // save room
-      this.playerNotification.startGame();
+
+      await this.roomRepository.updateRoom(room.id, {
+        startGameAt: new Date(), 
+        startLastTurnAt: new Date(),
+        isRun: true
+      });
+      
+      for(let i = 0; i < players.length; i++) {
+        await this.playerRepository.updatePlayer(players[i].id, {
+          cards: players[i].cards, 
+          roomId: players[i].roomId,
+          order: players[i].order,
+        });
+      }
+
+      this.playerNotification.startGame(room.id);
     } 
   }
 }

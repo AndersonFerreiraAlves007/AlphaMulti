@@ -1,9 +1,11 @@
 class Room {
-  constructor(id, startDate, startLastTurn, direction) {
+  constructor(id, createdAt, startGameAt, startLastTurnAt, direction, isRun) {
     this.id = id;
-    this.startDate = startDate;
-    this.startLastTurn = startLastTurn;
+    this.createdAt = createdAt;
+    this.startGameAt = startGameAt;
+    this.startLastTurnAt = startLastTurnAt;
     this.direction = direction;
+    this.isRun = isRun;
   }
 
   getScore() {

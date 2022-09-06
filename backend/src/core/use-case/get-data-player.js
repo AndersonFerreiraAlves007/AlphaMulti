@@ -5,7 +5,12 @@ class GetDataPlayer {
 
   async execute (idPlayer) {
     const player = await this.playerRepository.getPlayer(idPlayer);
-    return player;
+    return {
+      id: player.id,
+      cards: player.cards,
+      score: player.score,
+      order: player.order
+    };
   }
 }
 

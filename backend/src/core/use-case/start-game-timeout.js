@@ -14,24 +14,52 @@ class StartGaneTimeout {
   async execute (idRoom) {
     const deck = new Deck();
     const room = await this.roomRepository.getRoom(idRoom);
-    const players = await this.playerRepository.getPlayersRoom(room.id);
-    if(players.length !== maxPlayers) {
-      if(players.length >= minPlayers) {
-        await this.roomRepository.updateRoom();
-        // setar a ordem
-        players.forEach(item => {
-          for(let i = 0; i < initialCards; i++) {
-            item.push(deck.drawFromDeck());
+    const playersHumans = await this.playerRepository.getPlayersHumanRoom(room.id);
+    if(!room.isRun) {
+      if(playersHumans.length !== maxPlayers) {
+        if(playersHumans.length >= minPlayers) {
+
+          for(let i = 0; i < maxPlayers - playersHumans.length; i++) {
+            const bot = await this.playerRepository.createPlayerBot();
+            await this.playerRepository.updatePlayer(bot.id, {
+              cards: [], 
+              roomId: room.id,
+              order: -1
+            });
           }
-        });
-        // save players
-        // save room
-        // criar bots
-        this.playerNotification.startGame();
-      } else {
-        if(players.length === 0) {
-          // delete bots
-          await this.roomRepository.deleteRoom(room.id);
+
+          const players = await this.playerRepository.getPlayersRoom(room.id);
+          
+          players.forEach((item, index) => {
+            for(let i = 0; i < initialCards; i++) {
+              item.push(deck.drawFromDeck());
+            }
+            item.setOrder(index + 1);
+          });
+
+          await this.roomRepository.updateRoom(room.id, {
+            startGameAt: new Date(),
+            startLastTurnAt: new Date(),
+            isRun: true
+          });
+          
+          for(let i = 0; i < players.length; i++) {
+            await this.playerRepository.updatePlayer(players[i].id, {
+              cards: players[i].cards, 
+              roomId: players[i].roomId,
+              order: players[i].order,
+            });
+          }
+
+          this.playerNotification.startGame(room.id);
+        } else {
+          if(playersHumans.length === 0) {
+            const bots = await this.playerRepository.getPlayersBotRoom(room.id);
+            for(let i = 0; i < bots.length; i++) {
+              await this.playerRepository.deletePlayer(bots[i].id);
+            }
+            await this.roomRepository.deleteRoom(room.id);
+          }
         }
       }
     }

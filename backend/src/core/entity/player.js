@@ -5,6 +5,11 @@ class Player {
     this.score = score;
     this.cards = cards;
     this.roomId = roomId;
+    this.order = -1;
+  }
+
+  setOrder(order) {
+    this.order = order;
   }
 
   isWiner() {
