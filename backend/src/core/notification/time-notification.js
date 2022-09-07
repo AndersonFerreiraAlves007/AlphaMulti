@@ -4,6 +4,4 @@ class TimeNotification {
   async makeMove() {}
 }
 
-export {
-  TimeNotification
-}
+module.exports = TimeNotification;

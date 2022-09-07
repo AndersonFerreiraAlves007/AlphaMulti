@@ -1,33 +1,19 @@
 class Room {
-  constructor(id, createdAt, startGameAt, startLastTurnAt, direction, isRun) {
+  constructor(id, createdAt, startGameAt, startLastTurnAt, direction, isRun, deck) {
     this.id = id;
     this.createdAt = createdAt;
     this.startGameAt = startGameAt;
     this.startLastTurnAt = startLastTurnAt;
     this.direction = direction;
     this.isRun = isRun;
+    this.deck = deck;
   }
 
-  getScore() {
-
+  getScore(players) {
+    const time = (new Date().getTime() - this.createdAt.getTime())/(1000 * 60);
+    return time * 2 + players.length;
   }
 
-  getNumberPlayers() {
-
-  }
-
-  getNumberPlayersHumans() {
-    
-  }
-
-  getJSON() {
-    return {
-      id: this.id,
-      startDate: this.startDate,
-      startLastTurn: this.startLastTurn,
-      direction: this.direction,
-    };
-  }
 }
 
 module.exports = Room;

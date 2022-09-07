@@ -16,6 +16,4 @@ class PlayerRepository {
   async updatePlayer(id, data) {}
 }
 
-export {
-  PlayerRepository
-}
+module.exports = PlayerRepository;

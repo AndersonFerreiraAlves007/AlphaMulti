@@ -10,6 +10,4 @@ class RoomRepository {
   async updateRoom() {}
 }
 
-export {
-  RoomRepository
-}
+module.exports = RoomRepository;

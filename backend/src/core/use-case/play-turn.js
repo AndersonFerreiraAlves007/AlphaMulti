@@ -1,5 +1,3 @@
-const Deck = require('../entity/deck');
-
 class PlayTurn {
   constructor (playerRepository, roomRepository, playerNotification, timeNotification) {
     this.playerRepository = playerRepository;
@@ -14,17 +12,20 @@ class PlayTurn {
     let card = null;
     for(let i = 0; i < player.cards.length; i++) {
       if(player.cards[i].evaluateCard(color, value)) {
-        // remove dos cards do player
-        // coloca topo da ilha de descarte
-        // seta card
+        card = player.cards[i];
+        player.cards.splice(i, 1);
+        room.deck.discard(card);
+        break;
       }
     }
     if(card) {
       // faz jogada
     } else {
-      // compra card
+      player.cards.push(room.deck.drawFromDeck());
     }
-    // salva jogador
+    await this.playerRepository.updatePlayer(player.id, {
+      cards: player.cards,
+    });
     const players = await this.playerRepository.getPlayersRoom(room.id);
     let winer = null;
     for(let i = 0; i < players.length; i++) {

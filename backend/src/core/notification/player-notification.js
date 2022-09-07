@@ -10,6 +10,4 @@ class PlayerNotification {
   async makeMove() {}
 }
 
-export {
-  PlayerNotification
-}
+module.exports = PlayerNotification;

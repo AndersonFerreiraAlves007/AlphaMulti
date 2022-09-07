@@ -1,7 +1,8 @@
 class Player {
-  constructor(id, username, score, cards, roomId) {
+  constructor(id, username, isBot, score, cards, roomId) {
     this.id = id;
     this.username = username;
+    this.isBot = isBot;
     this.score = score;
     this.cards = cards;
     this.roomId = roomId;
