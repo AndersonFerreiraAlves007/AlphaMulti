@@ -6,6 +6,10 @@
   background-image: url('../assets/img/cards/blue/m2.svg');
 }
 
+.bb {
+  background-image: url('../assets/img/cards/blue/b.svg');
+}
+
 .b0 {
   background-image: url('../assets/img/cards/blue/0.svg');
 }
@@ -52,6 +56,10 @@
 
 .gm2 {
   background-image: url('../assets/img/cards/green/m2.svg');
+}
+
+.gb {
+  background-image: url('../assets/img/cards/green/b.svg');
 }
 
 .g0 {
@@ -102,6 +110,10 @@
   background-image: url('../assets/img/cards/red/m2.svg');
 }
 
+.rb {
+  background-image: url('../assets/img/cards/red/b.svg');
+}
+
 .r0 {
   background-image: url('../assets/img/cards/red/0.svg');
 }
@@ -148,6 +160,10 @@
 
 .ym2 {
   background-image: url('../assets/img/cards/yellow/m2.svg');
+}
+
+.yb {
+  background-image: url('../assets/img/cards/yellow/b.svg');
 }
 
 .y0 {
