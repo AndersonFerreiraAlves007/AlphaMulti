@@ -1,4 +1,16 @@
 const Card = require('./card');
+const {
+  COLOR_BLUE,
+  COLOR_GREEN,
+  COLOR_ESPECIAL,
+  COLOR_RED,
+  COLOR_YELLOW,
+  VALUE_JOCKER,
+  VALUE_M2,
+  VALUE_M4,
+  VALUE_REVERTE,
+  VALUE_SKIP
+} = require('../utils/constants');
 
 class Deck {
   constructor() {
@@ -8,31 +20,36 @@ class Deck {
 
   build() {
     this.cards = [];
-    const colors = ['RED','GRE','BLU','YEL'];
-    const especialCards = ['COR','PL4'];
+    this.cardsDiscarded = [];
+    const colors = [ COLOR_BLUE, COLOR_GREEN, COLOR_RED, COLOR_YELLOW];
+    const especialCards = [VALUE_JOCKER, VALUE_M4];
     for(let j = 0; j < colors.length; j++) {
       this.cards.push(new Card(colors[j], '0'));
       for(let i = 1; i < 10; i++) {
         this.cards.push(new Card(colors[j], `${i}`));
         this.cards.push(new Card(colors[j], `${i}`));
       }
-      this.cards.push(new Card(colors[j], 'SKI'));
-      this.cards.push(new Card(colors[j], 'SKI'));
-      this.cards.push(new Card(colors[j], 'REV'));
-      this.cards.push(new Card(colors[j], 'REV'));
-      this.cards.push(new Card(colors[j], 'PL2'));
-      this.cards.push(new Card(colors[j], 'PL2'));
+      this.cards.push(new Card(colors[j], VALUE_SKIP));
+      this.cards.push(new Card(colors[j], VALUE_SKIP));
+      this.cards.push(new Card(colors[j], VALUE_REVERTE));
+      this.cards.push(new Card(colors[j], VALUE_REVERTE));
+      this.cards.push(new Card(colors[j], VALUE_M2));
+      this.cards.push(new Card(colors[j], VALUE_M2));
     }
     for(let i = 0; i < especialCards.length; i++) {
-      this.cards.push(new Card('BLA', especialCards[i]));
-      this.cards.push(new Card('BLA', especialCards[i]));
-      this.cards.push(new Card('BLA', especialCards[i]));
-      this.cards.push(new Card('BLA', especialCards[i]));
+      this.cards.push(new Card(COLOR_ESPECIAL, especialCards[i]));
+      this.cards.push(new Card(COLOR_ESPECIAL, especialCards[i]));
+      this.cards.push(new Card(COLOR_ESPECIAL, especialCards[i]));
+      this.cards.push(new Card(COLOR_ESPECIAL, especialCards[i]));
     }
   }
 
   discard(card) {
     this.cardsDiscarded.push(card);
+  }
+
+  getTopCardsDiscarded() {
+    return this.cardsDiscarded[this.cardsDiscarded.length - 1];
   }
 
   shuffle() {
@@ -43,6 +60,7 @@ class Deck {
     if(this.cards.length === 0) {
       this.cards = this.cardsDiscarded;
       this.cardsDiscarded = [];
+      this.cardsDiscarded.push(this.cards.pop());
     }
     return this.cards.pop();
   }

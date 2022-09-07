@@ -1,7 +1,7 @@
 class TimeNotification {
-  async createRoom() {}
+  async createRoom(roomId) {}
 
-  async makeMove() {}
+  async makeMove(roomId) {}
 }
 
 module.exports = TimeNotification;

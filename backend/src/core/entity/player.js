@@ -1,15 +1,11 @@
 class Player {
-  constructor(id, username, isBot, score, cards, roomId) {
+  constructor(id, username, isBot, score, cards, roomId, order) {
     this.id = id;
     this.username = username;
     this.isBot = isBot;
     this.score = score;
     this.cards = cards;
     this.roomId = roomId;
-    this.order = -1;
-  }
-
-  setOrder(order) {
     this.order = order;
   }
 

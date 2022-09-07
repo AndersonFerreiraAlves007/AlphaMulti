@@ -7,23 +7,28 @@ class GetDataRoom {
   async execute (idRoom) {
     const room = await this.roomRepository.getRoom(idRoom);
     const players = await this.playerRepository.getPlayersRoom(room.id);
+    const topCardsDiscarded = room.deck.getTopCardsDiscarded();
     return {
       id: room.isRun,
-      createdAt: this.createdAt,
-      startGameAt: this.startGameAt,
-      startLastTurnAt: this.startLastTurnAt,
-      direction: this.direction,
-      isRun: this.isRun,
+      createdAt: room.createdAt,
+      startGameAt: room.startGameAt,
+      startLastTurnAt: room.startLastTurnAt,
+      direction: room.direction,
+      isRun: room.isRun,
       topCard: {
-
+        color: topCardsDiscarded.color,
+        value: topCardsDiscarded.value,
       },
-      playerActive: ,
-      players: players.map(item => {
-        return {
-          id: item.id,
-          numberCards: item.cards.length
-        };
+      positionActive: room.position,
+      players: players.map(item => ({
+        id: item.id,
+        username: item.username,
+        numberCards: item.cards.length,
+        score: item.score,
+        order: item.order,
+        isBot: item.isBot
       })
+      )
     };
   }
 }

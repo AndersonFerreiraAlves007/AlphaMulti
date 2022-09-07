@@ -1,13 +1,13 @@
 class PlayerNotification {
-  async startGame() {}
+  async startGame(roomId) {}
 
-  async endGame() {}
+  async endGame(roomId) {}
 
-  async enterPlayer() {}
+  async enterPlayer(roomId) {}
 
-  async levePlayer() {}
+  async levePlayer(roomId) {}
 
-  async makeMove() {}
+  async makeMove(roomId) {}
 }
 
 module.exports = PlayerNotification;

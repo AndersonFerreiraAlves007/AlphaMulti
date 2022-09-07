@@ -19,10 +19,18 @@ class PlayTurn {
       }
     }
     if(card) {
-      // faz jogada
+      switch (card.value) {
+      case 'SKI':
+        room.setNextPosition();
+        break;
+      case 'REV':
+        room.direction *= -1;
+        break;
+      }
     } else {
       player.cards.push(room.deck.drawFromDeck());
     }
+    room.setNextPosition();
     await this.playerRepository.updatePlayer(player.id, {
       cards: player.cards,
     });
@@ -56,6 +64,7 @@ class PlayTurn {
       await this.roomRepository.deleteRoom(room.id);
     }
     this.playerNotification.makeMove(room.id);
+    //movimento dos bots
   }
 }
 

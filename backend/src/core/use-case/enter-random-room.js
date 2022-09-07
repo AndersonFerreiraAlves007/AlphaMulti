@@ -1,6 +1,8 @@
-const Deck = require('../entity/deck');
-const maxPlayers = 4;
-const initialCards = 7;
+const {
+  MAX_PLAYERS_ROOM,
+  INITIAL_CARDS_PLAYER,
+  CLOCKWISE
+} = require('../utils/constants');
 
 class EnterRandomRoom {
   constructor (playerRepository, roomRepository, playerNotification, timeNotification) {
@@ -11,7 +13,6 @@ class EnterRandomRoom {
   }
 
   async execute (idPlayer) {
-    const deck = new Deck();
     let player = await this.playerRepository.getPlayer(idPlayer);
     const roomsAvaliables = await this.roomRepository.getRoomAvaliables();
     let room = null;
@@ -24,19 +25,26 @@ class EnterRandomRoom {
     await this.playerRepository.updatePlayer(player.id, {
       roomId: player.roomId
     });
-    const players = await this.playerRepository.getPlayersRoom(room.id);
-    if(players.length === maxPlayers) {
+    const players = await this.playerRepository.getPlayersHumanRoom(room.id);
+    if(players.length === MAX_PLAYERS_ROOM) {
       players.forEach((item, index) => {
-        for(let i = 0; i < initialCards; i++) {
-          item.push(deck.drawFromDeck());
+        item.cards = [];
+        for(let i = 0; i < INITIAL_CARDS_PLAYER; i++) {
+          item.cards.push(room.deck.drawFromDeck());
         }
-        item.setOrder(index + 1);
+        item.order = index + 1;
       });
 
+      room.deck.build();
+      room.deck.shuffle();
+      room.deck.discard(room.deck.drawFromDeck());
+
       await this.roomRepository.updateRoom(room.id, {
-        startGameAt: new Date(), 
+        startGameAt: new Date(),
         startLastTurnAt: new Date(),
-        isRun: true
+        direction: CLOCKWISE,
+        isRun: true,
+        position: 1,
       });
       
       for(let i = 0; i < players.length; i++) {

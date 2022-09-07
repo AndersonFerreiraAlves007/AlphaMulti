@@ -7,7 +7,7 @@ class RoomRepository {
 
   async deleteRoom(id) {}
 
-  async updateRoom() {}
+  async updateRoom(id, data) {}
 }
 
 module.exports = RoomRepository;

@@ -7,9 +7,11 @@ class GetDataPlayer {
     const player = await this.playerRepository.getPlayer(idPlayer);
     return {
       id: player.id,
+      username: player.username,
       cards: player.cards,
       score: player.score,
-      order: player.order
+      order: player.order,
+      isBot: player.isBot
     };
   }
 }

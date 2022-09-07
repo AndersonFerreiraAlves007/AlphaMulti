@@ -3,15 +3,15 @@ class PlayerRepository {
 
   async createPlayerHuman(username) {}
 
-  async createPlayerBot(username) {}
+  async createPlayerBot() {}
 
   async deletePlayer(id) {}
 
-  async getPlayersRoom(idRoom) {}
+  async getPlayersRoom(roomId) {}
 
-  async getPlayersHumanRoom(idRoom) {}
+  async getPlayersHumanRoom(roomId) {}
 
-  async getPlayersBotRoom(idRoom) {}
+  async getPlayersBotRoom(roomId) {}
   
   async updatePlayer(id, data) {}
 }

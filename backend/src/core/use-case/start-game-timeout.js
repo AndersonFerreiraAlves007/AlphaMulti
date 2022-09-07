@@ -1,7 +1,9 @@
-const Deck = require('../entity/deck');
-const minPlayers = 1;
-const maxPlayers = 4;
-const initialCards = 7;
+const {
+  MAX_PLAYERS_ROOM,
+  INITIAL_CARDS_PLAYER,
+  MIN_PLAYERS_ROOM,
+  CLOCKWISE
+} = require('../utils/constants');
 
 class StartGaneTimeout {
   constructor (playerRepository, roomRepository, playerNotification, timeNotification) {
@@ -12,14 +14,13 @@ class StartGaneTimeout {
   }
 
   async execute (idRoom) {
-    const deck = new Deck();
     const room = await this.roomRepository.getRoom(idRoom);
-    const playersHumans = await this.playerRepository.getPlayersHumanRoom(room.id);
     if(!room.isRun) {
-      if(playersHumans.length !== maxPlayers) {
-        if(playersHumans.length >= minPlayers) {
+      const playersHumans = await this.playerRepository.getPlayersHumanRoom(room.id);
+      if(playersHumans.length !== MAX_PLAYERS_ROOM) {
+        if(playersHumans.length >= MIN_PLAYERS_ROOM) {
 
-          for(let i = 0; i < maxPlayers - playersHumans.length; i++) {
+          for(let i = 0; i < MAX_PLAYERS_ROOM - playersHumans.length; i++) {
             const bot = await this.playerRepository.createPlayerBot();
             await this.playerRepository.updatePlayer(bot.id, {
               cards: [], 
@@ -31,16 +32,24 @@ class StartGaneTimeout {
           const players = await this.playerRepository.getPlayersRoom(room.id);
           
           players.forEach((item, index) => {
-            for(let i = 0; i < initialCards; i++) {
-              item.push(deck.drawFromDeck());
+            item.cards = [];
+            for(let i = 0; i < INITIAL_CARDS_PLAYER; i++) {
+              item.cards.push(room.deck.drawFromDeck());
             }
-            item.setOrder(index + 1);
+            item.order = index + 1;
           });
+
+          room.deck.build();
+          room.deck.shuffle();
+          room.deck.discard(room.deck.drawFromDeck());
 
           await this.roomRepository.updateRoom(room.id, {
             startGameAt: new Date(),
             startLastTurnAt: new Date(),
-            isRun: true
+            direction: CLOCKWISE,
+            isRun: true,
+            position: 1,
+
           });
           
           for(let i = 0; i < players.length; i++) {

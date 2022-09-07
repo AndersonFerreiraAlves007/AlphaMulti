@@ -6,7 +6,9 @@ class Login {
   async execute (username) {
     const player = await this.playerRepository.createPlayer(username);
     return {
-      id: player.id
+      id: player.id,
+      username: player.username,
+      score: player.score
     };
   }
 }
