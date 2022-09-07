@@ -14,4 +14,5 @@ module.exports = {
   VALUE_M4: '',
   CLOCKWISE: 1,
   ANTICLOCKWISE: -1,
+  POINTS_WINER: 500
 };

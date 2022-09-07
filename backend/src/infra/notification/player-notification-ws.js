@@ -1,17 +1,15 @@
-class PlayerNotification {
-  async startGame() {
+const PlayerNotification = require('../../core/notification/player-notification');
 
-  }
-  async endGame() {
+class PlayerNotificationWS extends PlayerNotification {
+  async startGame(roomId) {}
 
-  }
-  async enterPlayer() {
+  async endGame(roomId) {}
 
-  }
-  async levePlayer() {
+  async enterPlayer(roomId) {}
 
-  }
-  async makeMove() {
-    
-  }
+  async levePlayer(roomId) {}
+
+  async makeMove(roomId) {}
 }
+
+module.exports = PlayerNotificationWS;

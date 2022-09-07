@@ -1,8 +1,9 @@
-class TimeNotification {
-  async createRoom() {
+const TimeNotification = require('../../core/notification/time-notification');
 
-  }
-  async makeMove() {
-    
-  }
+class TimeNotificationWs extends TimeNotification{
+  async createRoom(roomId) {}
+
+  async makeMove(roomId) {}
 }
+
+module.exports = TimeNotificationWs;

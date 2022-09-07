@@ -1,11 +1,15 @@
-class RoomRepository {
-  async getRoomAvaliables() {
+const RoomRepository = require('../../core/repository/room-repository');
 
-  }
-  async createRoom() {
+class RoomRepositoryRedis extends RoomRepository {
+  async getRoomAvaliables() {}
 
-  }
-  async deleteRoom() {
-    
-  }
+  async getRoom(id) {}
+
+  async createRoom() {}
+
+  async deleteRoom(id) {}
+
+  async updateRoom(id, data) {}
 }
+
+module.exports = RoomRepositoryRedis;
