@@ -26,7 +26,7 @@ class LeaveRoom {
           if(room.isRun) {
             const bot = await this.playerRepository.createPlayerBot();
             await this.playerRepository.updatePlayer(bot.id, {
-              cards: cards, 
+              cards: cards.map(item => ({ color: item.color, value: item.value })), 
               roomId: room.id,
               order: player.order
             });

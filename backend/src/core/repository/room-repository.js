@@ -3,7 +3,7 @@ class RoomRepository {
 
   async getRoom(id) {}
 
-  async createRoom() {}
+  async createRoom(data) {}
 
   async deleteRoom(id) {}
 

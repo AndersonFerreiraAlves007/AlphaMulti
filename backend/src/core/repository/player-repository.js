@@ -1,7 +1,7 @@
 class PlayerRepository {
   async getPlayer(id) {}
 
-  async createPlayerHuman(username) {}
+  async createPlayerHuman(data) {}
 
   async createPlayerBot() {}
 

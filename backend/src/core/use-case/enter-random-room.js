@@ -21,7 +21,16 @@ class EnterRandomRoom {
         if(roomsAvaliables.length > 0) {
           room = roomsAvaliables.sort((a, b) => b.getScore() - a.getScore())[0];
         } else {
-          room = await this.roomRepository.createRoom();
+          room = await this.roomRepository.createRoom({
+            createdAt: new Date(),
+            startGameAt: null,
+            startLastTurnAt: null,
+            direction: 1,
+            isRun: false,
+            cards: [],
+            position: 1,
+            cardsDiscarded: []
+          });
           this.timeNotification.createRoom(room.id);
         }
         await this.playerRepository.updatePlayer(player.id, {

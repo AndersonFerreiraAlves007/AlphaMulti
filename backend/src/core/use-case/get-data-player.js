@@ -9,7 +9,7 @@ class GetDataPlayer {
       return {
         id: player.id,
         username: player.username,
-        cards: player.cards,
+        cards: player.cards.map(item => ({ color: item.color, value: item.value })),
         score: player.score,
         order: player.order,
         isBot: player.isBot
