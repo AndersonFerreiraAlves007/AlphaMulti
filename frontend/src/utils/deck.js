@@ -1,5 +1,5 @@
 const SUITS = ['b', 'g', 'r', 'y'];
-const VALUES = ['t', 'm2', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+const VALUES = ['t', 'm2', 'b', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 export default class Deck {
   constructor(cards = freshDeck()) {
@@ -34,11 +34,19 @@ function freshDeck() {
     });
   });
 
+  const data1 = data.slice(0);
+  const deck = data.concat(data1);
+
   const values = ['m4', 's1'];
-  for (let i = 0; i < 2; i++) {
+  for (let i = 0; i < 4; i++) {
     values.map((value) => {
-      data.push(new Card('s', value));
+      deck.push(new Card('s', value));
     });
   }
-  return data;
+
+  SUITS.map((suit) => {
+    deck.push(new Card(suit, '0'));
+  });
+
+  return deck;
 }
