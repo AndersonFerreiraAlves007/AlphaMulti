@@ -16,6 +16,11 @@ class Card {
     if(this.value === VALUE_M4) return true;
     return false;
   }
+
+  hasCard(openColor, openValue) {
+    if(this.color === openColor && this.value === openValue) return true;
+    return false;
+  }
 }
 
 module.exports = Card;

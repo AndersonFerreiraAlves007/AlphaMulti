@@ -52,8 +52,17 @@ class Deck {
     return this.cardsDiscarded[this.cardsDiscarded.length - 1];
   }
 
-  shuffle() {
+  /* shuffle() {
     this.cards.sort(() => Math.random() - 0.5);
+  } */
+
+  shuffle() {
+    for (let i = this.cards.length - 1; i > 0; i--) {
+      const newIndex = Math.floor(Math.random() * (i + 1));
+      const oldValue = this.cards[newIndex];
+      this.cards[newIndex] = this.cards[i];
+      this.cards[i] = oldValue;
+    }
   }
 
   drawFromDeck() {
