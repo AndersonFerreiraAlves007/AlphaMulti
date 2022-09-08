@@ -1,4 +1,4 @@
-img {
+/* img {
   width: 100px;
   height: 100px;
   border: 1px solid black;
@@ -7,4 +7,51 @@ img {
 
 body {
   background-color: black;
+} */
+/* MOBILE FIRST */
+main {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.back__splash {
+  width: 100%;
+  height: 100vh;
+}
+.logo__splash {
+  width: 300px;
+  position: absolute;
+}
+.button__splash {
+  position: absolute;
+  margin-top: 150px;
+  height: 80px;
+  width: 130px;  
+
+}
+@media screen and (min-width: 280px) {
+  .logo__splash {
+    width: 200px;
+  }
+  .button__splash {
+    margin-top: 100px;
+    
+  }
+}
+@media screen and (min-width: 820px) {
+  .logo__splash {
+    width: 500px;
+  }
+  .button__splash {
+    height: 130px;
+    width: 190px;
+    margin-top: 250px;
+
+  }
+}
+@media screen and (min-width: 1024px) {
+  .button__splash {
+    margin-top: 200px;
+  }
 }

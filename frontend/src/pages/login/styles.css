@@ -1,0 +1,257 @@
+main {
+    display: flex;
+    width: 100%;
+}
+.back__login {
+    width: 100%;
+    height: 100vh;
+}
+.cartas__login {
+    position: absolute;
+    width: 100px;
+}
+.buttons__configure {
+    position: absolute;
+    margin-left: 250px;
+}
+.buttons__configure input {
+    width: 50px;
+}
+.container__pai__login {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+}
+.container__blue {
+    position: absolute;
+    width: 70%;
+    height: 250px;
+}
+.container__login {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10%;
+}
+.input__login {
+    height: 40px;
+    border: 5px;
+    padding: 10px;
+    font-weight: bold;
+}
+.div__logo__login {
+    display: flex;
+    margin-top: 43%;
+    z-index: 1;
+    width: 100%;
+    justify-content: center;
+    position: absolute;
+}
+.logo__login {
+    width: 140px;
+}
+.container__usuario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button__esquerda, .button__direita{
+    width: 60px;
+}
+.img__usuario {
+    width: 70px;
+    height: 70px;
+}
+.button__play {
+    width: 70px;
+
+}
+
+@media screen and (min-width: 414px) {
+    .div__logo__login {
+        margin-top: 65%;
+       
+    }
+}
+@media screen and (min-width: 390px) {
+    .div__logo__login {
+        margin-top: 65%;
+       
+    }
+}
+@media screen and (min-width: 360px) {
+    .div__logo__login {
+        margin-top: 55%;
+       
+    }
+}
+@media screen and (min-width: 412px) {
+    .div__logo__login {
+        margin-top: 70%;
+       
+    }
+}
+@media screen and (min-width: 768px) {
+    .cartas__login {
+        width: 200px;
+    }
+    .buttons__configure {
+        margin-left: 550px;
+    }
+    .buttons__configure input {
+        width: 80px;
+    }
+    .logo__login {
+        width: 300px;
+    }
+    .div__logo__login {
+        margin-top: 22%;
+    }
+    .container__blue {
+        width: 60%;
+        height: 450px;
+    }
+    .input__login {
+        height: 60px;
+        font-size: 1.5rem;
+        padding: 20px;
+    }
+    .button__esquerda, .button__direita{
+        width: 130px;
+    }
+    .img__usuario {
+        width: 100px;
+        height: 100px;
+    }
+    .button__play {
+        width: 130px;
+    }
+}
+@media screen and (min-width: 820px) {
+    .buttons__configure {
+        margin-left: 650px;
+    }
+    .div__logo__login {
+        margin-top: 30%;
+    }
+}
+@media screen and (min-width: 912px) {
+    .buttons__configure {
+        margin-left: 700px;
+    }
+    .div__logo__login {
+        margin-top: 37%;
+    }
+}
+@media screen and (min-width: 540px) {
+    .buttons__configure {
+        margin-left: 400px;
+    }
+    .div__logo__login {
+        margin-top: 35%;
+    }
+}
+@media screen and (min-width: 280px) {
+    .buttons__configure {
+        margin-left: 160px;
+    }
+    .div__logo__login {
+        margin-top: 55%;
+    }
+    .input__login {
+        height: 5px;
+        width: 80%;
+    }
+}
+@media screen and (min-width: 768px) {
+    .buttons__configure {
+        margin-left: 890px;
+    }
+    .div__logo__login {
+        margin-top: 7%;
+    }
+    .buttons__configure input {
+        width: 60px;
+    }
+    .container__blue {
+        width: 40%;
+        height: 300px;
+    }
+    .logo__login {
+        width: 200px;
+    }
+    .container__login {
+        gap: 1px;
+    }
+    .input__login {
+        height: 40px;
+        font-size: 1rem;
+        padding: 10px;
+    }
+    .button__esquerda, .button__direita{
+        width: 80px;
+    }
+    .img__usuario {
+        width: 80px;
+        height: 80px;
+    }
+    .button__play {
+        width: 100px;
+    
+    }
+}
+@media screen and (min-width: 1280px) {
+    .buttons__configure {
+        margin-left: 1140px;
+    }
+    .div__logo__login {
+        margin-top: 7%;
+    }
+}
+@media screen and (min-width: 1440px) {
+    .buttons__configure {
+        margin-left: 1300px;
+    }
+    .div__logo__login {
+        margin-top: 15%;
+    }
+}
+@media screen and (min-width: 2560px) {
+    .buttons__configure {
+        margin-left: 2300px;
+    }
+    .buttons__configure input {
+        width: 100px;
+    }
+    .div__logo__login {
+        margin-top: 6%;
+    }
+    .logo__login {
+        width: 250px;
+    }
+    .container__blue {
+        width: 20%;
+        height: 400px;
+    }
+    .input__login {
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    .button__esquerda, .button__direita{
+        width: 100px;
+    }
+    .img__usuario {
+        width: 100px;
+        height: 100px;
+    }
+    .button__play {
+        width: 130px;
+    
+    }
+}
