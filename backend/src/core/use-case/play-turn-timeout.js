@@ -1,7 +1,9 @@
 const {
   VALUE_REVERTE,
   VALUE_SKIP,
-  POINTS_WINER
+  POINTS_WINER,
+  VALUE_M2,
+  VALUE_M4
 } = require('../utils/constants');
 
 class PlayTurnTimeout {
@@ -33,10 +35,30 @@ class PlayTurnTimeout {
             if(card) {
               switch (card.value) {
               case VALUE_SKIP:
+                for(let i = 0; i < room.amount; i++) {
+                  currentPlayer.cards.push(room.deck.drawFromDeck());
+                }
+                room.amount = 0;
                 room.setNextPosition();
                 break;
               case VALUE_REVERTE:
+                for(let i = 0; i < room.amount; i++) {
+                  currentPlayer.cards.push(room.deck.drawFromDeck());
+                }
+                room.amount = 0;
                 room.direction *= -1;
+                break;
+              case VALUE_M2:
+                room.amount += 2;
+                break;
+              case VALUE_M4:
+                room.amount += 4;
+                break;
+              default:
+                for(let i = 0; i < room.amount; i++) {
+                  currentPlayer.cards.push(room.deck.drawFromDeck());
+                }
+                room.amount = 0;
                 break;
               }
             } else {

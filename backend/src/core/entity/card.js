@@ -18,6 +18,8 @@ class Card {
   }
 
   hasCard(openColor, openValue) {
+    if(this.value === VALUE_JOCKER) return true;
+    if(this.value === VALUE_M4) return true;
     if(this.color === openColor && this.value === openValue) return true;
     return false;
   }

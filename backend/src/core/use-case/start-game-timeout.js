@@ -2,7 +2,8 @@ const {
   MAX_PLAYERS_ROOM,
   INITIAL_CARDS_PLAYER,
   MIN_PLAYERS_ROOM,
-  CLOCKWISE
+  CLOCKWISE,
+  COLOR_ESPECIAL
 } = require('../utils/constants');
 
 class StartGaneTimeout {
@@ -45,7 +46,9 @@ class StartGaneTimeout {
 
             room.deck.build();
             room.deck.shuffle();
-            room.deck.discard(room.deck.drawFromDeck());
+            const cardInitial = room.deck.drawFromDeck();
+            if(cardInitial.color === COLOR_ESPECIAL) cardInitial.color = 'red';
+            room.deck.discard(cardInitial);
 
             await this.roomRepository.updateRoom(room.id, {
               startGameAt: new Date(),

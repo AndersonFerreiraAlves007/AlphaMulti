@@ -65,8 +65,17 @@ class Deck {
     }
   }
 
+  normalizeCards() {
+    for (let i = 0; i < this.cards.length - 1; i++) {
+      if(this.cards[i].value === VALUE_M4 || this.cards[i].value === VALUE_JOCKER) {
+        this.cards[i].color = COLOR_ESPECIAL;
+      }
+    }
+  }
+
   drawFromDeck() {
     if(this.cards.length === 0) {
+      this.normalizeCards();
       this.cards = this.cardsDiscarded;
       this.cardsDiscarded = [];
       this.cardsDiscarded.push(this.cards.pop());

@@ -3,7 +3,7 @@ const {
 } = require('../utils/constants');
 
 class Room {
-  constructor(id, createdAt, startGameAt, startLastTurnAt, direction, isRun, deck, position) {
+  constructor(id, createdAt, startGameAt, startLastTurnAt, direction, isRun, deck, position, amount) {
     this.id = id;
     this.createdAt = createdAt;
     this.startGameAt = startGameAt;
@@ -12,6 +12,7 @@ class Room {
     this.isRun = isRun;
     this.deck = deck;
     this.position = position;
+    this.amount = amount;
   }
 
   getScore(players) {

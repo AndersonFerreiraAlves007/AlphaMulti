@@ -1,7 +1,8 @@
 const {
   MAX_PLAYERS_ROOM,
   INITIAL_CARDS_PLAYER,
-  CLOCKWISE
+  CLOCKWISE,
+  COLOR_ESPECIAL
 } = require('../utils/constants');
 
 class EnterRandomRoom {
@@ -29,7 +30,8 @@ class EnterRandomRoom {
             isRun: false,
             cards: [],
             position: 1,
-            cardsDiscarded: []
+            cardsDiscarded: [],
+            amount: 0
           });
           this.timeNotification.createRoom(room.id);
         }
@@ -48,7 +50,9 @@ class EnterRandomRoom {
 
           room.deck.build();
           room.deck.shuffle();
-          room.deck.discard(room.deck.drawFromDeck());
+          const cardInitial = room.deck.drawFromDeck();
+          if(cardInitial.color === COLOR_ESPECIAL) cardInitial.color = 'red';
+          room.deck.discard(cardInitial);
 
           await this.roomRepository.updateRoom(room.id, {
             startGameAt: new Date(),

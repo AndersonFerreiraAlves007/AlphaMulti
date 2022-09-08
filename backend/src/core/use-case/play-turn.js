@@ -1,7 +1,9 @@
 const {
   VALUE_REVERTE,
   VALUE_SKIP,
-  POINTS_WINER
+  POINTS_WINER,
+  VALUE_M2,
+  VALUE_M4
 } = require('../utils/constants');
 
 
@@ -24,34 +26,59 @@ class PlayTurn {
             if(room.position === player.order) {
               if(color === ''  && value === '') {
                 player.cards.push(room.deck.drawFromDeck());
+                room.setNextPosition();
               } else {
                 let card = null;
                 for(let i = 0; i < player.cards.length; i++) {
                   if(player.cards[i].hasCard(color, value)) {
                     card = player.cards[i];
+                    card.color = color;
                     player.cards.splice(i, 1);
                     room.deck.discard(card);
                     break;
                   }
                 }
+                room.setNextPosition();
                 if(card) {
+                  //const players = await this.playerRepository.getPlayersRoom(room.id);
+                  //const nextPlayer = players.some(item => item.order === room.position);
                   if(topCardsDiscarded.evaluateCard(color, value)) {
                     switch (card.value) {
                     case VALUE_SKIP:
+                      for(let i = 0; i < room.amount; i++) {
+                        player.cards.push(room.deck.drawFromDeck());
+                      }
+                      room.amount = 0;
                       room.setNextPosition();
                       break;
                     case VALUE_REVERTE:
+                      for(let i = 0; i < room.amount; i++) {
+                        player.cards.push(room.deck.drawFromDeck());
+                      }
+                      room.amount = 0;
                       room.direction *= -1;
                       break;
+                    case VALUE_M2:
+                      room.amount += 2;
+                      break;
+                    case VALUE_M4:
+                      room.amount += 4;
+                      break;
+                    default:
+                      for(let i = 0; i < room.amount; i++) {
+                        player.cards.push(room.deck.drawFromDeck());
+                      }
+                      room.amount = 0;
+                      break;
                     }
+                  } else {
+                    throw 'Jogada inválida';
                   }
                 } else {
                   throw 'Jogada inválida';
                 }
                 
               }
-
-              room.setNextPosition();
 
               await this.playerRepository.updatePlayer(player.id, {
                 cards: players.cards.map(item => ({ color: item.color, value: item.value })), 
@@ -63,6 +90,7 @@ class PlayTurn {
                 position: room.position,
                 cards: room.deck.cards.map(item => ({ color: item.color, value: item.value })),
                 cardsDiscarded: room.deck.cardsDiscarded.map(item => ({ color: item.color, value: item.value })),
+                amount: room.amount
               });
 
               const players = await this.playerRepository.getPlayersRoom(room.id);
