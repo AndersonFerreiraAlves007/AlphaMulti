@@ -22,7 +22,10 @@ class StartGaneTimeout {
           if(playersHumans.length >= MIN_PLAYERS_ROOM) {
 
             for(let i = 0; i < MAX_PLAYERS_ROOM - playersHumans.length; i++) {
-              const bot = await this.playerRepository.createPlayerBot();
+              const bot = await this.playerRepository.createPlayerBot({
+                username: 'Bot',
+                score: 0
+              });
               await this.playerRepository.updatePlayer(bot.id, {
                 cards: [], 
                 roomId: room.id,
