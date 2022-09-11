@@ -1,3 +1,5 @@
+const { v4 } = require('uuid');
+
 class Logout {
   constructor (playerRepository) {
     this.playerRepository = playerRepository;
@@ -22,7 +24,14 @@ class Logout {
           await this.roomRepository.deleteRoom(room.id);
         } else {
           if(room.isRun) {
-            const bot = await this.playerRepository.createPlayerBot();
+            const bot = await this.playerRepository.createPlayer(v4(), {
+              username: 'Bot',
+              isBot: true,
+              score: 0,
+              cards: [],
+              roomId: '',
+              order: -1
+            });
             await this.playerRepository.updatePlayer(bot.id, {
               cards: cards.map(item => ({ color: item.color, value: item.value })), 
               roomId: room.id,

@@ -5,6 +5,7 @@ const {
   CLOCKWISE,
   COLOR_ESPECIAL
 } = require('../utils/constants');
+const { v4 } = require('uuid');
 
 class StartGaneTimeout {
   constructor (playerRepository, roomRepository, playerNotification, timeNotification) {
@@ -23,9 +24,13 @@ class StartGaneTimeout {
           if(playersHumans.length >= MIN_PLAYERS_ROOM) {
 
             for(let i = 0; i < MAX_PLAYERS_ROOM - playersHumans.length; i++) {
-              const bot = await this.playerRepository.createPlayerBot({
+              const bot = await this.playerRepository.createPlayer(v4(), {
                 username: 'Bot',
-                score: 0
+                isBot: true,
+                score: 0,
+                cards: [],
+                roomId: '',
+                order: -1
               });
               await this.playerRepository.updatePlayer(bot.id, {
                 cards: [], 

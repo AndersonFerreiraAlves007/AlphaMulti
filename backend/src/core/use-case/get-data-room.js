@@ -10,7 +10,7 @@ class GetDataRoom {
       const players = await this.playerRepository.getPlayersRoom(room.id);
       const topCardsDiscarded = room.deck.getTopCardsDiscarded();
       return {
-        id: room.isRun,
+        id: room.id,
         createdAt: room.createdAt,
         startGameAt: room.startGameAt,
         startLastTurnAt: room.startLastTurnAt,
