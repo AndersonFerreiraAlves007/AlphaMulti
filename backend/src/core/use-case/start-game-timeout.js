@@ -28,7 +28,7 @@ class StartGaneTimeout {
                 username: 'Bot',
                 isBot: true,
                 score: 0,
-                cards: [],
+                cards: '',
                 roomId: '',
                 order: -1
               });
@@ -61,13 +61,13 @@ class StartGaneTimeout {
               direction: CLOCKWISE,
               isRun: true,
               position: 1,
-              cards: room.deck.cards.map(item => ({ color: item.color, value: item.value })),
-              cardsDiscarded: room.deck.cardsDiscarded.map(item => ({ color: item.color, value: item.value })),
+              cards: room.deck.toStringCards(),
+              cardsDiscarded: room.deck.toStringCardsDiscarded(),
             });
           
             for(let i = 0; i < players.length; i++) {
               await this.playerRepository.updatePlayer(players[i].id, {
-                cards: players[i].cards.map(item => ({ color: item.color, value: item.value })), 
+                cards: players[i].toStringCards(), 
                 roomId: players[i].roomId,
                 order: players[i].order,
               });

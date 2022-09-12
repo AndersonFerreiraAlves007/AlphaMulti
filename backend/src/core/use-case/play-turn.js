@@ -81,15 +81,15 @@ class PlayTurn {
               }
 
               await this.playerRepository.updatePlayer(player.id, {
-                cards: players.cards.map(item => ({ color: item.color, value: item.value })), 
+                cards: player.toStringCards(),  
               });
 
               await this.roomRepository.updateRoom(room.id, {
                 startLastTurnAt: new Date(),
                 direction: room.direction,
                 position: room.position,
-                cards: room.deck.cards.map(item => ({ color: item.color, value: item.value })),
-                cardsDiscarded: room.deck.cardsDiscarded.map(item => ({ color: item.color, value: item.value })),
+                cards: room.deck.toStringCards(),
+                cardsDiscarded: room.deck.toStringCardsDiscarded(),
                 amount: room.amount
               });
 
@@ -114,7 +114,7 @@ class PlayTurn {
                 for(let i = 0; i < humans.length; i++) {
                   await this.playerRepository.updatePlayer(humans.id, {
                     roomId: '',
-                    cards: [],
+                    cards: '',
                     order: -1
                   });
                 }

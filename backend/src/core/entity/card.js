@@ -23,6 +23,10 @@ class Card {
     if(this.color === openColor && this.value === openValue) return true;
     return false;
   }
+
+  toString() {
+    return `${this.color}:${this.value}`;
+  }
 }
 
 module.exports = Card;

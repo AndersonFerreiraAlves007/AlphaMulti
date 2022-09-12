@@ -1,15 +1,17 @@
 const { v4 } = require('uuid');
 
 class Logout {
-  constructor (playerRepository) {
+  constructor (playerRepository, roomRepository, playerNotification) {
     this.playerRepository = playerRepository;
+    this.roomRepository = roomRepository;
+    this.playerNotification = playerNotification;
   }
 
-  async execute (idPlayer) {
-    const player = await this.playerRepository.getPlayer(idPlayer);
+  async execute (playerId) {
+    const player = await this.playerRepository.getPlayer(playerId);
     if(player) {
       if(player.roomId) {
-        const cards = player.cards;
+        //const cards = player.cards;
         await this.playerRepository.updatePlayer(player.id, {
           cards: [], 
           roomId: ''
@@ -28,12 +30,12 @@ class Logout {
               username: 'Bot',
               isBot: true,
               score: 0,
-              cards: [],
+              cards: '',
               roomId: '',
               order: -1
             });
             await this.playerRepository.updatePlayer(bot.id, {
-              cards: cards.map(item => ({ color: item.color, value: item.value })), 
+              cards: player.toStringCards(), 
               roomId: room.id,
               order: player.order
             });
@@ -41,7 +43,7 @@ class Logout {
           this.playerNotification.levePlayer(room.id);
         }
       }
-      await this.playerRepository.deletePlayer(idPlayer);
+      await this.playerRepository.deletePlayer(playerId);
     }
   }
 }

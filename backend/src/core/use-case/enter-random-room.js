@@ -28,9 +28,9 @@ class EnterRandomRoom {
             startLastTurnAt: null,
             direction: 1,
             isRun: false,
-            cards: [],
+            cards: '',
             position: 1,
-            cardsDiscarded: [],
+            cardsDiscarded: '',
             amount: 0
           });
           this.timeNotification.createRoom(room.id);
@@ -60,13 +60,13 @@ class EnterRandomRoom {
             direction: CLOCKWISE,
             isRun: true,
             position: 1,
-            cards: room.deck.cards.map(item => ({ color: item.color, value: item.value })),
-            cardsDiscarded: room.deck.cardsDiscarded.map(item => ({ color: item.color, value: item.value })),
+            cards: room.deck.toStringCards(),
+            cardsDiscarded: room.deck.toStringCardsDiscarded(),
           });
       
           for(let i = 0; i < players.length; i++) {
             await this.playerRepository.updatePlayer(players[i].id, {
-              cards: players[i].cards.map(item => ({ color: item.color, value: item.value })), 
+              cards: players[i].toStringCards(), 
               roomId: players[i].roomId,
               order: players[i].order,
             });

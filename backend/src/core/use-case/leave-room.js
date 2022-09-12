@@ -11,9 +11,9 @@ class LeaveRoom {
     const player = await this.playerRepository.getPlayer(playerId);
     if(player) {
       if(player.roomId) {
-        const cards = player.cards;
+        //const cards = player.cards;
         await this.playerRepository.updatePlayer(player.id, {
-          cards: [], 
+          cards: '', 
           roomId: ''
         });
         const room = await this.roomRepository.getRoom(player.roomId);
@@ -30,12 +30,12 @@ class LeaveRoom {
               username: 'Bot',
               isBot: true,
               score: 0,
-              cards: [],
+              cards: '',
               roomId: '',
               order: -1
             });
             await this.playerRepository.updatePlayer(bot.id, {
-              cards: cards.map(item => ({ color: item.color, value: item.value })), 
+              cards: player.toStringCards(), 
               roomId: room.id,
               order: player.order
             });

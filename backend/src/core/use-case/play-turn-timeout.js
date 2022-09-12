@@ -71,15 +71,15 @@ class PlayTurnTimeout {
           }
 
           await this.playerRepository.updatePlayer(currentPlayer.id, {
-            cards: players.cards.map(item => ({ color: item.color, value: item.value })), 
+            cards: currentPlayer.toStringCards(), 
           });
 
           await this.roomRepository.updateRoom(room.id, {
             startLastTurnAt: new Date(),
             direction: room.direction,
             position: room.position,
-            cards: room.deck.cards.map(item => ({ color: item.color, value: item.value })),
-            cardsDiscarded: room.deck.cardsDiscarded.map(item => ({ color: item.color, value: item.value })),
+            cards: room.deck.toStringCards(),
+            cardsDiscarded: room.deck.toStringCardsDiscarded(),
           });
 
           const players = await this.playerRepository.getPlayersRoom(room.id);
@@ -105,7 +105,7 @@ class PlayTurnTimeout {
             for(let i = 0; i < humans.length; i++) {
               await this.playerRepository.updatePlayer(humans.id, {
                 roomId: '',
-                cards: [],
+                cards: '',
                 order: -1
               });
             }

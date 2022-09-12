@@ -8,7 +8,7 @@ class Login {
       username,
       isBot: false,
       score: 0,
-      cards: [],
+      cards: '',
       roomId: '',
       order: -1
     });

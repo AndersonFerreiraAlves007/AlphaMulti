@@ -1,5 +1,8 @@
 const PlayerRepository = require('../../core/repository/player-repository');
 const redis = require('../database/redis');
+const Player = require('../../core/entity/player');
+const Card = require('../../core/entity/card');
+const PlayerAdapter = require('../../adapter/player-adapter');
 
 class PlayerRepositoryRedis extends PlayerRepository{
   async getPlayer(id) {

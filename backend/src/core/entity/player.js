@@ -12,6 +12,10 @@ class Player {
   isWiner() {
     return this.cards.length === 0;
   }
+
+  toStringCards() {
+    return this.cards.map(item => item.toString()).join(';');
+  }
 }
 
 module.exports = Player;

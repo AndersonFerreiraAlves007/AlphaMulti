@@ -1,6 +1,10 @@
 const RoomRepository = require('../../core/repository/room-repository');
 const redis = require('../database/redis');
 const { v4 } = require('uuid');
+const Room = require('../../core/entity/room');
+const Card = require('../../core/entity/card');
+const Deck = require('../../core/entity/deck');
+const RoomAdapter = require('../../adapter/room-adapter');
 
 class RoomRepositoryRedis extends RoomRepository {
   async getRoomAvaliables() {

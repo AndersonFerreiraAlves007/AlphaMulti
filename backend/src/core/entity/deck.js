@@ -82,6 +82,14 @@ class Deck {
     }
     return this.cards.pop();
   }
+
+  toStringCards() {
+    return this.cards.map(item => item.toString()).join(';');
+  }
+
+  toStringCardsDiscarded() {
+    return this.cardsDiscarded.map(item => item.toString()).join(';');
+  }
 }
 
 module.exports = Deck;

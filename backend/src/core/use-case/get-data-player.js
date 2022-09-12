@@ -3,8 +3,8 @@ class GetDataPlayer {
     this.playerRepository = playerRepository;
   }
 
-  async execute (idPlayer) {
-    const player = await this.playerRepository.getPlayer(idPlayer);
+  async execute (playerId) {
+    const player = await this.playerRepository.getPlayer(playerId);
     if(player) {
       return {
         id: player.id,
