@@ -1,7 +1,24 @@
-import ParkingLot from "../core/entity/ParkingLot";
+const Player = require('../core/entity/player');
+const Card = require('../../core/entity/card');
 
-export default class ParkingLotAdapter {
-	static create (code: string, capacity: number, openHour: number, closeHour: number, occupiedSpaces: number) {
-		return new ParkingLot(code, capacity, openHour, closeHour, occupiedSpaces);
-	}
+class PlayerAdapter {
+  static create (data) {
+    const dataCards = data.cards.split(';');
+    const cards = [];
+    for(let i = 0; i < dataCards.length; i++) {
+      const infoCard = dataCards[i].split(':');
+      cards.push(new Card(infoCard[0], infoCard[1]));
+    }
+    return Player(
+      data.id, 
+      data.userame, 
+      data.isBot, 
+      data.score, 
+      cards, 
+      data.roomId, 
+      data.order
+    );
+  }
 }
+
+module.exports = PlayerAdapter;

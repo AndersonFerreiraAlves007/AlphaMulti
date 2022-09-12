@@ -21,19 +21,32 @@ ws.on('connection', client => {
     const { type, payload } = data;
     switch (type) {
     case 'login':
-      GameController.login();
+      GameController.login({}, {
+        playerId: payload.id,
+        username: payload.username
+      });
       break;
     case 'enterRandomRoom':
-      GameController.enterRandomRoom();
+      GameController.enterRandomRoom({
+        playerId: payload.id,
+      });
       break;
     case 'leaveRoom':
-      GameController.leaveRoom();
+      GameController.leaveRoom({
+        playerId: payload.id,
+      });
       break;
     case 'logout':
-      GameController.logout();
+      GameController.logout({
+        playerId: payload.id,
+      });
       break;
     case 'playTurn':
-      GameController.playTurn();
+      GameController.playTurn({
+        playerId: payload.id,
+        color: payload.color,
+        value: payload.value
+      });
       break;
     default:
       break;

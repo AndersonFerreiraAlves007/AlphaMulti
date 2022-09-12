@@ -85,7 +85,7 @@ class PlayTurn {
               });
 
               await this.roomRepository.updateRoom(room.id, {
-                startLastTurnAt: new Date(),
+                startLastTurnAt: new Date().getTime(),
                 direction: room.direction,
                 position: room.position,
                 cards: room.deck.toStringCards(),
@@ -119,6 +119,8 @@ class PlayTurn {
                   });
                 }
                 await this.roomRepository.deleteRoom(room.id);
+              } else {
+                this.timeNotification.makeMove(room.id, room.position);
               }
               this.playerNotification.makeMove(room.id, winer ? winer.id : '');
             }

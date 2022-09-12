@@ -13,7 +13,7 @@ class Logout {
       if(player.roomId) {
         //const cards = player.cards;
         await this.playerRepository.updatePlayer(player.id, {
-          cards: [], 
+          cards: '', 
           roomId: ''
         });
         const room = await this.roomRepository.getRoom(player.roomId);

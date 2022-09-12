@@ -56,8 +56,8 @@ class StartGaneTimeout {
             room.deck.discard(cardInitial);
 
             await this.roomRepository.updateRoom(room.id, {
-              startGameAt: new Date(),
-              startLastTurnAt: new Date(),
+              startGameAt: new Date().getTime(),
+              startLastTurnAt: new Date().getTime(),
               direction: CLOCKWISE,
               isRun: true,
               position: 1,

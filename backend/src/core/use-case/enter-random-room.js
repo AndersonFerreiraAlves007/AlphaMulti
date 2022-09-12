@@ -23,9 +23,9 @@ class EnterRandomRoom {
           room = roomsAvaliables.sort((a, b) => b.getScore() - a.getScore())[0];
         } else {
           room = await this.roomRepository.createRoom({
-            createdAt: new Date(),
-            startGameAt: null,
-            startLastTurnAt: null,
+            createdAt: new Date().getTime(),
+            startGameAt: 0,
+            startLastTurnAt: 0,
             direction: 1,
             isRun: false,
             cards: '',
@@ -55,8 +55,8 @@ class EnterRandomRoom {
           room.deck.discard(cardInitial);
 
           await this.roomRepository.updateRoom(room.id, {
-            startGameAt: new Date(),
-            startLastTurnAt: new Date(),
+            startGameAt: new Date().getTime(),
+            startLastTurnAt: new Date().getTime(),
             direction: CLOCKWISE,
             isRun: true,
             position: 1,

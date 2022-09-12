@@ -1,30 +1,32 @@
 const PlayerRepository = require('../../core/repository/player-repository');
 const redis = require('../database/redis');
-const Player = require('../../core/entity/player');
-const Card = require('../../core/entity/card');
+
 const PlayerAdapter = require('../../adapter/player-adapter');
 
 class PlayerRepositoryRedis extends PlayerRepository{
   async getPlayer(id) {
     const key = `player:${id}`;
-    return await redis.hgetall(key);
+    const data = await redis.hgetall(key);
+    return PlayerAdapter.create(data);
   }
 
   async createPlayer(id, data) {
     const key = `player:${id}`;
-    const result = await redis.hmset(key, {
+    await redis.hmset(key, {
       id,
       ...data
     });
     await redis.rpush('players', key);
-    return result;
+    const result = await redis.hgetall(key);
+    return PlayerAdapter.create(result);
   }
 
   async deletePlayer(id) {
     const key = `player:${id}`;
-    const result = await redis.del(key);
+    const data = await redis.hgetall(key);
+    await redis.del(key);
     await redis.lrem('players', 0, key);
-    return result;
+    return PlayerAdapter.create(data);
   }
 
   async getPlayersRoom(roomId) {
@@ -32,7 +34,7 @@ class PlayerRepositoryRedis extends PlayerRepository{
     const players = [];
     for(let i = 0; i < ids.length; i++) {
       const player = await redis.hgetall(ids[i]);
-      if(player.roomId === roomId) players.push(player);
+      if(player.roomId === roomId) players.push(PlayerAdapter.create(player));
     }
     return players;
   }
@@ -42,7 +44,7 @@ class PlayerRepositoryRedis extends PlayerRepository{
     const players = [];
     for(let i = 0; i < ids.length; i++) {
       const player = await redis.hgetall(ids[i]);
-      if(player.roomId === roomId && !player.isBot) players.push(player);
+      if(player.roomId === roomId && !player.isBot) players.push(PlayerAdapter.create(player));
     }
     return players;
   }
@@ -52,7 +54,7 @@ class PlayerRepositoryRedis extends PlayerRepository{
     const players = [];
     for(let i = 0; i < ids.length; i++) {
       const player = await redis.hgetall(ids[i]);
-      if(player.roomId === roomId && player.isBot) players.push(player);
+      if(player.roomId === roomId && player.isBot) players.push(PlayerAdapter.create(player));
     }
     return players;
   }
@@ -60,11 +62,12 @@ class PlayerRepositoryRedis extends PlayerRepository{
   async updatePlayer(id, data) {
     const key = `player:${id}`;
     const current = await redis.hgetall(key);
-    const result = await redis.hmset(key, {
+    await redis.hmset(key, {
       ...current,
       data
     });
-    return result;
+    const result = await redis.hgetall(key);
+    return PlayerAdapter.create(result);
   }
 }
 
