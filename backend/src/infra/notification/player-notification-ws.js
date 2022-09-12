@@ -22,7 +22,10 @@ class PlayerNotificationWS extends PlayerNotification {
     this.ws.clients.forEach(client => {
       if(players.includes(roomId)) client.send({
         type,
-        payload
+        payload: {
+          roomId,
+          ...payload
+        }
       });
     });
   }
