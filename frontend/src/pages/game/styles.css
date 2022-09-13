@@ -247,7 +247,7 @@ body, html {
       transform: translate(28%);
   }
 }
-@media screen and (min-width: 1200px) { 
+@media screen and (min-width: 1201px) { 
   .translate {
       transform: translate(-42%) rotate(180deg);
   }
