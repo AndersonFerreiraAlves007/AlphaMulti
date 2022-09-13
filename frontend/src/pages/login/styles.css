@@ -1,3 +1,4 @@
+/* MOBILE FIRST */
 main {
     display: flex;
     width: 100%;
@@ -208,7 +209,7 @@ main {
 }
 @media screen and (min-width: 1280px) {
     .buttons__configure {
-        margin-left: 1140px;
+        margin-left: 1240px;
     }
     .div__logo__login {
         margin-top: 7%;

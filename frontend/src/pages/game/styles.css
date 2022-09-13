@@ -1,5 +1,257 @@
+body, html {
+  overflow-x: hidden;
+  width: 100vw;
+  height: 100vh;
+}
 .card {
   width: 90px;
   height: 100px;
   background-size: cover;
+}
+.background {
+  position: fixed;
+  z-index: -1000;
+}
+.buttons__configure {
+  margin-left: 80%;
+}
+.buttons__configure input {
+  width: 20%;
+}
+.time__match {
+  color: var(--grey-0);
+  margin-top: -560px;
+  font-size: 2rem;
+  margin-left: 10%;
+  background-color: var(--yellow);
+  border-radius: 8px;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+}
+.info__user--perfil {
+  display: flex;
+  /* justify-content: center; */
+  flex-direction: column;
+  align-items: center;
+  margin: 0 20px;
+}
+.info__user--perfil h2, .info__user--perfil h3 {
+  color: var(--whiteFixed);
+  line-height: 20px;
+}
+.card {
+  width: 70px;
+}
+.foto {
+  width: 50px;
+}
+.carta-lixo {
+  width: 90px;
+}
+.columnT {
+  display: flex;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+}
+.alinhamento {
+  justify-content:  space-between;;
+}
+
+.teste {
+  display: flex;
+}
+.user__four {
+  margin-top: -320px;
+}
+.esquerda {
+  margin-left: 20px;
+}
+.direita {
+  margin-right: 20px;;
+}
+.carta-meio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.alinhamento2 {
+  justify-content: center;
+
+}
+.overflowA {
+  transform: translate(-50%);
+}
+.overflowA2 {
+  transform: translate(-100%);
+
+}
+.overflowA3 {
+  transform: translate(-150%);
+}
+.overflowA4 {
+  transform: translate(-200%);
+}
+.overflowA5 {
+  transform: translate(-250%);
+
+}
+.overflowA6 {
+  transform: translate(-300%);
+}
+.overflowA7 {
+  transform: translate(-350%);
+}
+.carta-meio {
+  margin-top: -340px;
+}
+.translate {
+  transform: translate(-41%) rotate(180deg)
+}
+.translate2 {
+  transform: translate(41%);
+}
+.overflowY {
+  transform: translateY(-50%) rotate(90deg);
+}
+.overflowY2 {
+  transform: translateY(-100%) rotate(90deg);
+}
+.overflowY3 {
+  transform: translateY(-150%) rotate(90deg);
+}
+.overflowY4 {
+  transform: translateY(-200%) rotate(90deg);
+}
+.overflowY5 {
+  transform: translateY(-250%) rotate(90deg);
+}
+.overflowY6 {
+  transform: translateY(-300%) rotate(90deg);
+}
+.overflowY7 {
+  transform: translateY(-350%) rotate(90deg);
+}
+.overflowZ {
+  transform: translateY(-50%) rotate(-90deg);
+}
+.overflowZ2 {
+  transform: translateY(-100%) rotate(-90deg);
+}
+.overflowZ3 {
+  transform: translateY(-150%) rotate(-90deg);
+}
+.overflowZ4 {
+  transform: translateY(-200%) rotate(-90deg);
+}
+.overflowZ5 {
+  transform: translateY(-250%) rotate(-90deg);
+}
+.overflowZ6 {
+  transform: translateY(-300%) rotate(-90deg);
+}
+.overflowZ7 {
+  transform: translateY(-350%) rotate(-90deg);
+}
+.overflowB {
+  transform: translate(-50%);
+}
+.overflowB2 {
+  transform: translate(-100%);
+
+}
+.overflowB3 {
+  transform: translate(-150%);
+
+}
+.overflowB4 {
+  transform: translate(-200%);
+
+}
+.overflowB5 {
+  transform: translate(-250%);
+
+}
+.overflowB6 {
+  transform: translate(-300%);
+
+}
+.overflowB7 {
+  transform: translate(-350%);
+}
+@media screen and (min-width: 320px ) and (max-width: 480px) { 
+  .card {
+      width: 50px;
+  }
+  .foto {
+      width: 30px;
+  }
+  .carta-lixo {
+      width: 70px;
+      margin-top: 50px;
+  }
+  .columnT {
+      margin-top: 100px;
+  }
+  .user__four {
+      margin-top: -206px;
+  }
+  .esquerda {
+      margin-left: 10px;
+  }
+  .direita {
+      margin-right: 10px;
+      }
+  .info__user--perfil {
+      margin: 0 0;
+  }
+  .info__user--perfil h2, .info__user--perfil h3 {
+      color: var(--whiteFixed);
+      font-size: 0.7rem;
+  }
+  .translate {
+      margin-top: 0px;
+  }
+}
+@media screen and (min-width: 481px ) and (max-width: 768px) { 
+  .translate {
+      margin-top: 20px;
+      transform: translate(-37%) rotate(180deg);
+
+  }
+  .translate2 {
+      transform: translate(35%);
+      margin-top: 70px;
+  }
+  .columnT {
+      margin-top: 50px;
+  }
+  .time__match {
+      margin-top: -785px;
+  }
+}
+@media screen and (min-width: 377px ) and (max-width: 699px) { 
+
+  .translate {
+      transform: translate(-30%) rotate(180deg);
+  }
+  .translate2 {
+      transform: translate(28%);
+      margin-top: 70px;
+  }
+}
+@media screen and (min-width: 1025px) and (max-width: 1200px) { 
+  .translate2 {
+      transform: translate(28%);
+  }
+}
+@media screen and (min-width: 1200px) { 
+  .translate {
+      transform: translate(-42%) rotate(180deg);
+  }
+  .translate2 {
+  transform: translate(42%);
+  }
 }
