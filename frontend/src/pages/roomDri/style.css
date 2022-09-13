@@ -20,7 +20,7 @@ main {
   justify-content: center;
   align-items: center;
   width: 100%;
- margin-bottom: 500px;
+  margin-bottom: 500px;
 }
 
 .logo img {
@@ -58,14 +58,14 @@ main {
 }
 
 .buttons__configure {
-    position: fixed;
-    display: flex;
-    justify-content: end;
-    margin-left: 1500px;
-    margin-bottom: 800px;
+  position: fixed;
+  display: flex;
+  justify-content: end;
+  margin-left: 1500px;
+  margin-bottom: 800px;
 }
 .buttons__configure input {
-    width: 50px;
+  width: 50px;
 }
 
 .cartas__room {
@@ -75,3 +75,150 @@ main {
   margin-left: 750px;
 }
 
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  h1,
+  h2 {
+    font-size: 15px;
+  }
+
+  .logo {
+    margin-bottom: 400px;
+  }
+
+  .logo img {
+    width: 30%;
+  }
+
+  .infor {
+    width: 85%;
+    display: flex;
+    justify-content: center;
+  }
+  .userAll {
+    justify-content: center;
+    width: 100%;
+  }
+  .user {
+    width: 7%;
+    height: 50px;
+    border-radius: 8px;
+  }
+  .user img {
+    width: 25px;
+  }
+
+  p {
+    font-size: 13px;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  h1,
+  h2 {
+    font-size: 15px;
+  }
+
+  .logo {
+    margin-bottom: 570px;
+  }
+
+  .logo img {
+    width: 30%;
+  }
+
+  .infor {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+  }
+  .userAll {
+    justify-content: center;
+    width: 100%;
+  }
+  .user {
+    width: 7%;
+    height: 50px;
+    border-radius: 8px;
+  }
+  .user img {
+    width: 25px;
+  }
+
+  p {
+    font-size: 13px;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  h1,
+  h2 {
+    font-size: 15px;
+  }
+
+  .logo {
+    margin-bottom: 570px;
+  }
+
+  .logo img {
+    width: 30%;
+  }
+
+  .infor {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+  }
+  .userAll {
+    justify-content: center;
+    width: 100%;
+  }
+  .user {
+    width: 7%;
+    height: 50px;
+    border-radius: 8px;
+  }
+  .user img {
+    width: 25px;
+  }
+
+  p {
+    font-size: 13px;
+  }
+}
+
+@media screen and (min-width: 1201px) {
+  h1,
+  h2 {
+    font-size: 25px;
+  }
+
+  .logo {
+    margin-bottom: 500px;
+  }
+
+  .logo img {
+    width: 20%;
+  }
+
+  .infor {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+  }
+  .userAll {
+    justify-content: center;
+    width: 100%;
+  }
+  .user {
+    width: 10%;
+    height: 130px;
+    border-radius: 8px;
+  }
+  .user img {
+    width: 50px;
+  }
+
+  p {
+    font-size: 25px;
+  }
+}
