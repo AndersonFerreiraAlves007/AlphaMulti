@@ -1,0 +1,77 @@
+main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+}
+
+.backgroud {
+  position: fixed;
+  z-index: -1000;
+  width: 100%;
+  height: 100vh;
+}
+
+.logo {
+  display: flex;
+  position: absolute;
+  z-index: 1;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+ margin-bottom: 500px;
+}
+
+.logo img {
+  width: 20%;
+}
+
+.infor {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(125, 246, 237, 0.5);
+  border-radius: 20px;
+}
+.userAll {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.user {
+  width: 100px;
+  height: 120px;
+  background-color: #2f61d0;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.buttons__configure {
+    position: fixed;
+    display: flex;
+    justify-content: end;
+    margin-left: 1500px;
+    margin-bottom: 800px;
+}
+.buttons__configure input {
+    width: 50px;
+}
+
+.cartas__room {
+  position: absolute;
+  width: 300px;
+  margin-top: 260px;
+  margin-left: 750px;
+}
+
