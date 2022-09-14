@@ -27,7 +27,7 @@
     align-items: center;
 }
 .container__blue {
-    position: absolute;
+    /* position: absolute; */
     width: 70%;
     height: 250px;
 }
@@ -47,7 +47,7 @@
 }
 .div__logo__login {
     display: flex;
-    margin-top: 43%;
+    top: -110px;
     z-index: 1;
     width: 100%;
     justify-content: center;

@@ -45,7 +45,7 @@
   }
   
   .user {
-    width: 100px;
+    width: 150px;
     height: 120px;
     background-color: var(--blue-user);
     border-radius: 20px;
@@ -136,7 +136,7 @@
       width: 100%;
     }
     .user {
-      width: 7%;
+      width: 150px;
       height: 50px;
       border-radius: 8px;
     }
@@ -173,7 +173,7 @@
       width: 100%;
     }
     .user {
-      width: 7%;
+      width: 150px;
       height: 50px;
       border-radius: 8px;
     }
@@ -193,7 +193,7 @@
     }
   
     .logo {
-      margin-bottom: 500px;
+      margin-bottom: 420px;
     }
   
     .logo img {
@@ -210,9 +210,10 @@
       width: 100%;
     }
     .user {
-      width: 10%;
+      width: 120px;
       height: 130px;
       border-radius: 8px;
+      padding: 10px;
     }
     .user img {
       width: 50px;

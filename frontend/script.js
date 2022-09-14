@@ -1,6 +1,6 @@
-import { ServerCommunication } from './src/services/ServerComunication.js';
+/* import { ServerCommunication } from './src/services/ServerComunication.js';
 
-let serverCommunication = null;
+let serverCommunication = null; */
 
 function navigate(page) {
   switch (page) {
@@ -126,6 +126,31 @@ function renderLoginPage() {
   buttonPlay.setAttribute('type', 'image');
   buttonPlay.setAttribute('src', './src/assets/img/button-play.svg');
   buttonPlay.addEventListener('click', () => {
+    /* serverCommunication = new ServerCommunication('localhost:3333')
+    serverCommunication.addEventListener('startGame', (data)=> {
+      const { player, room } = data
+      renderGamePage(player, room)
+    })
+  
+    serverCommunication.addEventListener('endGame', (data)=> {
+      const { player, room } = data
+      renderGamePage(player, room)
+    })
+  
+    serverCommunication.addEventListener('enterPlayer', (data)=> {
+      const { player, room } = data
+      renderGamePage(player, room)
+    })
+  
+    serverCommunication.addEventListener('levePlayer', (data)=> {
+      const { player, room } = data
+      renderGamePage(player, room)
+    })
+  
+    serverCommunication.addEventListener('makeMove', (data)=> {
+      const { player, room } = data
+      renderGamePage(player, room)
+    }) */
     navigate('room');
   });
 
@@ -290,7 +315,47 @@ function renderRoomPage() {
    ` */
 }
 
+/* const player = {
+  id, 
+  username, 
+  cards: [
+    {
+      color,
+      value
+    }
+  ], 
+  score, 
+  order, 
+  isBot 
+}
+
+const room = {
+  id, 
+  createdAt, 
+  startGameAt, 
+  startLastTurnAt, 
+  direction, 
+  isRun, 
+  topCard: { 
+    color, 
+    value, 
+  },
+  positionActive, 
+  players: [
+    {
+      id, 
+      username, 
+      numberCards, 
+      score, 
+      order, 
+      isBot 
+    }
+  ]
+} */
+
 function renderGamePage() {
+  
+
   document.getElementById('page').innerHTML = `
   <main>
     <img class="background" src="./src/assets/img/background.png">
