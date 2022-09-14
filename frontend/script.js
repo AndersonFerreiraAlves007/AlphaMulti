@@ -315,43 +315,91 @@ function renderRoomPage() {
    ` */
 }
 
-/* const player = {
-  id, 
-  username, 
+const player = {
+  id: 1, 
+  username: 'Anderson', 
   cards: [
     {
-      color,
-      value
-    }
+      color: 'b',
+      value: '1'
+    },
+    {
+      color: 'b',
+      value: '2'
+    },
+    {
+      color: 'b',
+      value: '3'
+    },
+    {
+      color: 'b',
+      value: '4'
+    },
+    {
+      color: 'b',
+      value: '5'
+    },
+    {
+      color: 'b',
+      value: '6'
+    },
+    {
+      color: 'b',
+      value: '7'
+    },
   ], 
-  score, 
-  order, 
-  isBot 
+  score: 1000, 
+  order: 1, 
+  isBot: false 
 }
 
 const room = {
-  id, 
-  createdAt, 
-  startGameAt, 
-  startLastTurnAt, 
-  direction, 
-  isRun, 
+  id: 1, 
+  createdAt: new Date(), 
+  startGameAt: new Date(), 
+  startLastTurnAt: new Date(), 
+  direction: 1, 
+  isRun: true, 
   topCard: { 
-    color, 
-    value, 
+    color: 'b', 
+    value: '1', 
   },
-  positionActive, 
+  positionActive: 1, 
   players: [
     {
-      id, 
-      username, 
-      numberCards, 
-      score, 
-      order, 
-      isBot 
+      id: 1, 
+      username: 'Anderson', 
+      numberCards: 7, 
+      score: 1000, 
+      order: 1, 
+      isBot: false
+    },
+    {
+      id: 2, 
+      username: 'Adriana', 
+      numberCards: 7, 
+      score: 1000, 
+      order: 2, 
+      isBot: false
+    },
+    {
+      id: 3, 
+      username: 'Manu', 
+      numberCards: 7, 
+      score: 1000, 
+      order: 3, 
+      isBot: false
+    },
+    {
+      id: 4, 
+      username: 'Breda', 
+      numberCards: 7, 
+      score: 1000, 
+      order: 4, 
+      isBot: false
     }
   ]
-} */
+}
 
 function renderGamePage() {
   
