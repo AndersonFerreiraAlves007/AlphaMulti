@@ -22,3 +22,5 @@ const card = document.getElementById('card');
 card.classList.add(`${suit}${value}`);
 
 body.append(card);
+
+// colocar time e borda na user__photo quando for jogar
