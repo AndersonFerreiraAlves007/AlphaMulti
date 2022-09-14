@@ -18,7 +18,10 @@ main {
   margin-top: 150px;
   height: 80px;
   width: 130px;  
-
+  cursor: pointer;
+}
+.button__splash:active{
+  transform: translateY(5px);
 }
 @media screen and (min-width: 280px) {
   .logo__splash {

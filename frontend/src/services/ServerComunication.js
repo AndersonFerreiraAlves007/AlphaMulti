@@ -159,7 +159,11 @@ class ServerCommunication {
   }
 }
 
-const serverCommunication = new ServerCommunication()
+export {
+  ServerCommunication
+}
+
+/* const serverCommunication = new ServerCommunication() */
 
 /* serverCommunication.addEventListener('endGame', (data) {
   const { player, room } = data
@@ -167,4 +171,4 @@ const serverCommunication = new ServerCommunication()
   //algum código
 }) */
 
-export default serverCommunication
+/* export default serverCommunication */
