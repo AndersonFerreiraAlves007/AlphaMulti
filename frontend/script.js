@@ -194,7 +194,6 @@ function renderLoginPage() {
 function renderRoomPage() {
   const page = document.getElementById('page');
 
-
   const main = document.createElement('main');
   main.classList.add('room');
 
@@ -316,175 +315,405 @@ function renderRoomPage() {
 }
 
 const player = {
-  id: 1, 
-  username: 'Anderson', 
+  id: 1,
+  username: 'Anderson',
   cards: [
     {
       color: 'b',
-      value: '1'
+      value: '1',
     },
     {
       color: 'b',
-      value: '2'
+      value: '2',
     },
     {
       color: 'b',
-      value: '3'
+      value: '3',
     },
     {
       color: 'b',
-      value: '4'
+      value: '4',
     },
     {
       color: 'b',
-      value: '5'
+      value: '5',
     },
     {
       color: 'b',
-      value: '6'
+      value: '6',
     },
     {
       color: 'b',
-      value: '7'
+      value: '7',
     },
-  ], 
-  score: 1000, 
-  order: 1, 
-  isBot: false 
-}
+  ],
+  score: 1000,
+  order: 1,
+  isBot: false,
+};
 
 const room = {
-  id: 1, 
-  createdAt: new Date(), 
-  startGameAt: new Date(), 
-  startLastTurnAt: new Date(), 
-  direction: 1, 
-  isRun: true, 
-  topCard: { 
-    color: 'b', 
-    value: '1', 
+  id: 1,
+  createdAt: new Date(),
+  startGameAt: new Date(),
+  startLastTurnAt: new Date(),
+  direction: 1,
+  isRun: true,
+  topCard: {
+    color: 'b',
+    value: '1',
   },
-  positionActive: 1, 
+  positionActive: 1,
   players: [
     {
-      id: 1, 
-      username: 'Anderson', 
-      numberCards: 7, 
-      score: 1000, 
-      order: 1, 
-      isBot: false
+      id: 1,
+      username: 'Anderson',
+      numberCards: 7,
+      score: 1000,
+      order: 1,
+      isBot: false,
     },
     {
-      id: 2, 
-      username: 'Adriana', 
-      numberCards: 7, 
-      score: 1000, 
-      order: 2, 
-      isBot: false
+      id: 2,
+      username: 'Adriana',
+      numberCards: 7,
+      score: 1000,
+      order: 2,
+      isBot: false,
     },
     {
-      id: 3, 
-      username: 'Manu', 
-      numberCards: 7, 
-      score: 1000, 
-      order: 3, 
-      isBot: false
+      id: 3,
+      username: 'Manu',
+      numberCards: 7,
+      score: 1000,
+      order: 3,
+      isBot: false,
     },
     {
-      id: 4, 
-      username: 'Breda', 
-      numberCards: 7, 
-      score: 1000, 
-      order: 4, 
-      isBot: false
-    }
-  ]
-}
+      id: 4,
+      username: 'Breda',
+      numberCards: 7,
+      score: 1000,
+      order: 4,
+      isBot: false,
+    },
+  ],
+};
 
 function renderGamePage() {
-  
+  const page = document.getElementById('page');
 
-  document.getElementById('page').innerHTML = `
-  <main>
-    <img class="background" src="./src/assets/img/background.png">
-    <div class="buttons__configure">
-        <input class="button__sound" type="image" src="./src/assets/img/button-sound.png"> 
-        <input class="button__close" type="image" src="./src/assets/img/button-close.png">  
-    </div>
-        <div class="info__user--perfil">
-            <img class="foto" src="./src/assets/img/users/user1.svg">
-            <h2 class="">Kenji</h2>
-            <h3 class="time__user">0:10</h3>
-        </div>
-        <div class="row alinhamento2 translate">
-            <img class="card overflowA" src="./src/assets/img/verso-carta.png">
-            <img class="card overflowA2" src="./src/assets/img/verso-carta.png">
-            <img class="card overflowA3" src="./src/assets/img/verso-carta.png">
-            <img class="card overflowA4" src="./src/assets/img/verso-carta.png">
-            <img class="card overflowA5" src="./src/assets/img/verso-carta.png">
-            <img class="card overflowA6" src="./src/assets/img/verso-carta.png">
-            <img class="card overflowA7" src="./src/assets/img/verso-carta.png">
-        </div>
-    <div class="columnT alinhamento">
-        <div class="teste">
-            <div class="info__user--perfil">
-                <img class="foto" src="./src/assets/img/users/user7.svg">
-                <h2 class="">Ichigo</h2>
-                <h3 class="time__user">0:10</h3>
-            </div>
-            <div class="column esquerda">
-                <img class="card overflowY" src="./src/assets/img/verso-carta.png">
-                <img class="card overflowY2" src="./src/assets/img/verso-carta.png">
-                <img class="card overflowY3" src="./src/assets/img/verso-carta.png">
-                <img class="card overflowY4" src="./src/assets/img/verso-carta.png">
-                <img class="card overflowY5" src="./src/assets/img/verso-carta.png">
-                <img class="card overflowY6" src="./src/assets/img/verso-carta.png">
-                <img class="card overflowY7" src="./src/assets/img/verso-carta.png">
-            </div>
+  const main = createElement('main');
 
-        </div>
-        <div class="carta-meio">
-            <img class="carta-lixo" src="./src/assets/img/cards/red/3.svg">
-        </div>
-        <div class="teste">
-            <div class="column direita">
-                <img class="card overflowZ" src="./src/assets/img/verso-carta.png">
-                <img class="card overflowZ2" src="./src/assets/img/verso-carta.png">
-                <img class="card overflowZ3" src="./src/assets/img/verso-carta.png">
-                <img class="card overflowZ4" src="./src/assets/img/verso-carta.png">
-                <img class="card overflowZ5" src="./src/assets/img/verso-carta.png">
-                <img class="card overflowZ6" src="./src/assets/img/verso-carta.png">
-                <img class="card overflowZ7" src="./src/assets/img/verso-carta.png">
-            </div>
-            <div class="info__user--perfil">
-                <img class="foto" src="./src/assets/img/users/user5.svg">
-                <h2 class="">Naruto</h2>
-                <h3 class="time__user">0:10</h3>
-            </div>
-        </div>
-    </div>
-    <div class="user__four">
-        <div class="translate2">
-            <img class="card overflowB" src="./src/assets/img/verso-carta.png">
-            <img class="card overflowB2" src="./src/assets/img/verso-carta.png">
-            <img class="card overflowB3" src="./src/assets/img/verso-carta.png">
-            <img class="card overflowB4" src="./src/assets/img/verso-carta.png">
-            <img class="card overflowB5" src="./src/assets/img/verso-carta.png">
-            <img class="card overflowB6" src="./src/assets/img/verso-carta.png">
-            <img class="card overflowB7" src="./src/assets/img/verso-carta.png">
-        </div>
-        <div class="info__user--perfil">
-            <img class="foto" src="./src/assets/img/users/user10.svg">
-            <h2 class="">Rukia</h2>
-            <h3 class="time__user">0:10</h3>
-        </div>
-    </div>
-    <h2 class="time__match">2:52</h2>
-    <!-- <div id="card" class="card">
-      
-    </div> -->
-  </main>
-  `;
+  const imgBackground = document.createElement('img');
+
+  const divButtons = document.createElement('div');
+  divButtons.classList.add('buttons__configure');
+  const inputImage = document.createElement('input');
+  inputImage.type = 'image';
+  inputImage.src = './src/assets/img/button-sound.png';
+  inputImage.classList.add('button__sound');
+  const inputClose = document.createElement('input');
+  inputClose.type = 'image';
+  inputClose.src = './src/assets/img/button-close.png';
+  inputClose.classList.add('button__close');
+  divButtons.append(inputImage, inputClose);
+
+  const divUserProfile1 = document.createElement('div');
+  divUserProfile1.classList.add('info__user--perfil');
+  const imgUser1 = document.createElement('img');
+  imgUser1.classList.add('foto');
+  imgUser1.src = './src/assets/img/users/user1.svg';
+  const userName1 = document.createElement('h2');
+  userName1.innerText = 'Kenji';
+  const timer1 = document.createElement('h3');
+  timer1.classList.add('time__user');
+  timer1.innerText = '0:10';
+  divUserProfile1.append(imgUser1, userName1, timer1);
+
+  const divRowAlignment = document.createElement('div');
+  divRowAlignment.classList.add('row alinhamento2 translate');
+  const imgCard1 = document.createElement('img');
+  imgCard1.classList.add('card overflowA');
+  imgCard1.src = './src/assets/img/verso-carta.png';
+  const imgCard2 = document.createElement('img');
+  imgCard2.classList.add('card overflowA2');
+  imgCard2.src = './src/assets/img/verso-carta.png';
+  const imgCard3 = document.createElement('img');
+  imgCard3.classList.add('card overflowA3');
+  imgCard3.src = './src/assets/img/verso-carta.png';
+  const imgCard4 = document.createElement('img');
+  imgCard4.classList.add('card overflowA4');
+  imgCard4.src = './src/assets/img/verso-carta.png';
+  const imgCard5 = document.createElement('img');
+  imgCard5.classList.add('card overflowA5');
+  imgCard5.src = './src/assets/img/verso-carta.png';
+  const imgCard6 = document.createElement('img');
+  imgCard6.classList.add('card overflowA6');
+  imgCard6.src = './src/assets/img/verso-carta.png';
+  const imgCard7 = document.createElement('img');
+  imgCard7.classList.add('card overflowA7');
+  imgCard7.src = './src/assets/img/verso-carta.png';
+  divRowAlignment.append(imgCard1, imgCard2, imgCard3, imgCard4, imgCard5, imgCard6, imgCard7);
+
+  const divcolumnTAlignment = document.createElement('div');
+  divcolumnTAlignment.classList.add('columnT alinhamento');
+
+  const divtest1 = document.createElement('div');
+  divtest1.classList.add('teste');
+
+  const divUserProfile2 = document.createElement('div');
+  divUserProfile2.classList.add('info__user--perfil');
+  const imgUser2 = document.createElement('img');
+  imgUser2.classList.add('foto');
+  imgUser2.src = './src/assets/img/users/user1.svg';
+  const userName2 = document.createElement('h2');
+  userName2.innerText = 'Kenji';
+  const timer2 = document.createElement('h3');
+  timer2.classList.add('time__user');
+  timer2.innerText = '0:10';
+  divUserProfile2.append(imgUser2, userName2, timer2);
+
+  const divColumnLeft = document.createElement('div');
+  divColumnLeft.classList.add('column esquerda');
+  const imgCard1user2 = document.createElement('img');
+  imgCard1user2.classList.add('card overflowA');
+  imgCard1user2.src = './src/assets/img/verso-carta.png';
+  const imgCard2user2 = document.createElement('img');
+  imgCard2user2.classList.add('card overflowA2');
+  imgCard2user2.src = './src/assets/img/verso-carta.png';
+  const imgCard3user2 = document.createElement('img');
+  imgCard3user2.classList.add('card overflowA3');
+  imgCard3user2.src = './src/assets/img/verso-carta.png';
+  const imgCard4user2 = document.createElement('img');
+  imgCard4user2.classList.add('card overflowA4');
+  imgCard4user2.src = './src/assets/img/verso-carta.png';
+  const imgCard5user2 = document.createElement('img');
+  imgCard5user2.classList.add('card overflowA5');
+  imgCard5user2.src = './src/assets/img/verso-carta.png';
+  const imgCard6user2 = document.createElement('img');
+  imgCard6user2.classList.add('card overflowA6');
+  imgCard6user2.src = './src/assets/img/verso-carta.png';
+  const imgCard7user2 = document.createElement('img');
+  imgCard7user2.classList.add('card overflowA7');
+  imgCard7user2.src = './src/assets/img/verso-carta.png';
+  divColumnLeft.append(
+    imgCard1user2,
+    imgCard2user2,
+    imgCard3user2,
+    imgCard4user2,
+    imgCard5user2,
+    imgCard6user2,
+    imgCard7user2
+  );
+  divtest1.append(divUserProfile2);
+
+  const divTrashCard = document.createElement('div');
+  divTrashCard.classList.add('carta-meio');
+  const imgTrashCard = document.createElement('img');
+  imgTrashCard.classList.add('carta-lixo');
+  divTrashCard.append(imgTrashCard);
+
+  const divUser3 = document.createElement('div');
+  divUser3.classList.add('teste');
+
+  const divColumnRight = document.createElement('div');
+  divColumnRight.classList.add('column direita');
+  const imgCard1user3 = document.createElement('img');
+  imgCard1user3.classList.add('card overflowZ');
+  imgCard1user3.src = './src/assets/img/verso-carta.png';
+  const imgCard2user3 = document.createElement('img');
+  imgCard2user3.classList.add('card overflowZ2');
+  imgCard2user3.src = './src/assets/img/verso-carta.png';
+  const imgCard3user3 = document.createElement('img');
+  imgCard3user3.classList.add('card overflowZ3');
+  imgCard3user3.src = './src/assets/img/verso-carta.png';
+  const imgCard4user3 = document.createElement('img');
+  imgCard4user3.classList.add('card overflowZ4');
+  imgCard4user3.src = './src/assets/img/verso-carta.png';
+  const imgCard5user3 = document.createElement('img');
+  imgCard5user3.classList.add('card overflowZ5');
+  imgCard5user3.src = './src/assets/img/verso-carta.png';
+  const imgCard6user3 = document.createElement('img');
+  imgCard6user3.classList.add('card overflowZ6');
+  imgCard6user3.src = './src/assets/img/verso-carta.png';
+  const imgCard7user3 = document.createElement('img');
+  imgCard7user3.classList.add('card overflowZ7');
+  imgCard7user3.src = './src/assets/img/verso-carta.png';
+  divColumnRight.append(
+    imgCard1user3,
+    imgCard2user3,
+    imgCard3user3,
+    imgCard4user3,
+    imgCard5user3,
+    imgCard6user3,
+    imgCard7user3
+  );
+
+  const divUserProfile3 = document.createElement('div');
+  divUserProfile3.classList.add('info__user--perfil');
+  const imgUser3 = document.createElement('img');
+  imgUser3.classList.add('foto');
+  imgUser3.src = './src/assets/img/users/user5.svg';
+  const userName3 = document.createElement('h2');
+  userName3.innerText = 'Naruto';
+  const timer3 = document.createElement('h3');
+  timer3.classList.add('time__user');
+  timer3.innerText = '0:10';
+  divUserProfile3.append(imgUser3, userName3, timer3);
+
+  divUser3.append(divColumnRight, divUserProfile3);
+  divcolumnTAlignment.append(divUser3);
+
+  divColumnLeft.append(divtest1, divTrashCard);
+
+  const divUser4 = document.createElement('div');
+  divUser4.classList.add('user__four');
+
+  const divTranslate2 = document.createElement('div');
+  divTranslate2.classList.add('translate2');
+  const imgCard1user4 = document.createElement('img');
+  imgCard1user4.classList.add('card overflowB');
+  imgCard1user4.src = './src/assets/img/verso-carta.png';
+  const imgCard2user4 = document.createElement('img');
+  imgCard2user4.classList.add('card overflowB2');
+  imgCard2user4.src = './src/assets/img/verso-carta.png';
+  const imgCard3user4 = document.createElement('img');
+  imgCard3user4.classList.add('card overflowB3');
+  imgCard3user4.src = './src/assets/img/verso-carta.png';
+  const imgCard4user4 = document.createElement('img');
+  imgCard4user4.classList.add('card overflowB4');
+  imgCard4user4.src = './src/assets/img/verso-carta.png';
+  const imgCard5user4 = document.createElement('img');
+  imgCard5user4.classList.add('card overflowB5');
+  imgCard5user4.src = './src/assets/img/verso-carta.png';
+  const imgCard6user4 = document.createElement('img');
+  imgCard6user4.classList.add('card overflowB6');
+  imgCard6user4.src = './src/assets/img/verso-carta.png';
+  const imgCard7user4 = document.createElement('img');
+  imgCard7user4.classList.add('card overflowB7');
+  imgCard7user4.src = './src/assets/img/verso-carta.png';
+  divTranslate2.append(
+    imgCard1user4,
+    imgCard2user4,
+    imgCard3user4,
+    imgCard4user4,
+    imgCard5user4,
+    imgCard6user4,
+    imgCard7user4
+  );
+
+  const divUserProfile4 = document.createElement('div');
+  divUserProfile4.classList.add('info__user--perfil');
+  const imgUser4 = document.createElement('img');
+  imgUser4.classList.add('foto');
+  imgUser4.src = './src/assets/img/users/user10.svg';
+  const userName4 = document.createElement('h2');
+  userName4.innerText = 'Rukia';
+  const timer4 = document.createElement('h3');
+  timer4.classList.add('time__user');
+  timer4.innerText = '0:10';
+  divUserProfile4.append(imgUser4, userName4, timer4);
+
+  divUser4.append(divTranslate2, divUserProfile4);
+
+  const timeMatch = document.createElement('h2');
+  timeMatch.classList.add('time__match');
+  timeMatch.innerText = '2:52';
+
+  main.append(
+    imgBackground,
+    divButtons,
+    divUserProfile1,
+    divRowAlignment,
+    divcolumnTAlignment,
+    divColumnLeft,
+    divUser4,
+    timeMatch
+  );
+  page.append(main);
+
+  // document.getElementById('page').innerHTML = `
+  // <main>
+  //   <img class="background" src="./src/assets/img/background.png">
+  //   <div class="buttons__configure">
+  //       <input class="button__sound" type="image" src="./src/assets/img/button-sound.png">
+  //       <input class="button__close" type="image" src="./src/assets/img/button-close.png">
+  //   </div>
+  //       <div class="info__user--perfil">
+  //           <img class="foto" src="./src/assets/img/users/user1.svg">
+  //           <h2 class="">Kenji</h2>
+  //           <h3 class="time__user">0:10</h3>
+  //       </div>
+  //       <div class="row alinhamento2 translate">
+  //           <img class="card overflowA" src="./src/assets/img/verso-carta.png">
+  //           <img class="card overflowA2" src="./src/assets/img/verso-carta.png">
+  //           <img class="card overflowA3" src="./src/assets/img/verso-carta.png">
+  //           <img class="card overflowA4" src="./src/assets/img/verso-carta.png">
+  //           <img class="card overflowA5" src="./src/assets/img/verso-carta.png">
+  //           <img class="card overflowA6" src="./src/assets/img/verso-carta.png">
+  //           <img class="card overflowA7" src="./src/assets/img/verso-carta.png">
+  //       </div>
+  //   <div class="columnT alinhamento">
+  //       <div class="teste">
+  //           <div class="info__user--perfil">
+  //               <img class="foto" src="./src/assets/img/users/user7.svg">
+  //               <h2 class="">Ichigo</h2>
+  //               <h3 class="time__user">0:10</h3>
+  //           </div>
+  //           <div class="column esquerda">
+  //               <img class="card overflowY" src="./src/assets/img/verso-carta.png">
+  //               <img class="card overflowY2" src="./src/assets/img/verso-carta.png">
+  //               <img class="card overflowY3" src="./src/assets/img/verso-carta.png">
+  //               <img class="card overflowY4" src="./src/assets/img/verso-carta.png">
+  //               <img class="card overflowY5" src="./src/assets/img/verso-carta.png">
+  //               <img class="card overflowY6" src="./src/assets/img/verso-carta.png">
+  //               <img class="card overflowY7" src="./src/assets/img/verso-carta.png">
+  //           </div>
+
+  //       </div>
+  //       <div class="carta-meio">
+  //           <img class="carta-lixo" src="./src/assets/img/cards/red/3.svg">
+  //       </div>
+  //       <div class="teste">
+  //           <div class="column direita">
+  //               <img class="card overflowZ" src="./src/assets/img/verso-carta.png">
+  //               <img class="card overflowZ2" src="./src/assets/img/verso-carta.png">
+  //               <img class="card overflowZ3" src="./src/assets/img/verso-carta.png">
+  //               <img class="card overflowZ4" src="./src/assets/img/verso-carta.png">
+  //               <img class="card overflowZ5" src="./src/assets/img/verso-carta.png">
+  //               <img class="card overflowZ6" src="./src/assets/img/verso-carta.png">
+  //               <img class="card overflowZ7" src="./src/assets/img/verso-carta.png">
+  //           </div>
+  //           <div class="info__user--perfil">
+  //               <img class="foto" src="./src/assets/img/users/user5.svg">
+  //               <h2 class="">Naruto</h2>
+  //               <h3 class="time__user">0:10</h3>
+  //           </div>
+  //       </div>
+  //   </div>
+  //   <div class="user__four">
+  //       <div class="translate2">
+  //           <img class="card overflowB" src="./src/assets/img/verso-carta.png">
+  //           <img class="card overflowB2" src="./src/assets/img/verso-carta.png">
+  //           <img class="card overflowB3" src="./src/assets/img/verso-carta.png">
+  //           <img class="card overflowB4" src="./src/assets/img/verso-carta.png">
+  //           <img class="card overflowB5" src="./src/assets/img/verso-carta.png">
+  //           <img class="card overflowB6" src="./src/assets/img/verso-carta.png">
+  //           <img class="card overflowB7" src="./src/assets/img/verso-carta.png">
+  //       </div>
+  //       <div class="info__user--perfil">
+  //           <img class="foto" src="./src/assets/img/users/user10.svg">
+  //           <h2 class="">Rukia</h2>
+  //           <h3 class="time__user">0:10</h3>
+  //       </div>
+  //   </div>
+  //   <h2 class="time__match">2:52</h2>
+  //   <!-- <div id="card" class="card">
+
+  //   </div> -->
+  // </main>
+  // `;
 }
 
 navigate('splashScreen');
