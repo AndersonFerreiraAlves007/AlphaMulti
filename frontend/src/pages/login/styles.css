@@ -73,6 +73,9 @@ main {
     width: 70px;
 
 }
+.button__play:active{
+    transform: translateY(5px);
+  }
 
 @media screen and (min-width: 414px) {
     .div__logo__login {
