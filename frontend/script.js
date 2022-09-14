@@ -29,6 +29,7 @@ function clearContent() {
 
 function renderSplashScreenPage() {
   const main = document.createElement('main');
+  main.classList.add('splash');
 
   const logo = document.createElement('img');
   logo.classList.add('logo__splash');
@@ -54,6 +55,7 @@ function renderSplashScreenPage() {
 
 function renderLoginPage() {
   const main = document.createElement('main');
+  main.classList.add('login');
 
   const backLogin = document.createElement('img');
   backLogin.classList.add('back__login');
@@ -167,7 +169,9 @@ function renderLoginPage() {
 function renderRoomPage() {
   const page = document.getElementById('page');
 
+
   const main = document.createElement('main');
+  main.classList.add('room');
 
   const cardRoom = document.createElement('img');
   cardRoom.classList.add('cartas__room');
