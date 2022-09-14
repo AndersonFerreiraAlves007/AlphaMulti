@@ -1,144 +1,143 @@
-import { ServerCommunication } from './src/services/ServerComunication.js'
+import { ServerCommunication } from './src/services/ServerComunication.js';
 
-let serverCommunication = null
+let serverCommunication = null;
 
 function navigate(page) {
   switch (page) {
     case 'splashScreen':
-      clearContent()
-      renderSplashScreenPage()
+      clearContent();
+      renderSplashScreenPage();
       break;
     case 'login':
-      clearContent()
-      renderLoginPage()
+      clearContent();
+      renderLoginPage();
       break;
     case 'room':
-      clearContent()
-      renderRoomPage()
-    break;
+      clearContent();
+      renderRoomPage();
+      break;
     case 'game':
-      clearContent()
-      renderGamePage()
-    break;
+      clearContent();
+      renderGamePage();
+      break;
   }
 }
 
 function clearContent() {
-  document.getElementById('page').innerHTML = ''
+  document.getElementById('page').innerHTML = '';
 }
 
 function renderSplashScreenPage() {
-  const main = document.createElement('main')
+  const main = document.createElement('main');
 
-  const logo = document.createElement('img')
-  logo.classList.add('logo__splash')
-  logo.setAttribute('src', './src/assets/img/logo.png')
+  const logo = document.createElement('img');
+  logo.classList.add('logo__splash');
+  logo.setAttribute('src', './src/assets/img/logo.png');
 
-  const back = document.createElement('img')
-  back.classList.add('back__splash')
-  back.setAttribute('src', './src/assets/img/background.png')
+  const back = document.createElement('img');
+  back.classList.add('back__splash');
+  back.setAttribute('src', './src/assets/img/background.png');
 
-  const btn = document.createElement('img')
-  btn.classList.add('button__splash')
-  btn.setAttribute('src', './src/assets/img/button-splash.svg')
+  const btn = document.createElement('img');
+  btn.classList.add('button__splash');
+  btn.setAttribute('src', './src/assets/img/button-splash.svg');
   btn.addEventListener('click', () => {
-    navigate('login')
-  })
+    navigate('login');
+  });
 
-  main.append(logo)
-  main.append(back)
-  main.append(btn)
+  main.append(logo);
+  main.append(back);
+  main.append(btn);
 
-  document.getElementById('page').append(main)
-
+  document.getElementById('page').append(main);
 }
 
 function renderLoginPage() {
-  const main = document.createElement('main')
+  const main = document.createElement('main');
 
-  const backLogin = document.createElement('img')
-  backLogin.classList.add('back__login')
-  backLogin.setAttribute('src', "./src/assets/img/background.png")
+  const backLogin = document.createElement('img');
+  backLogin.classList.add('back__login');
+  backLogin.setAttribute('src', './src/assets/img/background.png');
 
-  const cartasLogin = document.createElement('img')
-  cartasLogin.classList.add('cartas__login')
-  cartasLogin.setAttribute('src', "./src/assets/img/cartas-login.png")
+  const cartasLogin = document.createElement('img');
+  cartasLogin.classList.add('cartas__login');
+  cartasLogin.setAttribute('src', './src/assets/img/cartas-login.png');
 
-  const buttonsCofigure = document.createElement('div')
-  buttonsCofigure.classList.add('buttons__configure')
+  const buttonsCofigure = document.createElement('div');
+  buttonsCofigure.classList.add('buttons__configure');
 
-  const buttonSound = document.createElement('input')
-  buttonSound.classList.add('button__sound')
-  buttonSound.setAttribute('type', "image")
-  buttonSound.setAttribute('src', "./src/assets/img/button-sound.png")
+  const buttonSound = document.createElement('input');
+  buttonSound.classList.add('button__sound');
+  buttonSound.setAttribute('type', 'image');
+  buttonSound.setAttribute('src', './src/assets/img/button-sound.png');
 
-  const buttosClose = document.createElement('input')
-  buttosClose.classList.add('button__close')
-  buttosClose.setAttribute('type', "image")
-  buttosClose.setAttribute('src', "./src/assets/img/button-close.png")
+  const buttosClose = document.createElement('input');
+  buttosClose.classList.add('button__close');
+  buttosClose.setAttribute('type', 'image');
+  buttosClose.setAttribute('src', './src/assets/img/button-close.png');
 
-  buttonsCofigure.append(buttonSound, buttosClose)
+  buttonsCofigure.append(buttonSound, buttosClose);
 
-  const divLogoLogin = document.createElement('div')
-  divLogoLogin.classList.add('div__logo__login')
+  const divLogoLogin = document.createElement('div');
+  divLogoLogin.classList.add('div__logo__login');
 
-  const logoLogin = document.createElement('img')
-  logoLogin.classList.add('logo__login')
-  logoLogin.setAttribute('src', "./src/assets/img/logo.png")
+  const logoLogin = document.createElement('img');
+  logoLogin.classList.add('logo__login');
+  logoLogin.setAttribute('src', './src/assets/img/logo.png');
 
-  divLogoLogin.append(logoLogin)
+  divLogoLogin.append(logoLogin);
 
-  const containerPaiLogin = document.createElement('div')
-  containerPaiLogin.classList.add('container__pai__login')
+  const containerPaiLogin = document.createElement('div');
+  containerPaiLogin.classList.add('container__pai__login');
 
-  const containerBlue = document.createElement('img')
-  containerBlue.classList.add('container__blue')
-  containerBlue.setAttribute('src', "./src/assets/img/back-login.png")
+  const containerBlue = document.createElement('img');
+  containerBlue.classList.add('container__blue');
+  containerBlue.setAttribute('src', './src/assets/img/back-login.png');
 
-  const containerLogin = document.createElement('div')
-  containerLogin.classList.add('container__login')
+  const containerLogin = document.createElement('div');
+  containerLogin.classList.add('container__login');
 
-  const inputLogin = document.createElement('input')
-  inputLogin.classList.add('input__login')
-  inputLogin.setAttribute('type', "text")
-  inputLogin.setAttribute('placeholder', "Insira seu nome")
+  const inputLogin = document.createElement('input');
+  inputLogin.classList.add('input__login');
+  inputLogin.setAttribute('type', 'text');
+  inputLogin.setAttribute('placeholder', 'Insira seu nome');
 
-  const containerUsuario = document.createElement('div')
-  containerUsuario.classList.add('container__usuario')
-  
-  const buttonEsquerda = document.createElement('input')
-  buttonEsquerda.classList.add('button__esquerda')
-  buttonEsquerda.setAttribute('type', "image")
-  buttonEsquerda.setAttribute('src', "./src/assets/img/button-esquerda.svg")
+  const containerUsuario = document.createElement('div');
+  containerUsuario.classList.add('container__usuario');
 
-  const imgUsuario = document.createElement('img')
-  imgUsuario.classList.add('img__usuario')
-  imgUsuario.setAttribute('src', "./src/assets/img/users/user1.svg")
+  const buttonEsquerda = document.createElement('input');
+  buttonEsquerda.classList.add('button__esquerda');
+  buttonEsquerda.setAttribute('type', 'image');
+  buttonEsquerda.setAttribute('src', './src/assets/img/button-esquerda.svg');
 
-  const buttonDireita = document.createElement('input')
-  buttonDireita.classList.add('button__direita')
-  buttonDireita.setAttribute('type', "image")
-  buttonDireita.setAttribute('src', "./src/assets/img/button-direita.svg")
+  const imgUsuario = document.createElement('img');
+  imgUsuario.classList.add('img__usuario');
+  imgUsuario.setAttribute('src', './src/assets/img/users/user1.svg');
 
-  const buttonPlay = document.createElement('input')
-  buttonPlay.classList.add('button__play')
-  buttonPlay.setAttribute('type', "image")
-  buttonPlay.setAttribute('src', "./src/assets/img/button-play.svg")
+  const buttonDireita = document.createElement('input');
+  buttonDireita.classList.add('button__direita');
+  buttonDireita.setAttribute('type', 'image');
+  buttonDireita.setAttribute('src', './src/assets/img/button-direita.svg');
+
+  const buttonPlay = document.createElement('input');
+  buttonPlay.classList.add('button__play');
+  buttonPlay.setAttribute('type', 'image');
+  buttonPlay.setAttribute('src', './src/assets/img/button-play.svg');
   buttonPlay.addEventListener('click', () => {
-    navigate('room')
-  })
+    navigate('room');
+  });
 
-  containerUsuario.append(buttonEsquerda, imgUsuario, buttonDireita)
+  containerUsuario.append(buttonEsquerda, imgUsuario, buttonDireita);
 
-  containerLogin.append(inputLogin, containerUsuario, buttonPlay)
+  containerLogin.append(inputLogin, containerUsuario, buttonPlay);
 
-  containerPaiLogin.append(containerBlue, containerLogin)
+  containerPaiLogin.append(containerBlue, containerLogin);
 
-  main.append(backLogin, cartasLogin, buttonsCofigure, divLogoLogin, containerPaiLogin)
+  main.append(backLogin, cartasLogin, buttonsCofigure, divLogoLogin, containerPaiLogin);
 
-  document.getElementById('page').append(main)
+  document.getElementById('page').append(main);
 
- /*  document.getElementById('page').innerHTML = `
+  /*  document.getElementById('page').innerHTML = `
     <main>
       <img class="back__login" src="./src/assets/img/background.png">
       <img class="cartas__login" src="./src/assets/img/cartas-login.png">
@@ -166,41 +165,116 @@ function renderLoginPage() {
 }
 
 function renderRoomPage() {
-  document.getElementById('page').innerHTML = `
-    <main>
-        <img class="cartas__room" src="./src/assets/img/cartas-room.png">
-        <div class="buttons__configure">
-            <input class="button__sound" type="image" src="./src/assets/img/button-sound.png">
-            <input class="button__close" type="image" src="./src/assets/img/button-close.png">
-        </div>
-        <img class="backgroud" src="./src/assets/img/background.png">
-        <div class="logo">
-            <img src="./src/assets/img/logo.png">
-        </div>
-        <div class="infor">
-            <h1>Esperando os outros jogadores entrarem...</h1>
-            <h2>Entraram (3/4)</h2>
-            <div class="userAll">
-                <div class="user">
-                    <img src="./src/assets/img/users/user2.svg">
-                    <p>Usúario 1</p>
-                </div>
-                <div class="user">
-                    <img src="./src/assets/img/users/user9.svg">
-                    <p>Usúario 2</p>
-                </div>
-                <div class="user">
-                    <img src="./src/assets/img/users/user6.svg">
-                    <p>Usúario 3</p>
-                </div>
-                <div class="user">
-                    <p>Esperando jogador...</p>
-                </div>
-            </div>
+  const page = document.getElementById('page');
 
-        </div>
-    </main>
-  `
+  const main = document.querySelector('main');
+
+  const cardRoom = document.createElement('img');
+  cardRoom.classList.add('cartas__room');
+  cardRoom.src = './src/assets/img/cartas-room.png';
+
+  const divButtons = document.createElement('div');
+  divButtons.classList.add('buttons__configure');
+  const btnSound = document.createElement('input');
+  btnSound.type = 'image';
+  btnSound.classList.add('button__sound');
+  btnSound.src = './src/assets/img/button-sound.png';
+  const btnClose = document.createElement('input');
+  btnClose.type = 'image';
+  btnClose.classList.add('button__close');
+  btnClose.src = './src/assets/img/button-close.png';
+  divButtons.append(btnSound, btnClose);
+
+  const imgBackground = document.createElement('img');
+  imgBackground.classList.add('backgroud');
+  imgBackground.src = './src/assets/img/background.png';
+
+  const divLogo = document.createElement('div');
+  divLogo.classList.add('logo');
+  const imgLogo = document.createElement('img');
+  imgLogo.src = './src/assets/img/logo.png';
+  divLogo.append(imgLogo);
+
+  const divInfo = document.createElement('div');
+
+  const h1 = document.createElement('h1');
+  h1.innerText = 'Esperando os outros jogadores entrarem...';
+
+  const h2 = document.createElement('h2');
+  h2.innerText = 'Entraram (3/4)';
+
+  const divAllusers = document.createElement('div');
+  divAllusers.classList.add('infor');
+
+  const divUser1 = document.createElement('div');
+  divUser1.classList.add('user');
+  const imgUser1 = document.createElement('img');
+  imgUser1.src = './src/assets/img/users/user2.svg';
+  const pUser1 = document.createElement('p');
+  pUser1.innerText = 'Usúario 1';
+  divUser1.append(imgUser1, pUser1);
+
+  const divUser2 = document.createElement('div');
+  divUser2.classList.add('user');
+  const imgUser2 = document.createElement('img');
+  imgUser2.src = './src/assets/img/users/user9.svg';
+  const pUser2 = document.createElement('p');
+  pUser2.innerText = 'Usúario 2';
+  divUser2.append(imgUser2, pUser2);
+
+  const divUser3 = document.createElement('div');
+  divUser3.classList.add('user');
+  const imgUser3 = document.createElement('img');
+  imgUser3.src = './src/assets/img/users/user6.svg';
+  const pUser3 = document.createElement('p');
+  pUser3.innerText = 'Usúario 3';
+  divUser3.append(imgUser3, pUser3);
+
+  const divUser4 = document.createElement('div');
+  divUser4.classList.add('user');
+  const imgUser4 = document.createElement('img');
+  imgUser4.src = '';
+  const pUser4 = document.createElement('p');
+  pUser4.innerText = 'Esperando jogador...';
+  divUser4.append(imgUser4, pUser4);
+
+  divAllusers.append(divUser1, divUser2, divUser3, divUser4);
+  divInfo.append(h1, h2, divAllusers);
+  main.append(cardRoom, divButtons, imgBackground, divLogo, divInfo);
+  // document.getElementById('page').innerHTML = `
+  //   <main>
+  //       <img class="cartas__room" src="./src/assets/img/cartas-room.png">
+  //       <div class="buttons__configure">
+  //           <input class="button__sound" type="image" src="./src/assets/img/button-sound.png">
+  //           <input class="button__close" type="image" src="./src/assets/img/button-close.png">
+  //       </div>
+  //       <img class="backgroud" src="./src/assets/img/background.png">
+  //       <div class="logo">
+  //           <img src="./src/assets/img/logo.png">
+  //       </div>
+  //       <div class="infor">
+  //           <h1>Esperando os outros jogadores entrarem...</h1>
+  //           <h2>Entraram (3/4)</h2>
+  //           <div class="userAll">
+  //               <div class="user">
+  //                   <img src="./src/assets/img/users/user2.svg">
+  //                   <p>Usúario 1</p>
+  //               </div>
+  //               <div class="user">
+  //                   <img src="./src/assets/img/users/user9.svg">
+  //                   <p>Usúario 2</p>
+  //               </div>
+  //               <div class="user">
+  //                   <img src="./src/assets/img/users/user6.svg">
+  //                   <p>Usúario 3</p>
+  //               </div>
+  //               <div class="user">
+  //                   <p>Esperando jogador...</p>
+  //               </div>
+  //           </div>
+  //       </div>
+  //   </main>
+  // `
 }
 
 function renderGamePage() {
@@ -284,7 +358,7 @@ function renderGamePage() {
       
     </div> -->
   </main>
-  `
+  `;
 }
 
-navigate('splashScreen')
+navigate('splashScreen');
