@@ -2,6 +2,7 @@
   --primary-color-1: #1D1DD5;
   --green: #68E89B;
   --yellow: #FFE471;
+  --gold: #E99F00;
   --red: #FF9B99;
   --blue: #7DF6ED;
   --blue-user: #2f61d0;
@@ -11,5 +12,6 @@
   --grey-2: #495057;
   --grey-3: #868E96;
   --grey-4: #DEE2E6;
+  --grey-opacity-1: rgba(33, 37, 41, 0.5);
   --whiteFixed: #FFFFFF;
 }

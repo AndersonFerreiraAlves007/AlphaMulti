@@ -1,4 +1,5 @@
 import Deck from '../../utils/deck.js';
+import { Modal } from '../../utils/modal.js';
 
 // serve para estanciar um deck já embaralhado
 const deck = new Deck();
@@ -19,8 +20,13 @@ const value = deck.cards[randomNumber].value;
 
 const body = document.querySelector('body');
 const card = document.getElementById('card');
-card.classList.add(`${suit}${value}`);
+//card.classList.add(`${suit}${value}`);
 
 body.append(card);
 
 // colocar time e borda na user__photo quando for jogar
+
+const btnModaltest = document.getElementById('teste');
+btnModaltest.addEventListener('click', () => {
+  Modal.showVictoryModal();
+});

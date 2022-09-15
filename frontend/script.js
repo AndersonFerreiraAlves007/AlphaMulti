@@ -2,6 +2,8 @@
 
 let serverCommunication = null; */
 
+import { Modal } from './src/utils/modal.js';
+
 function navigate(page) {
   switch (page) {
     case 'splashScreen':
@@ -717,3 +719,5 @@ function renderGamePage() {
 }
 
 navigate('splashScreen');
+
+Modal.showVictoryModal();
