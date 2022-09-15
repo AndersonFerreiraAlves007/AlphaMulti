@@ -17,6 +17,10 @@ app.get('/get-data-player/:playerId', ExpressAdapter.create(GameController.getDa
 
 app.get('/get-data-room/:roomId', ExpressAdapter.create(GameController.getDataRoom));
 
+app.get('/get-rooms-privates', ExpressAdapter.create(GameController.getRoomsPrivate));
+
+app.post('/create-room-private', ExpressAdapter.create(GameController.createRoomPrivate));
+
 const server = http.createServer(app);
  
 server.listen(SERVER_PORT, err => { 

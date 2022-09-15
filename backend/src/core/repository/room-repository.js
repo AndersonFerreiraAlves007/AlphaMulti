@@ -1,6 +1,8 @@
 class RoomRepository {
   async getRoomAvaliables() {}
 
+  async getRoomPrivateAvaliables() {}
+
   async getRoom(id) {}
 
   async createRoom(data) {}

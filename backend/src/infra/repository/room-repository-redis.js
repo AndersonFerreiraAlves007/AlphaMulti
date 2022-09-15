@@ -1,8 +1,8 @@
 const RoomRepository = require('../../core/repository/room-repository');
 const redis = require('../database/redis');
 const { v4 } = require('uuid');
-
 const RoomAdapter = require('../../adapter/room-adapter');
+const { ROOM_PUBLIC, ROOM_PRIVATE } = require('../../core/utils/constants');
 
 class RoomRepositoryRedis extends RoomRepository {
   async getRoomAvaliables() {
@@ -10,7 +10,17 @@ class RoomRepositoryRedis extends RoomRepository {
     const rooms = [];
     for(let i = 0; i < ids.length; i++) {
       const room = await redis.hgetall(ids[i]);
-      if(!room.isRun) rooms.push(RoomAdapter.create(room));
+      if(!room.isRun && room.type === ROOM_PUBLIC) rooms.push(RoomAdapter.create(room));
+    }
+    return rooms;
+  }
+
+  async getRoomPrivateAvaliables() {
+    const ids = await redis.lrange('rooms', 0, -1);
+    const rooms = [];
+    for(let i = 0; i < ids.length; i++) {
+      const room = await redis.hgetall(ids[i]);
+      if(!room.isRun && room.type === ROOM_PRIVATE) rooms.push(RoomAdapter.create(room));
     }
     return rooms;
   }

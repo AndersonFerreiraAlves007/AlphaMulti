@@ -2,8 +2,12 @@ const {
   MAX_PLAYERS_ROOM,
   INITIAL_CARDS_PLAYER,
   CLOCKWISE,
-  COLOR_ESPECIAL
+  COLOR_ESPECIAL,
+  ROOM_PUBLIC
 } = require('../utils/constants');
+const {
+  makeid
+} = require('../utils/code');
 
 class EnterRandomRoom {
   constructor (playerRepository, roomRepository, playerNotification, timeNotification) {
@@ -31,7 +35,11 @@ class EnterRandomRoom {
             cards: '',
             position: 1,
             cardsDiscarded: '',
-            amount: 0
+            amount: 0,
+            type: ROOM_PUBLIC,
+            password: '',
+            name: '',
+            code: makeid()
           });
           this.timeNotification.createRoom(room.id);
         }
@@ -39,6 +47,7 @@ class EnterRandomRoom {
           roomId: player.roomId
         });
         const players = await this.playerRepository.getPlayersHumanRoom(room.id);
+        this.playerNotification.enterPlayer(room.id);
         if(players.length === MAX_PLAYERS_ROOM) {
           players.forEach((item, index) => {
             item.cards = [];

@@ -49,6 +49,13 @@ ws.on('connection', client => {
         value: payload.value
       });
       break;
+    case 'enterPrivateRoom':
+      GameController.enterRandomRoom({
+        playerId: payload.id,
+        roomId: payload.roomId,
+        password: payload.password,
+      });
+      break;
     default:
       break;
     }

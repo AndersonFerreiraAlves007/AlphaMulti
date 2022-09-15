@@ -3,7 +3,21 @@ const {
 } = require('../utils/constants');
 
 class Room {
-  constructor(id, createdAt, startGameAt, startLastTurnAt, direction, isRun, deck, position, amount) {
+  constructor(
+    id, 
+    createdAt, 
+    startGameAt, 
+    startLastTurnAt, 
+    direction, 
+    isRun, 
+    deck, 
+    position, 
+    amount, 
+    type = 'public', 
+    password = '',
+    name = '', 
+    code = ''
+  ) {
     this.id = id;
     this.createdAt = createdAt;
     this.startGameAt = startGameAt;
@@ -13,6 +27,10 @@ class Room {
     this.deck = deck;
     this.position = position;
     this.amount = amount;
+    this.type = type;
+    this.password = password;
+    this.name = name;
+    this.code = code;
   }
 
   getScore(players) {

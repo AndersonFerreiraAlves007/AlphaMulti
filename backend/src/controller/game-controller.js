@@ -9,6 +9,9 @@ const LogoutUseCase = require('../core/use-case/logout');
 const PlayTurnUseCase = require('../core/use-case/play-turn');
 const PlayTurnTimeoutUseCase = require('../core/use-case/play-turn-timeout');
 const StartGameTimeoutUseCase = require('../core/use-case/start-game-timeout');
+const GetRoomsPrivateUseCase = require('../core/use-case/get-rooms-privates');
+const CreateRoomPrivateUseCase = require('../core/use-case/create-room-private');
+const EnterPrivateRoomUseCase = require('../core/use-case/enter-private-room');
 
 const PlayerRepositoryRedis = require('../infra/repository/player-repository-redis');
 const RoomRepositoryRedis = require( '../infra/repository/room-repository-redis');
@@ -146,6 +149,53 @@ class GameController {
     );
 
     const result = await startGameTimeoutUseCase.execute(params.roomId);
+    return result;
+  }
+
+  static async getRoomsPrivate (params, body) {
+    const playerRepositoryRedis = new PlayerRepositoryRedis();
+    const roomRepositoryRedis = new RoomRepositoryRedis();
+
+    const getRoomsPrivateUseCase = new GetRoomsPrivateUseCase(
+      playerRepositoryRedis,
+      roomRepositoryRedis
+    );
+
+    const result = await getRoomsPrivateUseCase.execute();
+    return result;
+  }
+
+  static async createRoomPrivate (params, body) {
+    const playerRepositoryRedis = new PlayerRepositoryRedis();
+    const roomRepositoryRedis = new RoomRepositoryRedis();
+    const playerNotificationWs = new PlayerNotificationWs(ws);
+    const timeNotificationWs = new TimeNotificationWs();
+
+    const createRoomPrivateUseCase = new CreateRoomPrivateUseCase(
+      playerRepositoryRedis,
+      roomRepositoryRedis,
+      playerNotificationWs,
+      timeNotificationWs
+    );
+
+    const result = await createRoomPrivateUseCase.execute(body.playerId, body.name, body.password);
+    return result;
+  }
+
+  static async enterPrivateRoom (params, body) {
+    const playerRepositoryRedis = new PlayerRepositoryRedis();
+    const roomRepositoryRedis = new RoomRepositoryRedis();
+    const playerNotificationWs = new PlayerNotificationWs(ws);
+    const timeNotificationWs = new TimeNotificationWs();
+
+    const enterRadomRoomUseCase = new EnterPrivateRoomUseCase(
+      playerRepositoryRedis,
+      roomRepositoryRedis,
+      playerNotificationWs,
+      timeNotificationWs
+    );
+
+    const result = await enterRadomRoomUseCase.execute(params.playerId, params.roomId, params.password);
     return result;
   }
 }

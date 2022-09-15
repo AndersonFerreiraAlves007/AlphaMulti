@@ -14,5 +14,7 @@ module.exports = {
   VALUE_M4: 'm4',
   CLOCKWISE: 1,
   ANTICLOCKWISE: -1,
-  POINTS_WINER: 500
+  POINTS_WINER: 500,
+  ROOM_PUBLIC: 'public',
+  ROOM_PRIVATE: 'private'
 };

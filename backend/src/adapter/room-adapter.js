@@ -32,7 +32,11 @@ class RoomAdapter {
       data.isRun,
       deck,
       data.position,
-      data.amount
+      data.amount,
+      data.type,
+      data.password,
+      data.name,
+      data.code
     );
   }
 }

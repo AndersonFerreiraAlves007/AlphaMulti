@@ -96,6 +96,28 @@ class ServerCommunication {
     return data
   }
 
+  async getRoomsPrivate() {
+    const response = await fetch(`${url}/get-rooms-privates`)
+    const data = await response.json()
+    return data
+  }
+
+  async createRoomPrivate(name, password) {
+    const response = await fetch(`${url}/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        playerId: sessionStorage.getItem('playerId'),
+        name,
+        password
+      })
+    })
+    const data = await response.json()
+    return data
+  }
+
   logout() {
     this.ws.send(JSON.stringify({
       type: 'logout',
@@ -123,6 +145,17 @@ class ServerCommunication {
       type: 'enterRandomRoom',
       payload: {
         playerId: sessionStorage.getItem('playerId')
+      }
+    }))
+  }
+
+  enterPrivateRoom(roomId, password) {
+    this.ws.send(JSON.stringify({
+      type: 'enterPrivateRoom',
+      payload: {
+        playerId: sessionStorage.getItem('playerId'),
+        roomId,
+        password
       }
     }))
   }
