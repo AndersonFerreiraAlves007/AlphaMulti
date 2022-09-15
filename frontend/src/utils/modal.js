@@ -1,5 +1,5 @@
 class Modal {
-  static showVictoryModal = (avatarSrc = '../../assets/img/users/user1.svg', scoreValue = 100) => {
+  static showVictoryModal = (avatarSrc = './src/assets/img/users/user1.svg', scoreValue = 100) => {
     const body = document.querySelector('body');
 
     const backgroundModal = document.createElement('div');
@@ -10,11 +10,11 @@ class Modal {
 
     const logo = document.createElement('img');
     logo.classList.add('logo');
-    logo.src = '../../assets/img/logo.png';
+    logo.src = './src/assets/img/logo.png';
 
     const title = document.createElement('img');
     title.classList.add('title');
-    title.src = '../../assets/img/winner.png';
+    title.src = './src/assets/img/winner.png';
 
     const avatar = document.createElement('img');
     avatar.classList.add('avatar');

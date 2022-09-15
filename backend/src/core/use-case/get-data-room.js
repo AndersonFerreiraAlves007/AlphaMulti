@@ -16,6 +16,9 @@ class GetDataRoom {
         startLastTurnAt: room.startLastTurnAt,
         direction: room.direction,
         isRun: room.isRun,
+        type: room.type,
+        name: room.name,
+        code: room.code,
         topCard: {
           color: topCardsDiscarded.color,
           value: topCardsDiscarded.value,
