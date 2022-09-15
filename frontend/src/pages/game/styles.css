@@ -12,12 +12,12 @@ body, html {
   position: fixed;
   z-index: -1000;
 }
-.buttons__configure {
+/* .buttons__configure {
   margin-left: 70%;
 }
 .buttons__configure input {
   width: 20%;
-}
+} */
 .time__match {
   color: var(--grey-0);
   margin-top: -560px;

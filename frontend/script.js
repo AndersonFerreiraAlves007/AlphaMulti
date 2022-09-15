@@ -61,9 +61,9 @@ function renderLoginPage() {
   backLogin.classList.add('back__login');
   backLogin.setAttribute('src', './src/assets/img/background.png');
 
-  const cartasLogin = document.createElement('img');
-  cartasLogin.classList.add('cartas__login');
-  cartasLogin.setAttribute('src', './src/assets/img/cartas-login.png');
+  const cardsLogin = document.createElement('img');
+  cardsLogin.classList.add('cards__login');
+  cardsLogin.setAttribute('src', './src/assets/img/cartas-login.png');
 
   const buttonsCofigure = document.createElement('div');
   buttonsCofigure.classList.add('buttons__configure');
@@ -157,10 +157,10 @@ function renderLoginPage() {
   containerUsuario.append(buttonEsquerda, imgUsuario, buttonDireita);
 
   containerLogin.append(inputLogin, containerUsuario, buttonPlay);
-
+  
   containerPaiLogin.append(containerBlue, containerLogin);
 
-  main.append(backLogin, cartasLogin, buttonsCofigure, divLogoLogin, containerPaiLogin);
+  main.append(backLogin, cardsLogin, buttonsCofigure, divLogoLogin, containerPaiLogin);
 
   document.getElementById('page').append(main);
 
@@ -199,8 +199,12 @@ function renderRoomPage() {
   main.classList.add('room');
 
   const cardRoom = document.createElement('img');
-  cardRoom.classList.add('cartas__room');
-  cardRoom.src = './src/assets/img/cartas-room.png';
+  cardRoom.classList.add('cards__login');
+  cardRoom.setAttribute('src', './src/assets/img/cartas-login.png');
+
+  // const cardRoom = document.createElement('img');
+  // cardRoom.classList.add('cartas__room');
+  // cardRoom.src = './src/assets/img/cartas-room.png';
 
   const divButtons = document.createElement('div');
   divButtons.classList.add('buttons__configure');
