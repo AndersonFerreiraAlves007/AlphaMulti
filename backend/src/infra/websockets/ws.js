@@ -23,7 +23,8 @@ ws.on('connection', client => {
     case 'login':
       GameController.login({}, {
         playerId: payload.id,
-        username: payload.username
+        username: payload.username,
+        avatar: payload.avatar
       });
       break;
     case 'enterRandomRoom':

@@ -27,7 +27,8 @@ class GetDataRoom {
           numberCards: item.cards.length,
           score: item.score,
           order: item.order,
-          isBot: item.isBot
+          isBot: item.isBot,
+          avatar: item.avatar
         })
         )
       };

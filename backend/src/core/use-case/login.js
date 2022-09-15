@@ -3,19 +3,21 @@ class Login {
     this.playerRepository = playerRepository;
   }
 
-  async execute (id, username) {
+  async execute (id, username, avatar) {
     const player = await this.playerRepository.createPlayer(id, {
       username,
       isBot: false,
       score: 0,
       cards: '',
       roomId: '',
-      order: -1
+      order: -1,
+      avatar
     });
     return {
       id: player.id,
       username: player.username,
-      score: player.score
+      score: player.score,
+      avatar: player.avatar
     };
   }
 }

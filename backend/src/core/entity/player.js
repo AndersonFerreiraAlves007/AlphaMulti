@@ -1,5 +1,5 @@
 class Player {
-  constructor(id, username, isBot, score, cards, roomId, order) {
+  constructor(id, username, isBot, score, cards, roomId, order, avatar) {
     this.id = id;
     this.username = username;
     this.isBot = isBot;
@@ -7,6 +7,7 @@ class Player {
     this.cards = cards;
     this.roomId = roomId;
     this.order = order;
+    this.avatar = avatar;
   }
 
   isWiner() {

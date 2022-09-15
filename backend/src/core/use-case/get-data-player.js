@@ -12,7 +12,8 @@ class GetDataPlayer {
         cards: player.cards.map(item => ({ color: item.color, value: item.value })),
         score: player.score,
         order: player.order,
-        isBot: player.isBot
+        isBot: player.isBot,
+        avatar: player.avatar
       };
     }
     return null;

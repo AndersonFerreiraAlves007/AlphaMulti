@@ -79,7 +79,7 @@ class GameController {
       playerRepositoryRedis
     );
 
-    const result = await loginUseCase.execute(body.playerId, body.username);
+    const result = await loginUseCase.execute(body.playerId, body.username, body.avatar);
     return result;
   }
 

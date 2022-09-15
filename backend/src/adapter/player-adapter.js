@@ -16,7 +16,8 @@ class PlayerAdapter {
       data.score, 
       cards, 
       data.roomId, 
-      data.order
+      data.order,
+      data.avatar
     );
   }
 }

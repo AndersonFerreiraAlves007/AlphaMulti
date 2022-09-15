@@ -12,12 +12,14 @@ class ServerCommunication {
       switch (msg.type) {
         case 'init':
           const username = sessionStorage.getItem('username')
+          const avatar = sessionStorage.getItem('avatar')
           sessionStorage.setItem('playerId', msg.playerId)
           this.ws.send(JSON.stringify({
             type: 'login',
             payload: {
               username,
-              id: sessionStorage.getItem('playerId')
+              id: sessionStorage.getItem('playerId'),
+              avatar
             }
           }))
           break;
