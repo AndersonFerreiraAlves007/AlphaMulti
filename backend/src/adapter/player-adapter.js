@@ -20,6 +20,27 @@ class PlayerAdapter {
       data.avatar
     );
   }
+  static createJson (data) {
+    const dataCards = data.cards.split(';');
+    const cards = [];
+    for(let i = 0; i < dataCards.length; i++) {
+      const infoCard = dataCards[i].split(':');
+      cards.push({
+        color: infoCard[0], 
+        value: infoCard[1]
+      });
+    }
+    return {
+      id: data.id, 
+      username: data.userame, 
+      isBot: data.isBot, 
+      score: data.score, 
+      cards, 
+      roomId: data.roomId, 
+      order: data.order,
+      avatar: data.avatar
+    };
+  }
 }
 
 module.exports = PlayerAdapter;
