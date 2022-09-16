@@ -1,5 +1,5 @@
 const Player = require('../core/entity/player');
-const Card = require('../../core/entity/card');
+const Card = require('../core/entity/card');
 
 class PlayerAdapter {
   static create (data) {
