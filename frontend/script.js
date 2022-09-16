@@ -43,6 +43,10 @@ function navigate(page) {
       clearContent();
       renderGamePage();
       break;
+    case 'roomsPrivate':
+      clearContent();
+      renderRoomsPrivates();
+      break;
   }
 }
 
@@ -930,8 +934,8 @@ function renderGamePage() {
    `; */
 }
 
-/* navigate('splashScreen'); */
+navigate('splashScreen');
 
-renderRoomsPrivates()
+/* renderRoomsPrivates() */
 
 /* Modal.showEnterRoomModal('Sala 1 (3/4)'); */
