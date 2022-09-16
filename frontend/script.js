@@ -858,4 +858,4 @@ function renderGamePage() {
 
 navigate('splashScreen');
 
-/* Modal.showVictoryModal(); */
+/* Modal.showEnterRoomModal('Sala 1 (3/4)'); */
