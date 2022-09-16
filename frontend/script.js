@@ -4,6 +4,27 @@ let serverCommunication = null; */
 
 import { Modal } from './src/utils/modal.js';
 
+function getImgCard(color, value) {
+  if(value === 'm4') return './src/assets/img/cards/special/m4.svg'
+  if(value === 's1') return './src/assets/img/cards/special/s1.svg'
+  let folder = ''
+  switch (color) {
+    case 'b':
+      folder = 'blue'
+      break;
+    case 'r':
+      folder = 'red'
+      break;
+    case 'g':
+      folder = 'green'
+      break;
+    case 'y':
+      folder = 'yellow'
+      break;
+  }
+  return `./src/assets/img/cards/${folder}/${value}.svg`
+}
+
 function navigate(page) {
   switch (page) {
     case 'splashScreen':
@@ -325,7 +346,7 @@ const player = {
       value: '1',
     },
     {
-      color: 'b',
+      color: 'r',
       value: '2',
     },
     {
@@ -333,20 +354,20 @@ const player = {
       value: '3',
     },
     {
-      color: 'b',
+      color: 'g',
       value: '4',
     },
     {
-      color: 'b',
-      value: '5',
+      color: 's',
+      value: 's1',
     },
     {
-      color: 'b',
+      color: 'y',
       value: '6',
     },
     {
-      color: 'b',
-      value: '7',
+      color: 's',
+      value: 'm4',
     },
   ],
   score: 1000,
@@ -366,15 +387,15 @@ const room = {
   name: 'Sala Legal',
   code: '',
   topCard: {
-    color: 'b',
-    value: '1',
+    color: 's',
+    value: 'm4',
   },
   positionActive: 1,
   players: [
     {
       id: 1,
       username: 'Anderson',
-      numberCards: 7,
+      numberCards: 4,
       score: 1000,
       order: 1,
       isBot: false,
@@ -387,7 +408,7 @@ const room = {
       score: 1000,
       order: 2,
       isBot: false,
-      avatar: './src/assets/img/users/user1.svg'
+      avatar: './src/assets/img/users/user2.svg'
     },
     {
       id: 3,
@@ -396,21 +417,47 @@ const room = {
       score: 1000,
       order: 3,
       isBot: false,
-      avatar: './src/assets/img/users/user1.svg'
+      avatar: './src/assets/img/users/user3.svg'
     },
     {
       id: 4,
-      username: 'Breda',
-      numberCards: 7,
+      username: 'Brenda',
+      numberCards: 1,
       score: 1000,
       order: 4,
       isBot: false,
-      avatar: './src/assets/img/users/user1.svg'
+      avatar: './src/assets/img/users/user4.svg'
     },
   ],
 };
 
 function renderGamePage() {
+
+  const orderPlayer = player.order
+
+  const players = room.players.sort((a,b) => a.order - b.order)
+
+  const playerIndex = players.findIndex(item => item.order === orderPlayer)
+
+  let index = playerIndex
+
+  /* const player4 = players[index] */
+  const player4 = player
+  index = index + 1
+  index = index > 4 ? 1 : index
+
+  const player2 = players[index]
+  index = index + 1
+  index = index > 4 ? 1 : index
+
+  const player1 = players[index]
+  index = index + 1
+  index = index > 4 ? 1 : index
+
+  const player3 = players[index]
+  index = index + 1
+  index = index > 4 ? 1 : index
+
   const page = document.getElementById('page');
 
   const main = document.createElement('main');
@@ -443,23 +490,25 @@ function renderGamePage() {
 
   const infoUserPerfil1Foto = document.createElement('img');
   infoUserPerfil1Foto.classList.add('foto')
-  infoUserPerfil1Foto.setAttribute('src', './src/assets/img/users/user1.svg')
+  infoUserPerfil1Foto.setAttribute('src', player1.avatar)
   infoUserPerfil1.append(infoUserPerfil1Foto)
 
   const infoUserPerfil1H2 = document.createElement('h2');
-  infoUserPerfil1H2.innerText = 'Kenji'
+  infoUserPerfil1H2.innerText = player1.username
   infoUserPerfil1.append(infoUserPerfil1H2)
 
-  const infoUserPerfil1TimeUser = document.createElement('h3');
-  infoUserPerfil1TimeUser.classList.add('time__user')
-  infoUserPerfil1TimeUser.innerText = '0:10'
-  infoUserPerfil1.append(infoUserPerfil1TimeUser)
+  if(player1.order === room.positionActive) {
+    const infoUserPerfil1TimeUser = document.createElement('h3');
+    infoUserPerfil1TimeUser.classList.add('time__user')
+    infoUserPerfil1TimeUser.innerText = '0:10'
+    infoUserPerfil1.append(infoUserPerfil1TimeUser)
+  }
 
   const rowAlinhametoTranslate1 = document.createElement('div');
   rowAlinhametoTranslate1.classList.add('row', 'alinhamento2', 'translate')
   main.append(rowAlinhametoTranslate1)
 
-  const cardsUser1Card1 = document.createElement('img');
+  /* const cardsUser1Card1 = document.createElement('img');
   cardsUser1Card1.classList.add('card', 'overflowA')
   cardsUser1Card1.setAttribute('src', './src/assets/img/verso-carta.png')
   rowAlinhametoTranslate1.append(cardsUser1Card1)
@@ -492,7 +541,14 @@ function renderGamePage() {
   const cardsUser1Card7 = document.createElement('img');
   cardsUser1Card7.classList.add('card', 'overflowA7')
   cardsUser1Card7.setAttribute('src', './src/assets/img/verso-carta.png')
-  rowAlinhametoTranslate1.append(cardsUser1Card7)
+  rowAlinhametoTranslate1.append(cardsUser1Card7) */
+
+  for(let i = 1; i <= player1.numberCards; i++) {
+    const cardsUser1Card1 = document.createElement('img');
+    cardsUser1Card1.classList.add('card', `overflowA${i > 1 ? `${i}` : ''}`)
+    cardsUser1Card1.setAttribute('src', './src/assets/img/verso-carta.png')
+    rowAlinhametoTranslate1.append(cardsUser1Card1)
+  }
 
 
   const colunaAlinhamento = document.createElement('div');
@@ -509,23 +565,25 @@ function renderGamePage() {
 
   const infoUserPerfil2Foto = document.createElement('img');
   infoUserPerfil2Foto.classList.add('foto')
-  infoUserPerfil2Foto.setAttribute('src', './src/assets/img/users/user7.svg')
+  infoUserPerfil2Foto.setAttribute('src', player2.avatar)
   infoUserPerfil2.append(infoUserPerfil2Foto)
 
   const infoUserPerfil2H2 = document.createElement('h2');
-  infoUserPerfil2H2.innerText = 'Ichigo'
+  infoUserPerfil2H2.innerText = player2.username
   infoUserPerfil2.append(infoUserPerfil2H2)
 
-  const infoUserPerfil2TimeUser = document.createElement('h3');
-  infoUserPerfil2TimeUser.classList.add('time__user')
-  infoUserPerfil2TimeUser.innerText = '0:10'
-  infoUserPerfil2.append(infoUserPerfil2TimeUser)
+  if(player2.order === room.positionActive) {
+    const infoUserPerfil2TimeUser = document.createElement('h3');
+    infoUserPerfil2TimeUser.classList.add('time__user')
+    infoUserPerfil2TimeUser.innerText = '0:10'
+    infoUserPerfil2.append(infoUserPerfil2TimeUser)
+  }
 
   const colunaEsquerda = document.createElement('div');
   colunaEsquerda.classList.add('column', 'esquerda')
   testeUser1.append(colunaEsquerda)
   
-  const cardsUser2Card1 = document.createElement('img');
+  /* const cardsUser2Card1 = document.createElement('img');
   cardsUser2Card1.classList.add('card', 'overflowY')
   cardsUser2Card1.setAttribute('src', './src/assets/img/verso-carta.png')
   colunaEsquerda.append(cardsUser2Card1)
@@ -558,7 +616,14 @@ function renderGamePage() {
   const cardsUser2Card7 = document.createElement('img');
   cardsUser2Card7.classList.add('card', 'overflowY7')
   cardsUser2Card7.setAttribute('src', './src/assets/img/verso-carta.png')
-  colunaEsquerda.append(cardsUser2Card7)
+  colunaEsquerda.append(cardsUser2Card7) */
+
+  for(let i = 1; i <= player2.numberCards; i++) {
+    const cardsUser2Card1 = document.createElement('img');
+    cardsUser2Card1.classList.add('card', `overflowY${i > 1 ? `${i}` : ''}`)
+    cardsUser2Card1.setAttribute('src', './src/assets/img/verso-carta.png')
+    colunaEsquerda.append(cardsUser2Card1)
+  }
 
   const cartaMeio = document.createElement('div');
   cartaMeio.classList.add('carta-meio')
@@ -566,7 +631,7 @@ function renderGamePage() {
 
   const cartaLixo = document.createElement('img');
   cartaLixo.classList.add('carta-lixo')
-  cartaLixo.setAttribute('src', './src/assets/img/cards/red/3.svg')
+  cartaLixo.setAttribute('src', getImgCard(room.topCard.color, room.topCard.value))
   cartaMeio.append(cartaLixo)
 
   const testeUser2 = document.createElement('div');
@@ -577,7 +642,7 @@ function renderGamePage() {
   colunaDireita.classList.add('column', 'direita')
   testeUser2.append(colunaDireita)
 
-  const cardsUser3Card1 = document.createElement('img');
+  /* const cardsUser3Card1 = document.createElement('img');
   cardsUser3Card1.classList.add('card', 'overflowZ')
   cardsUser3Card1.setAttribute('src', './src/assets/img/verso-carta.png')
   colunaDireita.append(cardsUser3Card1)
@@ -610,7 +675,14 @@ function renderGamePage() {
   const cardsUser3Card7 = document.createElement('img');
   cardsUser3Card7.classList.add('card', 'overflowZ7')
   cardsUser3Card7.setAttribute('src', './src/assets/img/verso-carta.png')
-  colunaDireita.append(cardsUser3Card7)
+  colunaDireita.append(cardsUser3Card7) */
+
+  for(let i = 1; i <= player3.numberCards; i++) {
+    const cardsUser2Card1 = document.createElement('img');
+    cardsUser2Card1.classList.add('card', `overflowZ${i > 1 ? `${i}` : ''}`)
+    cardsUser2Card1.setAttribute('src', './src/assets/img/verso-carta.png')
+    colunaDireita.append(cardsUser2Card1)
+  }
 
   const infoUserPerfil3 = document.createElement('div');
   infoUserPerfil2.classList.add('info__user--perfil')
@@ -618,17 +690,19 @@ function renderGamePage() {
 
   const infoUserPerfil3Foto = document.createElement('img');
   infoUserPerfil3Foto.classList.add('foto')
-  infoUserPerfil3Foto.setAttribute('src', './src/assets/img/users/user5.svg')
+  infoUserPerfil3Foto.setAttribute('src', player3.avatar)
   infoUserPerfil3.append(infoUserPerfil3Foto)
 
   const infoUserPerfil3H2 = document.createElement('h2');
-  infoUserPerfil3H2.innerText = 'Naruto'
+  infoUserPerfil3H2.innerText = player3.username
   infoUserPerfil3.append(infoUserPerfil3H2)
 
-  const infoUserPerfil3TimeUser = document.createElement('h3');
-  infoUserPerfil3TimeUser.classList.add('time__user')
-  infoUserPerfil3TimeUser.innerText = '0:10'
-  infoUserPerfil3.append(infoUserPerfil3TimeUser)
+  if(player3.order === room.positionActive) {
+    const infoUserPerfil3TimeUser = document.createElement('h3');
+    infoUserPerfil3TimeUser.classList.add('time__user')
+    infoUserPerfil3TimeUser.innerText = '0:10'
+    infoUserPerfil3.append(infoUserPerfil3TimeUser)
+  }
 
   const userFour = document.createElement('div');
   userFour.classList.add('user__four')
@@ -638,7 +712,7 @@ function renderGamePage() {
   traslate2.classList.add('translate2')
   userFour.append(traslate2)
 
-  const cardsUser4Card1 = document.createElement('img');
+  /* const cardsUser4Card1 = document.createElement('img');
   cardsUser4Card1.classList.add('card', 'overflowB')
   cardsUser4Card1.setAttribute('src', './src/assets/img/verso-carta.png')
   traslate2.append(cardsUser4Card1)
@@ -671,7 +745,14 @@ function renderGamePage() {
   const cardsUser4Card7 = document.createElement('img');
   cardsUser4Card7.classList.add('card', 'overflowB7')
   cardsUser4Card7.setAttribute('src', './src/assets/img/verso-carta.png')
-  traslate2.append(cardsUser4Card7)
+  traslate2.append(cardsUser4Card7) */
+
+  for(let i = 0; i < player4.cards.length; i++) {
+    const cardsUser2Card1 = document.createElement('img');
+    cardsUser2Card1.classList.add('card', `overflowB${i + 1 > 1 ? `${i + 1}` : ''}`, 'card-player')
+    cardsUser2Card1.setAttribute('src', getImgCard(player4.cards[i].color, player4.cards[i].value))
+    traslate2.append(cardsUser2Card1)
+  }
 
   const infoUserPerfil4 = document.createElement('div');
   infoUserPerfil4.classList.add('info__user--perfil')
@@ -679,17 +760,19 @@ function renderGamePage() {
 
   const infoUserPerfil4Foto = document.createElement('img');
   infoUserPerfil4Foto.classList.add('foto')
-  infoUserPerfil4Foto.setAttribute('src', './src/assets/img/users/user10.svg')
+  infoUserPerfil4Foto.setAttribute('src', player4.avatar)
   infoUserPerfil4.append(infoUserPerfil4Foto)
 
   const infoUserPerfil4H2 = document.createElement('h2');
-  infoUserPerfil4H2.innerText = 'Rukia'
+  infoUserPerfil4H2.innerText = player4.username
   infoUserPerfil4.append(infoUserPerfil4H2)
 
-  const infoUserPerfil4TimeUser = document.createElement('h3');
-  infoUserPerfil4TimeUser.classList.add('time__user')
-  infoUserPerfil4TimeUser.innerText = '0:10'
-  infoUserPerfil4.append(infoUserPerfil4TimeUser)
+  if(player4.order === room.positionActive) {
+    const infoUserPerfil4TimeUser = document.createElement('h3');
+    infoUserPerfil4TimeUser.classList.add('time__user')
+    infoUserPerfil4TimeUser.innerText = '0:10'
+    infoUserPerfil4.append(infoUserPerfil4TimeUser)
+  }
 
   /* document.getElementById('page').innerHTML = `
    <main>

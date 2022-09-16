@@ -338,3 +338,46 @@ html {
   top: 20px;
   right: 20px;
 }
+
+.card-player {
+  cursor: pointer;
+}
+
+/* .card-player:hover {
+  transform: ;
+} */
+
+.overflowB:hover {
+  z-index: 10000000;
+  border: 5px solid black;
+}
+
+.overflowB2:hover {
+  transform: translate(-100%);
+  border: 5px solid black;
+}
+
+.overflowB3:hover {
+  z-index: 10000000;
+  border: 5px solid black;
+}
+
+.overflowB4:hover {
+  z-index: 10000000;
+  border: 5px solid black;
+}
+
+.overflowB5:hover {
+  z-index: 10000000;
+  border: 5px solid black;
+}
+
+.overflowB6:hover {
+  z-index: 10000000;
+  border: 5px solid black;
+}
+
+.overflowB7:hover {
+  z-index: 10000000;
+  border: 5px solid black;
+}
