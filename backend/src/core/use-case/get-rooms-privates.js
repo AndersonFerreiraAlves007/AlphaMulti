@@ -6,12 +6,11 @@ class GetDataRoom {
 
   async execute () {
     const rooms = await this.roomRepository.getRoomPrivateAvaliables();
-    console.log(rooms);
     const dataRooms = [];
 
     for(let i = 0; i < rooms.length; i++) {
       const room = rooms[i];
-      const players = await this.roomRepository.getPlayersRoom(room.id);
+      const players = await this.playerRepository.getPlayersRoom(room.id);
       dataRooms.push({
         id: room.id,
         code: room.code,

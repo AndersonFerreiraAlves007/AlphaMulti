@@ -12,11 +12,11 @@ class PlayerAdapter {
     return new Player(
       data.id, 
       data.userame, 
-      data.isBot, 
-      data.score, 
+      data.isBot === 'true', 
+      Number(data.score), 
       cards, 
       data.roomId, 
-      data.order,
+      Number(data.order),
       data.avatar
     );
   }
@@ -33,11 +33,11 @@ class PlayerAdapter {
     return {
       id: data.id, 
       username: data.userame, 
-      isBot: data.isBot, 
-      score: data.score, 
+      isBot: data.isBot === 'true', 
+      score: Number(data.score), 
       cards, 
       roomId: data.roomId, 
-      order: data.order,
+      order: Number(data.order),
       avatar: data.avatar
     };
   }
