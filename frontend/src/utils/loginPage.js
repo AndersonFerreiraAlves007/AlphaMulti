@@ -135,7 +135,7 @@ const renderLoginPage = () => {
     /* setTimeout(() => {
       navigate('room');
     }, 5000) */
-    navigate('typeRoom');
+    navigate('roomOptions');
   });
 
   containerUsuario.append(buttonEsquerda, imgUsuario, buttonDireita);
