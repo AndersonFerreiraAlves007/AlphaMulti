@@ -1,3 +1,7 @@
+function clearContent() {
+  document.getElementById('page').innerHTML = '';
+}
+
 const navigate = (page) => {
   switch (page) {
     case 'splashScreen':

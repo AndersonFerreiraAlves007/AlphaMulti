@@ -1,3 +1,120 @@
+import { Globals } from './globals.js';
+
+const player = {
+  id: 1,
+  username: 'Anderson',
+  cards: [
+    {
+      color: 'b',
+      value: '1',
+    },
+    {
+      color: 'r',
+      value: '2',
+    },
+    {
+      color: 'b',
+      value: '3',
+    },
+    {
+      color: 'g',
+      value: '4',
+    },
+    {
+      color: 's',
+      value: 's1',
+    },
+    {
+      color: 'y',
+      value: '6',
+    },
+    {
+      color: 's',
+      value: 'm4',
+    },
+  ],
+  score: 1000,
+  order: 1,
+  isBot: false,
+  avatar: './src/assets/img/users/user1.svg',
+};
+
+const room = {
+  id: 1,
+  createdAt: new Date(),
+  startGameAt: new Date(),
+  startLastTurnAt: new Date(),
+  direction: 1,
+  isRun: true,
+  type: 'public',
+  name: 'Sala Legal',
+  code: '',
+  topCard: {
+    color: 's',
+    value: 'm4',
+  },
+  positionActive: 1,
+  players: [
+    {
+      id: 1,
+      username: 'Anderson',
+      numberCards: 4,
+      score: 1000,
+      order: 1,
+      isBot: false,
+      avatar: './src/assets/img/users/user1.svg',
+    },
+    {
+      id: 2,
+      username: 'Adriana',
+      numberCards: 7,
+      score: 1000,
+      order: 2,
+      isBot: false,
+      avatar: './src/assets/img/users/user2.svg',
+    },
+    {
+      id: 3,
+      username: 'Manu',
+      numberCards: 7,
+      score: 1000,
+      order: 3,
+      isBot: false,
+      avatar: './src/assets/img/users/user3.svg',
+    },
+    {
+      id: 4,
+      username: 'Brenda',
+      numberCards: 1,
+      score: 1000,
+      order: 4,
+      isBot: false,
+      avatar: './src/assets/img/users/user4.svg',
+    },
+  ],
+};
+
+function getImgCard(color, value) {
+  if (value === 'm4') return './src/assets/img/cards/special/m4.svg';
+  if (value === 's1') return './src/assets/img/cards/special/s1.svg';
+  let folder = '';
+  switch (color) {
+    case 'b':
+      folder = 'blue';
+      break;
+    case 'r':
+      folder = 'red';
+      break;
+    case 'g':
+      folder = 'green';
+      break;
+    case 'y':
+      folder = 'yellow';
+      break;
+  }
+  return `./src/assets/img/cards/${folder}/${value}.svg`;
+}
+
 const renderGamePage = () => {
   const orderPlayer = player.order;
 

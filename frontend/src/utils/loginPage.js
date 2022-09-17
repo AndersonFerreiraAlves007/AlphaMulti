@@ -1,6 +1,24 @@
 import { navigate } from './navigate.js';
+import { ServerCommunication } from '../services/ServerComunication.js';
+import { Globals } from './globals.js';
+
+const avatares = [
+  './src/assets/img/users/user1.svg',
+  './src/assets/img/users/user2.svg',
+  './src/assets/img/users/user3.svg',
+  './src/assets/img/users/user4.svg',
+  './src/assets/img/users/user5.svg',
+  './src/assets/img/users/user6.svg',
+  './src/assets/img/users/user7.svg',
+  './src/assets/img/users/user8.svg',
+  './src/assets/img/users/user9.svg',
+  './src/assets/img/users/user10.svg',
+];
+
+let indexAvatar = 0;
 
 const renderLoginPage = () => {
+  indexAvatar = 0;
   const main = document.createElement('main');
   main.classList.add('login');
 
@@ -54,25 +72,41 @@ const renderLoginPage = () => {
   const containerUsuario = document.createElement('div');
   containerUsuario.classList.add('container__usuario');
 
+  const imgUsuario = document.createElement('img');
+  imgUsuario.classList.add('img__usuario');
+  imgUsuario.setAttribute('src', './src/assets/img/users/user1.svg');
+
   const buttonEsquerda = document.createElement('input');
   buttonEsquerda.classList.add('button__esquerda');
   buttonEsquerda.setAttribute('type', 'image');
   buttonEsquerda.setAttribute('src', './src/assets/img/button-esquerda.svg');
-
-  const imgUsuario = document.createElement('img');
-  imgUsuario.classList.add('img__usuario');
-  imgUsuario.setAttribute('src', './src/assets/img/users/user1.svg');
+  buttonEsquerda.addEventListener('click', () => {
+    console.log('btn esquerna');
+    if (indexAvatar === 0) indexAvatar = 9;
+    else indexAvatar = indexAvatar - 1;
+    imgUsuario.setAttribute('src', avatares[indexAvatar]);
+  });
 
   const buttonDireita = document.createElement('input');
   buttonDireita.classList.add('button__direita');
   buttonDireita.setAttribute('type', 'image');
   buttonDireita.setAttribute('src', './src/assets/img/button-direita.svg');
+  buttonDireita.addEventListener('click', () => {
+    console.log('btn direita');
+    if (indexAvatar === 9) indexAvatar = 0;
+    else indexAvatar = indexAvatar + 1;
+    imgUsuario.setAttribute('src', avatares[indexAvatar]);
+  });
 
   const buttonPlay = document.createElement('input');
   buttonPlay.classList.add('button__play');
   buttonPlay.setAttribute('type', 'image');
   buttonPlay.setAttribute('src', './src/assets/img/button-play.svg');
   buttonPlay.addEventListener('click', () => {
+    const username = inputLogin.value;
+    sessionStorage.setItem('username', username);
+    sessionStorage.setItem('avatar', avatares[indexAvatar]);
+    Globals.serverCommunication = new ServerCommunication('localhost:3333');
     /* serverCommunication = new ServerCommunication('localhost:3333')
     serverCommunication.addEventListener('startGame', (data)=> {
       const { player, room } = data
@@ -98,7 +132,10 @@ const renderLoginPage = () => {
       const { player, room } = data
       renderGamePage(player, room)
     }) */
-    navigate('room');
+    /* setTimeout(() => {
+      navigate('room');
+    }, 5000) */
+    navigate('typeRoom');
   });
 
   containerUsuario.append(buttonEsquerda, imgUsuario, buttonDireita);
