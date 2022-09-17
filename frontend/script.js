@@ -5,24 +5,24 @@ let serverCommunication = null; */
 import { Modal } from './src/utils/modal.js';
 
 function getImgCard(color, value) {
-  if(value === 'm4') return './src/assets/img/cards/special/m4.svg'
-  if(value === 's1') return './src/assets/img/cards/special/s1.svg'
-  let folder = ''
+  if (value === 'm4') return './src/assets/img/cards/special/m4.svg';
+  if (value === 's1') return './src/assets/img/cards/special/s1.svg';
+  let folder = '';
   switch (color) {
     case 'b':
-      folder = 'blue'
+      folder = 'blue';
       break;
     case 'r':
-      folder = 'red'
+      folder = 'red';
       break;
     case 'g':
-      folder = 'green'
+      folder = 'green';
       break;
     case 'y':
-      folder = 'yellow'
+      folder = 'yellow';
       break;
   }
-  return `./src/assets/img/cards/${folder}/${value}.svg`
+  return `./src/assets/img/cards/${folder}/${value}.svg`;
 }
 
 function navigate(page) {
@@ -373,7 +373,7 @@ const player = {
   score: 1000,
   order: 1,
   isBot: false,
-  avatar: './src/assets/img/users/user1.svg'
+  avatar: './src/assets/img/users/user1.svg',
 };
 
 const room = {
@@ -399,7 +399,7 @@ const room = {
       score: 1000,
       order: 1,
       isBot: false,
-      avatar: './src/assets/img/users/user1.svg'
+      avatar: './src/assets/img/users/user1.svg',
     },
     {
       id: 2,
@@ -408,7 +408,7 @@ const room = {
       score: 1000,
       order: 2,
       isBot: false,
-      avatar: './src/assets/img/users/user2.svg'
+      avatar: './src/assets/img/users/user2.svg',
     },
     {
       id: 3,
@@ -417,7 +417,7 @@ const room = {
       score: 1000,
       order: 3,
       isBot: false,
-      avatar: './src/assets/img/users/user3.svg'
+      avatar: './src/assets/img/users/user3.svg',
     },
     {
       id: 4,
@@ -426,87 +426,86 @@ const room = {
       score: 1000,
       order: 4,
       isBot: false,
-      avatar: './src/assets/img/users/user4.svg'
+      avatar: './src/assets/img/users/user4.svg',
     },
   ],
 };
 
 function renderGamePage() {
+  const orderPlayer = player.order;
 
-  const orderPlayer = player.order
+  const players = room.players.sort((a, b) => a.order - b.order);
 
-  const players = room.players.sort((a,b) => a.order - b.order)
+  const playerIndex = players.findIndex((item) => item.order === orderPlayer);
 
-  const playerIndex = players.findIndex(item => item.order === orderPlayer)
-
-  let index = playerIndex
+  let index = playerIndex;
 
   /* const player4 = players[index] */
-  const player4 = player
-  index = index + 1
-  index = index > 4 ? 1 : index
+  const player4 = player;
+  index = index + 1;
+  index = index > 4 ? 1 : index;
 
-  const player2 = players[index]
-  index = index + 1
-  index = index > 4 ? 1 : index
+  const player2 = players[index];
+  index = index + 1;
+  index = index > 4 ? 1 : index;
 
-  const player1 = players[index]
-  index = index + 1
-  index = index > 4 ? 1 : index
+  const player1 = players[index];
+  index = index + 1;
+  index = index > 4 ? 1 : index;
 
-  const player3 = players[index]
-  index = index + 1
-  index = index > 4 ? 1 : index
+  const player3 = players[index];
+  index = index + 1;
+  index = index > 4 ? 1 : index;
 
   const page = document.getElementById('page');
 
   const main = document.createElement('main');
-  page.append(main)
+  page.append(main);
 
   const background = document.createElement('img');
-  background.classList.add('background')
-  background.setAttribute('src', './src/assets/img/background.png')
-  main.append(background)
+  background.classList.add('background');
+  background.setAttribute('src', './src/assets/img/background.png');
+  main.append(background);
 
   const buttonsConfigure = document.createElement('div');
-  buttonsConfigure.classList.add('buttons__configure')
-  main.append(buttonsConfigure)
+  buttonsConfigure.classList.add('buttons__configure');
+  main.append(buttonsConfigure);
 
   const buttonSound = document.createElement('input');
-  buttonSound.classList.add('button__sound')
-  buttonSound.setAttribute('type', 'image')
-  buttonSound.setAttribute('src', './src/assets/img/button-sound.png')
-  buttonsConfigure.append(buttonSound)
+  buttonSound.classList.add('button__sound');
+  buttonSound.setAttribute('type', 'image');
+  buttonSound.setAttribute('src', './src/assets/img/button-sound.png');
+  buttonsConfigure.append(buttonSound);
 
   const buttonClose = document.createElement('input');
-  buttonClose.classList.add('button__close')
-  buttonClose.setAttribute('type', 'image')
-  buttonClose.setAttribute('src', './src/assets/img/button-close.png')
-  buttonsConfigure.append(buttonClose)
+  buttonClose.classList.add('button__close');
+  buttonClose.setAttribute('type', 'image');
+  buttonClose.setAttribute('src', './src/assets/img/button-close.png');
+  buttonsConfigure.append(buttonClose);
 
   const infoUserPerfil1 = document.createElement('div');
-  infoUserPerfil1.classList.add('info__user--perfil')
-  main.append(infoUserPerfil1)
+  infoUserPerfil1.classList.add('info__user--perfil');
+  main.append(infoUserPerfil1);
 
   const infoUserPerfil1Foto = document.createElement('img');
-  infoUserPerfil1Foto.classList.add('foto')
-  infoUserPerfil1Foto.setAttribute('src', player1.avatar)
-  infoUserPerfil1.append(infoUserPerfil1Foto)
+  infoUserPerfil1Foto.classList.add('foto');
+  infoUserPerfil1Foto.setAttribute('src', player1.avatar);
+  infoUserPerfil1.append(infoUserPerfil1Foto);
 
   const infoUserPerfil1H2 = document.createElement('h2');
-  infoUserPerfil1H2.innerText = player1.username
-  infoUserPerfil1.append(infoUserPerfil1H2)
+  infoUserPerfil1H2.innerText = player1.username;
+  infoUserPerfil1.append(infoUserPerfil1H2);
 
-  if(player1.order === room.positionActive) {
+  if (player1.order === room.positionActive) {
     const infoUserPerfil1TimeUser = document.createElement('h3');
-    infoUserPerfil1TimeUser.classList.add('time__user')
-    infoUserPerfil1TimeUser.innerText = '0:10'
-    infoUserPerfil1.append(infoUserPerfil1TimeUser)
+    infoUserPerfil1TimeUser.classList.add('time__user');
+    infoUserPerfil1TimeUser.innerText = '0:10';
+    infoUserPerfil1.append(infoUserPerfil1TimeUser);
   }
 
   const rowAlinhametoTranslate1 = document.createElement('div');
-  rowAlinhametoTranslate1.classList.add('row', 'alinhamento2', 'translate')
-  main.append(rowAlinhametoTranslate1)
+  rowAlinhametoTranslate1.classList.add('row', 'alinhamento2', 'translate');
+  main.append(rowAlinhametoTranslate1);
 
   /* const cardsUser1Card1 = document.createElement('img');
   cardsUser1Card1.classList.add('card', 'overflowA')
@@ -543,46 +542,45 @@ function renderGamePage() {
   cardsUser1Card7.setAttribute('src', './src/assets/img/verso-carta.png')
   rowAlinhametoTranslate1.append(cardsUser1Card7) */
 
-  for(let i = 1; i <= player1.numberCards; i++) {
+  for (let i = 1; i <= player1.numberCards; i++) {
     const cardsUser1Card1 = document.createElement('img');
-    cardsUser1Card1.classList.add('card', `overflowA${i > 1 ? `${i}` : ''}`)
-    cardsUser1Card1.setAttribute('src', './src/assets/img/verso-carta.png')
-    rowAlinhametoTranslate1.append(cardsUser1Card1)
+    cardsUser1Card1.classList.add('card', `overflowA${i > 1 ? `${i}` : ''}`);
+    cardsUser1Card1.setAttribute('src', './src/assets/img/verso-carta.png');
+    rowAlinhametoTranslate1.append(cardsUser1Card1);
   }
 
-
   const colunaAlinhamento = document.createElement('div');
-  colunaAlinhamento.classList.add('columnT', 'alinhamento')
-  main.append(colunaAlinhamento)
+  colunaAlinhamento.classList.add('columnT', 'alinhamento');
+  main.append(colunaAlinhamento);
 
   const testeUser1 = document.createElement('div');
-  testeUser1.classList.add('teste')
-  colunaAlinhamento.append(testeUser1)
+  testeUser1.classList.add('teste');
+  colunaAlinhamento.append(testeUser1);
 
   const infoUserPerfil2 = document.createElement('div');
-  infoUserPerfil2.classList.add('info__user--perfil')
-  testeUser1.append(infoUserPerfil2)
+  infoUserPerfil2.classList.add('info__user--perfil');
+  testeUser1.append(infoUserPerfil2);
 
   const infoUserPerfil2Foto = document.createElement('img');
-  infoUserPerfil2Foto.classList.add('foto')
-  infoUserPerfil2Foto.setAttribute('src', player2.avatar)
-  infoUserPerfil2.append(infoUserPerfil2Foto)
+  infoUserPerfil2Foto.classList.add('foto');
+  infoUserPerfil2Foto.setAttribute('src', player2.avatar);
+  infoUserPerfil2.append(infoUserPerfil2Foto);
 
   const infoUserPerfil2H2 = document.createElement('h2');
-  infoUserPerfil2H2.innerText = player2.username
-  infoUserPerfil2.append(infoUserPerfil2H2)
+  infoUserPerfil2H2.innerText = player2.username;
+  infoUserPerfil2.append(infoUserPerfil2H2);
 
-  if(player2.order === room.positionActive) {
+  if (player2.order === room.positionActive) {
     const infoUserPerfil2TimeUser = document.createElement('h3');
-    infoUserPerfil2TimeUser.classList.add('time__user')
-    infoUserPerfil2TimeUser.innerText = '0:10'
-    infoUserPerfil2.append(infoUserPerfil2TimeUser)
+    infoUserPerfil2TimeUser.classList.add('time__user');
+    infoUserPerfil2TimeUser.innerText = '0:10';
+    infoUserPerfil2.append(infoUserPerfil2TimeUser);
   }
 
   const colunaEsquerda = document.createElement('div');
-  colunaEsquerda.classList.add('column', 'esquerda')
-  testeUser1.append(colunaEsquerda)
-  
+  colunaEsquerda.classList.add('column', 'esquerda');
+  testeUser1.append(colunaEsquerda);
+
   /* const cardsUser2Card1 = document.createElement('img');
   cardsUser2Card1.classList.add('card', 'overflowY')
   cardsUser2Card1.setAttribute('src', './src/assets/img/verso-carta.png')
@@ -618,29 +616,29 @@ function renderGamePage() {
   cardsUser2Card7.setAttribute('src', './src/assets/img/verso-carta.png')
   colunaEsquerda.append(cardsUser2Card7) */
 
-  for(let i = 1; i <= player2.numberCards; i++) {
+  for (let i = 1; i <= player2.numberCards; i++) {
     const cardsUser2Card1 = document.createElement('img');
-    cardsUser2Card1.classList.add('card', `overflowY${i > 1 ? `${i}` : ''}`)
-    cardsUser2Card1.setAttribute('src', './src/assets/img/verso-carta.png')
-    colunaEsquerda.append(cardsUser2Card1)
+    cardsUser2Card1.classList.add('card', `overflowY${i > 1 ? `${i}` : ''}`);
+    cardsUser2Card1.setAttribute('src', './src/assets/img/verso-carta.png');
+    colunaEsquerda.append(cardsUser2Card1);
   }
 
   const cartaMeio = document.createElement('div');
-  cartaMeio.classList.add('carta-meio')
-  colunaAlinhamento.append(cartaMeio)
+  cartaMeio.classList.add('carta-meio');
+  colunaAlinhamento.append(cartaMeio);
 
   const cartaLixo = document.createElement('img');
-  cartaLixo.classList.add('carta-lixo')
-  cartaLixo.setAttribute('src', getImgCard(room.topCard.color, room.topCard.value))
-  cartaMeio.append(cartaLixo)
+  cartaLixo.classList.add('carta-lixo');
+  cartaLixo.setAttribute('src', getImgCard(room.topCard.color, room.topCard.value));
+  cartaMeio.append(cartaLixo);
 
   const testeUser2 = document.createElement('div');
-  testeUser2.classList.add('teste')
-  colunaAlinhamento.append(testeUser2)
+  testeUser2.classList.add('teste');
+  colunaAlinhamento.append(testeUser2);
 
   const colunaDireita = document.createElement('div');
-  colunaDireita.classList.add('column', 'direita')
-  testeUser2.append(colunaDireita)
+  colunaDireita.classList.add('column', 'direita');
+  testeUser2.append(colunaDireita);
 
   /* const cardsUser3Card1 = document.createElement('img');
   cardsUser3Card1.classList.add('card', 'overflowZ')
@@ -677,40 +675,40 @@ function renderGamePage() {
   cardsUser3Card7.setAttribute('src', './src/assets/img/verso-carta.png')
   colunaDireita.append(cardsUser3Card7) */
 
-  for(let i = 1; i <= player3.numberCards; i++) {
+  for (let i = 1; i <= player3.numberCards; i++) {
     const cardsUser2Card1 = document.createElement('img');
-    cardsUser2Card1.classList.add('card', `overflowZ${i > 1 ? `${i}` : ''}`)
-    cardsUser2Card1.setAttribute('src', './src/assets/img/verso-carta.png')
-    colunaDireita.append(cardsUser2Card1)
+    cardsUser2Card1.classList.add('card', `overflowZ${i > 1 ? `${i}` : ''}`);
+    cardsUser2Card1.setAttribute('src', './src/assets/img/verso-carta.png');
+    colunaDireita.append(cardsUser2Card1);
   }
 
   const infoUserPerfil3 = document.createElement('div');
-  infoUserPerfil2.classList.add('info__user--perfil')
-  testeUser2.append(infoUserPerfil3)
+  infoUserPerfil2.classList.add('info__user--perfil');
+  testeUser2.append(infoUserPerfil3);
 
   const infoUserPerfil3Foto = document.createElement('img');
-  infoUserPerfil3Foto.classList.add('foto')
-  infoUserPerfil3Foto.setAttribute('src', player3.avatar)
-  infoUserPerfil3.append(infoUserPerfil3Foto)
+  infoUserPerfil3Foto.classList.add('foto');
+  infoUserPerfil3Foto.setAttribute('src', player3.avatar);
+  infoUserPerfil3.append(infoUserPerfil3Foto);
 
   const infoUserPerfil3H2 = document.createElement('h2');
-  infoUserPerfil3H2.innerText = player3.username
-  infoUserPerfil3.append(infoUserPerfil3H2)
+  infoUserPerfil3H2.innerText = player3.username;
+  infoUserPerfil3.append(infoUserPerfil3H2);
 
-  if(player3.order === room.positionActive) {
+  if (player3.order === room.positionActive) {
     const infoUserPerfil3TimeUser = document.createElement('h3');
-    infoUserPerfil3TimeUser.classList.add('time__user')
-    infoUserPerfil3TimeUser.innerText = '0:10'
-    infoUserPerfil3.append(infoUserPerfil3TimeUser)
+    infoUserPerfil3TimeUser.classList.add('time__user');
+    infoUserPerfil3TimeUser.innerText = '0:10';
+    infoUserPerfil3.append(infoUserPerfil3TimeUser);
   }
 
   const userFour = document.createElement('div');
-  userFour.classList.add('user__four')
-  main.append(userFour)
+  userFour.classList.add('user__four');
+  main.append(userFour);
 
   const traslate2 = document.createElement('div');
-  traslate2.classList.add('translate2')
-  userFour.append(traslate2)
+  traslate2.classList.add('translate2');
+  userFour.append(traslate2);
 
   /* const cardsUser4Card1 = document.createElement('img');
   cardsUser4Card1.classList.add('card', 'overflowB')
@@ -747,31 +745,31 @@ function renderGamePage() {
   cardsUser4Card7.setAttribute('src', './src/assets/img/verso-carta.png')
   traslate2.append(cardsUser4Card7) */
 
-  for(let i = 0; i < player4.cards.length; i++) {
+  for (let i = 0; i < player4.cards.length; i++) {
     const cardsUser2Card1 = document.createElement('img');
-    cardsUser2Card1.classList.add('card', `overflowB${i + 1 > 1 ? `${i + 1}` : ''}`, 'card-player')
-    cardsUser2Card1.setAttribute('src', getImgCard(player4.cards[i].color, player4.cards[i].value))
-    traslate2.append(cardsUser2Card1)
+    cardsUser2Card1.classList.add('card', `overflowB${i + 1 > 1 ? `${i + 1}` : ''}`, 'card-player');
+    cardsUser2Card1.setAttribute('src', getImgCard(player4.cards[i].color, player4.cards[i].value));
+    traslate2.append(cardsUser2Card1);
   }
 
   const infoUserPerfil4 = document.createElement('div');
-  infoUserPerfil4.classList.add('info__user--perfil')
-  userFour.append(infoUserPerfil4)
+  infoUserPerfil4.classList.add('info__user--perfil');
+  userFour.append(infoUserPerfil4);
 
   const infoUserPerfil4Foto = document.createElement('img');
-  infoUserPerfil4Foto.classList.add('foto')
-  infoUserPerfil4Foto.setAttribute('src', player4.avatar)
-  infoUserPerfil4.append(infoUserPerfil4Foto)
+  infoUserPerfil4Foto.classList.add('foto');
+  infoUserPerfil4Foto.setAttribute('src', player4.avatar);
+  infoUserPerfil4.append(infoUserPerfil4Foto);
 
   const infoUserPerfil4H2 = document.createElement('h2');
-  infoUserPerfil4H2.innerText = player4.username
-  infoUserPerfil4.append(infoUserPerfil4H2)
+  infoUserPerfil4H2.innerText = player4.username;
+  infoUserPerfil4.append(infoUserPerfil4H2);
 
-  if(player4.order === room.positionActive) {
+  if (player4.order === room.positionActive) {
     const infoUserPerfil4TimeUser = document.createElement('h3');
-    infoUserPerfil4TimeUser.classList.add('time__user')
-    infoUserPerfil4TimeUser.innerText = '0:10'
-    infoUserPerfil4.append(infoUserPerfil4TimeUser)
+    infoUserPerfil4TimeUser.classList.add('time__user');
+    infoUserPerfil4TimeUser.innerText = '0:10';
+    infoUserPerfil4.append(infoUserPerfil4TimeUser);
   }
 
   /* document.getElementById('page').innerHTML = `
@@ -856,6 +854,70 @@ function renderGamePage() {
    `; */
 }
 
-navigate('splashScreen');
+const renderRoom = () => {
+  const page = document.getElementById('page');
 
+  const roomFistPage = document.createElement('div');
+  roomFistPage.classList.add('room--first--page');
+
+  const main = document.createElement('main');
+  main.classList.add('main__room');
+
+  const imgBackground = document.createElement('img');
+  imgBackground.classList.add('background');
+  imgBackground.src = './src/assets/img/background.png';
+
+  const divButtons = document.createElement('div');
+  divButtons.classList.add('buttons__configure');
+  const btnSound = document.createElement('img');
+  btnSound.classList.add('button__sound');
+  btnSound.src = './src/assets/img/button-sound.png';
+  const btnClose = document.createElement('img');
+  btnClose.classList.add('button__close');
+  btnClose.src = './src/assets/img/button-close.png';
+  divButtons.append(btnSound, btnClose);
+
+  const imgCards = document.createElement('img');
+  imgCards.classList.add('img__cards');
+  imgCards.src = './src/assets/img/cartas-room.png';
+
+  const imglogo = document.createElement('img');
+  imglogo.classList.add('room--logo');
+  imglogo.src = './src/assets/img/logo.png';
+
+  const title = document.createElement('p');
+  title.innerText = 'Escolha uma opção';
+
+  const divRooms = document.createElement('div');
+  divRooms.classList.add('rooms');
+  const divRoom1 = document.createElement('div');
+  const room1Title = document.createElement('p');
+  room1Title.innerText = 'Salas Aleatórias';
+  const room1Img = document.createElement('img');
+  room1Img.src = './src/assets/img/public-room.svg';
+  divRoom1.append(room1Title, room1Img);
+
+  divRoom1.addEventListener('click', () => {
+    console.log('sala aleatória');
+  });
+
+  const divRoom2 = document.createElement('div');
+  const room2Title = document.createElement('p');
+  room2Title.innerText = 'Salas Privadas';
+  const room2Img = document.createElement('img');
+  room2Img.src = './src/assets/img/private-room.svg';
+  divRoom2.append(room2Title, room2Img);
+
+  divRoom2.addEventListener('click', () => {
+    console.log('sala privada');
+  });
+
+  divRooms.append(divRoom1, divRoom2);
+  main.append(imglogo, title, divRooms);
+  roomFistPage.append(imgBackground, divButtons, main, imgCards);
+  page.append(roomFistPage);
+};
+
+//navigate('splashScreen');
+renderRoom();
 /* Modal.showVictoryModal(); */
