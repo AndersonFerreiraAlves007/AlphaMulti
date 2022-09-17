@@ -10,6 +10,7 @@ class RoomRepositoryRedis extends RoomRepository {
     const rooms = [];
     for(let i = 0; i < ids.length; i++) {
       const room = await redis.hgetall(ids[i]);
+
       if(!room.isRun && room.type === ROOM_PUBLIC) rooms.push(RoomAdapter.create(room));
     }
     return rooms;
@@ -18,8 +19,10 @@ class RoomRepositoryRedis extends RoomRepository {
   async getRoomPrivateAvaliables() {
     const ids = await redis.lrange('rooms', 0, -1);
     const rooms = [];
+    console.log('getRoomPrivateAvaliables', ids);
     for(let i = 0; i < ids.length; i++) {
       const room = await redis.hgetall(ids[i]);
+      console.log('getRoomPrivateAvaliables2', room);
       if(!room.isRun && room.type === ROOM_PRIVATE) rooms.push(RoomAdapter.create(room));
     }
     return rooms;

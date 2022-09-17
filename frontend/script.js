@@ -1,7 +1,7 @@
 import { ServerCommunication } from './src/services/ServerComunication.js';
 
 let serverCommunication = null;
-
+import { renderRoomOptions } from './src/utils/roomOptions.js';
 import { Modal } from './src/utils/modal.js';
 
 function getImgCard(color, value) {
@@ -279,7 +279,8 @@ const rooms = [
   },
 ];
 
-function renderRoomsPrivates() {
+async function renderRoomsPrivates() {
+  const roonsPrivates = await serverCommunication.getRoomsPrivate()
   var e_0 = document.createElement('main');
   e_0.setAttribute('class', 'privateRooms');
   var e_1 = document.createElement('img');
@@ -294,7 +295,7 @@ function renderRoomsPrivates() {
   var e_4 = document.createElement('div');
   e_4.setAttribute('class', 'roomAll');
 
-  rooms.forEach((item) => {
+  roonsPrivates.forEach((item) => {
     var e_5 = document.createElement('div');
     e_5.setAttribute('class', 'roomCard');
     var e_6 = document.createElement('h3');

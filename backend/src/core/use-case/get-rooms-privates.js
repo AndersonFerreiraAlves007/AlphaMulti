@@ -6,6 +6,7 @@ class GetDataRoom {
 
   async execute () {
     const rooms = await this.roomRepository.getRoomPrivateAvaliables();
+    console.log(rooms);
     const dataRooms = [];
 
     for(let i = 0; i < rooms.length; i++) {
