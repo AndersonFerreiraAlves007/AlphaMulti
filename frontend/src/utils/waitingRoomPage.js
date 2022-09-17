@@ -1,4 +1,7 @@
-function renderWaitingRoomPage() {
+import { Globals } from './globals.js';
+
+const renderWaitingRoomPage = () => {
+  Globals.serverCommunication.enterRadomRoom();
   const page = document.getElementById('page');
 
   const main = document.createElement('main');
@@ -86,39 +89,39 @@ function renderWaitingRoomPage() {
   main.append(cardRoom, divButtons, imgBackground, divLogo, divInfo);
   page.append(main);
   /*  document.getElementById('page').innerHTML = `
-     <main>
-         <img class="cartas__room" src="./src/assets/img/cartas-room.png">
-         <div class="buttons__configure">
-             <input class="button__sound" type="image" src="./src/assets/img/button-sound.png">
-             <input class="button__close" type="image" src="./src/assets/img/button-close.png">
-         </div>
-         <img class="backgroud" src="./src/assets/img/background.png">
-         <div class="logo">
-             <img src="./src/assets/img/logo.png">
-         </div>
-         <div class="infor">
-             <h1>Esperando os outros jogadores entrarem...</h1>
-             <h2>Entraram (3/4)</h2>
-             <div class="userAll">
-                 <div class="user">
-                     <img src="./src/assets/img/users/user2.svg">
-                     <p>Usúario 1</p>
-                 </div>
-                 <div class="user">
-                     <img src="./src/assets/img/users/user9.svg">
-                     <p>Usúario 2</p>
-                 </div>
-                 <div class="user">
-                     <img src="./src/assets/img/users/user6.svg">
-                     <p>Usúario 3</p>
-                 </div>
-                 <div class="user">
-                     <p>Esperando jogador...</p>
-                 </div>
-             </div>
-         </div>
-     </main>
-   ` */
-}
+       <main>
+           <img class="cartas__room" src="./src/assets/img/cartas-room.png">
+           <div class="buttons__configure">
+               <input class="button__sound" type="image" src="./src/assets/img/button-sound.png">
+               <input class="button__close" type="image" src="./src/assets/img/button-close.png">
+           </div>
+           <img class="backgroud" src="./src/assets/img/background.png">
+           <div class="logo">
+               <img src="./src/assets/img/logo.png">
+           </div>
+           <div class="infor">
+               <h1>Esperando os outros jogadores entrarem...</h1>
+               <h2>Entraram (3/4)</h2>
+               <div class="userAll">
+                   <div class="user">
+                       <img src="./src/assets/img/users/user2.svg">
+                       <p>Usúario 1</p>
+                   </div>
+                   <div class="user">
+                       <img src="./src/assets/img/users/user9.svg">
+                       <p>Usúario 2</p>
+                   </div>
+                   <div class="user">
+                       <img src="./src/assets/img/users/user6.svg">
+                       <p>Usúario 3</p>
+                   </div>
+                   <div class="user">
+                       <p>Esperando jogador...</p>
+                   </div>
+               </div>
+           </div>
+       </main>
+     ` */
+};
 
 export { renderWaitingRoomPage };
