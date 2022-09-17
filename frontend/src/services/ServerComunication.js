@@ -1,7 +1,7 @@
 class ServerCommunication {
   constructor(host, isSsl = false) {
     this.url = `${isSsl ? 'https://' : 'http://'}${host}`
-    this.ws = new WebSocket(`${isSsl ? 'ws://' : 'wss://'}${host}`);
+    this.ws = new WebSocket(`${isSsl ? 'wss://' : 'ws://'}${host}`);
 
     this.ws.onopen = function (event) {
       console.log('Conectou o socket!')
@@ -9,8 +9,10 @@ class ServerCommunication {
 
     this.ws.onmessage = async (event) => {
       const msg = JSON.parse(event.data)
+      console.log('onmessage', msg)
       switch (msg.type) {
         case 'init':
+          
           const username = sessionStorage.getItem('username')
           const avatar = sessionStorage.getItem('avatar')
           sessionStorage.setItem('playerId', msg.playerId)
@@ -85,25 +87,25 @@ class ServerCommunication {
   // métodos que podem ser usados
 
   async getDataPlayer() {
-    const response = await fetch(`${url}/get-data-player/${sessionStorage.getItem('playerId')}`)
+    const response = await fetch(`${this.url}/get-data-player/${sessionStorage.getItem('playerId')}`)
     const data = await response.json()
     return data
   }
 
   async getDataRoom() {
-    const response = await fetch(`${url}/get-data-room/${sessionStorage.getItem('roomId')}`)
+    const response = await fetch(`${this.url}/get-data-room/${sessionStorage.getItem('roomId')}`)
     const data = await response.json()
     return data
   }
 
   async getRoomsPrivate() {
-    const response = await fetch(`${url}/get-rooms-privates`)
+    const response = await fetch(`${this.url}/get-rooms-privates`)
     const data = await response.json()
     return data
   }
 
   async createRoomPrivate(name, password) {
-    const response = await fetch(`${url}/`, {
+    const response = await fetch(`${this.url}/create-room-private`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

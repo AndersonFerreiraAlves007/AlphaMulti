@@ -3,13 +3,13 @@ const Card = require('../core/entity/card');
 
 class PlayerAdapter {
   static create (data) {
-    const dataCards = data.cards.split(';');
+    const dataCards = data.cards === '' ? [] : data.cards.split(';');
     const cards = [];
     for(let i = 0; i < dataCards.length; i++) {
       const infoCard = dataCards[i].split(':');
       cards.push(new Card(infoCard[0], infoCard[1]));
     }
-    return Player(
+    return new Player(
       data.id, 
       data.userame, 
       data.isBot, 
@@ -21,7 +21,7 @@ class PlayerAdapter {
     );
   }
   static createJson (data) {
-    const dataCards = data.cards.split(';');
+    const dataCards = data.cards === '' ? [] : data.cards.split(';');
     const cards = [];
     for(let i = 0; i < dataCards.length; i++) {
       const infoCard = dataCards[i].split(':');

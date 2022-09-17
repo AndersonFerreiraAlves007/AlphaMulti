@@ -68,7 +68,6 @@ class StartGaneTimeout {
             for(let i = 0; i < players.length; i++) {
               await this.playerRepository.updatePlayer(players[i].id, {
                 cards: players[i].toStringCards(), 
-                roomId: players[i].roomId,
                 order: players[i].order,
               });
             }

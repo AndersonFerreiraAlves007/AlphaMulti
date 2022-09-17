@@ -26,6 +26,7 @@ class EnterRandomRoom {
         if(roomsAvaliables.length > 0) {
           room = roomsAvaliables.sort((a, b) => b.getScore() - a.getScore())[0];
         } else {
+          const code = makeid(5);
           room = await this.roomRepository.createRoom({
             createdAt: new Date().getTime(),
             startGameAt: 0,
@@ -38,13 +39,13 @@ class EnterRandomRoom {
             amount: 0,
             type: ROOM_PUBLIC,
             password: '',
-            name: '',
-            code: makeid()
+            name: `Sala aleatória ${code}`,
+            code
           });
           this.timeNotification.createRoom(room.id);
         }
         await this.playerRepository.updatePlayer(player.id, {
-          roomId: player.roomId
+          roomId: room.id
         });
         const players = await this.playerRepository.getPlayersHumanRoom(room.id);
         this.playerNotification.enterPlayer(room.id);
@@ -76,7 +77,6 @@ class EnterRandomRoom {
           for(let i = 0; i < players.length; i++) {
             await this.playerRepository.updatePlayer(players[i].id, {
               cards: players[i].toStringCards(), 
-              roomId: players[i].roomId,
               order: players[i].order,
             });
           }

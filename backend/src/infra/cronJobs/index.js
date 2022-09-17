@@ -1,7 +1,7 @@
 const GameController = require('../../controller/game-controller');
 const redis = require('../database/redis');
 
-setInterval(async () => {
+/* setInterval(async () => {
   const tasks = await redis.lrange('works_cron', 0, -1);
   for(let i = 0; i < tasks.length; i++) {
     const data = JSON.parse(tasks[i]);
@@ -17,4 +17,4 @@ setInterval(async () => {
       await redis.lrem('works_cron', 0, tasks[i]);
     }
   }
-}, 5000); 
+}, 5000);  */

@@ -31,11 +31,11 @@ class GetDataRoom {
         type: ROOM_PRIVATE,
         password: passwordRoom,
         name: nameRoom,
-        code: makeid()
+        code: makeid(5)
       });
       this.timeNotification.createRoom(room.id);
       await this.playerRepository.updatePlayer(player.id, {
-        roomId: player.roomId
+        roomId: room.id
       });
       this.playerNotification.enterPlayer(room.id);
       return {

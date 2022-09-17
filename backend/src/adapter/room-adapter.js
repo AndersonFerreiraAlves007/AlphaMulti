@@ -4,7 +4,7 @@ const Deck = require('../core/entity/deck');
 
 class RoomAdapter {
   static create (data) {
-    const dataCards = data.cards.split(';');
+    const dataCards = data.cards === '' ? [] : data.cards.split(';');
     const cards = [];
 
     for(let i = 0; i < dataCards.length; i++) {
@@ -12,7 +12,7 @@ class RoomAdapter {
       cards.push(new Card(infoCard[0], infoCard[1]));
     }
 
-    const dataCardsDiscarded = data.cards.split(';');
+    const dataCardsDiscarded = data.cards === '' ? [] : data.cardsDiscarded.split(';');
     const cardsDiscarded = [];
     for(let i = 0; i < dataCardsDiscarded.length; i++) {
       const infoCard = dataCardsDiscarded[i].split(':');
@@ -23,7 +23,7 @@ class RoomAdapter {
     deck.cards = cards;
     deck.cardsDiscarded = cardsDiscarded;
 
-    return Room(
+    return new Room(
       data.id,
       data.createdAt === 0 ? null : new Date().setTime(data.createdAt),
       data.startGameAt === 0 ? null : new Date().setTime(data.startGameAt),
@@ -41,7 +41,7 @@ class RoomAdapter {
   }
 
   static createJson (data) {
-    const dataCards = data.cards.split(';');
+    const dataCards = data.cards === '' ? [] : data.cards.split(';');
     const cards = [];
 
     for(let i = 0; i < dataCards.length; i++) {
@@ -52,7 +52,7 @@ class RoomAdapter {
       });
     }
 
-    const dataCardsDiscarded = data.cards.split(';');
+    const dataCardsDiscarded = data.cardsDiscarded === '' ? [] : data.cardsDiscarded.split(';');
     const cardsDiscarded = [];
     for(let i = 0; i < dataCardsDiscarded.length; i++) {
       const infoCard = dataCardsDiscarded[i].split(':');

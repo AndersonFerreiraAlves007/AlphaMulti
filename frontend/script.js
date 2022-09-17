@@ -1,6 +1,6 @@
-/* import { ServerCommunication } from './src/services/ServerComunication.js';
+import { ServerCommunication } from './src/services/ServerComunication.js';
 
-let serverCommunication = null; */
+let serverCommunication = null;
 
 import { Modal } from './src/utils/modal.js';
 
@@ -47,6 +47,10 @@ function navigate(page) {
       clearContent();
       renderRoomsPrivates();
       break;
+    case 'typeRoom':
+      clearContent();
+      renderTypeRoom();
+      break;
   }
 }
 
@@ -80,7 +84,23 @@ function renderSplashScreenPage() {
   document.getElementById('page').append(main);
 }
 
+const avatares = [
+  './src/assets/img/users/user1.svg',
+  './src/assets/img/users/user2.svg',
+  './src/assets/img/users/user3.svg',
+  './src/assets/img/users/user4.svg',
+  './src/assets/img/users/user5.svg',
+  './src/assets/img/users/user6.svg',
+  './src/assets/img/users/user7.svg',
+  './src/assets/img/users/user8.svg',
+  './src/assets/img/users/user9.svg',
+  './src/assets/img/users/user10.svg',
+]
+
+let indexAvatar = 0
+
 function renderLoginPage() {
+  indexAvatar = 0
   const main = document.createElement('main');
   main.classList.add('login');
 
@@ -134,25 +154,42 @@ function renderLoginPage() {
   const containerUsuario = document.createElement('div');
   containerUsuario.classList.add('container__usuario');
 
+  const imgUsuario = document.createElement('img');
+  imgUsuario.classList.add('img__usuario');
+  imgUsuario.setAttribute('src', './src/assets/img/users/user1.svg');
+
   const buttonEsquerda = document.createElement('input');
   buttonEsquerda.classList.add('button__esquerda');
   buttonEsquerda.setAttribute('type', 'image');
   buttonEsquerda.setAttribute('src', './src/assets/img/button-esquerda.svg');
+  buttonEsquerda.addEventListener('click', () => {
+    console.log('btn esquerna')
+    if(indexAvatar === 0) indexAvatar = 9
+    else indexAvatar = indexAvatar - 1
+    imgUsuario.setAttribute('src', avatares[indexAvatar]);
+  })
 
-  const imgUsuario = document.createElement('img');
-  imgUsuario.classList.add('img__usuario');
-  imgUsuario.setAttribute('src', './src/assets/img/users/user1.svg');
 
   const buttonDireita = document.createElement('input');
   buttonDireita.classList.add('button__direita');
   buttonDireita.setAttribute('type', 'image');
   buttonDireita.setAttribute('src', './src/assets/img/button-direita.svg');
+  buttonDireita.addEventListener('click', () => {
+    console.log('btn direita')
+    if(indexAvatar === 9) indexAvatar = 0
+    else indexAvatar = indexAvatar + 1
+    imgUsuario.setAttribute('src', avatares[indexAvatar]);
+  })
 
   const buttonPlay = document.createElement('input');
   buttonPlay.classList.add('button__play');
   buttonPlay.setAttribute('type', 'image');
   buttonPlay.setAttribute('src', './src/assets/img/button-play.svg');
   buttonPlay.addEventListener('click', () => {
+    const username = inputLogin.value
+    sessionStorage.setItem('username', username)
+    sessionStorage.setItem('avatar',avatares[indexAvatar])
+    serverCommunication = new ServerCommunication('localhost:3333')
     /* serverCommunication = new ServerCommunication('localhost:3333')
     serverCommunication.addEventListener('startGame', (data)=> {
       const { player, room } = data
@@ -178,7 +215,10 @@ function renderLoginPage() {
       const { player, room } = data
       renderGamePage(player, room)
     }) */
-    navigate('room');
+    /* setTimeout(() => {
+      navigate('room');
+    }, 5000) */
+    navigate('typeRoom');
   });
 
   containerUsuario.append(buttonEsquerda, imgUsuario, buttonDireita);
@@ -278,7 +318,9 @@ function renderRoomsPrivates() {
   e_17.setAttribute('type', 'button');
   e_17.appendChild(document.createTextNode('Criar sala'));
   e_17.addEventListener('click', () => {
-    Modal.showCreateRoomModal((name, password) => {});
+    Modal.showCreateRoomModal((name, password) => {
+      serverCommunication.createRoomPrivate(name, password)
+    });
   });
   e_2.appendChild(e_17);
   e_0.appendChild(e_2);
@@ -287,6 +329,7 @@ function renderRoomsPrivates() {
 }
 
 function renderRoomPage() {
+  serverCommunication.enterRadomRoom()
   const page = document.getElementById('page');
 
   const main = document.createElement('main');
@@ -926,7 +969,7 @@ function renderGamePage() {
    `; */
 }
 
-const renderRoom = () => {
+const renderTypeRoom = () => {
   const page = document.getElementById('page');
 
   const roomFistPage = document.createElement('div');
@@ -971,6 +1014,7 @@ const renderRoom = () => {
 
   divRoom1.addEventListener('click', () => {
     console.log('sala aleatória');
+    navigate('room')
   });
 
   const divRoom2 = document.createElement('div');
@@ -982,6 +1026,7 @@ const renderRoom = () => {
 
   divRoom2.addEventListener('click', () => {
     console.log('sala privada');
+    navigate('roomsPrivate')
   });
 
   divRooms.append(divRoom1, divRoom2);
@@ -990,6 +1035,6 @@ const renderRoom = () => {
   page.append(roomFistPage);
 };
 
-//navigate('splashScreen');
-renderRoom();
+navigate('splashScreen');
+/* renderRoom(); */
 /* Modal.showVictoryModal(); */

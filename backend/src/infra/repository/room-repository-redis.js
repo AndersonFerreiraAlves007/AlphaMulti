@@ -35,8 +35,8 @@ class RoomRepositoryRedis extends RoomRepository {
     const id = v4();
     const key = `room:${id}`;
     await redis.hmset(key, {
+      ...data,
       id,
-      ...data
     });
     await redis.rpush('rooms', key);
     const result = await redis.hgetall(key);
@@ -56,7 +56,7 @@ class RoomRepositoryRedis extends RoomRepository {
     const current = await redis.hgetall(key);
     await redis.hmset(key, {
       ...current,
-      data
+      ...data
     });
     const result = await redis.hgetall(key);
     return RoomAdapter.create(result);

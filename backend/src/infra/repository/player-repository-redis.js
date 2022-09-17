@@ -13,8 +13,8 @@ class PlayerRepositoryRedis extends PlayerRepository{
   async createPlayer(id, data) {
     const key = `player:${id}`;
     await redis.hmset(key, {
-      id,
-      ...data
+      ...data,
+      id
     });
     await redis.rpush('players', key);
     const result = await redis.hgetall(key);
@@ -64,7 +64,7 @@ class PlayerRepositoryRedis extends PlayerRepository{
     const current = await redis.hgetall(key);
     await redis.hmset(key, {
       ...current,
-      data
+      ...data
     });
     const result = await redis.hgetall(key);
     return PlayerAdapter.create(result);

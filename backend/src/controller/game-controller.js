@@ -1,5 +1,3 @@
-const ws = require('../infra/websockets/ws');
-
 const EnterRandomRoomUseCase = require('../core/use-case/enter-random-room');
 const GetDataPlayerUseCase = require('../core/use-case/get-data-player');
 const GetDataRoomUseCase = require('../core/use-case/get-data-room');
@@ -17,9 +15,11 @@ const PlayerRepositoryRedis = require('../infra/repository/player-repository-red
 const RoomRepositoryRedis = require( '../infra/repository/room-repository-redis');
 const PlayerNotificationWs = require( '../infra/notification/player-notification-ws');
 const TimeNotificationWs = require( '../infra/notification/time-notification-ws');
+const GlobalData = require('../infra/data/global');
 
 class GameController {
   static async enterRandomRoom (params, body) {
+    const ws = GlobalData.ws;
     const playerRepositoryRedis = new PlayerRepositoryRedis();
     const roomRepositoryRedis = new RoomRepositoryRedis();
     const playerNotificationWs = new PlayerNotificationWs(ws);
@@ -61,6 +61,8 @@ class GameController {
   }
 
   static async leaveRoom (params, body) {
+    const ws = GlobalData.ws;
+
     const playerRepositoryRedis = new PlayerRepositoryRedis();
     const roomRepositoryRedis = new RoomRepositoryRedis();
     const playerNotificationWs = new PlayerNotificationWs(ws);
@@ -87,6 +89,8 @@ class GameController {
   }
 
   static async logout (params, body) {
+    const ws = GlobalData.ws;
+
     const playerRepositoryRedis = new PlayerRepositoryRedis();
     const roomRepositoryRedis = new RoomRepositoryRedis();
     const playerNotificationWs = new PlayerNotificationWs(ws);
@@ -102,6 +106,8 @@ class GameController {
   }
 
   static async playTurnTimeout (params, body) {
+    const ws = GlobalData.ws;
+
     const playerRepositoryRedis = new PlayerRepositoryRedis();
     const roomRepositoryRedis = new RoomRepositoryRedis();
     const playerNotificationWs = new PlayerNotificationWs(ws);
@@ -119,6 +125,8 @@ class GameController {
   }
 
   static async playTurn (params, body) {
+    const ws = GlobalData.ws;
+
     const playerRepositoryRedis = new PlayerRepositoryRedis();
     const roomRepositoryRedis = new RoomRepositoryRedis();
     const playerNotificationWs = new PlayerNotificationWs(ws);
@@ -136,6 +144,8 @@ class GameController {
   }
 
   static async startGameTimeout (params, body) {
+    const ws = GlobalData.ws;
+
     const playerRepositoryRedis = new PlayerRepositoryRedis();
     const roomRepositoryRedis = new RoomRepositoryRedis();
     const playerNotificationWs = new PlayerNotificationWs(ws);
@@ -166,6 +176,8 @@ class GameController {
   }
 
   static async createRoomPrivate (params, body) {
+    const ws = GlobalData.ws;
+
     const playerRepositoryRedis = new PlayerRepositoryRedis();
     const roomRepositoryRedis = new RoomRepositoryRedis();
     const playerNotificationWs = new PlayerNotificationWs(ws);
@@ -183,6 +195,8 @@ class GameController {
   }
 
   static async enterPrivateRoom (params, body) {
+    const ws = GlobalData.ws;
+    
     const playerRepositoryRedis = new PlayerRepositoryRedis();
     const roomRepositoryRedis = new RoomRepositoryRedis();
     const playerNotificationWs = new PlayerNotificationWs(ws);

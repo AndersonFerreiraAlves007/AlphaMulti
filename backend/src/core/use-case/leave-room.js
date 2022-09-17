@@ -14,7 +14,8 @@ class LeaveRoom {
         //const cards = player.cards;
         await this.playerRepository.updatePlayer(player.id, {
           cards: '', 
-          roomId: ''
+          roomId: '',
+          order: -1
         });
         const room = await this.roomRepository.getRoom(player.roomId);
         const players = await this.playerRepository.getPlayersHumanRoom(room.id);

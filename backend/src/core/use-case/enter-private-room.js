@@ -23,7 +23,7 @@ class EnterPrivateRoom {
 
         if(!room.isRun && room.type === ROOM_PRIVATE && room.password === password) {
           await this.playerRepository.updatePlayer(player.id, {
-            roomId: player.roomId
+            roomId: room.id
           });
           const players = await this.playerRepository.getPlayersHumanRoom(room.id);
           this.playerNotification.enterPlayer(room.id);
@@ -55,7 +55,6 @@ class EnterPrivateRoom {
             for(let i = 0; i < players.length; i++) {
               await this.playerRepository.updatePlayer(players[i].id, {
                 cards: players[i].toStringCards(), 
-                roomId: players[i].roomId,
                 order: players[i].order,
               });
             }

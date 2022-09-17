@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors({}));
 app.use(cookieParser());
 
-app.get('/get-all-data-redis', async () => {
+app.get('/get-all-data-redis', async (req, res) => {
   const idsRooms = await redis.lrange('rooms', 0, -1);
   const rooms = [];
   for(let i = 0; i < idsRooms.length; i++) {
@@ -30,11 +30,25 @@ app.get('/get-all-data-redis', async () => {
     const player = await redis.hgetall(idsPlayers[i]);
     players.push(PlayerAdapter.createJson(player));
   }
-  
-  return {
+
+  const idsTasks = await redis.lrange('works_cron', 0, -1);
+  const tasks = [];
+  for(let i = 0; i < idsTasks.length; i++) {
+    tasks.push(JSON.parse(idsTasks[i]));
+  }
+
+  res.json({
     rooms,
-    players
-  };
+    players,
+    tasks
+  });
+});
+
+app.delete('/delete-all-data-redis', async (req, res) => {
+  await redis.flushall();
+  res.json({
+    message: 'SUCESSO'
+  });
 });
 
 app.get('/get-data-player/:playerId', ExpressAdapter.create(GameController.getDataPlayer));
