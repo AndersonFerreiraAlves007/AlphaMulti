@@ -20,8 +20,8 @@ class GetDataRoom {
         name: room.name,
         code: room.code,
         topCard: {
-          color: topCardsDiscarded.color,
-          value: topCardsDiscarded.value,
+          color: topCardsDiscarded ? topCardsDiscarded.color : '',
+          value: topCardsDiscarded ? topCardsDiscarded.value : '',
         },
         positionActive: room.position,
         players: players.map(item => ({

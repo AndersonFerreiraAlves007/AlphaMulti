@@ -37,7 +37,7 @@ class GetDataRoom {
       await this.playerRepository.updatePlayer(player.id, {
         roomId: room.id
       });
-      this.playerNotification.enterPlayer(room.id);
+      this.playerNotification.enterPlayer(room.id, player.id);
       return {
         roomId: room.id
       };

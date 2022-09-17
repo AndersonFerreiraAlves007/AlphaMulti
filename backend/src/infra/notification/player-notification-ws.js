@@ -20,13 +20,15 @@ class PlayerNotificationWS extends PlayerNotification {
   async sendMessageRoom(roomId, type, payload = {}) {
     const players = await getIdsPlayersRooms(roomId);
     this.ws.clients.forEach(client => {
-      if(players.includes(roomId)) client.send({
-        type,
-        payload: {
-          roomId,
-          ...payload
-        }
-      });
+      if(players.includes(client.playerId)) {
+        client.send(JSON.stringify({
+          type,
+          payload: {
+            roomId,
+            ...payload
+          }
+        }));
+      }
     });
   }
   
@@ -38,7 +40,7 @@ class PlayerNotificationWS extends PlayerNotification {
     await this.sendMessageRoom(roomId, 'endGame');
   }
 
-  async enterPlayer(roomId) {
+  async enterPlayer(roomId, playerId) {
     await this.sendMessageRoom(roomId, 'enterPlayer');
   }
 

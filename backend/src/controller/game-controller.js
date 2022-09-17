@@ -48,6 +48,7 @@ class GameController {
   }
 
   static async getDataRoom (params, body) {
+    console.log('getDataRoom', params);
     const playerRepositoryRedis = new PlayerRepositoryRedis();
     const roomRepositoryRedis = new RoomRepositoryRedis();
 

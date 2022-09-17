@@ -49,7 +49,7 @@ class Deck {
   }
 
   getTopCardsDiscarded() {
-    return this.cardsDiscarded[this.cardsDiscarded.length - 1];
+    return this.cardsDiscarded.length > 0 ? this.cardsDiscarded[this.cardsDiscarded.length - 1] : null;
   }
 
   /* shuffle() {

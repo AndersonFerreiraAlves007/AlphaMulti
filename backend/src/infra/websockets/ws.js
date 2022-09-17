@@ -15,7 +15,7 @@ ws.on('connection', client => {
   client.isAlive = true;
   client.send(JSON.stringify({
     type: 'init',
-    playerId: v4()
+    playerId: client.playerId
   }));
   client.on('pong', heartbeat);
   client.on('message', data => {

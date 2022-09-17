@@ -48,7 +48,7 @@ class EnterRandomRoom {
           roomId: room.id
         });
         const players = await this.playerRepository.getPlayersHumanRoom(room.id);
-        this.playerNotification.enterPlayer(room.id);
+        this.playerNotification.enterPlayer(room.id, player.id);
         if(players.length === MAX_PLAYERS_ROOM) {
           players.forEach((item, index) => {
             item.cards = [];

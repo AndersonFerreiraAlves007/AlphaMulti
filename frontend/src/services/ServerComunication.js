@@ -9,10 +9,8 @@ class ServerCommunication {
 
     this.ws.onmessage = async (event) => {
       const msg = JSON.parse(event.data)
-      console.log('onmessage', msg)
       switch (msg.type) {
         case 'init':
-          
           const username = sessionStorage.getItem('username')
           const avatar = sessionStorage.getItem('avatar')
           sessionStorage.setItem('playerId', msg.playerId)
@@ -26,25 +24,27 @@ class ServerCommunication {
           }))
           break;
         case 'startGame': {
-          sessionStorage.setItem('roomId', msg.payload.roomId)
+          /* sessionStorage.setItem('roomId', msg.payload.roomId)
           const dataPlayer = await this.getDataPlayer()
           const dataRoom = await this.getDataRoom()
           this.events.startGame.forEach(callback => callback({
             player: dataPlayer,
             room: dataRoom
-          }))
+          })) */
           break
         }
         case 'endGame': {
-          const dataPlayer = await this.getDataPlayer()
+          /* const dataPlayer = await this.getDataPlayer()
           const dataRoom = await this.getDataRoom()
           this.events.endGame.forEach(callback => callback({
             player: dataPlayer,
             room: dataRoom
-          }))
+          })) */
           break
         }
         case 'enterPlayer': {
+          console.log('enterPlayer')
+          sessionStorage.setItem('roomId', msg.payload.roomId)
           const dataPlayer = await this.getDataPlayer()
           const dataRoom = await this.getDataRoom()
           this.events.enterPlayer.forEach(callback => callback({
@@ -54,22 +54,21 @@ class ServerCommunication {
           break
         }
         case 'levePlayer': {
-          const dataPlayer = await this.getDataPlayer()
+          /* const dataPlayer = await this.getDataPlayer()
           const dataRoom = await this.getDataRoom()
           this.events.levePlayer.forEach(callback => callback({
             player: dataPlayer,
             room: dataRoom
-          }))
+          })) */
           break
         }
-          break
         case 'makeMove': {
-          const dataPlayer = await this.getDataPlayer()
+          /* const dataPlayer = await this.getDataPlayer()
           const dataRoom = await this.getDataRoom()
           this.events.makeMove.forEach(callback => callback({
             player: dataPlayer,
             room: dataRoom
-          }))
+          })) */
           break
         }
       }
