@@ -1,4 +1,57 @@
 class Modal {
+  static showChooseColorModal(callBack = () => {}) {
+    const body = document.querySelector('body');
+
+    const backgroundModal = document.createElement('div');
+    backgroundModal.classList.add('background-modal');
+
+    const modal = document.createElement('div');
+    modal.classList.add('modal-color');
+
+    const title = document.createElement('p');
+    title.innerText = 'Escolha um cor para seguir:';
+
+    const divColors = document.createElement('div');
+    divColors.classList.add('div__colors');
+    const divRed = document.createElement('div');
+    divRed.classList.add('color', 'red');
+    divRed.addEventListener('click', () => {
+      console.log('red');
+      callBack('red');
+      this.closeColorModal();
+    });
+
+    const divYellow = document.createElement('div');
+    divYellow.classList.add('color', 'yellow');
+    divYellow.addEventListener('click', () => {
+      console.log('yellow');
+      callBack('yellow');
+      this.closeColorModal();
+    });
+
+    const divGreen = document.createElement('div');
+    divGreen.classList.add('color', 'green');
+    divGreen.addEventListener('click', () => {
+      console.log('green');
+      callBack('green');
+      this.closeColorModal();
+    });
+
+    const divBlue = document.createElement('div');
+    divBlue.classList.add('color', 'blue');
+    divBlue.addEventListener('click', () => {
+      console.log('blue');
+      callBack('blue');
+      this.closeColorModal();
+    });
+
+    divColors.append(divRed, divYellow, divGreen, divBlue);
+
+    modal.append(title, divColors);
+    backgroundModal.append(modal);
+    body.append(backgroundModal);
+  }
+
   static showVictoryModal = (avatarSrc = './src/assets/img/users/user1.svg', scoreValue = 100) => {
     const body = document.querySelector('body');
 
@@ -53,14 +106,14 @@ class Modal {
     logo.src = './src/assets/img/logo.png';
 
     const nameInput = document.createElement('input');
-    nameInput.setAttribute('placeholder', 'Nome da sala')
+    nameInput.setAttribute('placeholder', 'Nome da sala');
     const passwordInput = document.createElement('input');
-    passwordInput.setAttribute('placeholder', 'Senha da sala')
+    passwordInput.setAttribute('placeholder', 'Senha da sala');
 
     const btnCreate = document.createElement('button');
     btnCreate.innerText = 'Criar Sala';
     btnCreate.addEventListener('click', () => {
-      callback(nameInput.value, passwordInput.value)
+      callback(nameInput.value, passwordInput.value);
       this.closeVictoryModal();
     });
 
@@ -89,15 +142,15 @@ class Modal {
     logo.src = './src/assets/img/logo.png';
 
     const title = document.createElement('h2');
-    title.innerText = name
+    title.innerText = name;
 
     const passwordInput = document.createElement('input');
-    passwordInput.setAttribute('placeholder', 'Senha da sala')
+    passwordInput.setAttribute('placeholder', 'Senha da sala');
 
     const btnCreate = document.createElement('button');
     btnCreate.innerText = 'Entrar';
     btnCreate.addEventListener('click', () => {
-      callback(passwordInput.value)
+      callback(passwordInput.value);
       this.closeVictoryModal();
     });
 
@@ -111,6 +164,13 @@ class Modal {
     backgroundModal.append(modal);
     body.append(backgroundModal);
   };
+
+  static closeColorModal() {
+    const backgroundModal = document.querySelector('.background-modal');
+    const modal = document.querySelector('.modal-color');
+    modal.remove();
+    backgroundModal.remove();
+  }
 
   static closeVictoryModal() {
     const backgroundModal = document.querySelector('.background-modal');
