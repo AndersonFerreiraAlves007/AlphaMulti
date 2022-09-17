@@ -1,3 +1,6 @@
+import { navigate } from './navigate.js';
+import { Globals } from './globals.js';
+
 const renderRoomOptions = () => {
   const page = document.getElementById('page');
 
@@ -43,6 +46,7 @@ const renderRoomOptions = () => {
 
   divRoom1.addEventListener('click', () => {
     console.log('sala aleatória');
+    navigate('room');
   });
 
   const divRoom2 = document.createElement('div');
@@ -54,6 +58,7 @@ const renderRoomOptions = () => {
 
   divRoom2.addEventListener('click', () => {
     console.log('sala privada');
+    navigate('roomsPrivate');
   });
 
   divRooms.append(divRoom1, divRoom2);
