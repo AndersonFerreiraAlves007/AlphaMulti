@@ -95,12 +95,12 @@ const avatares = [
   './src/assets/img/users/user8.svg',
   './src/assets/img/users/user9.svg',
   './src/assets/img/users/user10.svg',
-]
+];
 
-let indexAvatar = 0
+let indexAvatar = 0;
 
 function renderLoginPage() {
-  indexAvatar = 0
+  indexAvatar = 0;
   const main = document.createElement('main');
   main.classList.add('login');
 
@@ -163,33 +163,32 @@ function renderLoginPage() {
   buttonEsquerda.setAttribute('type', 'image');
   buttonEsquerda.setAttribute('src', './src/assets/img/button-esquerda.svg');
   buttonEsquerda.addEventListener('click', () => {
-    console.log('btn esquerna')
-    if(indexAvatar === 0) indexAvatar = 9
-    else indexAvatar = indexAvatar - 1
+    console.log('btn esquerna');
+    if (indexAvatar === 0) indexAvatar = 9;
+    else indexAvatar = indexAvatar - 1;
     imgUsuario.setAttribute('src', avatares[indexAvatar]);
-  })
-
+  });
 
   const buttonDireita = document.createElement('input');
   buttonDireita.classList.add('button__direita');
   buttonDireita.setAttribute('type', 'image');
   buttonDireita.setAttribute('src', './src/assets/img/button-direita.svg');
   buttonDireita.addEventListener('click', () => {
-    console.log('btn direita')
-    if(indexAvatar === 9) indexAvatar = 0
-    else indexAvatar = indexAvatar + 1
+    console.log('btn direita');
+    if (indexAvatar === 9) indexAvatar = 0;
+    else indexAvatar = indexAvatar + 1;
     imgUsuario.setAttribute('src', avatares[indexAvatar]);
-  })
+  });
 
   const buttonPlay = document.createElement('input');
   buttonPlay.classList.add('button__play');
   buttonPlay.setAttribute('type', 'image');
   buttonPlay.setAttribute('src', './src/assets/img/button-play.svg');
   buttonPlay.addEventListener('click', () => {
-    const username = inputLogin.value
-    sessionStorage.setItem('username', username)
-    sessionStorage.setItem('avatar',avatares[indexAvatar])
-    serverCommunication = new ServerCommunication('localhost:3333')
+    const username = inputLogin.value;
+    sessionStorage.setItem('username', username);
+    sessionStorage.setItem('avatar', avatares[indexAvatar]);
+    serverCommunication = new ServerCommunication('localhost:3333');
     /* serverCommunication = new ServerCommunication('localhost:3333')
     serverCommunication.addEventListener('startGame', (data)=> {
       const { player, room } = data
@@ -280,7 +279,7 @@ const rooms = [
 ];
 
 async function renderRoomsPrivates() {
-  const roonsPrivates = await serverCommunication.getRoomsPrivate()
+  const roonsPrivates = await serverCommunication.getRoomsPrivate();
   var e_0 = document.createElement('main');
   e_0.setAttribute('class', 'privateRooms');
   var e_1 = document.createElement('img');
@@ -320,7 +319,7 @@ async function renderRoomsPrivates() {
   e_17.appendChild(document.createTextNode('Criar sala'));
   e_17.addEventListener('click', () => {
     Modal.showCreateRoomModal((name, password) => {
-      serverCommunication.createRoomPrivate(name, password)
+      serverCommunication.createRoomPrivate(name, password);
     });
   });
   e_2.appendChild(e_17);
@@ -330,7 +329,7 @@ async function renderRoomsPrivates() {
 }
 
 function renderRoomPage() {
-  serverCommunication.enterRadomRoom()
+  serverCommunication.enterRadomRoom();
   const page = document.getElementById('page');
 
   const main = document.createElement('main');
@@ -1015,7 +1014,7 @@ const renderTypeRoom = () => {
 
   divRoom1.addEventListener('click', () => {
     console.log('sala aleatória');
-    navigate('room')
+    navigate('room');
   });
 
   const divRoom2 = document.createElement('div');
@@ -1027,7 +1026,7 @@ const renderTypeRoom = () => {
 
   divRoom2.addEventListener('click', () => {
     console.log('sala privada');
-    navigate('roomsPrivate')
+    navigate('roomsPrivate');
   });
 
   divRooms.append(divRoom1, divRoom2);
