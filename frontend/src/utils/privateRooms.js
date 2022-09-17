@@ -30,7 +30,9 @@ const renderPrivateRooms = async () => {
     e_8.setAttribute('type', 'button');
     e_8.appendChild(document.createTextNode('Entrar'));
     e_8.addEventListener('click', () => {
-      Modal.showEnterRoomModal(`${item.name} (${item.numberPlayers}/4)`, (password) => {});
+      Modal.showEnterRoomModal(`${item.name} (${item.numberPlayers}/4)`, (password) => {
+        Globals.serverCommunication.enterPrivateRoom(item.id, password);
+      });
     });
     e_5.appendChild(e_8);
     e_4.appendChild(e_5);

@@ -20,7 +20,7 @@ class ServerCommunication {
             type: 'login',
             payload: {
               username,
-              id: sessionStorage.getItem('playerId'),
+              playerId: sessionStorage.getItem('playerId'),
               avatar
             }
           }))

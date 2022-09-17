@@ -23,7 +23,7 @@ ws.on('connection', client => {
     switch (type) {
     case 'login':
       GameController.login({}, {
-        playerId: payload.id,
+        playerId: payload.playerId,
         username: payload.username,
         avatar: payload.avatar
       });
@@ -35,24 +35,24 @@ ws.on('connection', client => {
       break;
     case 'leaveRoom':
       GameController.leaveRoom({
-        playerId: payload.id,
+        playerId: payload.playerId,
       }, {});
       break;
     case 'logout':
       GameController.logout({
-        playerId: payload.id,
+        playerId: payload.playerId,
       }, {});
       break;
     case 'playTurn':
       GameController.playTurn({
-        playerId: payload.id,
+        playerId: payload.playerId,
         color: payload.color,
         value: payload.value
       }, {});
       break;
     case 'enterPrivateRoom':
-      GameController.enterRandomRoom({
-        playerId: payload.id,
+      GameController.enterPrivateRoom({
+        playerId: payload.playerId,
         roomId: payload.roomId,
         password: payload.password,
       }, {});
