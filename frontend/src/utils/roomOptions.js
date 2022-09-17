@@ -45,8 +45,10 @@ const renderRoomOptions = () => {
   divRoom1.append(room1Title, room1Img);
 
   divRoom1.addEventListener('click', () => {
-    console.log('sala aleatória');
-    navigate('waitingRoom');
+    /* console.log('sala aleatória');
+    navigate('waitingRoom'); */
+    divRoom1.style.pointerEvents = 'none'; 
+    Globals.serverCommunication.enterRadomRoom()
   });
 
   const divRoom2 = document.createElement('div');
@@ -57,7 +59,8 @@ const renderRoomOptions = () => {
   divRoom2.append(room2Title, room2Img);
 
   divRoom2.addEventListener('click', () => {
-    console.log('sala privada');
+    /* console.log('sala privada');
+     */
     navigate('privateRooms');
   });
 

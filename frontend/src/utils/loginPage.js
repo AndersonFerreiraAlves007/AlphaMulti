@@ -107,31 +107,31 @@ const renderLoginPage = () => {
     sessionStorage.setItem('username', username);
     sessionStorage.setItem('avatar', avatares[indexAvatar]);
     Globals.serverCommunication = new ServerCommunication('localhost:3333');
-    /* serverCommunication = new ServerCommunication('localhost:3333')
-    serverCommunication.addEventListener('startGame', (data)=> {
+    Globals.serverCommunication.addEventListener('startGame', (data)=> {
       const { player, room } = data
-      renderGamePage(player, room)
+      /* renderGamePage(player, room) */
     })
   
-    serverCommunication.addEventListener('endGame', (data)=> {
+    Globals.serverCommunication.addEventListener('endGame', (data)=> {
       const { player, room } = data
-      renderGamePage(player, room)
+      /* renderGamePage(player, room) */
     })
   
-    serverCommunication.addEventListener('enterPlayer', (data)=> {
+    Globals.serverCommunication.addEventListener('enterPlayer', (data)=> {
       const { player, room } = data
-      renderGamePage(player, room)
+      navigate('waitingRoom')
+      /* renderGamePage(player, room) */
     })
   
-    serverCommunication.addEventListener('levePlayer', (data)=> {
+    Globals.serverCommunication.addEventListener('levePlayer', (data)=> {
       const { player, room } = data
-      renderGamePage(player, room)
+      /* renderGamePage(player, room) */
     })
   
-    serverCommunication.addEventListener('makeMove', (data)=> {
+    Globals.serverCommunication.addEventListener('makeMove', (data)=> {
       const { player, room } = data
-      renderGamePage(player, room)
-    }) */
+      /* renderGamePage(player, room) */
+    })
     /* setTimeout(() => {
       navigate('room');
     }, 5000) */
