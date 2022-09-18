@@ -1,3 +1,15 @@
+/* function heartbeat() {
+  clearTimeout(this.pingTimeout);
+
+  // Use `WebSocket#terminate()`, which immediately destroys the connection,
+  // instead of `WebSocket#close()`, which waits for the close timer.
+  // Delay should be equal to the interval at which your server
+  // sends out pings plus a conservative assumption of the latency.
+  this.pingTimeout = setTimeout(() => {
+    this.terminate();
+  }, 30000 + 1000);
+} */
+
 class ServerCommunication {
   constructor(host, isSsl = false) {
     this.url = `${isSsl ? 'https://' : 'http://'}${host}`
@@ -54,12 +66,12 @@ class ServerCommunication {
           break
         }
         case 'levePlayer': {
-          /* const dataPlayer = await this.getDataPlayer()
+          const dataPlayer = await this.getDataPlayer()
           const dataRoom = await this.getDataRoom()
           this.events.levePlayer.forEach(callback => callback({
             player: dataPlayer,
             room: dataRoom
-          })) */
+          }))
           break
         }
         case 'makeMove': {
@@ -73,6 +85,12 @@ class ServerCommunication {
         }
       }
     }
+
+    /* this.ws.on('open', heartbeat);
+    this.ws.on('ping', heartbeat);
+    this.ws.on('close', function clear() {
+      clearTimeout(this.pingTimeout);
+    }); */
 
     this.events = {
       startGame: [],

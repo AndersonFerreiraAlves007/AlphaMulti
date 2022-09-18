@@ -81,7 +81,6 @@ const renderLoginPage = () => {
   buttonEsquerda.setAttribute('type', 'image');
   buttonEsquerda.setAttribute('src', './src/assets/img/button-esquerda.svg');
   buttonEsquerda.addEventListener('click', () => {
-    console.log('btn esquerna');
     if (indexAvatar === 0) indexAvatar = 9;
     else indexAvatar = indexAvatar - 1;
     imgUsuario.setAttribute('src', avatares[indexAvatar]);
@@ -92,7 +91,6 @@ const renderLoginPage = () => {
   buttonDireita.setAttribute('type', 'image');
   buttonDireita.setAttribute('src', './src/assets/img/button-direita.svg');
   buttonDireita.addEventListener('click', () => {
-    console.log('btn direita');
     if (indexAvatar === 9) indexAvatar = 0;
     else indexAvatar = indexAvatar + 1;
     imgUsuario.setAttribute('src', avatares[indexAvatar]);
@@ -109,6 +107,8 @@ const renderLoginPage = () => {
     Globals.serverCommunication = new ServerCommunication('localhost:3333');
     Globals.serverCommunication.addEventListener('startGame', (data)=> {
       const { player, room } = data
+      Globals.player = player
+      Globals.room = room
       /* renderGamePage(player, room) */
     })
   
@@ -119,13 +119,18 @@ const renderLoginPage = () => {
   
     Globals.serverCommunication.addEventListener('enterPlayer', (data)=> {
       const { player, room } = data
+      Globals.player = player
+      Globals.room = room
       navigate('waitingRoom')
       /* renderGamePage(player, room) */
     })
   
     Globals.serverCommunication.addEventListener('levePlayer', (data)=> {
+      console.log('levePlayer')
       const { player, room } = data
-      /* renderGamePage(player, room) */
+      Globals.player = player
+      Globals.room = room
+      if(!room.isRun) navigate('waitingRoom')
     })
   
     Globals.serverCommunication.addEventListener('makeMove', (data)=> {

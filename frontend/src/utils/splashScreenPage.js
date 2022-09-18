@@ -1,7 +1,6 @@
 import { navigate } from './navigate.js';
 
 const renderSplashScreenPage = () => {
-  console.log('teste');
   const main = document.createElement('main');
   main.classList.add('splash');
 
