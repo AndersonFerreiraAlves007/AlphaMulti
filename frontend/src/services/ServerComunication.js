@@ -36,17 +36,17 @@ class ServerCommunication {
           }))
           break;
         case 'startGame': {
-          /* sessionStorage.setItem('roomId', msg.payload.roomId)
+          sessionStorage.setItem('roomId', msg.payload.roomId)
           const dataPlayer = await this.getDataPlayer()
           const dataRoom = await this.getDataRoom()
           this.events.startGame.forEach(callback => callback({
             player: dataPlayer,
             room: dataRoom
-          })) */
+          }))
           break
         }
         case 'endGame': {
-          /* const dataPlayer = await this.getDataPlayer()
+         /*  const dataPlayer = await this.getDataPlayer()
           const dataRoom = await this.getDataRoom()
           this.events.endGame.forEach(callback => callback({
             player: dataPlayer,

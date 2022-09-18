@@ -109,6 +109,7 @@ const renderLoginPage = () => {
       const { player, room } = data
       Globals.player = player
       Globals.room = room
+      navigate('game')
       /* renderGamePage(player, room) */
     })
   
@@ -131,6 +132,7 @@ const renderLoginPage = () => {
       Globals.player = player
       Globals.room = room
       if(!room.isRun) navigate('waitingRoom')
+      else navigate('game')
     })
   
     Globals.serverCommunication.addEventListener('makeMove', (data)=> {

@@ -115,10 +115,22 @@ function getImgCard(color, value) {
   return `./src/assets/img/cards/${folder}/${value}.svg`;
 }
 
+let idInterval;
+
 const renderGamePage = () => {
+  clearInterval(idInterval)
+  const player = Globals.player
+  const room = Globals.room
+
+  console.log('player', player)
+
+  console.log('room', room)
+
   const orderPlayer = player.order;
 
-  const players = room.players.sort((a, b) => a.order - b.order);
+  room.players.sort((a, b) => a.order - b.order);
+
+  const players =  room.players
 
   const playerIndex = players.findIndex((item) => item.order === orderPlayer);
 
@@ -127,19 +139,19 @@ const renderGamePage = () => {
   /* const player4 = players[index] */
   const player4 = player;
   index = index + 1;
-  index = index > 4 ? 1 : index;
+  index = index > 3 ? 0 : index;
 
   const player2 = players[index];
   index = index + 1;
-  index = index > 4 ? 1 : index;
+  index = index > 3 ? 0 : index;
 
   const player1 = players[index];
   index = index + 1;
-  index = index > 4 ? 1 : index;
+  index = index > 3 ? 0 : index;
 
   const player3 = players[index];
   index = index + 1;
-  index = index > 4 ? 1 : index;
+  index = index > 3 ? 0 : index;
 
   const page = document.getElementById('page');
 
@@ -185,6 +197,12 @@ const renderGamePage = () => {
     infoUserPerfil1TimeUser.classList.add('time__user');
     infoUserPerfil1TimeUser.innerText = '0:10';
     infoUserPerfil1.append(infoUserPerfil1TimeUser);
+    idInterval = setInterval(() => {
+      const time = new Date().getTime() - new Date(room.startLastTurnAt).getTime()
+      const minutes = parseInt(time/(1000 * 60))
+      const seconds = parseInt((time % (1000 * 60))/1000)
+      infoUserPerfil1TimeUser.innerText = `${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+    }, 1000)
   }
 
   const rowAlinhametoTranslate1 = document.createElement('div');
@@ -259,6 +277,12 @@ const renderGamePage = () => {
     infoUserPerfil2TimeUser.classList.add('time__user');
     infoUserPerfil2TimeUser.innerText = '0:10';
     infoUserPerfil2.append(infoUserPerfil2TimeUser);
+    idInterval = setInterval(() => {
+      const time = new Date().getTime() - new Date(room.startLastTurnAt).getTime()
+      const minutes = parseInt(time/(1000 * 60))
+      const seconds = parseInt((time % (1000 * 60))/1000)
+      infoUserPerfil2TimeUser.innerText = `${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+    }, 1000)
   }
 
   const colunaEsquerda = document.createElement('div');
@@ -384,6 +408,12 @@ const renderGamePage = () => {
     infoUserPerfil3TimeUser.classList.add('time__user');
     infoUserPerfil3TimeUser.innerText = '0:10';
     infoUserPerfil3.append(infoUserPerfil3TimeUser);
+    idInterval = setInterval(() => {
+      const time = new Date().getTime() - new Date(room.startLastTurnAt).getTime()
+      const minutes = parseInt(time/(1000 * 60))
+      const seconds = parseInt((time % (1000 * 60))/1000)
+      infoUserPerfil3TimeUser.innerText = `${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+    }, 1000)
   }
 
   const userFour = document.createElement('div');
@@ -454,6 +484,12 @@ const renderGamePage = () => {
     infoUserPerfil4TimeUser.classList.add('time__user');
     infoUserPerfil4TimeUser.innerText = '0:10';
     infoUserPerfil4.append(infoUserPerfil4TimeUser);
+    idInterval = setInterval(() => {
+      const time = new Date().getTime() - new Date(room.startLastTurnAt).getTime()
+      const minutes = parseInt(time/(1000 * 60))
+      const seconds = parseInt((time % (1000 * 60))/1000)
+      infoUserPerfil4TimeUser.innerText = `${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+    }, 1000)
   }
 
   /* document.getElementById('page').innerHTML = `
