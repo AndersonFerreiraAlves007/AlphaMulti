@@ -55,7 +55,7 @@ class PlayTurn {
                   }
                 }
                 console.log('execute 13');
-                room.setNextPosition();
+                
                 console.log('execute 14');
                 if(card) {
                   console.log('execute 15');
@@ -98,6 +98,7 @@ class PlayTurn {
                 }
                 
               }
+              room.setNextPosition();
               console.log('execute 16');
               await this.playerRepository.updatePlayer(player.id, {
                 cards: player.toStringCards(),  

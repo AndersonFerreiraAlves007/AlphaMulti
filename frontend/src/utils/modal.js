@@ -17,14 +17,14 @@ class Modal {
     divRed.classList.add('color', 'red');
     divRed.addEventListener('click', () => {
       console.log('red');
-      callBack('red');
+      callBack('r');
       this.closeColorModal();
     });
 
     const divYellow = document.createElement('div');
     divYellow.classList.add('color', 'yellow');
     divYellow.addEventListener('click', () => {
-      console.log('yellow');
+      console.log('y');
       callBack('yellow');
       this.closeColorModal();
     });
@@ -33,7 +33,7 @@ class Modal {
     divGreen.classList.add('color', 'green');
     divGreen.addEventListener('click', () => {
       console.log('green');
-      callBack('green');
+      callBack('g');
       this.closeColorModal();
     });
 
@@ -41,7 +41,7 @@ class Modal {
     divBlue.classList.add('color', 'blue');
     divBlue.addEventListener('click', () => {
       console.log('blue');
-      callBack('blue');
+      callBack('b');
       this.closeColorModal();
     });
 

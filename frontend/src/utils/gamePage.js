@@ -1,4 +1,5 @@
 import { Globals } from './globals.js';
+import { Modal } from './modal.js';
 
 const player = {
   id: 1,
@@ -95,8 +96,6 @@ const room = {
 };
 
 function getImgCard(color, value) {
-  if (value === 'm4') return './src/assets/img/cards/special/m4.svg';
-  if (value === 's1') return './src/assets/img/cards/special/s1.svg';
   let folder = '';
   switch (color) {
     case 'b':
@@ -111,7 +110,12 @@ function getImgCard(color, value) {
     case 'y':
       folder = 'yellow';
       break;
+    case 's':
+      folder = 'special';
+      break;
   }
+  if (value === 'm4') return `./src/assets/img/cards/${folder}/m4.svg`;
+  if (value === 's1') return `./src/assets/img/cards/${folder}/s1.svg`;
   return `./src/assets/img/cards/${folder}/${value}.svg`;
 }
 
@@ -163,7 +167,7 @@ const renderGamePage = () => {
   purchaseDeck.src = './src/assets/img/verso-carta.png';
   main.append(purchaseDeck);
   purchaseDeck.addEventListener('click', () => {
-    console.log('deck');
+    Globals.serverCommunication.playTurn('', '')
   });
 
   const background = document.createElement('img');
@@ -483,7 +487,14 @@ const renderGamePage = () => {
     cardsUser2Card1.classList.add('card', `overflowB${i + 1 > 1 ? `${i + 1}` : ''}`, 'card-player');
     cardsUser2Card1.setAttribute('src', getImgCard(player4.cards[i].color, player4.cards[i].value));
     cardsUser2Card1.addEventListener('click', () => {
-      Globals.serverCommunication.playTurn(player4.cards[i].color, player4.cards[i].value)
+      if(player4.cards[i].value === 'm4'|| player4.cards[i].value === 's1') {
+        Modal.showChooseColorModal((color) => {
+          Globals.serverCommunication.playTurn(color, player4.cards[i].value)
+        })
+      } else {
+        Globals.serverCommunication.playTurn(player4.cards[i].color, player4.cards[i].value)
+      }
+      
     })
     traslate2.append(cardsUser2Card1);
   }
