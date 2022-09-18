@@ -160,7 +160,7 @@ const renderGamePage = () => {
 
   const purchaseDeck = document.createElement('img');
   purchaseDeck.classList.add('card', 'img__deck');
-  purchaseDeck.src = '../../assets/img/verso-carta.png';
+  purchaseDeck.src = './src/assets/img/verso-carta.png';
   main.append(purchaseDeck);
   purchaseDeck.addEventListener('click', () => {
     console.log('deck');
