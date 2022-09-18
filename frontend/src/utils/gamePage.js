@@ -158,6 +158,14 @@ const renderGamePage = () => {
   const main = document.createElement('main');
   page.append(main);
 
+  const purchaseDeck = document.createElement('img');
+  purchaseDeck.classList.add('card', 'img__deck');
+  purchaseDeck.src = '../../assets/img/verso-carta.png';
+  main.append(purchaseDeck);
+  purchaseDeck.addEventListener('click', () => {
+    console.log('deck');
+  });
+
   const background = document.createElement('img');
   background.classList.add('background');
   background.setAttribute('src', './src/assets/img/background.png');
