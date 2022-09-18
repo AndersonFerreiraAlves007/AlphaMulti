@@ -45,7 +45,7 @@ class Modal {
     const divYellow = document.createElement('div');
     divYellow.classList.add('color', 'yellow');
     divYellow.addEventListener('click', () => {
-      callBack('yellow');
+      callBack('y');
       this.closeColorModal();
     });
 
