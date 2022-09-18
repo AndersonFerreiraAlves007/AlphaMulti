@@ -1,4 +1,26 @@
 class Modal {
+  static showTutorialModal = () => {
+    const body = document.querySelector('body');
+
+    const backgroundModal = document.createElement('div');
+    backgroundModal.classList.add('background-modal');
+
+    backgroundModal.addEventListener('click', () => {
+      this.closeTutorialModal();
+    });
+
+    const modal = document.createElement('div');
+    modal.classList.add('modal-tutorial');
+
+    const title = document.createElement('h1');
+    title.classList.add('h1__tutorial');
+    title.innerText = 'Regras do Jogo';
+
+    modal.append(title);
+    backgroundModal.append(modal);
+    body.append(backgroundModal);
+  };
+
   static showChooseColorModal(callBack = () => {}) {
     const body = document.querySelector('body');
 
@@ -167,6 +189,13 @@ class Modal {
     modal.remove();
     backgroundModal.remove();
   }
+
+  static closeTutorialModal = () => {
+    const backgroundModal = document.querySelector('.background-modal');
+    const modal = document.querySelector('.modal-tutorial');
+    modal.remove();
+    backgroundModal.remove();
+  };
 
   static closeVictoryModal() {
     const backgroundModal = document.querySelector('.background-modal');
