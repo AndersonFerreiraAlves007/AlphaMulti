@@ -110,12 +110,10 @@ const renderLoginPage = () => {
       Globals.player = player
       Globals.room = room
       navigate('game')
-      /* renderGamePage(player, room) */
     })
   
     Globals.serverCommunication.addEventListener('endGame', (data)=> {
       const { player, room } = data
-      /* renderGamePage(player, room) */
     })
   
     Globals.serverCommunication.addEventListener('enterPlayer', (data)=> {
@@ -123,11 +121,9 @@ const renderLoginPage = () => {
       Globals.player = player
       Globals.room = room
       navigate('waitingRoom')
-      /* renderGamePage(player, room) */
     })
   
     Globals.serverCommunication.addEventListener('levePlayer', (data)=> {
-      console.log('levePlayer')
       const { player, room } = data
       Globals.player = player
       Globals.room = room
@@ -137,17 +133,10 @@ const renderLoginPage = () => {
   
     Globals.serverCommunication.addEventListener('makeMove', (data)=> {
       const { player, room } = data
-      console.log('makeMove kkkkkkkkkkkkkk')
-      console.log(player)
-      console.log(room)
       Globals.player = player
       Globals.room = room
       navigate('game')
-      /* renderGamePage(player, room) */
     })
-    /* setTimeout(() => {
-      navigate('room');
-    }, 5000) */
     navigate('roomOptions');
   });
 

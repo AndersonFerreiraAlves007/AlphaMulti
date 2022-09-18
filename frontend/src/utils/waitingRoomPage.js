@@ -20,10 +20,19 @@ const renderWaitingRoomPage = () => {
   const btnClose = document.createElement('img');
   btnClose.classList.add('button__close');
   btnClose.src = './src/assets/img/button-close.png';
+  btnClose.addEventListener('click', () => {
+    Globals.serverCommunication.close()
+    Globals.serverCommunication = null
+    //navigate('login')
+  })
 
   const btnBack = document.createElement('img');
   btnBack.classList.add('button__back');
   btnBack.src = './src/assets/img/back-icon.svg';
+  btnBack.addEventListener('click', () => {
+    Globals.serverCommunication.leaveRoom()
+    //navigate('roomOptions')
+  })
 
   divButtons.append(btnSound, btnClose, btnBack);
 
@@ -50,8 +59,6 @@ const renderWaitingRoomPage = () => {
           username: 'Esperando jogador...',
           avatar: '',
         };
-
-  console.log(room.players[0]);
 
   const divUser1 = document.createElement('div');
   divUser1.classList.add('div_user');

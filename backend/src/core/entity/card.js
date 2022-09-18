@@ -18,6 +18,8 @@ class Card {
   }
 
   hasCard(openColor, openValue) {
+    console.log('hasCard', openColor, openValue);
+    console.log('hasCard', this.color, this.value);
     if(this.value === VALUE_JOCKER) return true;
     if(this.value === VALUE_M4) return true;
     if(this.color === openColor && this.value === openValue) return true;

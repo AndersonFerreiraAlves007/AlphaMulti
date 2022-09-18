@@ -126,10 +126,6 @@ const renderGamePage = () => {
   const player = Globals.player;
   const room = Globals.room;
 
-  console.log('player', player);
-
-  console.log('room', room);
-
   const orderPlayer = player.order;
 
   room.players.sort((a, b) => a.order - b.order);
@@ -189,11 +185,20 @@ const renderGamePage = () => {
   buttonClose.classList.add('button__close');
   buttonClose.setAttribute('type', 'image');
   buttonClose.setAttribute('src', './src/assets/img/button-close.png');
+  buttonClose.addEventListener('click', () => {
+    Globals.serverCommunication.close()
+    Globals.serverCommunication = null
+    //navigate('login')
+  })
   buttonsConfigure.append(buttonClose);
 
   const btnBack = document.createElement('img');
   btnBack.classList.add('button__back');
   btnBack.src = './src/assets/img/back-icon.svg';
+  btnBack.addEventListener('click', () => {
+    Globals.serverCommunication.leaveRoom()
+    //navigate('roomOptions')
+  })
   buttonsConfigure.append(btnBack);
 
   const infoUserPerfil1 = document.createElement('div');

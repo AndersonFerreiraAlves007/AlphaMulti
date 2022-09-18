@@ -16,7 +16,6 @@ class Modal {
     const divRed = document.createElement('div');
     divRed.classList.add('color', 'red');
     divRed.addEventListener('click', () => {
-      console.log('red');
       callBack('r');
       this.closeColorModal();
     });
@@ -24,7 +23,6 @@ class Modal {
     const divYellow = document.createElement('div');
     divYellow.classList.add('color', 'yellow');
     divYellow.addEventListener('click', () => {
-      console.log('y');
       callBack('yellow');
       this.closeColorModal();
     });
@@ -32,7 +30,6 @@ class Modal {
     const divGreen = document.createElement('div');
     divGreen.classList.add('color', 'green');
     divGreen.addEventListener('click', () => {
-      console.log('green');
       callBack('g');
       this.closeColorModal();
     });
@@ -40,7 +37,6 @@ class Modal {
     const divBlue = document.createElement('div');
     divBlue.classList.add('color', 'blue');
     divBlue.addEventListener('click', () => {
-      console.log('blue');
       callBack('b');
       this.closeColorModal();
     });

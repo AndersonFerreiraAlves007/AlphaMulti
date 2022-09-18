@@ -55,7 +55,6 @@ class ServerCommunication {
           break
         }
         case 'enterPlayer': {
-          console.log('enterPlayer')
           sessionStorage.setItem('roomId', msg.payload.roomId)
           const dataPlayer = await this.getDataPlayer()
           const dataRoom = await this.getDataRoom()

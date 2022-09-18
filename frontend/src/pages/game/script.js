@@ -116,9 +116,6 @@ function getImgCard(color, value) {
 let idInterval;
 
 const renderGamePage = () => {
-  console.log('player', player);
-
-  console.log('room', room);
 
   const orderPlayer = player.order;
 

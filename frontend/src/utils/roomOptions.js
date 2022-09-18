@@ -22,6 +22,11 @@ const renderRoomOptions = () => {
   const btnClose = document.createElement('img');
   btnClose.classList.add('button__close');
   btnClose.src = './src/assets/img/button-close.png';
+  btnClose.addEventListener('click', () => {
+    Globals.serverCommunication.close()
+    Globals.serverCommunication = null
+    navigate('login')
+  })
   divButtons.append(btnSound, btnClose);
 
   const imgCards = document.createElement('img');
