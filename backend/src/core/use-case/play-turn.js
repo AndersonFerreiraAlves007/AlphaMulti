@@ -41,6 +41,10 @@ class PlayTurn {
                   player.cards.push(room.deck.drawFromDeck());
                   console.log('execute 9');
                   console.log('execute 10');
+                  for(let i = 0; i < room.amount; i++) {
+                    player.cards.push(room.deck.drawFromDeck());
+                  }
+                  room.amount = 0;
                 } else {
                   console.log('execute 11');
                   let card = null;

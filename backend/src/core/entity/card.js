@@ -12,16 +12,16 @@ class Card {
   evaluateCard(openColor, openValue) {
     if(this.color === openColor) return true;
     if(this.value === openValue) return true;
-    if(this.value === VALUE_JOCKER) return true;
-    if(this.value === VALUE_M4) return true;
+    if(openValue === VALUE_JOCKER) return true;
+    if(openValue === VALUE_M4) return true;
     return false;
   }
 
   hasCard(openColor, openValue) {
     console.log('hasCard', openColor, openValue);
     console.log('hasCard', this.color, this.value);
-    if(this.value === VALUE_JOCKER) return true;
-    if(this.value === VALUE_M4) return true;
+    if(this.value === VALUE_JOCKER && this.value === openValue) return true;
+    if(this.value === VALUE_M4 && this.value === openValue) return true;
     if(this.color === openColor && this.value === openValue) return true;
     return false;
   }
