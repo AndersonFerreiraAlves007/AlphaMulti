@@ -1,8 +1,19 @@
+import { Modal } from './modal.js';
 import { navigate } from './navigate.js';
 
 const renderSplashScreenPage = () => {
   const main = document.createElement('main');
   main.classList.add('splash');
+
+  const btnTutorial = document.createElement('img');
+  btnTutorial.classList.add('img__tutorial');
+  btnTutorial.src = './src/assets/img/help.svg';
+
+  btnTutorial.addEventListener('click', () => {
+    Modal.showTutorialModal();
+  });
+
+  main.append(btnTutorial);
 
   const logo = document.createElement('img');
   logo.classList.add('logo__splash');
