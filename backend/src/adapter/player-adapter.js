@@ -3,6 +3,7 @@ const Card = require('../core/entity/card');
 
 class PlayerAdapter {
   static create (data) {
+    if(Object.values(data).length === 0) throw 'erro';
     const dataCards = data.cards === '' ? [] : data.cards.split(';');
     const cards = [];
     for(let i = 0; i < dataCards.length; i++) {
@@ -11,7 +12,7 @@ class PlayerAdapter {
     }
     return new Player(
       data.id, 
-      data.userame, 
+      data.username, 
       data.isBot === 'true', 
       Number(data.score), 
       cards, 
@@ -21,6 +22,7 @@ class PlayerAdapter {
     );
   }
   static createJson (data) {
+    if(Object.values(data).length === 0) throw 'erro';
     const dataCards = data.cards === '' ? [] : data.cards.split(';');
     const cards = [];
     for(let i = 0; i < dataCards.length; i++) {
@@ -32,7 +34,7 @@ class PlayerAdapter {
     }
     return {
       id: data.id, 
-      username: data.userame, 
+      username: data.username, 
       isBot: data.isBot === 'true', 
       score: Number(data.score), 
       cards, 

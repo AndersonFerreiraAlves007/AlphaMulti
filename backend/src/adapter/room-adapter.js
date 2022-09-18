@@ -4,6 +4,7 @@ const Deck = require('../core/entity/deck');
 
 class RoomAdapter {
   static create (data) {
+    if(Object.values(data).length === 0) throw 'erro';
     const dataCards = data.cards === '' ? [] : data.cards.split(';');
     const cards = [];
 
@@ -41,6 +42,7 @@ class RoomAdapter {
   }
 
   static createJson (data) {
+    if(Object.values(data).length === 0) throw 'erro';
     const dataCards = data.cards === '' ? [] : data.cards.split(';');
     const cards = [];
 

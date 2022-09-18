@@ -5,9 +5,13 @@ const PlayerAdapter = require('../../adapter/player-adapter');
 
 class PlayerRepositoryRedis extends PlayerRepository{
   async getPlayer(id) {
-    const key = `player:${id}`;
-    const data = await redis.hgetall(key);
-    return PlayerAdapter.create(data);
+    try {
+      const key = `player:${id}`;
+      const data = await redis.hgetall(key);
+      return PlayerAdapter.create(data);
+    } catch(e) {
+      return Promise.reject(new Error('we need more errors!'));
+    }
   }
 
   async createPlayer(id, data) {
@@ -44,7 +48,7 @@ class PlayerRepositoryRedis extends PlayerRepository{
     const players = [];
     for(let i = 0; i < ids.length; i++) {
       const player = await redis.hgetall(ids[i]);
-      if(player.roomId === roomId && !player.isBot) players.push(PlayerAdapter.create(player));
+      if(player.roomId === roomId && !(player.isBot === 'true')) players.push(PlayerAdapter.create(player));
     }
     return players;
   }
@@ -54,7 +58,7 @@ class PlayerRepositoryRedis extends PlayerRepository{
     const players = [];
     for(let i = 0; i < ids.length; i++) {
       const player = await redis.hgetall(ids[i]);
-      if(player.roomId === roomId && player.isBot) players.push(PlayerAdapter.create(player));
+      if(player.roomId === roomId && player.isBot === 'true') players.push(PlayerAdapter.create(player));
     }
     return players;
   }

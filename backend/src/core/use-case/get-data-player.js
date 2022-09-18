@@ -4,19 +4,26 @@ class GetDataPlayer {
   }
 
   async execute (playerId) {
-    const player = await this.playerRepository.getPlayer(playerId);
-    if(player) {
-      return {
-        id: player.id,
-        username: player.username,
-        cards: player.cards.map(item => ({ color: item.color, value: item.value })),
-        score: player.score,
-        order: player.order,
-        isBot: player.isBot,
-        avatar: player.avatar
-      };
+    let result = {};
+    try {
+      const player = await this.playerRepository.getPlayer(playerId);
+      if(player) {
+        result = {
+          id: player.id,
+          username: player.username,
+          cards: player.cards.map(item => ({ color: item.color, value: item.value })),
+          score: player.score,
+          order: player.order,
+          isBot: player.isBot,
+          avatar: player.avatar
+        };
+      }
+      result = {};
+    } catch(e) {
+      /* await Promise.reject(new Error('test')); */
+      result = {};
     }
-    return null;
+    return result;
   }
 }
 

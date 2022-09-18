@@ -18,6 +18,9 @@ ws.on('connection', client => {
     playerId: client.playerId
   }));
   client.on('pong', heartbeat);
+  client.on('close', async function close() {
+    await GameController.logout({playerId: client.playerId});
+  });
   client.on('message', data => {
     const { type, payload } = JSON.parse(data);
     switch (type) {
