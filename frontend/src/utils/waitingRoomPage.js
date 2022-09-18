@@ -1,8 +1,7 @@
 import { Globals } from './globals.js';
 
 const renderWaitingRoomPage = () => {
-
-  const room = Globals.room
+  const room = Globals.room;
 
   const page = document.getElementById('page');
   page.classList.add('waiting--room-page');
@@ -22,11 +21,11 @@ const renderWaitingRoomPage = () => {
   btnClose.classList.add('button__close');
   btnClose.src = './src/assets/img/button-close.png';
 
-  // const btnBack = document.createElement('img');
-  // btnBack.classList.add('button__back');
-  // btnBack.src = './src/assets/img/back-icon.svg';
+  const btnBack = document.createElement('img');
+  btnBack.classList.add('button__back');
+  btnBack.src = './src/assets/img/back-icon.svg';
 
-  divButtons.append(btnSound, btnClose);
+  divButtons.append(btnSound, btnClose, btnBack);
 
   const main = document.createElement('main');
   main.classList.add('main__waiting--room');
@@ -44,12 +43,15 @@ const renderWaitingRoomPage = () => {
   const divAllusers = document.createElement('div');
   divAllusers.classList.add('div__users');
 
-  const player1 = room.players.length > 0 ? room.players[0] : {
-    username: 'Esperando jogador...',
-    avatar: ''
-  }
+  const player1 =
+    room.players.length > 0
+      ? room.players[0]
+      : {
+          username: 'Esperando jogador...',
+          avatar: '',
+        };
 
-  console.log(room.players[0])
+  console.log(room.players[0]);
 
   const divUser1 = document.createElement('div');
   divUser1.classList.add('div_user');
@@ -59,12 +61,13 @@ const renderWaitingRoomPage = () => {
   pUser1.innerText = player1.username;
   divUser1.append(imgUser1, pUser1);
 
-  
-
-  const player2 = room.players.length > 1 ? room.players[1] : {
-    username: 'Esperando jogador...',
-    avatar: ''
-  }
+  const player2 =
+    room.players.length > 1
+      ? room.players[1]
+      : {
+          username: 'Esperando jogador...',
+          avatar: '',
+        };
 
   const divUser2 = document.createElement('div');
   divUser2.classList.add('div_user');
@@ -74,10 +77,13 @@ const renderWaitingRoomPage = () => {
   pUser2.innerText = player2.username;
   divUser2.append(imgUser2, pUser2);
 
-  const player3 = room.players.length > 2 ? room.players[2] : {
-    username: 'Esperando jogador...',
-    avatar: ''
-  }
+  const player3 =
+    room.players.length > 2
+      ? room.players[2]
+      : {
+          username: 'Esperando jogador...',
+          avatar: '',
+        };
 
   const divUser3 = document.createElement('div');
   divUser3.classList.add('div_user');
@@ -87,10 +93,13 @@ const renderWaitingRoomPage = () => {
   pUser3.innerText = player3.username;
   divUser3.append(imgUser3, pUser3);
 
-  const player4 = room.players.length > 3 ? room.players[3] : {
-    username: 'Esperando jogador...',
-    avatar: ''
-  }
+  const player4 =
+    room.players.length > 3
+      ? room.players[3]
+      : {
+          username: 'Esperando jogador...',
+          avatar: '',
+        };
 
   const divUser4 = document.createElement('div');
   divUser4.classList.add('div_user');
