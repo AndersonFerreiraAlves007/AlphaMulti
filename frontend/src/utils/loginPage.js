@@ -137,6 +137,12 @@ const renderLoginPage = () => {
   
     Globals.serverCommunication.addEventListener('makeMove', (data)=> {
       const { player, room } = data
+      console.log('makeMove kkkkkkkkkkkkkk')
+      console.log(player)
+      console.log(room)
+      Globals.player = player
+      Globals.room = room
+      navigate('game')
       /* renderGamePage(player, room) */
     })
     /* setTimeout(() => {

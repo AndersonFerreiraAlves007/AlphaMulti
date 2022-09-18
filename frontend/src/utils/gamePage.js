@@ -474,6 +474,9 @@ const renderGamePage = () => {
     const cardsUser2Card1 = document.createElement('img');
     cardsUser2Card1.classList.add('card', `overflowB${i + 1 > 1 ? `${i + 1}` : ''}`, 'card-player');
     cardsUser2Card1.setAttribute('src', getImgCard(player4.cards[i].color, player4.cards[i].value));
+    cardsUser2Card1.addEventListener('click', () => {
+      Globals.serverCommunication.playTurn(player4.cards[i].color, player4.cards[i].value)
+    })
     traslate2.append(cardsUser2Card1);
   }
 

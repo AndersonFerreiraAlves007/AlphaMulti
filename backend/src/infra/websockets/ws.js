@@ -48,10 +48,10 @@ ws.on('connection', client => {
       break;
     case 'playTurn':
       GameController.playTurn({
-        playerId: payload.playerId,
+        
+      }, {playerId: payload.playerId,
         color: payload.color,
-        value: payload.value
-      }, {});
+        value: payload.value});
       break;
     case 'enterPrivateRoom':
       GameController.enterPrivateRoom({

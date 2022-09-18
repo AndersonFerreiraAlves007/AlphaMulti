@@ -75,12 +75,12 @@ class ServerCommunication {
           break
         }
         case 'makeMove': {
-          /* const dataPlayer = await this.getDataPlayer()
+          const dataPlayer = await this.getDataPlayer()
           const dataRoom = await this.getDataRoom()
           this.events.makeMove.forEach(callback => callback({
             player: dataPlayer,
             room: dataRoom
-          })) */
+          }))
           break
         }
       }
