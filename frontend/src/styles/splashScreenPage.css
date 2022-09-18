@@ -5,6 +5,7 @@
   position: absolute;
   top: 30px;
   left: 30px;
+  cursor: pointer;
 }
 
 .splash {
