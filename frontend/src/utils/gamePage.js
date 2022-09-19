@@ -411,7 +411,8 @@ const renderGamePage = () => {
 
   for (let i = 1; i <= player3.numberCards; i++) {
     const cardsUser2Card1 = document.createElement('img');
-    cardsUser2Card1.classList.add('card', `overflowZ${i > 1 ? `${i}` : ''}`);
+    cardsUser2Card1.style.transform = `translate(${-50 * i}%)`
+   /*  cardsUser2Card1.classList.add('card', `overflowZ${i > 1 ? `${i}` : ''}`); */
     cardsUser2Card1.setAttribute('src', './src/assets/img/verso-carta.png');
     colunaDireita.append(cardsUser2Card1);
   }

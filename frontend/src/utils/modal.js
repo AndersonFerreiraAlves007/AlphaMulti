@@ -16,6 +16,8 @@ class Modal {
     title.classList.add('h1__tutorial');
     title.innerText = 'Regras do Jogo';
 
+    //algum código html
+
     modal.append(title);
     backgroundModal.append(modal);
     body.append(backgroundModal);
@@ -70,7 +72,7 @@ class Modal {
     body.append(backgroundModal);
   }
 
-  static showVictoryModal = (avatarSrc = './src/assets/img/users/user1.svg', scoreValue = 100) => {
+  static showVictoryModal = (avatarSrc = './src/assets/img/users/user1.svg', scoreValue = 100, callBack = () => {}) => {
     const body = document.querySelector('body');
 
     const backgroundModal = document.createElement('div');
