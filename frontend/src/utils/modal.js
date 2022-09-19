@@ -100,7 +100,7 @@ class Modal {
     body.append(backgroundModal);
   }
 
-  static showVictoryModal = (avatarSrc = './src/assets/img/users/user1.svg', scoreValue = 100, callBack = () => {}) => {
+  static showVictoryModal = (playerWiner, callBack = () => {}) => {
     const body = document.querySelector('body');
 
     const backgroundModal = document.createElement('div');
@@ -119,20 +119,21 @@ class Modal {
 
     const avatar = document.createElement('img');
     avatar.classList.add('avatar');
-    avatar.src = avatarSrc;
+    avatar.src = playerWiner.avatar;
 
     const divScore = document.createElement('div');
     divScore.classList.add('score');
     const titleScore = document.createElement('p');
     titleScore.innerText = 'Pontos';
     const score = document.createElement('p');
-    score.innerText = scoreValue;
+    score.innerText = playerWiner.score;
     divScore.append(titleScore, score);
 
     const btnExit = document.createElement('button');
     btnExit.innerText = 'Sair';
     btnExit.addEventListener('click', () => {
       this.closeVictoryModal();
+      callBack()
     });
 
     modal.append(logo, title, avatar, divScore, btnExit);

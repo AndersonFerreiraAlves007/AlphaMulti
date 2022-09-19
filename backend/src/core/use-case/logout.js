@@ -43,7 +43,7 @@ class Logout {
                 order: player.order
               });
             }
-            this.playerNotification.levePlayer(room.id);
+            this.playerNotification.levePlayer(room.id, player.id, true);
           }
         }
       

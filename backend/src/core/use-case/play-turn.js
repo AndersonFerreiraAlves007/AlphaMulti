@@ -148,10 +148,12 @@ class PlayTurn {
                     });
                   }
                   await this.roomRepository.deleteRoom(room.id);
+                  this.playerNotification.endGame(room.id, winer ? winer.id : '');
                 } else {
                   this.timeNotification.makeMove(room.id, room.position);
+                  this.playerNotification.makeMove(room.id);
                 }
-                this.playerNotification.makeMove(room.id, winer ? winer.id : '');
+                
               }
             }
           }

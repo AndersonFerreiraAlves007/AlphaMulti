@@ -1,6 +1,7 @@
 import { navigate } from './navigate.js';
 import { ServerCommunication } from '../services/ServerComunication.js';
 import { Globals } from './globals.js';
+import { Modal } from './modal.js';
 
 const avatares = [
   './src/assets/img/users/user1.svg',
@@ -42,6 +43,9 @@ const renderLoginPage = () => {
   buttosClose.classList.add('button__close');
   buttosClose.setAttribute('type', 'image');
   buttosClose.setAttribute('src', './src/assets/img/button-close.png');
+  buttosClose.addEventListener('click', () => {
+    window.location.reload();
+  })
 
   buttonsCofigure.append(buttonSound, buttosClose);
 
@@ -113,7 +117,11 @@ const renderLoginPage = () => {
     })
   
     Globals.serverCommunication.addEventListener('endGame', (data)=> {
-      const { player, room } = data
+      const { winer } = data
+      const playerWiner = Globals.room.players.find(item => item.id === winer)
+      Modal.showVictoryModal(playerWiner, () => {
+        navigate('roomOptions')
+      })
     })
   
     Globals.serverCommunication.addEventListener('enterPlayer', (data)=> {
@@ -124,11 +132,15 @@ const renderLoginPage = () => {
     })
   
     Globals.serverCommunication.addEventListener('levePlayer', (data)=> {
-      const { player, room } = data
+      const { isPlayerLogged, player, room } = data
       Globals.player = player
       Globals.room = room
-      if(!room.isRun) navigate('waitingRoom')
-      else navigate('game')
+      if(isPlayerLogged) {
+        navigate('roomOptions');
+      } else {
+        if(!room.isRun) navigate('waitingRoom')
+        else navigate('game')
+      }
     })
   
     Globals.serverCommunication.addEventListener('makeMove', (data)=> {

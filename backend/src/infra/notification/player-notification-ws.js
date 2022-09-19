@@ -36,20 +36,20 @@ class PlayerNotificationWS extends PlayerNotification {
     await this.sendMessageRoom(roomId, 'startGame');
   }
 
-  async endGame(roomId) {
-    await this.sendMessageRoom(roomId, 'endGame');
+  async endGame(roomId, winer) {
+    await this.sendMessageRoom(roomId, 'endGame', { winer });
   }
 
   async enterPlayer(roomId, playerId) {
-    await this.sendMessageRoom(roomId, 'enterPlayer');
+    await this.sendMessageRoom(roomId, 'enterPlayer', { playerId });
   }
 
-  async levePlayer(roomId) {
-    await this.sendMessageRoom(roomId, 'levePlayer');
+  async levePlayer(roomId, playerId, isLogout) {
+    await this.sendMessageRoom(roomId, 'levePlayer', { playerId, isLogout });
   }
 
-  async makeMove(roomId, winer) {
-    await this.sendMessageRoom(roomId, 'makeMove', { winer });
+  async makeMove(roomId) {
+    await this.sendMessageRoom(roomId, 'makeMove');
   }
 }
 
