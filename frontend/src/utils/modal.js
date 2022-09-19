@@ -16,9 +16,37 @@ class Modal {
     title.classList.add('h1__tutorial');
     title.innerText = 'Regras do Jogo';
 
-    //algum código html
+    const contentOl = document.createElement('ol');
+
+    const content1 = document.createElement('li');
+    title.classList.add('p__tutorial');
+    content1.innerText = 'Quem começa o jogo é o criador da sala';
+
+    const content2 = document.createElement('li');
+    title.classList.add('p__tutorial');
+    content2.innerText = 'Caso o jogador tenha que comprar uma carta ou recebe o coringa +2 ou +4, comprará a carta e passará para o próximo jogador';
+
+    const content3 = document.createElement('li');
+    title.classList.add('p__tutorial');
+    content3.innerText = 'Cada jogador deverá jogar em 0:15 caso não jogue, deverá comprar uma carta'
+
+    const content4 = document.createElement('li');
+    title.classList.add('p__tutorial');
+    content4.innerText = 'Caso o jogador não possua a carta com a mesma cor, número ou coringa, deverá comprar uma no deck'
+  
+    const content5 = document.createElement('li');
+    title.classList.add('p__tutorial');
+    content5.innerText = 'Ganha o jogador que não tiver nenhuma carta na mão'
 
     modal.append(title);
+    modal.append(contentOl);
+    contentOl.append(content1);
+    contentOl.append(content2);
+    contentOl.append(content3);
+    contentOl.append(content4);
+    contentOl.append(content5);
+
+
     backgroundModal.append(modal);
     body.append(backgroundModal);
   };

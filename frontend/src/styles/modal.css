@@ -40,20 +40,25 @@
 
 .modal-tutorial {
   width: 90%;
-  height: 60%;
+  height: 70%;
   color: var(--whiteFixed);
   padding: 32px 20px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
   gap: 20px;
+  line-height: 40px;
   background-color: var(--primary-color-1);
   position: fixed;
   margin-top: 112px;
   border-radius: 8px;
   border: solid 10px var(--gold);
   animation: showAnimationn 1s;
+  display: flex;
+  text-align: left;
+}
+.modal-tutorial h1 {
+  text-align: center;
 }
 
 .logo {

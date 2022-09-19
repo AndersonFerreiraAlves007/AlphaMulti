@@ -8,16 +8,16 @@
     width: 100vw;
     height: 100vh;
 }
-.cards__login {
+.cartas__login {
     width: 20%;
     height: 20%;
 }
-.buttons__configure {
+.buttons__configure--loginPage {
     width: 100%;
     justify-content: end;
     display: flex;
 }
-.buttons__configure input {
+.buttons__configure--loginPage input {
     width: 6%;
     height: 15%;
 }
@@ -81,7 +81,7 @@
 	animation-duration: 2s;
 	animation-timing-function: ease;
 	animation-fill-mode: both;
-	animation-iteration-count: infinite; 
+	animation-iteration-count: static; 
 }
 @keyframes logo {
 	from {

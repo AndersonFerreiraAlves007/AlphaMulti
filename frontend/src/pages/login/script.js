@@ -25,7 +25,7 @@ const renderLoginPage = () => {
   cartasLogin.setAttribute('src', './src/assets/img/cartas-login.png');
 
   const buttonsCofigure = document.createElement('div');
-  buttonsCofigure.classList.add('buttons__configure');
+  buttonsCofigure.classList.add('.buttons__configure--loginPage');
 
   const buttonSound = document.createElement('input');
   buttonSound.classList.add('button__sound');
