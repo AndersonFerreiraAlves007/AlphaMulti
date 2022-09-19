@@ -21,9 +21,10 @@ const renderWaitingRoomPage = () => {
   btnClose.classList.add('button__close');
   btnClose.src = './src/assets/img/button-close.png';
   btnClose.addEventListener('click', () => {
-    Globals.serverCommunication.close()
-    Globals.serverCommunication = null
+    /* Globals.serverCommunication.close()
+    Globals.serverCommunication = null */
     //navigate('login')
+    window.location.reload();
   })
 
   const btnBack = document.createElement('img');

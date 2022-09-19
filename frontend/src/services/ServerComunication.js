@@ -46,12 +46,12 @@ class ServerCommunication {
           break
         }
         case 'endGame': {
-         /*  const dataPlayer = await this.getDataPlayer()
-          const dataRoom = await this.getDataRoom()
+          /* const dataPlayer = await this.getDataPlayer()
+          const dataRoom = await this.getDataRoom() */
+          console.log('endGame')
           this.events.endGame.forEach(callback => callback({
-            player: dataPlayer,
-            room: dataRoom
-          })) */
+            winer: msg.payload.winer
+          }))
           break
         }
         case 'enterPlayer': {
@@ -65,12 +65,22 @@ class ServerCommunication {
           break
         }
         case 'levePlayer': {
-          const dataPlayer = await this.getDataPlayer()
-          const dataRoom = await this.getDataRoom()
-          this.events.levePlayer.forEach(callback => callback({
-            player: dataPlayer,
-            room: dataRoom
-          }))
+          if(msg.payload.playerId === sessionStorage.getItem('playerId')) {
+            sessionStorage.removeItem('roomId')
+            this.events.levePlayer.forEach(callback => callback({
+              isPlayerLogged: true,
+              isLogout: sg.payload.isLogout
+            }))
+          } else {
+            const dataPlayer = await this.getDataPlayer()
+            const dataRoom = await this.getDataRoom()
+            this.events.levePlayer.forEach(callback => callback({
+              isPlayerLogged: false,
+              isLogout: sg.payload.isLogout,
+              player: dataPlayer,
+              room: dataRoom
+            }))
+          }
           break
         }
         case 'makeMove': {

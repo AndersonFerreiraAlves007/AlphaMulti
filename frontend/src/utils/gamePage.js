@@ -186,9 +186,7 @@ const renderGamePage = () => {
   buttonClose.setAttribute('type', 'image');
   buttonClose.setAttribute('src', './src/assets/img/button-close.png');
   buttonClose.addEventListener('click', () => {
-    Globals.serverCommunication.close()
-    Globals.serverCommunication = null
-    //navigate('login')
+    window.location.reload();
   })
   buttonsConfigure.append(buttonClose);
 
