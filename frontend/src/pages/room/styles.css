@@ -1,0 +1,205 @@
+.room {
+  display: flex;
+  width: 100%;
+}
+.backgroud {
+  position: fixed;
+  z-index: -1000;
+  width: 100vw;
+  height: 100vh;
+}
+.cards__login {
+  width: 20%;
+  height: 54%;
+  display: flex;
+  align-self: flex-start;
+  align-items: flex-start;
+}
+.logo {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.logo img {
+  width: 88%;
+  z-index: 3;
+  animation-name: logo;
+  animation-delay: 2s;
+  animation-duration: 2s;
+  animation-timing-function: ease;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+}
+@keyframes logo {
+  from {
+    margin-top: 0px;
+    opacity: 0;
+  }
+  to {
+    margin-top: 100px;
+    opacity: 1;
+  }
+}
+.infor {
+  font-family: "Catamaran", sans-serif;
+  width: 50%;
+  height: 50%;
+  background-color: var(--background-blue);
+  border-radius: 20px;
+
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  flex-direction: column;
+
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.infor h1 {
+  font-size: 1.5rem;
+}
+.infor h2 {
+  font-size: 1.3rem;
+}
+.userAll {
+  display: flex;
+  gap: 5%;
+  align-items: center;
+  justify-content: center;
+}
+.user {
+  width: 20%;
+  height: 90%;
+  background-color: var(--blue-user);
+  border-radius: 20px;
+  padding: 20px;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+}
+.user img {
+  width: 80%;
+}
+.buttons__configure {
+  width: 100%;
+  justify-content: end;
+  display: flex;
+  align-self: flex-start;
+}
+.buttons__configure input {
+  width: 6%;
+  height: 15%;
+}
+.cartas__room {
+  width: 20%;
+  height: 20%;
+  align-self: flex-end;
+}
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  .cards__login {
+    width: 27%;
+  }
+  .buttons__configure input {
+    width: 15%;
+    height: 40%;
+  }
+  .logo {
+    width: 50%;
+  }
+  .infor {
+    width: 85%;
+    align-items: initial;
+    text-align: center;
+  }
+  .infor h1 {
+    font-size: 1.3rem;
+  }
+  .infor h2 {
+    font-size: 1rem;
+  }
+  .userAll {
+    gap: 2%;
+  }
+  .user {
+    width: 22%;
+    padding: 10px;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .buttons__configure input {
+    width: 12%;
+    height: 28%;
+  }
+  .logo {
+    width: 50%;
+  }
+  .infor {
+    width: 90%;
+  }
+}
+@media screen and (min-width: 540px) and (max-width: 768px) {
+  .logo {
+    width: 30%;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .infor {
+    width: 85%;
+  }
+  .logo {
+    width: 30%;
+}
+.buttons__configure input {
+  width: 10%;
+  height: 24%;
+  }
+}
+@media screen and (min-width: 860px) and (max-width: 1024px) {
+  .infor {
+    top: 20%;
+  }
+}
+@media screen and (min-width: 1201px) {
+  .logo {
+    width: 30%;
+  }
+  .infor {
+    top: 30%;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .logo {
+    width: 30%;
+  }
+  .infor {
+    top: 40%;
+  }
+} 
+@media screen and (min-width: 2560px) {
+  .infor h1 {
+    font-size: 2.5rem;
+  }
+  .infor h2 {
+    font-size: 2rem;
+  }
+  .user p {
+    font-size: 2rem;
+  }
+}
