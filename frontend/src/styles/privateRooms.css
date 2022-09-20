@@ -1,0 +1,241 @@
+.privateRooms {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+}
+
+.backgroud {
+  position: fixed;
+  z-index: -1000;
+  width: 100%;
+  height: 100vh;
+}
+
+.logo {
+  display: flex;
+  position: absolute;
+  z-index: 1;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 500px;
+}
+
+.logo img {
+  width: 20%;
+}
+
+.inforRoom {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-blue);
+  border-radius: 20px;
+  gap: 20px;
+}
+
+.inforRoom button {
+  padding: 20px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.roomAll {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.roomCard {
+  width: 150px;
+  height: 120px;
+  background-color: var(--blue-user);
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 12px;
+  gap: 10px;
+}
+
+.roomCard button{
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.buttons__configure {
+  position: fixed;
+  display: flex;
+  justify-content: end;
+  margin-left: 1500px;
+  margin-bottom: 800px;
+}
+.buttons__configure input {
+  width: 50px;
+}
+
+.cartas__room {
+  position: absolute;
+  width: 300px;
+  margin-top: 260px;
+  margin-left: 750px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  h1,
+  h2 {
+    font-size: 15px;
+  }
+
+  .logo {
+    margin-bottom: 400px;
+  }
+
+  .logo img {
+    width: 30%;
+  }
+
+  .inforRoom {
+    width: 85%;
+    display: flex;
+    justify-content: center;
+  }
+  .roomAll {
+    justify-content: center;
+    width: 100%;
+  }
+  .roomCard {
+    width: 7%;
+    height: 50px;
+    border-radius: 8px;
+  }
+  .roomCard img {
+    width: 25px;
+  }
+
+  p {
+    font-size: 13px;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  h1,
+  h2 {
+    font-size: 15px;
+  }
+
+  .logo {
+    margin-bottom: 570px;
+  }
+
+  .logo img {
+    width: 30%;
+  }
+
+  .inforRoom {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+  }
+  .roomAll {
+    justify-content: center;
+    width: 100%;
+  }
+  .roomCard {
+    width: 150px;
+    height: 50px;
+    border-radius: 8px;
+  }
+  .roomCard img {
+    width: 25px;
+  }
+
+  p {
+    font-size: 13px;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  h1,
+  h2 {
+    font-size: 15px;
+  }
+
+  .logo {
+    margin-bottom: 570px;
+  }
+
+  .logo img {
+    width: 30%;
+  }
+
+  .inforRoom {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+  }
+  .roomAll {
+    justify-content: center;
+    width: 100%;
+  }
+  .roomCard {
+    width: 150px;
+    height: 50px;
+    border-radius: 8px;
+  }
+  .roomCard img {
+    width: 25px;
+  }
+
+  p {
+    font-size: 13px;
+  }
+}
+
+@media screen and (min-width: 1201px) {
+  h1,
+  h2 {
+    font-size: 25px;
+  }
+
+  .logo {
+    margin-bottom: 420px;
+  }
+
+  .logo img {
+    width: 20%;
+  }
+
+  .inforRoom {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+  }
+  .roomAll {
+    justify-content: center;
+    width: 100%;
+  }
+  .roomCard {
+    width: 120px;
+    height: 130px;
+    border-radius: 8px;
+    padding: 10px;
+  }
+  .roomCard img {
+    width: 50px;
+  }
+
+  p {
+    font-size: 25px;
+  }
+}

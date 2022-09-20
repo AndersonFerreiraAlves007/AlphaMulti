@@ -1,0 +1,29 @@
+{
+  "name": "alpha-multi-backend",
+  "version": "1.0.0",
+  "description": "Backend de uma aplicação em grupo do curso do alpha edtech do jogo do uno",
+  "main": "server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "jest --watchAll"
+  },
+  "keywords": [],
+  "author": "Anderson Ferreira Alves, ",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "ioredis": "^5.2.3",
+    "uuid": "^8.3.2",
+    "ws": "^7.5.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.2",
+    "eslint": "^8.23.0",
+    "eslint-plugin-jest": "^27.0.1",
+    "jest": "^29.0.1",
+    "nodemon": "^2.0.19"
+  }
+}

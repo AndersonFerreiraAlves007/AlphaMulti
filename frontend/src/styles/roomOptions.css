@@ -1,0 +1,402 @@
+.room--first--page {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.background {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -100;
+}
+
+.buttons__configure {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+}
+
+.buttons__configure img {
+  width: 40px;
+}
+
+.img__cards {
+  position: absolute;
+  width: 100px;
+  bottom: 0px;
+  right: 0px;
+}
+
+.main__room {
+  color: var(--whiteFixed);
+  width: 80%;
+  height: 50%;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-blue);
+  border-radius: 20px;
+}
+
+.main__room>p {
+  font-size: 20px;
+  font-weight: 700;
+  padding-bottom: 30px;
+}
+/* 
+.room--logo {
+  width: 200px;
+  position: absolute;
+  top: -60px;
+} */
+/* .div__logo__login {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 0; right: 0;
+  margin: auto;
+
+  width: 25%;
+} */
+.room--logo {
+width: 88%;
+z-index: 3;
+animation-name: logo;
+animation-delay: 2s;
+animation-duration: 2s;
+animation-timing-function: ease;
+animation-fill-mode: both;
+animation-iteration-count: static; 
+top: -206px;
+}
+@keyframes logo {
+from {
+  margin-top: 0px;
+  opacity: 0;
+}
+to {
+  margin-top: 100px;
+  opacity: 1;
+}
+}
+.rooms {
+  width: 80%;
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+}
+
+.rooms div {
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.rooms img {
+  cursor: pointer;
+  width: 50px;
+}
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  .main__room {
+    height: 40%;
+  }
+}
+
+@media (min-width: 681px) {
+  .buttons__configure img {
+    width: 60px;
+  }
+
+  .img__cards {
+    width: 250px;
+    bottom: 0px;
+    right: 0px;
+  }
+
+  .main__room {
+    width: 50%;
+    height: 50%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .room--logo {
+    width: 300px;
+    position: absolute;
+    top: -206px;
+  }
+
+  .rooms img {
+    cursor: pointer;
+    width: 100px;
+  }
+
+  .rooms div {
+    font-size: 18px;
+  }
+
+  .rooms {
+    width: 80%;
+    display: flex;
+    gap: 100px;
+    justify-content: center;
+  }
+}
+
+/* .room {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+}
+
+.background {
+  position: fixed;
+  z-index: -1000;
+  width: 100%;
+  height: 100vh;
+}
+
+.logo {
+  display: flex;
+  position: absolute;
+  z-index: 1;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 500px;
+}
+
+.logo img {
+  width: 20%;
+}
+
+.infor {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-blue);
+  border-radius: 20px;
+}
+
+.userAll {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.user {
+  width: 150px;
+  height: 120px;
+  background-color: var(--blue-user);
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.buttons__configure {
+  position: fixed;
+  display: flex;
+  justify-content: end;
+  margin-left: 1500px;
+  margin-bottom: 800px;
+}
+
+.buttons__configure input {
+  width: 50px;
+}
+
+.cartas__room {
+  position: absolute;
+  width: 300px;
+  margin-top: 260px;
+  margin-left: 750px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+
+  h1,
+  h2 {
+    font-size: 15px;
+  }
+
+  .logo {
+    margin-bottom: 400px;
+  }
+
+  .logo img {
+    width: 30%;
+  }
+
+  .infor {
+    width: 85%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .userAll {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .user {
+    width: 7%;
+    height: 50px;
+    border-radius: 8px;
+  }
+
+  .user img {
+    width: 25px;
+  }
+
+  p {
+    font-size: 13px;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+
+  h1,
+  h2 {
+    font-size: 15px;
+  }
+
+  .logo {
+    margin-bottom: 570px;
+  }
+
+  .logo img {
+    width: 30%;
+  }
+
+  .infor {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .userAll {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .user {
+    width: 150px;
+    height: 50px;
+    border-radius: 8px;
+  }
+
+  .user img {
+    width: 25px;
+  }
+
+  p {
+    font-size: 13px;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+
+  h1,
+  h2 {
+    font-size: 15px;
+  }
+
+  .logo {
+    margin-bottom: 570px;
+  }
+
+  .logo img {
+    width: 30%;
+  }
+
+  .infor {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .userAll {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .user {
+    width: 150px;
+    height: 50px;
+    border-radius: 8px;
+  }
+
+  .user img {
+    width: 25px;
+  }
+
+  p {
+    font-size: 13px;
+  }
+}
+
+@media screen and (min-width: 1201px) {
+
+  h1,
+  h2 {
+    font-size: 25px;
+  }
+
+  .logo {
+    margin-bottom: 420px;
+  }
+
+  .logo img {
+    width: 20%;
+  }
+
+  .infor {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .userAll {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .user {
+    width: 120px;
+    height: 130px;
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  .user img {
+    width: 50px;
+  }
+
+  p {
+    font-size: 25px;
+  }
+} */
