@@ -9,8 +9,6 @@ const avatares = [
   './src/assets/img/users/user8.svg',
   './src/assets/img/users/user9.svg',
   './src/assets/img/users/user10.svg',
-  './src/assets/img/users/user-robo-1.svg',
-  './src/assets/img/users/user-robo-2.svg'
 ];
 
 const renderLoginPage = () => {
