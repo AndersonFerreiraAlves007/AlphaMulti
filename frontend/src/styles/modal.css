@@ -21,7 +21,7 @@
 }
 
 .modal {
-  width: 90%;
+  width: 350px;
   height: 550px;
   color: var(--whiteFixed);
   padding: 32px 20px;
@@ -57,6 +57,7 @@
   display: flex;
   text-align: left;
 }
+
 .modal-tutorial h1 {
   text-align: center;
 }
@@ -64,12 +65,12 @@
 .logo {
   width: 530px;
   position: absolute;
-  top: -140px;
-  left: -45px;
+  top: -100px;
+  left: 0px;
 }
 
 .title {
-  width: 300px;
+  width: 250px;
   align-self: center;
   padding-top: 120px;
 }
@@ -170,6 +171,11 @@
   .modal {
     width: 500px;
     margin: 0;
+  }
+
+  .logo {
+    width: 500px;
+    top: -160px;
   }
 
   .modal-tutorial {
