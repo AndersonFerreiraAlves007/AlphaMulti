@@ -19,12 +19,23 @@ const renderRoomOptions = () => {
   const btnSound = document.createElement('img');
   btnSound.classList.add('button__sound');
   btnSound.src = './src/assets/img/button-sound.png';
+  btnSound.addEventListener('click', () => {
+    const audio = document.getElementById('audio-background');
+    if (audio.paused) {
+      audio.volume = 0.1;
+      audio.play();
+      audio.loop = true;
+    } else {
+      audio.pause();
+    }
+  });
+
   const btnClose = document.createElement('img');
   btnClose.classList.add('button__close');
   btnClose.src = './src/assets/img/button-close.png';
   btnClose.addEventListener('click', () => {
     window.location.reload();
-  })
+  });
   divButtons.append(btnSound, btnClose);
 
   const imgCards = document.createElement('img');
@@ -48,8 +59,8 @@ const renderRoomOptions = () => {
   divRoom1.append(room1Title, room1Img);
 
   divRoom1.addEventListener('click', () => {
-    divRoom1.style.pointerEvents = 'none'; 
-    Globals.serverCommunication.enterRadomRoom()
+    divRoom1.style.pointerEvents = 'none';
+    Globals.serverCommunication.enterRadomRoom();
   });
 
   const divRoom2 = document.createElement('div');

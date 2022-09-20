@@ -38,6 +38,16 @@ const renderLoginPage = () => {
   buttonSound.classList.add('button__sound');
   buttonSound.setAttribute('type', 'image');
   buttonSound.setAttribute('src', './src/assets/img/button-sound.png');
+  buttonSound.addEventListener('click', () => {
+    const audio = document.getElementById('audio-background');
+    if (audio.paused) {
+      audio.volume = 0.1;
+      audio.play();
+      audio.loop = true;
+    } else {
+      audio.pause();
+    }
+  });
 
   const buttosClose = document.createElement('input');
   buttosClose.classList.add('button__close');
@@ -45,7 +55,7 @@ const renderLoginPage = () => {
   buttosClose.setAttribute('src', './src/assets/img/button-close.png');
   buttosClose.addEventListener('click', () => {
     window.location.reload();
-  })
+  });
 
   buttonsCofigure.append(buttonSound, buttosClose);
 
@@ -109,46 +119,46 @@ const renderLoginPage = () => {
     sessionStorage.setItem('username', username);
     sessionStorage.setItem('avatar', avatares[indexAvatar]);
     Globals.serverCommunication = new ServerCommunication('localhost:3333');
-    Globals.serverCommunication.addEventListener('startGame', (data)=> {
-      const { player, room } = data
-      Globals.player = player
-      Globals.room = room
-      navigate('game')
-    })
-  
-    Globals.serverCommunication.addEventListener('endGame', (data)=> {
-      const { winer } = data
-      const playerWiner = Globals.room.players.find(item => item.id === winer)
+    Globals.serverCommunication.addEventListener('startGame', (data) => {
+      const { player, room } = data;
+      Globals.player = player;
+      Globals.room = room;
+      navigate('game');
+    });
+
+    Globals.serverCommunication.addEventListener('endGame', (data) => {
+      const { winer } = data;
+      const playerWiner = Globals.room.players.find((item) => item.id === winer);
       Modal.showVictoryModal(playerWiner, () => {
-        navigate('roomOptions')
-      })
-    })
-  
-    Globals.serverCommunication.addEventListener('enterPlayer', (data)=> {
-      const { player, room } = data
-      Globals.player = player
-      Globals.room = room
-      navigate('waitingRoom')
-    })
-  
-    Globals.serverCommunication.addEventListener('levePlayer', (data)=> {
-      const { isPlayerLogged, player, room } = data
-      Globals.player = player
-      Globals.room = room
-      if(isPlayerLogged) {
+        navigate('roomOptions');
+      });
+    });
+
+    Globals.serverCommunication.addEventListener('enterPlayer', (data) => {
+      const { player, room } = data;
+      Globals.player = player;
+      Globals.room = room;
+      navigate('waitingRoom');
+    });
+
+    Globals.serverCommunication.addEventListener('levePlayer', (data) => {
+      const { isPlayerLogged, player, room } = data;
+      Globals.player = player;
+      Globals.room = room;
+      if (isPlayerLogged) {
         navigate('roomOptions');
       } else {
-        if(!room.isRun) navigate('waitingRoom')
-        else navigate('game')
+        if (!room.isRun) navigate('waitingRoom');
+        else navigate('game');
       }
-    })
-  
-    Globals.serverCommunication.addEventListener('makeMove', (data)=> {
-      const { player, room } = data
-      Globals.player = player
-      Globals.room = room
-      navigate('game')
-    })
+    });
+
+    Globals.serverCommunication.addEventListener('makeMove', (data) => {
+      const { player, room } = data;
+      Globals.player = player;
+      Globals.room = room;
+      navigate('game');
+    });
     navigate('roomOptions');
   });
 
