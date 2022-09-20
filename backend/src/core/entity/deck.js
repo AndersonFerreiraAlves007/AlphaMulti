@@ -52,10 +52,6 @@ class Deck {
     return this.cardsDiscarded.length > 0 ? this.cardsDiscarded[this.cardsDiscarded.length - 1] : null;
   }
 
-  /* shuffle() {
-    this.cards.sort(() => Math.random() - 0.5);
-  } */
-
   shuffle() {
     for (let i = this.cards.length - 1; i > 0; i--) {
       const newIndex = Math.floor(Math.random() * (i + 1));

@@ -24,27 +24,27 @@ Sair da sala:
   ✔ notificar jogadores restantes sobre a saida de um jogador da sala; @done(22-09-01 20:41)
 
 Fazer jogada:
-  ☐ Jogar carta;
-  ☐ Realizar efeito da carta;
-  ☐ tirar carta da mão e colocar no topo da pilha de descarte;
-  ☐ verificar se deve comprar card;
+  ✔ Jogar carta; @done(22-09-20 11:01)
+  ✔ Realizar efeito da carta; @done(22-09-20 11:01)
+  ✔ tirar carta da mão e colocar no topo da pilha de descarte; @done(22-09-20 11:01)
+  ✔ verificar se deve comprar card; @done(22-09-20 11:01)
   tempo máximo de jogada:
-    ☐ forçar jogada;
-    ☐ forçar compra de carta;
-    ☐ penalidade (opcioal);
+    ✔ forçar jogada; @done(22-09-20 11:01)
+    ✔ forçar compra de carta; @done(22-09-20 11:01)
+    ✔ penalidade (opcioal); @done(22-09-20 11:01)
   detectar se houve vencedor:
-    ☐ notificar vencedor;
-    ☐ calcular ganho e aumentar pontuação do vencedor;
-    ☐ destruir sala e seus dados;
+    ✔ notificar vencedor; @done(22-09-20 11:01)
+    ✔ calcular ganho e aumentar pontuação do vencedor; @done(22-09-20 11:01)
+    ✔ destruir sala e seus dados; @done(22-09-20 11:01)
 
 Get dados jogador:
   ✔ obter dados do jogador; @done(22-09-01 20:43)
   ✔ obter mão do jogador; @done(22-09-01 20:43)
 
 Get dados da sala:
-  ☐ obter dados da sala;
-  ☐ obter jogadores e seus números de cards na mão;
-  ☐ obter carta do topo da pilha de descarte;
-  ☐ obter jogador ativo;
+  ✔ obter dados da sala; @done(22-09-20 11:01)
+  ✔ obter jogadores e seus números de cards na mão; @done(22-09-20 11:01)
+  ✔ obter carta do topo da pilha de descarte; @done(22-09-20 11:01)
+  ✔ obter jogador ativo; @done(22-09-20 11:01)
   ✔ obter tempo partida; @done(22-09-05 22:05)
   ✔ obter tempo turno; @done(22-09-05 22:05)

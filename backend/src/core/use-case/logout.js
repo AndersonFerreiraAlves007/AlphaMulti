@@ -12,7 +12,6 @@ class Logout {
       const player = await this.playerRepository.getPlayer(playerId);
       if(player) {
         if(player.roomId) {
-        //const cards = player.cards;
           await this.playerRepository.updatePlayer(player.id, {
             cards: '', 
             roomId: '',
