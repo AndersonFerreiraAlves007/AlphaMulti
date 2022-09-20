@@ -180,7 +180,7 @@ const renderGamePage = () => {
 
   const btnBack = document.createElement('img');
   btnBack.classList.add('button__back');
-  btnBack.src = '../../assets/img/back-icon.svg';
+  btnBack.src = '../../assets/img/back-icon.png';
   buttonsConfigure.append(btnBack);
 
   const infoUserPerfil1 = document.createElement('div');
