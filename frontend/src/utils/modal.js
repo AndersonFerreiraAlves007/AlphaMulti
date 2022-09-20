@@ -24,19 +24,22 @@ class Modal {
 
     const content2 = document.createElement('li');
     title.classList.add('p__tutorial');
-    content2.innerText = 'Caso o jogador tenha que comprar uma carta ou recebe o coringa +2 ou +4, comprará a carta e passará para o próximo jogador';
+    content2.innerText =
+      'Caso o jogador tenha que comprar uma carta ou recebe o coringa +2 ou +4, comprará a carta e passará para o próximo jogador';
 
     const content3 = document.createElement('li');
     title.classList.add('p__tutorial');
-    content3.innerText = 'Cada jogador deverá jogar em 0:15 caso não jogue, deverá comprar uma carta'
+    content3.innerText =
+      'Cada jogador deverá jogar em 0:15 caso não jogue, deverá comprar uma carta';
 
     const content4 = document.createElement('li');
     title.classList.add('p__tutorial');
-    content4.innerText = 'Caso o jogador não possua a carta com a mesma cor, número ou coringa, deverá comprar uma no deck'
-  
+    content4.innerText =
+      'Caso o jogador não possua a carta com a mesma cor, número ou coringa, deverá comprar uma no deck';
+
     const content5 = document.createElement('li');
     title.classList.add('p__tutorial');
-    content5.innerText = 'Ganha o jogador que não tiver nenhuma carta na mão'
+    content5.innerText = 'Ganha o jogador que não tiver nenhuma carta na mão';
 
     modal.append(title);
     modal.append(contentOl);
@@ -45,7 +48,6 @@ class Modal {
     contentOl.append(content3);
     contentOl.append(content4);
     contentOl.append(content5);
-
 
     backgroundModal.append(modal);
     body.append(backgroundModal);
@@ -119,21 +121,21 @@ class Modal {
 
     const avatar = document.createElement('img');
     avatar.classList.add('avatar');
-    avatar.src = playerWiner.avatar;
+    avatar.src = playerWiner.avatar || './src/assets/img/users/user1.svg';
 
     const divScore = document.createElement('div');
     divScore.classList.add('score');
     const titleScore = document.createElement('p');
     titleScore.innerText = 'Pontos';
     const score = document.createElement('p');
-    score.innerText = playerWiner.score;
+    score.innerText = playerWiner.score || 100;
     divScore.append(titleScore, score);
 
     const btnExit = document.createElement('button');
     btnExit.innerText = 'Sair';
     btnExit.addEventListener('click', () => {
       this.closeVictoryModal();
-      callBack()
+      callBack();
     });
 
     modal.append(logo, title, avatar, divScore, btnExit);
