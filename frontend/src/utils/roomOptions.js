@@ -24,6 +24,7 @@ const renderRoomOptions = () => {
     if (audio.paused) {
       audio.volume = 0.1;
       audio.play();
+      audio.loop = true;
     } else {
       audio.pause();
     }
