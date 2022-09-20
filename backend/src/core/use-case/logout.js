@@ -35,7 +35,8 @@ class Logout {
                 score: 0,
                 cards: '',
                 roomId: '',
-                order: -1
+                order: -1,
+                avatar: ''
               });
               await this.playerRepository.updatePlayer(bot.id, {
                 cards: player.toStringCards(), 

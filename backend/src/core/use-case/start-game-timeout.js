@@ -30,16 +30,21 @@ class StartGaneTimeout {
                 score: 0,
                 cards: '',
                 roomId: '',
-                order: -1
+                order: -1,
+                avatar: ''
               });
               await this.playerRepository.updatePlayer(bot.id, {
-                cards: [], 
+                cards: '', 
                 roomId: room.id,
                 order: -1
               });
             }
 
             const players = await this.playerRepository.getPlayersRoom(room.id);
+
+            room.deck.build();
+            room.deck.shuffle();
+            const cardInitial = room.deck.drawFromDeck();
           
             players.forEach((item, index) => {
               item.cards = [];
@@ -49,9 +54,7 @@ class StartGaneTimeout {
               item.order = index + 1;
             });
 
-            room.deck.build();
-            room.deck.shuffle();
-            const cardInitial = room.deck.drawFromDeck();
+            
             if(cardInitial.color === COLOR_ESPECIAL) cardInitial.color = 'red';
             room.deck.discard(cardInitial);
 

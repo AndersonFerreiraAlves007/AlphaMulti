@@ -65,12 +65,11 @@ class PlayTurnTimeout {
               } else {
                 currentPlayer.cards.push(room.deck.drawFromDeck());
               }
-              room.setNextPosition();
+              
             } else {
               currentPlayer.cards.push(room.deck.drawFromDeck());
-              room.setNextPosition();
             }
-
+            room.setNextPosition();
             await this.playerRepository.updatePlayer(currentPlayer.id, {
               cards: currentPlayer.toStringCards(), 
             });
@@ -111,10 +110,12 @@ class PlayTurnTimeout {
                 });
               }
               await this.roomRepository.deleteRoom(room.id);
+              this.playerNotification.endGame(room.id, winer ? winer.id : '');
             } else {
               this.timeNotification.makeMove(room.id, room.position);
+              this.playerNotification.makeMove(room.id);
             }
-            this.playerNotification.makeMove(room.id, winer ? winer.id : '');
+            
           }
         
         }

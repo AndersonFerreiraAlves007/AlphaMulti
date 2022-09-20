@@ -50,6 +50,10 @@ class EnterRandomRoom {
         const players = await this.playerRepository.getPlayersHumanRoom(room.id);
         this.playerNotification.enterPlayer(room.id, player.id);
         if(players.length === MAX_PLAYERS_ROOM) {
+          room.deck.build();
+          room.deck.shuffle();
+          const cardInitial = room.deck.drawFromDeck();
+          
           players.forEach((item, index) => {
             item.cards = [];
             for(let i = 0; i < INITIAL_CARDS_PLAYER; i++) {
@@ -58,9 +62,7 @@ class EnterRandomRoom {
             item.order = index + 1;
           });
 
-          room.deck.build();
-          room.deck.shuffle();
-          const cardInitial = room.deck.drawFromDeck();
+        
           if(cardInitial.color === COLOR_ESPECIAL) cardInitial.color = 'red';
           room.deck.discard(cardInitial);
 
