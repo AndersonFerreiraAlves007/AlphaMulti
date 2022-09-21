@@ -585,6 +585,7 @@ function createUserDeck(container, player, align, position) {
       cardsUser2Card2.setAttribute('src', '../../assets/img/verso-carta-top.png');
     } else {
       cardsUser2Card2.setAttribute('src', '../../assets/img/verso-carta-vertical.png');
+      cardsUser2Card2.classList.add('gp__principal-player');
     }
     divUserDeck.appendChild(cardsUser2Card2);
   }
