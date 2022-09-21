@@ -509,50 +509,26 @@ const renderGamePage = () => {
   cardsUser4Card1.classList.add('card', 'overflowB')
   cardsUser4Card1.setAttribute('src', './src/assets/img/verso-carta.png')
   traslate2.append(cardsUser4Card1)
-<<<<<<< HEAD
-
-=======
->>>>>>> manu
   const cardsUser4Card2 = document.createElement('img');
   cardsUser4Card2.classList.add('card', 'overflowB2')
   cardsUser4Card2.setAttribute('src', './src/assets/img/verso-carta.png')
   traslate2.append(cardsUser4Card2)
-<<<<<<< HEAD
-
-=======
->>>>>>> manu
   const cardsUser4Card3 = document.createElement('img');
   cardsUser4Card3.classList.add('card', 'overflowB3')
   cardsUser4Card3.setAttribute('src', './src/assets/img/verso-carta.png')
   traslate2.append(cardsUser4Card3)
-<<<<<<< HEAD
-
-=======
->>>>>>> manu
   const cardsUser4Card4 = document.createElement('img');
   cardsUser4Card4.classList.add('card', 'overflowB4')
   cardsUser4Card4.setAttribute('src', './src/assets/img/verso-carta.png')
   traslate2.append(cardsUser4Card4)
-<<<<<<< HEAD
-
-=======
->>>>>>> manu
   const cardsUser4Card5 = document.createElement('img');
   cardsUser4Card5.classList.add('card', 'overflowB5')
   cardsUser4Card5.setAttribute('src', './src/assets/img/verso-carta.png')
   traslate2.append(cardsUser4Card5)
-<<<<<<< HEAD
-
-=======
->>>>>>> manu
   const cardsUser4Card6 = document.createElement('img');
   cardsUser4Card6.classList.add('card', 'overflowB6')
   cardsUser4Card6.setAttribute('src', './src/assets/img/verso-carta.png')
   traslate2.append(cardsUser4Card6)
-<<<<<<< HEAD
-
-=======
->>>>>>> manu
   const cardsUser4Card7 = document.createElement('img');
   cardsUser4Card7.classList.add('card', 'overflowB7')
   cardsUser4Card7.setAttribute('src', './src/assets/img/verso-carta.png')
@@ -679,10 +655,6 @@ const renderGamePage = () => {
      </div>
      <h2 class="time__match">2:52</h2>
      <!-- <div id="card" class="card">
-<<<<<<< HEAD
-
-=======
->>>>>>> manu
      </div> -->
    </main>
    `; */

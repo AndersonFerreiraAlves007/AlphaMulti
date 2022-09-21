@@ -144,7 +144,79 @@ const renderGamePage = () => {
   index = index + 1;
   index = index > 3 ? 0 : index;  
 
-  const userLeftCards = document.querySelector(".left-side > .user-cards");
+  const page = document.getElementById('page');
+  const mainTag = document.createElement("main");
+  mainTag.classList.add("gp__background");
+
+  //Lado esquerdo do jogo
+  const divLeftSide = document.createElement("div");
+  divLeftSide.classList.add("gp__left-side");
+  createUserInfoT(divLeftSide, player2, "left");
+  createUserDeck(divLeftSide, player2, "horizontal", "left");
+
+  //Meio do jogo
+  const divMidSide = document.createElement("div");
+  divMidSide.classList.add("gp__mid-side");
+
+  const divMidTop = document.createElement("div");
+  divMidTop.classList.add("gp__mid-top");
+  createUserInfoT(divMidTop, player1, "top");
+  createUserDeck(divMidTop, player1, "vertical", "top");
+  divMidSide.appendChild(divMidTop);
+
+  const divMidCenter = document.createElement("div");
+  divMidCenter.classList.add("gp__mid-center");
+  const arrowLeftImg = document.createElement('img');
+  arrowLeftImg.classList.add('gp__left-arrow');
+  arrowLeftImg.setAttribute("src", '../../assets/img/seta-esq-hor.png');
+  const discardFieldImg = document.createElement('img');
+  discardFieldImg.classList.add('gp__card-vertical');
+  discardFieldImg.setAttribute("src", '../../assets/img/verso-carta-vertical.png');
+  const arrowRightImg = document.createElement('img');
+  arrowRightImg.classList.add('gp__right-arrow');
+  arrowRightImg.setAttribute("src", '../../assets/img/seta-dir-hor.png');
+  divMidCenter.append(arrowLeftImg, discardFieldImg, arrowRightImg);
+  divMidSide.appendChild(divMidCenter);
+
+  const divMidBottom = document.createElement("div");
+  divMidBottom.classList.add("gp__mid-bottom");
+  createUserDeck(divMidBottom, player4, "vertical", "bottom");
+  createUserInfoT(divMidBottom, player4, "bottom");
+  divMidSide.appendChild(divMidBottom);
+
+  //Lado direito do jogo
+  const divRightSide = document.createElement("div");
+  divRightSide.classList.add("gp__right-side");
+  createUserDeck(divRightSide, player3, "horizontal", "right");
+  createUserInfoT(divRightSide, player3, "right");
+
+  //Pilha de cartas
+  const imgLot = document.createElement("img");
+  imgLot.classList.add("gp__card-vertical");
+  imgLot.id = "gp__lot";
+  imgLot.setAttribute("src", "../../assets/img/verso-carta-vertical.png");
+  
+  //Botão de voltar
+  const imgBackBtn = document.createElement("img");
+  imgBackBtn.id = "gp__back-btn";
+  imgBackBtn.setAttribute("src", "../../assets/img/back-icon.png");
+
+  //Botões de som e sair
+  const divBtn = document.createElement("div");
+  divBtn.classList.add("gp__right-btns");
+  const imgSoundBtn = document.createElement("img");
+  imgSoundBtn.id = "gp__sound-btn";
+  imgSoundBtn.setAttribute("src", "../../assets/img/button-sound.png");
+  const imgCloseBtn = document.createElement("img");
+  imgCloseBtn.id = "gp__close-btn";
+  imgCloseBtn.setAttribute("src", "../../assets/img/button-close.png");
+  divBtn.append(imgSoundBtn, imgCloseBtn);
+
+  mainTag.append(divLeftSide, divMidSide, divRightSide, imgLot, imgBackBtn, divBtn);
+  page.append(mainTag);
+
+
+  /* const userLeftCards = document.querySelector(".left-side > .user-cards");
   for (let i = 0; i < player2.numberCards; i++) {
     const cardsUser2Card2 = document.createElement('img');
     cardsUser2Card2.classList.add('card-horizontal');
@@ -156,10 +228,17 @@ const renderGamePage = () => {
 
   const userLeftInfo = document.querySelector(".left-side > .user-info");
 
-  createUserInfo(userLeftInfo, player2, "left");
+  createUserInfo(userLeftInfo, player2, "left"); */
   //createUserCards()
 
-  const userTopInfo = document.querySelector(".mid-top > .user-info");
+
+
+
+
+
+
+
+  /* const userTopInfo = document.querySelector(".mid-top > .user-info");
   createUserInfo(userTopInfo, player3);
 
   const userTopCards = document.querySelector(".mid-top > .user-cards");
@@ -208,7 +287,13 @@ const renderGamePage = () => {
   const arrowRightImg = document.createElement('img');
   arrowRightImg.classList.add('right-arrow');
   arrowRightImg.setAttribute("src", '../../assets/img/seta-dir-hor.png');
-  midCenter.append(arrowLeftImg, discardFieldImg, arrowRightImg); 
+  midCenter.append(arrowLeftImg, discardFieldImg, arrowRightImg);  */
+
+
+
+
+
+
   //const page = document.getElementById('page');
 
   //const main = document.querySelector('main');
@@ -429,7 +514,7 @@ const renderGamePage = () => {
 
 renderGamePage(); 
 
-function createUserInfo(container, player, side) {
+/* function createUserInfo(container, player, side) {
   
   const avatarImg = document.createElement('img');
   avatarImg.classList.add("avatar");
@@ -451,4 +536,106 @@ function createUserInfo(container, player, side) {
   } else {
     container.append(avatarImg, userTextDiv);
   }
+} */
+
+function createUserInfoT(container, player, side) {
+  const divUserInfo = document.createElement("div");
+  divUserInfo.classList.add("gp__user-info");
+  const avatarImg = document.createElement('img');
+  avatarImg.classList.add("gp__avatar");
+  avatarImg.setAttribute("src", "../../assets/img/users/user1.svg");
+  const userTextDiv = document.createElement('div');
+  userTextDiv.classList.add("gp__user-text-info");
+  const usernamePlayerLeftSpanTag = document.createElement('span');
+  usernamePlayerLeftSpanTag.classList.add("gp__username");
+  usernamePlayerLeftSpanTag.innerText = player.username;
+  const timeToPlaySpanTag = document.createElement('span');
+  timeToPlaySpanTag.classList.add("gp__time-to-play");
+  timeToPlaySpanTag.innerText = "5:00";
+  const scoreSpanTag = document.createElement('span');
+  scoreSpanTag.classList.add("gp__score-user");
+  scoreSpanTag.innerText = player.score;
+  userTextDiv.append(usernamePlayerLeftSpanTag, scoreSpanTag, timeToPlaySpanTag);
+  if(side === "left"){
+    divUserInfo.append(userTextDiv, avatarImg);
+  } else {
+    divUserInfo.append(avatarImg, userTextDiv);
+  }
+  container.append(divUserInfo);
 }
+
+function createUserDeck(container, player, align, position) {
+  const divUserDeck = document.createElement("div");
+  divUserDeck.classList.add("gp__user-cards");
+  for (let i = 0; i < player.numberCards; i++) {
+    const cardsUser2Card2 = document.createElement('img');
+    if(align === "horizontal") {
+      cardsUser2Card2.classList.add('gp__card-horizontal');
+      cardsUser2Card2.style.marginTop = "-30px";
+    } else {
+      cardsUser2Card2.classList.add('gp__card-vertical');
+      divUserDeck.classList.add("gp__deck-horizontal");
+      cardsUser2Card2.style.marginLeft = "-30px";
+    }
+    if(position === "left") {
+      cardsUser2Card2.setAttribute('src', '../../assets/img/verso-carta-left.png');
+    } else if (position === "right") {
+      cardsUser2Card2.setAttribute('src', '../../assets/img/verso-carta-right.png');
+    } else if (position === "top") {
+      cardsUser2Card2.setAttribute('src', '../../assets/img/verso-carta-top.png');
+    } else {
+      cardsUser2Card2.setAttribute('src', '../../assets/img/verso-carta-vertical.png');
+    }
+    divUserDeck.appendChild(cardsUser2Card2);
+  }
+  container.append(divUserDeck);
+}
+
+{/* <main class="pg__background">
+            <div class="left-side">
+                <div class="user-info">
+                    <!-- <img class="avatar" src="../../assets/img/users/user1.svg">
+                    <span class="username">Manu</span>
+                    <span class="time-to-play">5:00</span>
+                    <span class="score"></span> -->
+                </div>
+                <div class="user-cards"></div>
+                <!-- <div class="user-left"> -->
+            </div>
+            <div class="mid-side">
+                <div class="mid-top">
+                    <div class="user-info">
+                        <!-- <img class="avatar" src="../../assets/img/users/user1.svg">
+                        <span class="username">Manu</span>
+                        <span class="time-to-play">5:00</span>
+                        <span class="score"></span> -->
+                    </div>
+                    <div class="user-cards deck-horizontal"></div>
+                </div>
+                <div class="mid-center"></div>
+                <div class="mid-bottom">
+                    <div class="user-cards deck-horizontal"></div>
+                    <div class="user-info">
+                        <!-- <img class="avatar" src="../../assets/img/users/user1.svg">
+                        <span class="username">Manu</span>
+                        <span class="time-to-play">5:00</span>
+                        <span class="score"></span> -->
+                    </div>
+                </div>
+            </div>
+            <div class="right-side">
+                <div class="user-cards"></div>
+                <div class="user-info">
+                    <!-- <img class="avatar" src="../../assets/img/users/user1.svg">
+                    <span class="username">Manu</span>
+                    <span class="time-to-play">5:00</span>
+                    <span class="score"></span> -->
+                </div>
+            </div>
+            <img src="../../assets/img/verso-carta-vertical.png" alt="Monte de cartas" id="lot" class="card-vertical">
+            <img src="../../assets/img/back-icon.png" alt="Botão de voltar" id="back-btn">
+            <div class="right-btns">
+                <img src="../../assets/img/button-sound.png" alt="Botão de volume" id="sound-btn">
+                <img src="../../assets/img/button-close.png" alt="Botão de fechar e voltar ao login" id="close-btn">
+            </div>
+        </main> */}

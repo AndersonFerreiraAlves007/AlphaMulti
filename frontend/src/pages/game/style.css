@@ -1,4 +1,4 @@
-.pg__background {
+.gp__background {
   overflow-x: hidden;
   width: 100vw;
   height: 100vh;
@@ -9,7 +9,7 @@
   display: flex;
 }
 
-.left-side, .right-side, .mid-side {
+.gp__left-side, .gp__right-side, .gp__mid-side {
   width: 25%;
   height: 100%;
   align-items: center;
@@ -18,12 +18,12 @@
   gap: 12px;
 }
 
-.mid-side {
+.gp__mid-side {
   flex-direction: column;
   width: 50%;
 }
 
-.mid-top, .mid-bottom, .mid-center {
+.gp__mid-top, .gp__mid-bottom, .gp__mid-center {
   width: 100%;
   height: 40%;
   display: flex;
@@ -33,12 +33,12 @@
   gap: 12px;
 }
 
-.mid-center {
+.gp__mid-center {
   height: 20%;
   flex-direction: row;
 }
 
-.user-info {
+.gp__user-info {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -46,53 +46,53 @@
   gap: 12px;
 }
 
-.avatar {
+.gp__avatar {
   width: 60px;
   height: 60px;
   border-radius: 50%;
 }
 
-.user-info span {
+.gp__user-info span {
   color: white;
 }
 
-.user-cards {
+.gp__user-cards {
   /* position: relative;  */
   display: flex;
   flex-direction: column;
 }
 
-.card-horizontal {
+.gp__card-horizontal {
   /* position: absolute;  */
   height: 70px;
   width: 106px;
 }
 
-.card-vertical {
+.gp__card-vertical {
   /* position: absolute;  */
   width: 70px;
   height: 106px;
 }
 
-.deck-horizontal {
+.gp__deck-horizontal {
   flex-direction: row;
 }
 
-.user-text-info {
+.gp__user-text-info {
   display: flex;
   flex-direction: column;
   justify-items: center;
   align-items: center;
 }
 
-#lot {
+#gp__lot {
   transform: rotate(45deg);
   position: absolute;
   bottom: 25px;
   left: 50px;
 }
 
-#back-btn {
+#gp__back-btn {
   width: 40px;
   height: 40px;
   position: absolute;
@@ -101,7 +101,7 @@
   cursor: pointer;
 }
 
-.right-btns {
+.gp__right-btns {
   display: flex;
   gap: 12px;
   justify-content: center;
@@ -110,22 +110,22 @@
   right: 25px;
 }
 
-#sound-btn, #close-btn {
+#gp__sound-btn, #gp__close-btn {
   width: 40px;
   height: 40px;
   cursor: pointer;
 }
 
-.principal-player:hover {
+.gp__principal-player:hover {
   transform: scale(1.1) translateX(-15px);
 }
 
-.principal-player {
+.gp__principal-player {
   cursor: url("../../assets/img/cursor-player.png"), auto;
   transition: 0.25s ease;
 }
 
-.left-arrow, .right-arrow {
+.gp__left-arrow, .gp__right-arrow {
   transform: rotate(-45deg);
   /* Sentido anti-horário usar: transform: rotate(45deg) e trocar src da img no js; */
 }
