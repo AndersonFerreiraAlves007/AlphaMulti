@@ -637,7 +637,7 @@ const renderGamePage = () => {
   //Lado esquerdo do jogo
   const divLeftSide = document.createElement('div');
   divLeftSide.classList.add('gp__left-side');
-  createUserInfoT(divLeftSide, player2, 'left', room.positionActive);
+  createUserInfoT(divLeftSide, player2, 'left', room.positionActive, room.startLastTurnAt);
   createUserDeck(divLeftSide, player2, 'horizontal', 'left');
 
   //Meio do jogo
@@ -646,7 +646,7 @@ const renderGamePage = () => {
 
   const divMidTop = document.createElement('div');
   divMidTop.classList.add('gp__mid-top');
-  createUserInfoT(divMidTop, player1, 'top', room.positionActive);
+  createUserInfoT(divMidTop, player1, 'top', room.positionActive, room.startLastTurnAt);
   createUserDeck(divMidTop, player1, 'vertical', 'top');
   divMidSide.appendChild(divMidTop);
 
@@ -679,14 +679,14 @@ const renderGamePage = () => {
   const divMidBottom = document.createElement('div');
   divMidBottom.classList.add('gp__mid-bottom');
   createUserDeck(divMidBottom, player4, 'vertical', 'bottom');
-  createUserInfoT(divMidBottom, player4, 'bottom', room.positionActive);
+  createUserInfoT(divMidBottom, player4, 'bottom', room.positionActive, room.startLastTurnAt);
   divMidSide.appendChild(divMidBottom);
 
   //Lado direito do jogo
   const divRightSide = document.createElement('div');
   divRightSide.classList.add('gp__right-side');
   createUserDeck(divRightSide, player3, 'horizontal', 'right');
-  createUserInfoT(divRightSide, player3, 'right', room.positionActive);
+  createUserInfoT(divRightSide, player3, 'right', room.positionActive, room.startLastTurnAt);
 
   //Pilha de cartas
   const imgLot = document.createElement('img');
@@ -745,7 +745,7 @@ const renderGamePage = () => {
   page.append(mainTag);
 };
 
-function createUserInfoT(container, player, side, positionRoom) {
+function createUserInfoT(container, player, side, positionRoom, startLastTurnAt) {
   const divUserInfo = document.createElement('div');
   divUserInfo.classList.add('gp__user-info');
 
@@ -769,12 +769,14 @@ function createUserInfoT(container, player, side, positionRoom) {
     avatarImg.classList.add("gp__player-turn");
     const timeToPlaySpanTag = document.createElement('span');
     timeToPlaySpanTag.classList.add('gp__time-to-play');
-    timeToPlaySpanTag.innerText = '5:00';
+    timeToPlaySpanTag.innerText = '1:00';
 
     userTextDiv.append(timeToPlaySpanTag);
 
     idInterval = setInterval(() => {
-      const time = new Date(room.startLastTurnAt).getTime() - new Date().getTime();
+      const time = new Date(startLastTurnAt).getTime() - new Date().getTime();
+      console.log(new Date(startLastTurnAt))
+      console.log(new Date())
       const minutes = parseInt(time / (1000 * 60));
       const seconds = parseInt((time % (1000 * 60)) / 1000);
       timeToPlaySpanTag.innerText = `${minutes < 10 ? `0${minutes}` : minutes}:${
