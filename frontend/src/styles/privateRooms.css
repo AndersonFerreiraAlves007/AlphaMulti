@@ -12,27 +12,41 @@
   width: 100%;
   height: 100vh;
 }
-
-.logo {
+.div__logo--private {
   display: flex;
-  position: absolute;
-  z-index: 1;
   justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 500px;
+  
 }
-
-.logo img {
-  width: 20%;
+.div__logo--private img {
+  width: 88%;
+  z-index: 3;
+  animation-name: logo;
+  animation-delay: 2s;
+  animation-duration: 2s;
+  animation-timing-function: ease;
+  animation-fill-mode: both;
+  animation-iteration-count: static;
+  width: 300px;
+  position: absolute;
+  top: -206px;
+} 
+@keyframes logo {
+  from {
+    margin-top: 0px;
+    opacity: 0;
+  }
+  to {
+    margin-top: 100px;
+    opacity: 1;
+  }
 }
-
 .inforRoom {
   width: 50%;
   height: 50%;
   position: absolute;
   display: flex;
   flex-direction: column;
+  text-align: center;
   justify-content: center;
   align-items: center;
   background-color: var(--background-blue);
@@ -43,7 +57,21 @@
 .inforRoom button {
   padding: 20px;
   border-radius: 20px;
-  cursor: pointer;
+  width: 60%;
+  height: 10%;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--whiteFixed);
+  width: 100px;
+  padding: 5px 10px;
+  background-color: var(--red);
+  border: none;
+  border-radius: 10px;
+}
+.inforRoom button:hover {
+  background-color: var(--whiteFixed);
+  color: var(--black);
+
 }
 
 .roomAll {
@@ -71,6 +99,7 @@
   padding: 10px;
   border-radius: 10px;
   cursor: pointer;
+  height: 40px;
 }
 
 .buttons__configure {
@@ -79,6 +108,7 @@
   justify-content: end;
   margin-left: 1500px;
   margin-bottom: 800px;
+  gap: 10px;
 }
 .buttons__configure input {
   width: 50px;
@@ -90,11 +120,30 @@
   margin-top: 260px;
   margin-left: 750px;
 }
-
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  .inforRoom h1 {
+    font-size: 1.5rem;
+  }
+  .div__logo--private img {
+    width: 190px;
+  }
+  .roomAll {
+    flex-direction: column;
+  }
+  .roomCard h3, h4 {
+    font-size: 15px;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .inforRoom {
+    width: 70%;
+  }
+}
+/* 
 @media screen and (min-width: 320px) and (max-width: 480px) {
   h1,
-  h2 {
-    font-size: 15px;
+  h2, h3 {
+    font-size: 25px;
   }
 
   .logo {
@@ -238,4 +287,4 @@
   p {
     font-size: 25px;
   }
-}
+} */

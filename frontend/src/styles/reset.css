@@ -11,3 +11,6 @@ body {
   height: 100vh;
   font-family: 'Catamaran', sans-serif;
 }
+button {
+  cursor: pointer;
+}

@@ -37,15 +37,17 @@ const renderLoginPage = () => {
   const buttonSound = document.createElement('input');
   buttonSound.classList.add('button__sound');
   buttonSound.setAttribute('type', 'image');
-  buttonSound.setAttribute('src', './src/assets/img/button-sound.png');
+  buttonSound.src = './src/assets/img/mute.png';
   buttonSound.addEventListener('click', () => {
     const audio = document.getElementById('audio-background');
     if (audio.paused) {
       audio.volume = 0.1;
       audio.play();
       audio.loop = true;
+      buttonSound.src = './src/assets/img/button-sound.png';
     } else {
       audio.pause();
+      buttonSound.src = './src/assets/img/mute.png';
     }
   });
 

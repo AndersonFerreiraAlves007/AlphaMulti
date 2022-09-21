@@ -23,6 +23,7 @@
 .modal {
   width: 350px;
   height: 550px;
+  overflow-y: auto;
   color: var(--whiteFixed);
   padding: 32px 20px;
   display: flex;
@@ -34,8 +35,19 @@
   position: fixed;
   margin-top: 112px;
   border-radius: 8px;
-  border: solid 30px var(--gold);
+  border: solid 20px var(--gold);
   animation: showAnimationn 1s;
+}
+.modal input {
+  font-family: "Catamaran", sans-serif;
+
+  height: 10%;
+  width: 80%;
+  border: 5px;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
 }
 
 .modal-tutorial {
@@ -43,6 +55,7 @@
   height: 70%;
   color: var(--whiteFixed);
   padding: 32px 20px;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -57,7 +70,6 @@
   display: flex;
   text-align: left;
 }
-
 .modal-tutorial h1 {
   text-align: center;
 }
@@ -90,9 +102,10 @@
   background-color: #ffffff6e;
   border-radius: 30px;
 }
-
 .modal button {
-  font-size: 20px;
+  width: 60%;
+  height: 8%;
+  font-size: 17px;
   font-weight: 700;
   color: var(--whiteFixed);
   width: 100px;
@@ -100,9 +113,12 @@
   background-color: var(--red);
   border: none;
   cursor: pointer;
-  border-radius: 30px;
+  border-radius: 10px;
 }
-
+.modal button:hover {
+  background-color: var(--whiteFixed);
+  color: var(--black);
+}
 .close-modal {
   display: none;
 }
