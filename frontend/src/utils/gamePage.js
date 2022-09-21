@@ -163,7 +163,7 @@ const renderGamePage2 = () => {
   purchaseDeck.src = './src/assets/img/verso-carta.png';
   main.append(purchaseDeck);
   purchaseDeck.addEventListener('click', () => {
-    Globals.serverCommunication.playTurn('', '')
+    Globals.serverCommunication.playTurn('', '');
   });
 
   const background = document.createElement('img');
@@ -177,26 +177,36 @@ const renderGamePage2 = () => {
 
   const buttonSound = document.createElement('input');
   buttonSound.classList.add('button__sound');
-  buttonSound.setAttribute('type', 'image');
-  buttonSound.setAttribute('src', './src/assets/img/button-sound.png');
-  buttonsConfigure.append(buttonSound);
+  const audio = document.getElementById('audio-background');
+  if (audio.paused) {
+    buttonSound.src = './src/assets/img/mute.png';
+  } else {
+    buttonSound.src = './src/assets/img/button-sound.png';
+  }
 
-  const buttonClose = document.createElement('input');
-  buttonClose.classList.add('button__close');
-  buttonClose.setAttribute('type', 'image');
-  buttonClose.setAttribute('src', './src/assets/img/button-close.png');
-  buttonClose.addEventListener('click', () => {
-    window.location.reload();
-  })
-  buttonsConfigure.append(buttonClose);
+  buttonSound.addEventListener('click', () => {
+    console.log('entrou');
+    if (audio.paused) {
+      audio.volume = 0.1;
+      audio.play();
+      audio.loop = true;
+      buttonSound.src = './src/assets/img/button-sound.png';
+    } else {
+      audio.pause();
+      buttonSound.src = './src/assets/img/mute.png';
+    }
+  });
+
+  buttonsConfigure.append(buttonSound);
+  //buttonsConfigure.append(buttonClose);
 
   const btnBack = document.createElement('img');
   btnBack.classList.add('button__back');
   btnBack.src = './src/assets/img/back-icon.svg';
   btnBack.addEventListener('click', () => {
-    Globals.serverCommunication.leaveRoom()
+    Globals.serverCommunication.leaveRoom();
     //navigate('roomOptions')
-  })
+  });
   buttonsConfigure.append(btnBack);
 
   const infoUserPerfil1 = document.createElement('div');
@@ -391,8 +401,8 @@ const renderGamePage2 = () => {
 
   for (let i = 1; i <= player3.numberCards; i++) {
     const cardsUser2Card1 = document.createElement('img');
-    cardsUser2Card1.style.transform = `translate(${-50 * i}%)`
-   /*  cardsUser2Card1.classList.add('card', `overflowZ${i > 1 ? `${i}` : ''}`); */
+    cardsUser2Card1.style.transform = `translate(${-50 * i}%)`;
+    /*  cardsUser2Card1.classList.add('card', `overflowZ${i > 1 ? `${i}` : ''}`); */
     cardsUser2Card1.setAttribute('src', './src/assets/img/verso-carta.png');
     colunaDireita.append(cardsUser2Card1);
   }
@@ -467,15 +477,14 @@ const renderGamePage2 = () => {
     cardsUser2Card1.classList.add('card', `overflowB${i + 1 > 1 ? `${i + 1}` : ''}`, 'card-player');
     cardsUser2Card1.setAttribute('src', getImgCard(player4.cards[i].color, player4.cards[i].value));
     cardsUser2Card1.addEventListener('click', () => {
-      if(player4.cards[i].value === 'm4'|| player4.cards[i].value === 's1') {
+      if (player4.cards[i].value === 'm4' || player4.cards[i].value === 's1') {
         Modal.showChooseColorModal((color) => {
-          Globals.serverCommunication.playTurn(color, player4.cards[i].value)
-        })
+          Globals.serverCommunication.playTurn(color, player4.cards[i].value);
+        });
       } else {
-        Globals.serverCommunication.playTurn(player4.cards[i].color, player4.cards[i].value)
+        Globals.serverCommunication.playTurn(player4.cards[i].color, player4.cards[i].value);
       }
-      
-    })
+    });
     traslate2.append(cardsUser2Card1);
   }
 
@@ -588,49 +597,9 @@ const renderGamePage2 = () => {
    `; */
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const renderGamePage = () => {
-
   clearInterval(idInterval);
-  Globals.player.numberCards = Globals.player.cards.length
+  Globals.player.numberCards = Globals.player.cards.length;
   const player = Globals.player;
   const room = Globals.room;
 
@@ -659,119 +628,147 @@ const renderGamePage = () => {
 
   const player3 = players[index];
   index = index + 1;
-  index = index > 3 ? 0 : index;  
+  index = index > 3 ? 0 : index;
 
   const page = document.getElementById('page');
-  const mainTag = document.createElement("main");
-  mainTag.classList.add("gp__background");
+  const mainTag = document.createElement('main');
+  mainTag.classList.add('gp__background');
 
   //Lado esquerdo do jogo
-  const divLeftSide = document.createElement("div");
-  divLeftSide.classList.add("gp__left-side");
-  createUserInfoT(divLeftSide, player2, "left", room.positionActive);
-  createUserDeck(divLeftSide, player2, "horizontal", "left");
+  const divLeftSide = document.createElement('div');
+  divLeftSide.classList.add('gp__left-side');
+  createUserInfoT(divLeftSide, player2, 'left', room.positionActive);
+  createUserDeck(divLeftSide, player2, 'horizontal', 'left');
 
   //Meio do jogo
-  const divMidSide = document.createElement("div");
-  divMidSide.classList.add("gp__mid-side");
+  const divMidSide = document.createElement('div');
+  divMidSide.classList.add('gp__mid-side');
 
-  const divMidTop = document.createElement("div");
-  divMidTop.classList.add("gp__mid-top");
-  createUserInfoT(divMidTop, player1, "top", room.positionActive);
-  createUserDeck(divMidTop, player1, "vertical", "top");
+  const divMidTop = document.createElement('div');
+  divMidTop.classList.add('gp__mid-top');
+  createUserInfoT(divMidTop, player1, 'top', room.positionActive);
+  createUserDeck(divMidTop, player1, 'vertical', 'top');
   divMidSide.appendChild(divMidTop);
 
-  const divMidCenter = document.createElement("div");
-  divMidCenter.classList.add("gp__mid-center");
+  const divMidCenter = document.createElement('div');
+  divMidCenter.classList.add('gp__mid-center');
   const arrowLeftImg = document.createElement('img');
   arrowLeftImg.classList.add(room.direction === 1 ? 'gp__left-arrow' : 'gp__left-arrow-anti');
-  arrowLeftImg.setAttribute("src", room.direction === 1 ? './src/assets/img/seta-esq-hor.png' : './src/assets/img/seta-esq-anti.png');
+  arrowLeftImg.setAttribute(
+    'src',
+    room.direction === 1
+      ? './src/assets/img/seta-esq-hor.png'
+      : './src/assets/img/seta-esq-anti.png'
+  );
 
   const discardFieldImg = document.createElement('img');
   discardFieldImg.classList.add('gp__card-vertical');
-  discardFieldImg.setAttribute("src", getImgCard(room.topCard.color, room.topCard.value));
+  discardFieldImg.setAttribute('src', getImgCard(room.topCard.color, room.topCard.value));
 
   const arrowRightImg = document.createElement('img');
   arrowRightImg.classList.add(room.direction === 1 ? 'gp__right-arrow' : 'gp__right-arrow-anti');
-  arrowRightImg.setAttribute("src", room.direction === 1 ?'./src/assets/img/seta-dir-hor.png' : './src/assets/img/seta-dir-anti.png');
+  arrowRightImg.setAttribute(
+    'src',
+    room.direction === 1
+      ? './src/assets/img/seta-dir-hor.png'
+      : './src/assets/img/seta-dir-anti.png'
+  );
   divMidCenter.append(arrowLeftImg, discardFieldImg, arrowRightImg);
   divMidSide.appendChild(divMidCenter);
 
-  const divMidBottom = document.createElement("div");
-  divMidBottom.classList.add("gp__mid-bottom");
-  createUserDeck(divMidBottom, player4, "vertical", "bottom");
-  createUserInfoT(divMidBottom, player4, "bottom", room.positionActive);
+  const divMidBottom = document.createElement('div');
+  divMidBottom.classList.add('gp__mid-bottom');
+  createUserDeck(divMidBottom, player4, 'vertical', 'bottom');
+  createUserInfoT(divMidBottom, player4, 'bottom', room.positionActive);
   divMidSide.appendChild(divMidBottom);
 
   //Lado direito do jogo
-  const divRightSide = document.createElement("div");
-  divRightSide.classList.add("gp__right-side");
-  createUserDeck(divRightSide, player3, "horizontal", "right");
-  createUserInfoT(divRightSide, player3, "right", room.positionActive);
+  const divRightSide = document.createElement('div');
+  divRightSide.classList.add('gp__right-side');
+  createUserDeck(divRightSide, player3, 'horizontal', 'right');
+  createUserInfoT(divRightSide, player3, 'right', room.positionActive);
 
   //Pilha de cartas
-  const imgLot = document.createElement("img");
-  imgLot.classList.add("gp__card-vertical");
-  imgLot.id = "gp__lot";
-  imgLot.setAttribute("src", "./src/assets/img/verso-carta-vertical.png");
+  const imgLot = document.createElement('img');
+  imgLot.classList.add('gp__card-vertical');
+  imgLot.id = 'gp__lot';
+  imgLot.setAttribute('src', './src/assets/img/verso-carta-vertical.png');
   imgLot.addEventListener('click', () => {
-    Globals.serverCommunication.playTurn('', '')
+    Globals.serverCommunication.playTurn('', '');
   });
-  
+
   //Botão de voltar
-  const imgBackBtn = document.createElement("img");
-  imgBackBtn.id = "gp__back-btn";
-  imgBackBtn.setAttribute("src", "./src/assets/img/back-icon.png");
+  const imgBackBtn = document.createElement('img');
+  imgBackBtn.id = 'gp__back-btn';
+  imgBackBtn.setAttribute('src', './src/assets/img/back-icon.png');
   imgBackBtn.addEventListener('click', () => {
-    Globals.serverCommunication.leaveRoom()
+    Globals.serverCommunication.leaveRoom();
     //navigate('roomOptions')
-  })
+  });
 
   //Botões de som e sair
-  const divBtn = document.createElement("div");
-  divBtn.classList.add("gp__right-btns");
-  const imgSoundBtn = document.createElement("img");
-  imgSoundBtn.id = "gp__sound-btn";
-  imgSoundBtn.setAttribute("src", "./src/assets/img/button-sound.png");
-  
-  const imgCloseBtn = document.createElement("img");
-  imgCloseBtn.id = "gp__close-btn";
-  imgCloseBtn.setAttribute("src", "./src/assets/img/button-close.png");
+  const divBtn = document.createElement('div');
+  divBtn.classList.add('gp__right-btns');
+  const imgSoundBtn = document.createElement('img');
+  imgSoundBtn.id = 'gp__sound-btn';
+
+  const audio = document.getElementById('audio-background');
+
+  if (audio.paused) {
+    imgSoundBtn.src = './src/assets/img/mute.png';
+  } else {
+    imgSoundBtn.src = './src/assets/img/button-sound.png';
+  }
+
+  imgSoundBtn.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.volume = 0.1;
+      audio.play();
+      audio.loop = true;
+      imgSoundBtn.src = './src/assets/img/button-sound.png';
+    } else {
+      audio.pause();
+      imgSoundBtn.src = './src/assets/img/mute.png';
+    }
+  });
+
+  const imgCloseBtn = document.createElement('img');
+  imgCloseBtn.id = 'gp__close-btn';
+  imgCloseBtn.setAttribute('src', './src/assets/img/button-close.png');
   imgCloseBtn.addEventListener('click', () => {
     window.location.reload();
-  })
+  });
 
   divBtn.append(imgSoundBtn, imgCloseBtn);
 
   mainTag.append(divLeftSide, divMidSide, divRightSide, imgLot, imgBackBtn, divBtn);
   page.append(mainTag);
-
-}; 
+};
 
 function createUserInfoT(container, player, side, positionRoom) {
-  const divUserInfo = document.createElement("div");
-  divUserInfo.classList.add("gp__user-info");
+  const divUserInfo = document.createElement('div');
+  divUserInfo.classList.add('gp__user-info');
 
   const avatarImg = document.createElement('img');
-  avatarImg.classList.add("gp__avatar");
-  avatarImg.setAttribute("src", player.avatar);
+  avatarImg.classList.add('gp__avatar');
+  avatarImg.setAttribute('src', player.avatar);
 
   const userTextDiv = document.createElement('div');
-  userTextDiv.classList.add("gp__user-text-info");
+  userTextDiv.classList.add('gp__user-text-info');
 
   const usernamePlayerLeftSpanTag = document.createElement('span');
-  usernamePlayerLeftSpanTag.classList.add("gp__username");
+  usernamePlayerLeftSpanTag.classList.add('gp__username');
   usernamePlayerLeftSpanTag.innerText = player.username;
-  
+
   const scoreSpanTag = document.createElement('span');
-  scoreSpanTag.classList.add("gp__score-user");
+  scoreSpanTag.classList.add('gp__score-user');
   scoreSpanTag.innerText = player.score;
   userTextDiv.append(usernamePlayerLeftSpanTag, scoreSpanTag);
 
-  if(positionRoom === player.order) {
+  if (positionRoom === player.order) {
     const timeToPlaySpanTag = document.createElement('span');
-    timeToPlaySpanTag.classList.add("gp__time-to-play");
-    timeToPlaySpanTag.innerText = "5:00";
+    timeToPlaySpanTag.classList.add('gp__time-to-play');
+    timeToPlaySpanTag.innerText = '5:00';
 
     userTextDiv.append(timeToPlaySpanTag);
 
@@ -785,7 +782,7 @@ function createUserInfoT(container, player, side, positionRoom) {
     }, 1000);
   }
 
-  if(side === "left"){
+  if (side === 'left') {
     divUserInfo.append(userTextDiv, avatarImg);
   } else {
     divUserInfo.append(avatarImg, userTextDiv);
@@ -794,37 +791,36 @@ function createUserInfoT(container, player, side, positionRoom) {
 }
 
 function createUserDeck(container, player, align, position) {
-  const divUserDeck = document.createElement("div");
-  divUserDeck.classList.add("gp__user-cards");
+  const divUserDeck = document.createElement('div');
+  divUserDeck.classList.add('gp__user-cards');
   for (let i = 0; i < player.numberCards; i++) {
     const cardsUser2Card2 = document.createElement('img');
-    if(align === "horizontal") {
+    if (align === 'horizontal') {
       cardsUser2Card2.classList.add('gp__card-horizontal');
-      cardsUser2Card2.style.marginTop = "-30px";
+      cardsUser2Card2.style.marginTop = '-30px';
     } else {
       cardsUser2Card2.classList.add('gp__card-vertical');
-      divUserDeck.classList.add("gp__deck-horizontal");
-      cardsUser2Card2.style.marginLeft = "-30px";
+      divUserDeck.classList.add('gp__deck-horizontal');
+      cardsUser2Card2.style.marginLeft = '-30px';
     }
-    if(position === "left") {
+    if (position === 'left') {
       cardsUser2Card2.setAttribute('src', './src/assets/img/verso-carta-left.png');
-    } else if (position === "right") {
+    } else if (position === 'right') {
       cardsUser2Card2.setAttribute('src', './src/assets/img/verso-carta-right.png');
-    } else if (position === "top") {
+    } else if (position === 'top') {
       cardsUser2Card2.setAttribute('src', './src/assets/img/verso-carta-top.png');
     } else {
       cardsUser2Card2.setAttribute('src', getImgCard(player.cards[i].color, player.cards[i].value));
       cardsUser2Card2.classList.add('gp__principal-player');
       cardsUser2Card2.addEventListener('click', () => {
-        if(player.cards[i].value === 'm4'|| player.cards[i].value === 's1') {
+        if (player.cards[i].value === 'm4' || player.cards[i].value === 's1') {
           Modal.showChooseColorModal((color) => {
-            Globals.serverCommunication.playTurn(color, player.cards[i].value)
-          })
+            Globals.serverCommunication.playTurn(color, player.cards[i].value);
+          });
         } else {
-          Globals.serverCommunication.playTurn(player.cards[i].color, player.cards[i].value)
+          Globals.serverCommunication.playTurn(player.cards[i].color, player.cards[i].value);
         }
-        
-      })
+      });
     }
     divUserDeck.appendChild(cardsUser2Card2);
   }

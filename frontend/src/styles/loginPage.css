@@ -1,3 +1,7 @@
+body {
+  overflow: hidden;
+}
+
 .login {
   display: flex;
   width: 100%;
@@ -16,19 +20,16 @@
 }
 
 .buttons__configure--loginPage {
-  width: 100%;
-  justify-content: end;
+  position: absolute;
   display: flex;
-  /* margin-top: 10%;
-  padding-right: 5%; */
-
+  top: 40px;
+  gap: 10px;
+  right: 40px;
 }
 
 .buttons__configure--loginPage input {
-  width: 10%;
-  height: 15%;
-  margin-top: 3%;
-  padding-right: 4%;
+  width: 40px;
+  cursor: pointer;
 }
 
 .container__pai__login {
@@ -161,13 +162,13 @@
     height: 15%;
   }
 
-  .buttons__configure--loginPage input {
+  /* .buttons__configure--loginPage input {
     width: 15%;
     height: 25%;
     margin-top: 3%;
     margin-right: 15%;
 
-  }
+  } */
 
   .div__logo__login {
     width: 50%;
@@ -194,13 +195,13 @@
     height: 15%;
   }
 
-  .buttons__configure--loginPage input {
+  /* .buttons__configure--loginPage input {
     width: 10%;
     height: 15%;
     margin-top: 3%;
     margin-right: 15%;
 
-  }
+  } */
 
   .div__logo__login {
     width: 50%;
@@ -223,12 +224,12 @@
     height: 15%;
   }
 
-  .buttons__configure--loginPage input {
+  /* .buttons__configure--loginPage input {
     width: 10%;
     height: 15%;
     margin-top: 3%;
     margin-right: 15%;
-  }
+  } */
 
   .div__logo__login {
     width: 45%;
@@ -251,12 +252,12 @@
     height: 15%;
   }
 
-  .buttons__configure--loginPage input {
+  /* .buttons__configure--loginPage input {
     width: 10%;
     height: 15%;
     margin-top: 3%;
     margin-right: 15%;
-  }
+  } */
 
   .div__logo__login {
     width: 50%;
@@ -279,12 +280,12 @@
     height: 5%;
   }
 
-  .buttons__configure--loginPage input {
+  /* .buttons__configure--loginPage input {
     width: 10%;
     height: 15%;
     margin-top: 3%;
     margin-right: 15%;
-  }
+  } */
 
   .div__logo__login {
     width: 40%;
@@ -306,12 +307,12 @@
     height: 5%;
   }
 
-  .buttons__configure--loginPage input {
+  /* .buttons__configure--loginPage input {
     width: 10%;
     height: 15%;
     margin-top: 3%;
     margin-right: 15%;
-  }
+  } */
 
   .div__logo__login {
     width: 40%;
@@ -340,12 +341,12 @@
     height: 15%;
   }
 
-  .buttons__configure--loginPage input {
+  /* .buttons__configure--loginPage input {
     width: 10%;
     height: 15%;
     margin-top: 3%;
     margin-right: 15%;
-  }
+  } */
 
   .div__logo__login {
     width: 40%;
@@ -372,12 +373,12 @@
     height: 15%;
   }
 
-  .buttons__configure--loginPage input {
+  /* .buttons__configure--loginPage input {
     width: 10%;
     height: 15%;
     margin-top: 3%;
     margin-right: 15%;
-  }
+  } */
 
   .div__logo__login {
     width: 40%;
@@ -409,12 +410,12 @@
     height: 10%;
   }
 
-  .buttons__configure--loginPage input {
+  /* .buttons__configure--loginPage input {
     width: 100px;
     height: 50px;
     margin-top: 3%;
     padding-right: 3%;
-  }
+  } */
 
   .div__logo__login {
     width: 30%;
@@ -438,15 +439,15 @@
     height: 15%;
   }
 
-  .buttons__configure--loginPage input {
+  /* .buttons__configure--loginPage input {
     width: 10%;
     height: 15%;
     margin-top: 3%;
     margin-right: 15%;
-  }
+  } */
 
   .div__logo__login {
     width: 50%;
     margin-top: 7%;
   }
-} 
+}

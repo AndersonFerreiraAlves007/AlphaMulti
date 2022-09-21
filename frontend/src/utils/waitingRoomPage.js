@@ -14,8 +14,26 @@ const renderWaitingRoomPage = () => {
   divButtons.classList.add('buttons__configure--waiting');
 
   const btnSound = document.createElement('img');
+  const audio = document.getElementById('audio-background');
   btnSound.classList.add('button__sound');
-  btnSound.src = './src/assets/img/button-sound.png';
+
+  if (audio.paused) {
+    btnSound.src = './src/assets/img/mute.png';
+  } else {
+    btnSound.src = './src/assets/img/button-sound.png';
+  }
+
+  btnSound.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.volume = 0.1;
+      audio.play();
+      audio.loop = true;
+      btnSound.src = './src/assets/img/button-sound.png';
+    } else {
+      audio.pause();
+      btnSound.src = './src/assets/img/mute.png';
+    }
+  });
 
   const btnClose = document.createElement('img');
   btnClose.classList.add('button__close');
@@ -25,15 +43,15 @@ const renderWaitingRoomPage = () => {
     Globals.serverCommunication = null */
     //navigate('login')
     window.location.reload();
-  })
+  });
 
   const btnBack = document.createElement('img');
   btnBack.classList.add('button__back');
   btnBack.src = './src/assets/img/back-icon.svg';
   btnBack.addEventListener('click', () => {
-    Globals.serverCommunication.leaveRoom()
+    Globals.serverCommunication.leaveRoom();
     //navigate('roomOptions')
-  })
+  });
 
   divButtons.append(btnSound, btnClose, btnBack);
 

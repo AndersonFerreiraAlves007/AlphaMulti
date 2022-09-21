@@ -17,11 +17,17 @@ const renderRoomOptions = () => {
   const divButtons = document.createElement('div');
   divButtons.classList.add('buttons__configure');
   const btnSound = document.createElement('input');
+  const audio = document.getElementById('audio-background');
   btnSound.classList.add('button__sound');
   btnSound.setAttribute('type', 'image');
-  btnSound.src = './src/assets/img/mute.png';
+
+  if (audio.paused) {
+    btnSound.src = './src/assets/img/mute.png';
+  } else {
+    btnSound.src = './src/assets/img/button-sound.png';
+  }
+
   btnSound.addEventListener('click', () => {
-    const audio = document.getElementById('audio-background');
     if (audio.paused) {
       audio.volume = 0.1;
       audio.play();
