@@ -111,9 +111,9 @@ class Modal {
     const modal = document.createElement('section');
     modal.classList.add('modal');
 
-    const logo = document.createElement('img');
+   /*  const logo = document.createElement('img');
     logo.classList.add('logo');
-    logo.src = './src/assets/img/logo.png';
+    logo.src = './src/assets/img/logo.png'; */
 
     const title = document.createElement('img');
     title.classList.add('title');
@@ -122,6 +122,10 @@ class Modal {
     const avatar = document.createElement('img');
     avatar.classList.add('avatar');
     avatar.src = playerWiner.avatar || './src/assets/img/users/user1.svg';
+
+    const username = document.createElement('p');
+    //avatar.classList.add('avatar');
+    username.innerText = playerWiner.username  || 'Adriaa'
 
     const divScore = document.createElement('div');
     divScore.classList.add('score');
@@ -138,7 +142,7 @@ class Modal {
       callBack();
     });
 
-    modal.append(logo, title, avatar, divScore, btnExit);
+    modal.append(/* logo,  */title, avatar, username, divScore, btnExit);
     backgroundModal.append(modal);
     body.append(backgroundModal);
   };
@@ -156,9 +160,9 @@ class Modal {
     const modal = document.createElement('section');
     modal.classList.add('modal');
 
-    const logo = document.createElement('img');
+    /* const logo = document.createElement('img');
     logo.classList.add('logo');
-    // logo.src = './src/assets/img/logo.png';
+    logo.src = './src/assets/img/logo.png'; */
 
     const nameInput = document.createElement('input');
     nameInput.setAttribute('placeholder', 'Nome da sala');
@@ -193,9 +197,9 @@ class Modal {
     const modal = document.createElement('section');
     modal.classList.add('modal');
 
-    const logo = document.createElement('img');
+/*     const logo = document.createElement('img');
     logo.classList.add('logo');
-    logo.src = './src/assets/img/logo.png';
+    logo.src = './src/assets/img/logo.png'; */
 
     // const title = document.createElement('h2');
     // title.innerText = name;

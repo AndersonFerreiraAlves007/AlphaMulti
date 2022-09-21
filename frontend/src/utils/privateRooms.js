@@ -43,13 +43,13 @@ const renderPrivateRooms = async () => {
   const divInfo = document.createElement('div');
   divInfo.classList.add('inforRoom');
 
-  const divLogo = document.createElement('div');
+  /* const divLogo = document.createElement('div');
   divLogo.classList.add('div__logo--private');
   const logo = document.createElement('img');
   logo.classList.add('img__logo--private');
   logo.setAttribute('src', './src/assets/img/logo.png');
   divLogo.append(logo);
-  divInfo.append(divLogo);
+  divInfo.append(divLogo); */
 
   const title = document.createElement('h1');
   title.append(document.createTextNode('Salas Privadas'));
