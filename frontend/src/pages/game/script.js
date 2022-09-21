@@ -147,7 +147,6 @@ const renderGamePage = () => {
   const userLeftCards = document.querySelector(".left-side > .user-cards");
   for (let i = 0; i < player2.numberCards; i++) {
     const cardsUser2Card2 = document.createElement('img');
-    cardsUser2Card2.classList.add('card');
     cardsUser2Card2.classList.add('card-horizontal');
     //cardsUser1Card1.style.transform = "rotate(90deg)";
     cardsUser2Card2.style.marginTop = "-30px";
@@ -166,7 +165,6 @@ const renderGamePage = () => {
   const userTopCards = document.querySelector(".mid-top > .user-cards");
   for (let i = 0; i < player3.numberCards; i++) {
     const cardsUser2Card2 = document.createElement('img');
-    cardsUser2Card2.classList.add('card');
     cardsUser2Card2.classList.add('card-vertical');
     //cardsUser1Card1.style.transform = "rotate(90deg)";
     cardsUser2Card2.style.marginLeft = "-30px";
@@ -180,8 +178,8 @@ const renderGamePage = () => {
   const userBottomCards = document.querySelector(".mid-bottom > .user-cards");
   for (let i = 0; i < player4.numberCards; i++) {
     const cardsUser2Card2 = document.createElement('img');
-    cardsUser2Card2.classList.add('card');
     cardsUser2Card2.classList.add('card-vertical');
+    cardsUser2Card2.classList.add('principal-player');
     //cardsUser1Card1.style.transform = "rotate(90deg)";
     cardsUser2Card2.style.marginLeft = "-30px";
     cardsUser2Card2.setAttribute('src', '../../assets/img/verso-carta-vertical.png');
@@ -194,19 +192,23 @@ const renderGamePage = () => {
   const userRightCards = document.querySelector(".right-side > .user-cards");
   for (let i = 0; i < player1.numberCards; i++) {
     const cardsUser2Card2 = document.createElement('img');
-    cardsUser2Card2.classList.add('card');
     cardsUser2Card2.classList.add('card-horizontal');
-    //cardsUser1Card1.style.transform = "rotate(90deg)";
     cardsUser2Card2.style.marginTop = "-30px";
     cardsUser2Card2.setAttribute('src', '../../assets/img/verso-carta-right.png');
     userRightCards.append(cardsUser2Card2);
   }
 
   const midCenter = document.querySelector(".mid-center");
+  const arrowLeftImg = document.createElement('img');
+  arrowLeftImg.classList.add('left-arrow');
+  arrowLeftImg.setAttribute("src", '../../assets/img/seta-esq-hor.png');
   const discardFieldImg = document.createElement('img');
   discardFieldImg.classList.add('card-vertical');
   discardFieldImg.setAttribute("src", '../../assets/img/verso-carta-vertical.png');
-  midCenter.appendChild(discardFieldImg); 
+  const arrowRightImg = document.createElement('img');
+  arrowRightImg.classList.add('right-arrow');
+  arrowRightImg.setAttribute("src", '../../assets/img/seta-dir-hor.png');
+  midCenter.append(arrowLeftImg, discardFieldImg, arrowRightImg); 
   //const page = document.getElementById('page');
 
   //const main = document.querySelector('main');
