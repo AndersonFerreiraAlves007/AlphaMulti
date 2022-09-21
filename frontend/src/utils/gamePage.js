@@ -766,6 +766,7 @@ function createUserInfoT(container, player, side, positionRoom) {
   userTextDiv.append(usernamePlayerLeftSpanTag, scoreSpanTag);
 
   if (positionRoom === player.order) {
+    avatarImg.classList.add("gp__player-turn");
     const timeToPlaySpanTag = document.createElement('span');
     timeToPlaySpanTag.classList.add('gp__time-to-play');
     timeToPlaySpanTag.innerText = '5:00';
@@ -773,7 +774,7 @@ function createUserInfoT(container, player, side, positionRoom) {
     userTextDiv.append(timeToPlaySpanTag);
 
     idInterval = setInterval(() => {
-      const time = new Date().getTime() - new Date(room.startLastTurnAt).getTime();
+      const time = new Date(room.startLastTurnAt).getTime() - new Date().getTime();
       const minutes = parseInt(time / (1000 * 60));
       const seconds = parseInt((time % (1000 * 60)) / 1000);
       timeToPlaySpanTag.innerText = `${minutes < 10 ? `0${minutes}` : minutes}:${

@@ -17,7 +17,7 @@ class GetDataRoom {
         code: room.code,
         name: room.name,
         isRun: room.isRun,
-        createdAt: room.createdAt,
+        createdAt: new Date(room.createdAt),
         numberPlayers: players.length
       });
     }

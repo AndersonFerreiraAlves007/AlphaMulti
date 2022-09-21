@@ -140,3 +140,8 @@
   transform: rotate(45deg);
   /* Sentido anti-horário usar: transform: rotate(45deg) e trocar src da img no js; */
 }
+
+.gp__player-turn {
+  border: 1px solid #E99F00;
+  box-shadow: 0 0 20px #E99F00;
+}

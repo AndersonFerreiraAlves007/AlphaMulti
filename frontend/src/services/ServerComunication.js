@@ -69,14 +69,14 @@ class ServerCommunication {
             sessionStorage.removeItem('roomId')
             this.events.levePlayer.forEach(callback => callback({
               isPlayerLogged: true,
-              isLogout: sg.payload.isLogout
+              isLogout: msg.payload.isLogout
             }))
           } else {
             const dataPlayer = await this.getDataPlayer()
             const dataRoom = await this.getDataRoom()
             this.events.levePlayer.forEach(callback => callback({
               isPlayerLogged: false,
-              isLogout: sg.payload.isLogout,
+              isLogout: msg.payload.isLogout,
               player: dataPlayer,
               room: dataRoom
             }))

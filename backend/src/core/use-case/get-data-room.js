@@ -13,9 +13,9 @@ class GetDataRoom {
         const topCardsDiscarded = room.deck.getTopCardsDiscarded();
         return {
           id: room.id,
-          createdAt: room.createdAt,
-          startGameAt: room.startGameAt,
-          startLastTurnAt: room.startLastTurnAt,
+          createdAt: new Date(room.createdAt),
+          startGameAt: new Date(room.startGameAt),
+          startLastTurnAt: new Date(room.startLastTurnAt),
           direction: room.direction,
           isRun: room.isRun,
           type: room.type,

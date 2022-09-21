@@ -5,6 +5,9 @@ const {
   COLOR_ESPECIAL,
   ROOM_PRIVATE
 } = require('../utils/constants');
+const {
+  MINUTES_PLAY_TURN
+} = require('../../utils/constants');
 
 class EnterPrivateRoom {
   constructor (playerRepository, roomRepository, playerNotification, timeNotification) {
@@ -41,7 +44,7 @@ class EnterPrivateRoom {
             room.deck.discard(cardInitial);
             await this.roomRepository.updateRoom(room.id, {
               startGameAt: new Date().getTime(),
-              startLastTurnAt: new Date().getTime(),
+              startLastTurnAt: new Date().getTime() + MINUTES_PLAY_TURN * 60 * 1000,
               direction: CLOCKWISE,
               isRun: true,
               position: 1,

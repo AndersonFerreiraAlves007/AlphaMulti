@@ -33,7 +33,7 @@ class LeaveRoom {
               cards: '',
               roomId: '',
               order: -1,
-              avatar: ''
+              avatar: './src/assets/img/users/user-robo-1.svg'
             });
             await this.playerRepository.updatePlayer(bot.id, {
               cards: player.toStringCards(), 
@@ -43,7 +43,7 @@ class LeaveRoom {
           }
           this.playerNotification.levePlayer(room.id, player.id, false);
         }
-      }
+      } 
     }
   }
 }

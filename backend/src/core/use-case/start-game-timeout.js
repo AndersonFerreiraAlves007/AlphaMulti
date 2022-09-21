@@ -6,6 +6,9 @@ const {
   COLOR_ESPECIAL
 } = require('../utils/constants');
 const { v4 } = require('uuid');
+const {
+  MINUTES_PLAY_TURN
+} = require('../../utils/constants');
 
 class StartGaneTimeout {
   constructor (playerRepository, roomRepository, playerNotification, timeNotification) {
@@ -31,7 +34,7 @@ class StartGaneTimeout {
                 cards: '',
                 roomId: '',
                 order: -1,
-                avatar: ''
+                avatar: './src/assets/img/users/user-robo-1.svg'
               });
               await this.playerRepository.updatePlayer(bot.id, {
                 cards: '', 
@@ -60,7 +63,7 @@ class StartGaneTimeout {
 
             await this.roomRepository.updateRoom(room.id, {
               startGameAt: new Date().getTime(),
-              startLastTurnAt: new Date().getTime(),
+              startLastTurnAt: new Date().getTime() + MINUTES_PLAY_TURN * 60 * 1000,
               direction: CLOCKWISE,
               isRun: true,
               position: 1,
