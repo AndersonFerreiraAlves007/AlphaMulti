@@ -33,6 +33,7 @@
   position: absolute;
   display: flex;
   flex-direction: column;
+  text-align: center;
   justify-content: center;
   align-items: center;
   background-color: var(--background-blue);
@@ -43,7 +44,21 @@
 .inforRoom button {
   padding: 20px;
   border-radius: 20px;
-  cursor: pointer;
+  width: 60%;
+  height: 10%;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--whiteFixed);
+  width: 100px;
+  padding: 5px 10px;
+  background-color: var(--red);
+  border: none;
+  border-radius: 10px;
+}
+.inforRoom button:hover {
+  background-color: var(--whiteFixed);
+  color: var(--black);
+
 }
 
 .roomAll {
@@ -71,6 +86,7 @@
   padding: 10px;
   border-radius: 10px;
   cursor: pointer;
+  height: 40px;
 }
 
 .buttons__configure {
@@ -90,11 +106,24 @@
   margin-top: 260px;
   margin-left: 750px;
 }
-
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  .roomAll {
+    flex-direction: column;
+  }
+  .roomCard h3, h4 {
+    font-size: 15px;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .inforRoom {
+    width: 70%;
+  }
+}
+/* 
 @media screen and (min-width: 320px) and (max-width: 480px) {
   h1,
-  h2 {
-    font-size: 15px;
+  h2, h3 {
+    font-size: 25px;
   }
 
   .logo {
@@ -238,4 +267,4 @@
   p {
     font-size: 25px;
   }
-}
+} */

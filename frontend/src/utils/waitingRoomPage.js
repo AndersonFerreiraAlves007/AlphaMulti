@@ -11,7 +11,7 @@ const renderWaitingRoomPage = () => {
   imgBackground.src = './src/assets/img/background.png';
 
   const divButtons = document.createElement('div');
-  divButtons.classList.add('buttons__configure');
+  divButtons.classList.add('buttons__configure--waiting');
 
   const btnSound = document.createElement('img');
   btnSound.classList.add('button__sound');

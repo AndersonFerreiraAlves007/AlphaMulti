@@ -63,7 +63,7 @@ class Modal {
     modal.classList.add('modal-color');
 
     const title = document.createElement('p');
-    title.innerText = 'Escolha um cor para seguir:';
+    title.innerText = 'Escolha uma cor para seguir:';
 
     const divColors = document.createElement('div');
     divColors.classList.add('div__colors');
@@ -149,6 +149,10 @@ class Modal {
     const backgroundModal = document.createElement('div');
     backgroundModal.classList.add('background-modal');
 
+    const title = document.createElement('h1');
+    title.classList.add('h1__criar');
+    title.innerText = 'Criar sala';
+
     const modal = document.createElement('section');
     modal.classList.add('modal');
 
@@ -174,6 +178,7 @@ class Modal {
       this.closeVictoryModal();
     });
 
+    modal.append(title)
     modal.append(nameInput, passwordInput, btnCreate, btnExit);
     backgroundModal.append(modal);
     body.append(backgroundModal);
@@ -192,8 +197,12 @@ class Modal {
     logo.classList.add('logo');
     logo.src = './src/assets/img/logo.png';
 
-    const title = document.createElement('h2');
-    title.innerText = name;
+    // const title = document.createElement('h2');
+    // title.innerText = name;
+    const title = document.createElement('h1');
+    title.classList.add('h1__criar');
+    title.innerText = 'Entrar na sala';
+
 
     const passwordInput = document.createElement('input');
     passwordInput.setAttribute('placeholder', 'Senha da sala');
