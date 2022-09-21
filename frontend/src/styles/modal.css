@@ -37,7 +37,9 @@
   border-radius: 8px;
   border: solid 20px var(--gold);
   animation: showAnimationn 1s;
+  overflow: hidden;
 }
+
 .modal input {
   font-family: "Catamaran", sans-serif;
 
@@ -70,6 +72,7 @@
   display: flex;
   text-align: left;
 }
+
 .modal-tutorial h1 {
   text-align: center;
 }
@@ -102,6 +105,7 @@
   background-color: #ffffff6e;
   border-radius: 30px;
 }
+
 .modal button {
   width: 60%;
   height: 8%;
@@ -115,10 +119,12 @@
   cursor: pointer;
   border-radius: 10px;
 }
+
 .modal button:hover {
   background-color: var(--whiteFixed);
   color: var(--black);
 }
+
 .close-modal {
   display: none;
 }
