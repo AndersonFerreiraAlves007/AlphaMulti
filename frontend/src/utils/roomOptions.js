@@ -77,7 +77,7 @@ const renderRoomOptions = () => {
     navigate('privateRooms');
   });
 
-  divRooms.append(divRoom1, divRoom2);
+  divRooms.append(/* divRoom1,  */divRoom2);
   main.append(imglogo, title, divRooms);
   roomFistPage.append(imgBackground, divButtons, main, imgCards);
   page.append(roomFistPage);
