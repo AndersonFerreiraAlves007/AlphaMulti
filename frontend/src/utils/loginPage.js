@@ -35,11 +35,17 @@ const renderLoginPage = () => {
   buttonsCofigure.classList.add('buttons__configure--loginPage');
 
   const buttonSound = document.createElement('input');
+  const audio = document.getElementById('audio-background');
   buttonSound.classList.add('button__sound');
   buttonSound.setAttribute('type', 'image');
-  buttonSound.src = './src/assets/img/mute.png';
+
+  if (audio.paused) {
+    buttonSound.src = './src/assets/img/mute.png';
+  } else {
+    buttonSound.src = './src/assets/img/button-sound.png';
+  }
+
   buttonSound.addEventListener('click', () => {
-    const audio = document.getElementById('audio-background');
     if (audio.paused) {
       audio.volume = 0.1;
       audio.play();

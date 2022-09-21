@@ -17,12 +17,15 @@
 
 .buttons__configure {
   position: absolute;
+  display: flex;
   top: 40px;
+  gap: 10px;
   right: 40px;
 }
 
 .buttons__configure img {
   width: 40px;
+  cursor: pointer;
 }
 
 .img__cards {
@@ -71,26 +74,29 @@
   width: 25%;
 } */
 .room--logo {
-width: 88%;
-z-index: 3;
-animation-name: logo;
-animation-delay: 2s;
-animation-duration: 2s;
-animation-timing-function: ease;
-animation-fill-mode: both;
-animation-iteration-count: static; 
-top: -206px;
+  width: 88%;
+  z-index: 3;
+  animation-name: logo;
+  animation-delay: 2s;
+  animation-duration: 2s;
+  animation-timing-function: ease;
+  animation-fill-mode: both;
+  animation-iteration-count: static;
+  top: -206px;
 }
+
 @keyframes logo {
-from {
-  margin-top: 0px;
-  opacity: 0;
+  from {
+    margin-top: 0px;
+    opacity: 0;
+  }
+
+  to {
+    margin-top: 100px;
+    opacity: 1;
+  }
 }
-to {
-  margin-top: 100px;
-  opacity: 1;
-}
-}
+
 .rooms {
   width: 80%;
   display: flex;
@@ -112,10 +118,12 @@ to {
   cursor: pointer;
   width: 50px;
 }
+
 @media screen and (min-width: 320px) and (max-width: 480px) {
   .main__room {
     height: 40%;
   }
+
   .room--logo {
     width: 200px;
     position: absolute;
