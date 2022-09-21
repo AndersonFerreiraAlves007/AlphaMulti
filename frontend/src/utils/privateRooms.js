@@ -15,16 +15,24 @@ const renderPrivateRooms = async () => {
   const divButtons = document.createElement('div');
   divButtons.classList.add('buttons__configure');
   const btnSound = document.createElement('img');
+  const audio = document.getElementById('audio-background');
   btnSound.classList.add('button__sound');
-  btnSound.src = './src/assets/img/button-sound.png';
+
+  if (audio.paused) {
+    btnSound.src = './src/assets/img/mute.png';
+  } else {
+    btnSound.src = './src/assets/img/button-sound.png';
+  }
+
   btnSound.addEventListener('click', () => {
-    const audio = document.getElementById('audio-background');
     if (audio.paused) {
       audio.volume = 0.1;
       audio.play();
       audio.loop = true;
+      btnSound.src = './src/assets/img/button-sound.png';
     } else {
       audio.pause();
+      btnSound.src = './src/assets/img/mute.png';
     }
   });
 
