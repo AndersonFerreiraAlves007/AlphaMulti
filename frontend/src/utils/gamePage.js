@@ -121,7 +121,7 @@ function getImgCard(color, value) {
 
 let idInterval;
 
-const renderGamePage = () => {
+const renderGamePage2 = () => {
   clearInterval(idInterval);
   const player = Globals.player;
   const room = Globals.room;
@@ -235,50 +235,26 @@ const renderGamePage = () => {
   cardsUser1Card1.classList.add('card', 'overflowA')
   cardsUser1Card1.setAttribute('src', './src/assets/img/verso-carta.png')
   rowAlinhametoTranslate1.append(cardsUser1Card1)
-<<<<<<< HEAD
-
-=======
->>>>>>> manu
   const cardsUser1Card2 = document.createElement('img');
   cardsUser1Card2.classList.add('card', 'overflowA2')
   cardsUser1Card2.setAttribute('src', './src/assets/img/verso-carta.png')
   rowAlinhametoTranslate1.append(cardsUser1Card2)
-<<<<<<< HEAD
-
-=======
->>>>>>> manu
   const cardsUser1Card3 = document.createElement('img');
   cardsUser1Card3.classList.add('card', 'overflowA3')
   cardsUser1Card3.setAttribute('src', './src/assets/img/verso-carta.png')
   rowAlinhametoTranslate1.append(cardsUser1Card3)
-<<<<<<< HEAD
-
-=======
->>>>>>> manu
   const cardsUser1Card4 = document.createElement('img');
   cardsUser1Card4.classList.add('card', 'overflowA4')
   cardsUser1Card4.setAttribute('src', './src/assets/img/verso-carta.png')
   rowAlinhametoTranslate1.append(cardsUser1Card4)
-<<<<<<< HEAD
-
-=======
->>>>>>> manu
   const cardsUser1Card5 = document.createElement('img');
   cardsUser1Card5.classList.add('card', 'overflowA5')
   cardsUser1Card5.setAttribute('src', './src/assets/img/verso-carta.png')
   rowAlinhametoTranslate1.append(cardsUser1Card5)
-<<<<<<< HEAD
-
-=======
->>>>>>> manu
   const cardsUser1Card6 = document.createElement('img');
   cardsUser1Card6.classList.add('card', 'overflowA6')
   cardsUser1Card6.setAttribute('src', './src/assets/img/verso-carta.png')
   rowAlinhametoTranslate1.append(cardsUser1Card6)
-<<<<<<< HEAD
-
-=======
->>>>>>> manu
   const cardsUser1Card7 = document.createElement('img');
   cardsUser1Card7.classList.add('card', 'overflowA7')
   cardsUser1Card7.setAttribute('src', './src/assets/img/verso-carta.png')
@@ -335,50 +311,26 @@ const renderGamePage = () => {
   cardsUser2Card1.classList.add('card', 'overflowY')
   cardsUser2Card1.setAttribute('src', './src/assets/img/verso-carta.png')
   colunaEsquerda.append(cardsUser2Card1)
-<<<<<<< HEAD
-
-=======
->>>>>>> manu
   const cardsUser2Card2 = document.createElement('img');
   cardsUser2Card2.classList.add('card', 'overflowY2')
   cardsUser2Card2.setAttribute('src', './src/assets/img/verso-carta.png')
   colunaEsquerda.append(cardsUser2Card2)
-<<<<<<< HEAD
-
-=======
->>>>>>> manu
   const cardsUser2Card3 = document.createElement('img');
   cardsUser2Card3.classList.add('card', 'overflowY3')
   cardsUser2Card3.setAttribute('src', './src/assets/img/verso-carta.png')
   colunaEsquerda.append(cardsUser2Card3)
-<<<<<<< HEAD
-
-=======
->>>>>>> manu
   const cardsUser2Card4 = document.createElement('img');
   cardsUser2Card4.classList.add('card', 'overflowY4')
   cardsUser2Card4.setAttribute('src', './src/assets/img/verso-carta.png')
   colunaEsquerda.append(cardsUser2Card4)
-<<<<<<< HEAD
-
-=======
->>>>>>> manu
   const cardsUser2Card5 = document.createElement('img');
   cardsUser2Card5.classList.add('card', 'overflowY5')
   cardsUser2Card5.setAttribute('src', './src/assets/img/verso-carta.png')
   colunaEsquerda.append(cardsUser2Card5)
-<<<<<<< HEAD
-
-=======
->>>>>>> manu
   const cardsUser2Card6 = document.createElement('img');
   cardsUser2Card6.classList.add('card', 'overflowY6')
   cardsUser2Card6.setAttribute('src', './src/assets/img/verso-carta.png')
   colunaEsquerda.append(cardsUser2Card6)
-<<<<<<< HEAD
-
-=======
->>>>>>> manu
   const cardsUser2Card7 = document.createElement('img');
   cardsUser2Card7.classList.add('card', 'overflowY7')
   cardsUser2Card7.setAttribute('src', './src/assets/img/verso-carta.png')
@@ -412,50 +364,26 @@ const renderGamePage = () => {
   cardsUser3Card1.classList.add('card', 'overflowZ')
   cardsUser3Card1.setAttribute('src', './src/assets/img/verso-carta.png')
   colunaDireita.append(cardsUser3Card1)
-<<<<<<< HEAD
-
-=======
->>>>>>> manu
   const cardsUser3Card2 = document.createElement('img');
   cardsUser3Card2.classList.add('card', 'overflowZ2')
   cardsUser3Card2.setAttribute('src', './src/assets/img/verso-carta.png')
   colunaDireita.append(cardsUser3Card2)
-<<<<<<< HEAD
-
-=======
->>>>>>> manu
   const cardsUser3Card3 = document.createElement('img');
   cardsUser3Card3.classList.add('card', 'overflowZ3')
   cardsUser3Card3.setAttribute('src', './src/assets/img/verso-carta.png')
   colunaDireita.append(cardsUser3Card3)
-<<<<<<< HEAD
-
-=======
->>>>>>> manu
   const cardsUser3Card4 = document.createElement('img');
   cardsUser3Card4.classList.add('card', 'overflowZ4')
   cardsUser3Card4.setAttribute('src', './src/assets/img/verso-carta.png')
   colunaDireita.append(cardsUser3Card4)
-<<<<<<< HEAD
-
-=======
->>>>>>> manu
   const cardsUser3Card5 = document.createElement('img');
   cardsUser3Card5.classList.add('card', 'overflowZ5')
   cardsUser3Card5.setAttribute('src', './src/assets/img/verso-carta.png')
   colunaDireita.append(cardsUser3Card5)
-<<<<<<< HEAD
-
-=======
->>>>>>> manu
   const cardsUser3Card6 = document.createElement('img');
   cardsUser3Card6.classList.add('card', 'overflowZ6')
   cardsUser3Card6.setAttribute('src', './src/assets/img/verso-carta.png')
   colunaDireita.append(cardsUser3Card6)
-<<<<<<< HEAD
-
-=======
->>>>>>> manu
   const cardsUser3Card7 = document.createElement('img');
   cardsUser3Card7.classList.add('card', 'overflowZ7')
   cardsUser3Card7.setAttribute('src', './src/assets/img/verso-carta.png')
@@ -659,5 +587,248 @@ const renderGamePage = () => {
    </main>
    `; */
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const renderGamePage = () => {
+
+  clearInterval(idInterval);
+  Globals.player.numberCards = Globals.player.cards.length
+  const player = Globals.player;
+  const room = Globals.room;
+
+  const orderPlayer = player.order;
+
+  room.players.sort((a, b) => a.order - b.order);
+
+  const players = room.players;
+
+  const playerIndex = players.findIndex((item) => item.order === orderPlayer);
+
+  let index = playerIndex;
+
+  /* const player4 = players[index] */
+  const player4 = player;
+  index = index + 1;
+  index = index > 3 ? 0 : index;
+
+  const player2 = players[index];
+  index = index + 1;
+  index = index > 3 ? 0 : index;
+
+  const player1 = players[index];
+  index = index + 1;
+  index = index > 3 ? 0 : index;
+
+  const player3 = players[index];
+  index = index + 1;
+  index = index > 3 ? 0 : index;  
+
+  const page = document.getElementById('page');
+  const mainTag = document.createElement("main");
+  mainTag.classList.add("gp__background");
+
+  //Lado esquerdo do jogo
+  const divLeftSide = document.createElement("div");
+  divLeftSide.classList.add("gp__left-side");
+  createUserInfoT(divLeftSide, player2, "left", room.positionActive);
+  createUserDeck(divLeftSide, player2, "horizontal", "left");
+
+  //Meio do jogo
+  const divMidSide = document.createElement("div");
+  divMidSide.classList.add("gp__mid-side");
+
+  const divMidTop = document.createElement("div");
+  divMidTop.classList.add("gp__mid-top");
+  createUserInfoT(divMidTop, player1, "top", room.positionActive);
+  createUserDeck(divMidTop, player1, "vertical", "top");
+  divMidSide.appendChild(divMidTop);
+
+  const divMidCenter = document.createElement("div");
+  divMidCenter.classList.add("gp__mid-center");
+  const arrowLeftImg = document.createElement('img');
+  arrowLeftImg.classList.add(room.direction === 1 ? 'gp__left-arrow' : 'gp__left-arrow-anti');
+  arrowLeftImg.setAttribute("src", room.direction === 1 ? './src/assets/img/seta-esq-hor.png' : './src/assets/img/seta-esq-anti.png');
+
+  const discardFieldImg = document.createElement('img');
+  discardFieldImg.classList.add('gp__card-vertical');
+  discardFieldImg.setAttribute("src", getImgCard(room.topCard.color, room.topCard.value));
+
+  const arrowRightImg = document.createElement('img');
+  arrowRightImg.classList.add(room.direction === 1 ? 'gp__right-arrow' : 'gp__right-arrow-anti');
+  arrowRightImg.setAttribute("src", room.direction === 1 ?'./src/assets/img/seta-dir-hor.png' : './src/assets/img/seta-dir-anti.png');
+  divMidCenter.append(arrowLeftImg, discardFieldImg, arrowRightImg);
+  divMidSide.appendChild(divMidCenter);
+
+  const divMidBottom = document.createElement("div");
+  divMidBottom.classList.add("gp__mid-bottom");
+  createUserDeck(divMidBottom, player4, "vertical", "bottom");
+  createUserInfoT(divMidBottom, player4, "bottom", room.positionActive);
+  divMidSide.appendChild(divMidBottom);
+
+  //Lado direito do jogo
+  const divRightSide = document.createElement("div");
+  divRightSide.classList.add("gp__right-side");
+  createUserDeck(divRightSide, player3, "horizontal", "right");
+  createUserInfoT(divRightSide, player3, "right", room.positionActive);
+
+  //Pilha de cartas
+  const imgLot = document.createElement("img");
+  imgLot.classList.add("gp__card-vertical");
+  imgLot.id = "gp__lot";
+  imgLot.setAttribute("src", "./src/assets/img/verso-carta-vertical.png");
+  imgLot.addEventListener('click', () => {
+    Globals.serverCommunication.playTurn('', '')
+  });
+  
+  //Botão de voltar
+  const imgBackBtn = document.createElement("img");
+  imgBackBtn.id = "gp__back-btn";
+  imgBackBtn.setAttribute("src", "./src/assets/img/back-icon.png");
+  imgBackBtn.addEventListener('click', () => {
+    Globals.serverCommunication.leaveRoom()
+    //navigate('roomOptions')
+  })
+
+  //Botões de som e sair
+  const divBtn = document.createElement("div");
+  divBtn.classList.add("gp__right-btns");
+  const imgSoundBtn = document.createElement("img");
+  imgSoundBtn.id = "gp__sound-btn";
+  imgSoundBtn.setAttribute("src", "./src/assets/img/button-sound.png");
+  
+  const imgCloseBtn = document.createElement("img");
+  imgCloseBtn.id = "gp__close-btn";
+  imgCloseBtn.setAttribute("src", "./src/assets/img/button-close.png");
+  imgCloseBtn.addEventListener('click', () => {
+    window.location.reload();
+  })
+
+  divBtn.append(imgSoundBtn, imgCloseBtn);
+
+  mainTag.append(divLeftSide, divMidSide, divRightSide, imgLot, imgBackBtn, divBtn);
+  page.append(mainTag);
+
+}; 
+
+function createUserInfoT(container, player, side, positionRoom) {
+  const divUserInfo = document.createElement("div");
+  divUserInfo.classList.add("gp__user-info");
+
+  const avatarImg = document.createElement('img');
+  avatarImg.classList.add("gp__avatar");
+  avatarImg.setAttribute("src", player.avatar);
+
+  const userTextDiv = document.createElement('div');
+  userTextDiv.classList.add("gp__user-text-info");
+
+  const usernamePlayerLeftSpanTag = document.createElement('span');
+  usernamePlayerLeftSpanTag.classList.add("gp__username");
+  usernamePlayerLeftSpanTag.innerText = player.username;
+  
+  const scoreSpanTag = document.createElement('span');
+  scoreSpanTag.classList.add("gp__score-user");
+  scoreSpanTag.innerText = player.score;
+  userTextDiv.append(usernamePlayerLeftSpanTag, scoreSpanTag);
+
+  if(positionRoom === player.order) {
+    const timeToPlaySpanTag = document.createElement('span');
+    timeToPlaySpanTag.classList.add("gp__time-to-play");
+    timeToPlaySpanTag.innerText = "5:00";
+
+    userTextDiv.append(timeToPlaySpanTag);
+
+    idInterval = setInterval(() => {
+      const time = new Date().getTime() - new Date(room.startLastTurnAt).getTime();
+      const minutes = parseInt(time / (1000 * 60));
+      const seconds = parseInt((time % (1000 * 60)) / 1000);
+      timeToPlaySpanTag.innerText = `${minutes < 10 ? `0${minutes}` : minutes}:${
+        seconds < 10 ? `0${seconds}` : seconds
+      }`;
+    }, 1000);
+  }
+
+  if(side === "left"){
+    divUserInfo.append(userTextDiv, avatarImg);
+  } else {
+    divUserInfo.append(avatarImg, userTextDiv);
+  }
+  container.append(divUserInfo);
+}
+
+function createUserDeck(container, player, align, position) {
+  const divUserDeck = document.createElement("div");
+  divUserDeck.classList.add("gp__user-cards");
+  for (let i = 0; i < player.numberCards; i++) {
+    const cardsUser2Card2 = document.createElement('img');
+    if(align === "horizontal") {
+      cardsUser2Card2.classList.add('gp__card-horizontal');
+      cardsUser2Card2.style.marginTop = "-30px";
+    } else {
+      cardsUser2Card2.classList.add('gp__card-vertical');
+      divUserDeck.classList.add("gp__deck-horizontal");
+      cardsUser2Card2.style.marginLeft = "-30px";
+    }
+    if(position === "left") {
+      cardsUser2Card2.setAttribute('src', './src/assets/img/verso-carta-left.png');
+    } else if (position === "right") {
+      cardsUser2Card2.setAttribute('src', './src/assets/img/verso-carta-right.png');
+    } else if (position === "top") {
+      cardsUser2Card2.setAttribute('src', './src/assets/img/verso-carta-top.png');
+    } else {
+      cardsUser2Card2.setAttribute('src', getImgCard(player.cards[i].color, player.cards[i].value));
+      cardsUser2Card2.classList.add('gp__principal-player');
+      cardsUser2Card2.addEventListener('click', () => {
+        if(player.cards[i].value === 'm4'|| player.cards[i].value === 's1') {
+          Modal.showChooseColorModal((color) => {
+            Globals.serverCommunication.playTurn(color, player.cards[i].value)
+          })
+        } else {
+          Globals.serverCommunication.playTurn(player.cards[i].color, player.cards[i].value)
+        }
+        
+      })
+    }
+    divUserDeck.appendChild(cardsUser2Card2);
+  }
+  container.append(divUserDeck);
+}
 
 export { renderGamePage };

@@ -3,7 +3,7 @@
   width: 100vw;
   height: 100vh;
   font-family: 'Times New Roman', Times, serif;
-  background-image: url("../../assets/img/background.png");
+  background-image: url("./src/assets/img/background.png");
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
@@ -121,7 +121,7 @@
 }
 
 .gp__principal-player {
-  cursor: url("../../assets/img/cursor-player.png"), auto;
+  cursor: url("./src/assets/img/cursor-player.png"), auto;
   transition: 0.25s ease;
 }
 
