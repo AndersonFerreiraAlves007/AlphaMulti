@@ -185,7 +185,6 @@ const renderGamePage2 = () => {
   }
 
   buttonSound.addEventListener('click', () => {
-    console.log('entrou');
     if (audio.paused) {
       audio.volume = 0.1;
       audio.play();
@@ -775,8 +774,6 @@ function createUserInfoT(container, player, side, positionRoom, startLastTurnAt)
 
     idInterval = setInterval(() => {
       const time = new Date(startLastTurnAt).getTime() - new Date().getTime();
-      console.log(new Date(startLastTurnAt))
-      console.log(new Date())
       const minutes = parseInt(time / (1000 * 60));
       const seconds = parseInt((time % (1000 * 60)) / 1000);
       timeToPlaySpanTag.innerText = `${minutes < 10 ? `0${minutes}` : minutes}:${

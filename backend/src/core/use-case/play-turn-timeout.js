@@ -18,19 +18,12 @@ class PlayTurnTimeout {
   }
 
   async execute (roomId, position) {
-    console.log('lalala 1', roomId, position);
     const room = await this.roomRepository.getRoom(roomId);
-    console.log('lalala 2');
     if(room) {
-      console.log('lalala 3');
       if(room.position === position) {
-        console.log('lalala 4');
         if(room.isRun) {
-          console.log('lalala 5');
           const players = await this.playerRepository.getPlayersRoom(room.id);
           const currentPlayer = players.find(item => item.order === room.position);
-          console.log(currentPlayer);
-          console.log(room);
           if(currentPlayer) {
             const topCardsDiscarded = room.deck.getTopCardsDiscarded();
             if(currentPlayer.isBot) {

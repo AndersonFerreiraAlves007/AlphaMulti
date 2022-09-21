@@ -59,7 +59,6 @@ class PlayerNotificationWS extends PlayerNotification {
   }
 
   async levePlayer(roomId, playerId, isLogout) {
-    console.log('levePlayer notification');
     await this.sendMessageRoom(roomId, 'levePlayer', { playerId, isLogout });
     await this.sendMessagePlayer(roomId, 'levePlayer', { playerId, isLogout });
   }
