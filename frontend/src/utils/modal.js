@@ -154,7 +154,7 @@ class Modal {
 
     const logo = document.createElement('img');
     logo.classList.add('logo');
-    logo.src = './src/assets/img/logo.png';
+    // logo.src = './src/assets/img/logo.png';
 
     const nameInput = document.createElement('input');
     nameInput.setAttribute('placeholder', 'Nome da sala');

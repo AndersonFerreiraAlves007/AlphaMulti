@@ -42,7 +42,7 @@ const renderWaitingRoomPage = () => {
 
   const imgLogo = document.createElement('img');
   imgLogo.classList.add('room--logo');
-  imgLogo.src = './src/assets/img/logo.png';
+  // imgLogo.src = './src/assets/img/logo.png';
 
   const title = document.createElement('p');
   title.innerText = 'Esperando os outros jogadores entrarem na sala...';

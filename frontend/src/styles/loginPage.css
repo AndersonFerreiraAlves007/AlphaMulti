@@ -2,25 +2,35 @@
   display: flex;
   width: 100%;
 }
+
 .back__login {
   position: fixed;
   z-index: -1000;
   width: 100vw;
   height: 100vh;
 }
+
 .cartas__login {
   width: 20%;
   height: 20%;
 }
+
 .buttons__configure--loginPage {
   width: 100%;
   justify-content: end;
   display: flex;
+  /* margin-top: 10%;
+  padding-right: 5%; */
+
 }
+
 .buttons__configure--loginPage input {
-  width: 6%;
+  width: 10%;
   height: 15%;
+  margin-top: 3%;
+  padding-right: 4%;
 }
+
 .container__pai__login {
   margin-top: 1%;
   height: 90%;
@@ -32,16 +42,18 @@
   align-self: center;
 
   position: absolute;
-  top: 0;
+  top: 85px;
   bottom: 0;
   left: 0;
   right: 0;
   margin: auto;
 }
+
 .container__blue {
-  width: 80%;
-  height: 40%;
+  width: 800%;
+  height: 50%;
 }
+
 .container__login {
   width: 60%;
   height: 35%;
@@ -52,6 +64,7 @@
   flex-direction: column;
   gap: 10px;
 }
+
 .input__login {
   font-family: "Catamaran", sans-serif;
 
@@ -63,6 +76,7 @@
   font-weight: bold;
   text-align: center;
 }
+
 .div__logo__login {
   display: flex;
   justify-content: center;
@@ -77,6 +91,13 @@
 
   width: 25%;
 }
+
+/* .room--logo {
+  width: 300px;
+  position: absolute;
+  top: -206px;
+} */
+
 .logo__login {
   width: 88%;
   z-index: 3;
@@ -87,22 +108,26 @@
   animation-fill-mode: both;
   animation-iteration-count: static;
 }
+
 @keyframes logo {
   from {
     margin-top: 0px;
     opacity: 0;
   }
+
   to {
     margin-top: 100px;
     opacity: 1;
   }
 }
+
 .container__usuario {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
 }
+
 .button__esquerda,
 .button__direita,
 .button__play {
@@ -112,69 +137,316 @@
 .img__usuario,
 .button__play {
   width: 20%;
-  /* margin-bottom: 20px; */
 }
+
 .button__play:active {
   transform: translateY(5px);
 }
+
 @media screen and (min-width: 320px) and (max-width: 480px) {
   .container__blue {
     width: 170%;
   }
+
+  .logo__login {
+    width: 90%;
+  }
+
   .container__login {
     width: 130%;
   }
+
   .input__login {
+    margin-top: 20px;
     height: 15%;
   }
-  .buttons__configure input {
+
+  .buttons__configure--loginPage input {
     width: 15%;
-    height: 40%;
+    height: 25%;
+    margin-top: 3%;
+    margin-right: 15%;
+
   }
+
   .div__logo__login {
     width: 50%;
-    margin-top: 8%;
+    margin-top: 9%;
   }
 }
-@media screen and (min-width: 481px) and (max-width: 768px) {
-  .container__pai__login {
-    width: 100%;
+
+
+@media screen and (min-width: 481px) and (max-width: 540px) {
+  .container__blue {
+    width: 170%;
   }
-  .buttons__configure input {
-    width: 12%;
-    height: 28%;
+
+  .logo__login {
+    width: 90%;
   }
+
+  .container__login {
+    width: 130%;
+  }
+
+  .input__login {
+    margin-top: 20px;
+    height: 15%;
+  }
+
+  .buttons__configure--loginPage input {
+    width: 10%;
+    height: 15%;
+    margin-top: 3%;
+    margin-right: 15%;
+
+  }
+
   .div__logo__login {
     width: 50%;
+    margin-top: 4%;
   }
 }
-@media screen and (min-width: 540px) and (max-width: 768px) {
+
+
+@media screen and (min-width: 541px) and (max-width: 643px) {
+  .container__blue {
+    width: 170%;
+  }
+
+  .container__login {
+    width: 130%;
+  }
+
+  .input__login {
+    margin-top: 20px;
+    height: 15%;
+  }
+
+  .buttons__configure--loginPage input {
+    width: 10%;
+    height: 15%;
+    margin-top: 3%;
+    margin-right: 15%;
+  }
+
+  .div__logo__login {
+    width: 45%;
+    margin-top: 1%;
+  }
+}
+
+
+@media screen and (min-width: 644px) and (max-width: 663px) {
+  .container__blue {
+    width: 170%;
+  }
+
+  .container__login {
+    width: 130%;
+  }
+
+  .input__login {
+    margin-top: 20px;
+    height: 15%;
+  }
+
+  .buttons__configure--loginPage input {
+    width: 10%;
+    height: 15%;
+    margin-top: 3%;
+    margin-right: 15%;
+  }
+
+  .div__logo__login {
+    width: 50%;
+    margin-top: -3%;
+  }
+}
+
+
+@media screen and (min-width: 664px) and (max-width: 717px) {
+  .container__blue {
+    width: 170%;
+  }
+
+  .container__login {
+    width: 120%;
+  }
+
+  .input__login {
+    margin-top: 25px;
+    height: 5%;
+  }
+
+  .buttons__configure--loginPage input {
+    width: 10%;
+    height: 15%;
+    margin-top: 3%;
+    margin-right: 15%;
+  }
+
   .div__logo__login {
     width: 40%;
+    margin-top: 1%
   }
 }
-@media screen and (min-width: 660px) and (max-width: 768px) {
+
+@media screen and (min-width: 718px) and (max-width: 765px) {
+  .container__blue {
+    width: 170%;
+  }
+
+  .container__login {
+    width: 120%;
+  }
+
+  .input__login {
+    margin-top: 20px;
+    height: 5%;
+  }
+
+  .buttons__configure--loginPage input {
+    width: 10%;
+    height: 15%;
+    margin-top: 3%;
+    margin-right: 15%;
+  }
+
+  .div__logo__login {
+    width: 40%;
+    margin-top: -1%;
+  }
+}
+
+
+
+@media screen and (min-width: 766px) and (max-width: 883px) {
+  .container__blue {
+    width: 170%;
+    height: 330px;
+  }
+
   .container__pai__login {
     top: 20%;
   }
+
+  .container__login {
+    width: 130%;
+  }
+
+  .input__login {
+    margin-top: 20px;
+    height: 15%;
+  }
+
+  .buttons__configure--loginPage input {
+    width: 10%;
+    height: 15%;
+    margin-top: 3%;
+    margin-right: 15%;
+  }
+
+  .div__logo__login {
+    width: 40%;
+    margin-top: -4.5%;
+  }
 }
-@media screen and (min-width: 769px) and (max-width: 1024px) {
+
+@media screen and (min-width: 884px) and (max-width: 1200px) {
+  .container__blue {
+    width: 170%;
+    height: 330px;
+  }
+
   .container__pai__login {
-    margin-top: 1%;
-    top: 10%;
+    top: 20%;
+  }
+
+  .container__login {
+    width: 130%;
+  }
+
+  .input__login {
+    margin-top: 20px;
+    height: 15%;
+  }
+
+  .buttons__configure--loginPage input {
+    width: 10%;
+    height: 15%;
+    margin-top: 3%;
+    margin-right: 15%;
+  }
+
+  .div__logo__login {
+    width: 40%;
+    margin-top: -5.5%;
+  }
+}
+
+@media screen and (min-width: 1201px) {
+  .container__blue {
+    width: 170%;
+    height: 340px;
+  }
+
+  .container__pai__login {
+    top: 20%;
+  }
+
+  .container__login {
+    width: 130%;
+  }
+
+  .container__login {
     width: 80%;
   }
+
+  .input__login {
+    margin-top: 30px;
+    width: 50%;
+    height: 10%;
+  }
+
+  .buttons__configure--loginPage input {
+    width: 100px;
+    height: 50px;
+    margin-top: 3%;
+    padding-right: 3%;
+  }
+
   .div__logo__login {
     width: 30%;
+    margin-top: -1.5%;
   }
 }
-@media screen and (min-width: 1201px) {
-  .container__pai__login {
-    top: 10%;
-  }
-}
+
+
+
 @media screen and (min-width: 2560px) {
-  .input__login {
-    font-size: 2rem;
+  .container__blue {
+    width: 170%;
   }
-}
+
+  .container__login {
+    width: 130%;
+  }
+
+  .input__login {
+    margin-top: 20px;
+    height: 15%;
+  }
+
+  .buttons__configure--loginPage input {
+    width: 10%;
+    height: 15%;
+    margin-top: 3%;
+    margin-right: 15%;
+  }
+
+  .div__logo__login {
+    width: 50%;
+    margin-top: 7%;
+  }
+} 
