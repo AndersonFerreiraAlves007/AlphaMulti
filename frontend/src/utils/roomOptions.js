@@ -47,7 +47,7 @@ const renderRoomOptions = () => {
 
   const imglogo = document.createElement('img');
   imglogo.classList.add('room--logo');
-  imglogo.src = './src/assets/img/logo.png';
+  // imglogo.src = './src/assets/img/logo.png';
 
   const title = document.createElement('p');
   title.innerText = 'Escolha uma opção';

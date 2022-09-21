@@ -41,8 +41,8 @@ const renderWaitingRoomPage = () => {
   main.classList.add('main__waiting--room');
 
   const imgLogo = document.createElement('img');
-  imgLogo.classList.add('waiting--logo');
-  imgLogo.src = './src/assets/img/logo.png';
+  imgLogo.classList.add('room--logo');
+  // imgLogo.src = './src/assets/img/logo.png';
 
   const title = document.createElement('p');
   title.innerText = 'Esperando os outros jogadores entrarem na sala...';
