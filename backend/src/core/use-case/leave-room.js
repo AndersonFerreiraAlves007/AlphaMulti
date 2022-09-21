@@ -9,13 +9,16 @@ class LeaveRoom {
 
   async execute (playerId) {
     const player = await this.playerRepository.getPlayer(playerId);
+    console.log('saiu');
     if(player) {
+      console.log('saiu 2');
       if(player.roomId) {
         await this.playerRepository.updatePlayer(player.id, {
           cards: '', 
           roomId: '',
           order: -1
         });
+        console.log('saiu 3');
         const room = await this.roomRepository.getRoom(player.roomId);
         const players = await this.playerRepository.getPlayersHumanRoom(room.id);
         if(players.length === 0) {
@@ -24,6 +27,8 @@ class LeaveRoom {
             await this.playerRepository.deletePlayer(bots[i].id);
           }
           await this.roomRepository.deleteRoom(room.id);
+          this.playerNotification.levePlayer(room.id, player.id, false);
+          console.log('saiu 4');
         } else {
           if(room.isRun) {
             const bot = await this.playerRepository.createPlayer(v4(), {
@@ -42,6 +47,7 @@ class LeaveRoom {
             });
           }
           this.playerNotification.levePlayer(room.id, player.id, false);
+          console.log('saiu 5');
         }
       } 
     }

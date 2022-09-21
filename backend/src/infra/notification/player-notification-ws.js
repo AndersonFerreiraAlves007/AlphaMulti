@@ -31,6 +31,20 @@ class PlayerNotificationWS extends PlayerNotification {
       }
     });
   }
+
+  async sendMessagePlayer(roomId, type, payload = {}) {
+    this.ws.clients.forEach(client => {
+      if(payload.playerId === client.playerId) {
+        client.send(JSON.stringify({
+          type,
+          payload: {
+            roomId,
+            ...payload
+          }
+        }));
+      }
+    });
+  }
   
   async startGame(roomId) {
     await this.sendMessageRoom(roomId, 'startGame');
@@ -45,7 +59,9 @@ class PlayerNotificationWS extends PlayerNotification {
   }
 
   async levePlayer(roomId, playerId, isLogout) {
+    console.log('levePlayer notification');
     await this.sendMessageRoom(roomId, 'levePlayer', { playerId, isLogout });
+    await this.sendMessagePlayer(roomId, 'levePlayer', { playerId, isLogout });
   }
 
   async makeMove(roomId) {

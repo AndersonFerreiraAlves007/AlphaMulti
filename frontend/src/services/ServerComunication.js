@@ -65,6 +65,8 @@ class ServerCommunication {
           break
         }
         case 'levePlayer': {
+          console.log('levePlayer')
+          console.log(msg)
           if(msg.payload.playerId === sessionStorage.getItem('playerId')) {
             sessionStorage.removeItem('roomId')
             this.events.levePlayer.forEach(callback => callback({
@@ -165,7 +167,7 @@ class ServerCommunication {
         playerId: sessionStorage.getItem('playerId')
       }
     }))
-    sessionStorage.removeItem('roomId')
+    //sessionStorage.removeItem('roomId')
   }
 
   enterRadomRoom() {
