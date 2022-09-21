@@ -116,6 +116,11 @@ to {
   .main__room {
     height: 40%;
   }
+  .room--logo {
+    width: 200px;
+    position: absolute;
+    top: -206px;
+  }
 }
 
 @media (min-width: 681px) {

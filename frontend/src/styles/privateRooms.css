@@ -12,21 +12,34 @@
   width: 100%;
   height: 100vh;
 }
-
-.logo {
+.div__logo--private {
   display: flex;
-  position: absolute;
-  z-index: 1;
   justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 500px;
+  
 }
-
-.logo img {
-  width: 20%;
+.div__logo--private img {
+  width: 88%;
+  z-index: 3;
+  animation-name: logo;
+  animation-delay: 2s;
+  animation-duration: 2s;
+  animation-timing-function: ease;
+  animation-fill-mode: both;
+  animation-iteration-count: static;
+  width: 300px;
+  position: absolute;
+  top: -206px;
+} 
+@keyframes logo {
+  from {
+    margin-top: 0px;
+    opacity: 0;
+  }
+  to {
+    margin-top: 100px;
+    opacity: 1;
+  }
 }
-
 .inforRoom {
   width: 50%;
   height: 50%;
@@ -95,6 +108,7 @@
   justify-content: end;
   margin-left: 1500px;
   margin-bottom: 800px;
+  gap: 10px;
 }
 .buttons__configure input {
   width: 50px;
@@ -107,6 +121,12 @@
   margin-left: 750px;
 }
 @media screen and (min-width: 320px) and (max-width: 480px) {
+  .inforRoom h1 {
+    font-size: 1.5rem;
+  }
+  .div__logo--private img {
+    width: 190px;
+  }
   .roomAll {
     flex-direction: column;
   }
