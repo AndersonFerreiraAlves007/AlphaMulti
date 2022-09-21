@@ -16,6 +16,7 @@ const renderRoomOptions = () => {
 
   const divButtons = document.createElement('div');
   divButtons.classList.add('buttons__configure');
+<<<<<<< HEAD
   const btnSound = document.createElement('input');
   btnSound.classList.add('button__sound');
   btnSound.setAttribute('type', 'image');
@@ -33,12 +34,21 @@ const renderRoomOptions = () => {
     }
   });
 
+=======
+  const btnSound = document.createElement('img');
+  btnSound.classList.add('button__sound');
+  btnSound.src = './src/assets/img/button-sound.png';
+>>>>>>> manu
   const btnClose = document.createElement('img');
   btnClose.classList.add('button__close');
   btnClose.src = './src/assets/img/button-close.png';
   btnClose.addEventListener('click', () => {
     window.location.reload();
+<<<<<<< HEAD
   });
+=======
+  })
+>>>>>>> manu
   divButtons.append(btnSound, btnClose);
 
   const imgCards = document.createElement('img');
@@ -62,8 +72,13 @@ const renderRoomOptions = () => {
   divRoom1.append(room1Title, room1Img);
 
   divRoom1.addEventListener('click', () => {
+<<<<<<< HEAD
     divRoom1.style.pointerEvents = 'none';
     Globals.serverCommunication.enterRadomRoom();
+=======
+    divRoom1.style.pointerEvents = 'none'; 
+    Globals.serverCommunication.enterRadomRoom()
+>>>>>>> manu
   });
 
   const divRoom2 = document.createElement('div');
