@@ -5,10 +5,19 @@ html {
   height: 100vh;
 }
 
+.pg__background {
+  width: 100%;
+  height: 100%;
+  background-image: url("../assets/img/background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .img__deck {
   position: absolute;
-  top: 50px;
-  left: 200px;
+  bottom: 50px;
+  left: 220px;
+  transform: rotate(45deg);
 }
 
 .card {
@@ -17,10 +26,14 @@ html {
   background-size: cover;
 }
 
-.background {
+/* .background {
   position: fixed;
   z-index: -1000;
-}
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+} */
 
 .buttons__configure {
   margin-left: 70%;
