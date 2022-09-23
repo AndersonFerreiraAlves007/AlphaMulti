@@ -87,7 +87,7 @@
  }
 
  .img__user {
-   width: 60px;
+   width: 80px;
  }
 
  @media (min-width:450px) {
@@ -96,7 +96,7 @@
    }
  }
 
- @media (min-width: 1024px) {
+ @media (min-width:1024px) {
    .cards__login {
      width: 300px;
    }
@@ -116,7 +116,18 @@
      gap: 30px;
    }
 
-   .div__container--login img {
-     width: 60px;
+   .button__left,
+   .button__right {
+     width: 50px;
+     cursor: pointer;
+   }
+
+   .button__play {
+     width: 80px;
+     cursor: pointer;
+   }
+
+   .img__user {
+     width: 100px;
    }
  }
