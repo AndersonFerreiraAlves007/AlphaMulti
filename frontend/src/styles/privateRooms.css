@@ -46,10 +46,12 @@
 }
 
 .inforRoom {
-  width: 50%;
-  height: 50%;
+  width: 90%;
+  height: fit-content;
+  color: var(--grey-1);
   position: absolute;
   display: flex;
+  padding: 20px;
   flex-direction: column;
   text-align: center;
   justify-content: center;
@@ -59,38 +61,41 @@
   gap: 20px;
 }
 
-.inforRoom button {
+.inforRoom>button {
+  width: 100%;
+  height: 40px;
   padding: 20px;
-  border-radius: 20px;
-  width: 60%;
-  height: 10%;
-  font-size: 17px;
+  border-radius: 8px;
+  font-size: 15px;
   font-weight: 700;
-  color: var(--whiteFixed);
+  color: var(--grey-1);
   width: 100px;
   padding: 5px 10px;
-  background-color: var(--red);
+  background-color: var(--green);
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px var(--grey-1);
 }
 
-.inforRoom button:hover {
-  background-color: var(--whiteFixed);
-  color: var(--black);
+.inforRoom>button:hover {
+  color: var(--whiteFixed);
 
 }
 
 .roomAll {
+  width: 100%;
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .roomCard {
   width: 150px;
-  height: 120px;
+  height: fit-content;
   background-color: var(--blue-user);
-  border-radius: 20px;
+  border-radius: 8px;
   padding: 20px;
   display: flex;
   justify-content: center;
@@ -99,13 +104,29 @@
   text-align: center;
   font-size: 12px;
   gap: 10px;
+  box-shadow: 2px 2px 3px var(--grey-1);
 }
 
-.roomCard button {
+.roomCard>button {
+  width: 80%;
+  height: 30px;
   padding: 10px;
-  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
-  height: 40px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--grey-1);
+  background-color: var(--yellow);
+  box-shadow: 2px 2px 5px var(--grey-1);
+}
+
+.roomCard>button:hover {
+  color: var(--whiteFixed);
 }
 
 .buttons__configure {
@@ -134,177 +155,8 @@
   margin-left: 750px;
 }
 
-@media screen and (min-width: 320px) and (max-width: 480px) {
-  .inforRoom h1 {
-    font-size: 1.5rem;
-  }
-
-  .div__logo--private img {
-    width: 190px;
-  }
-
-  .roomAll {
-    flex-direction: column;
-  }
-
-  .roomCard h3,
-  h4 {
-    font-size: 15px;
+@media (min-width: 1024px) {
+  .inforRoom {
+    width: 800px;
   }
 }
-
-@media screen and (min-width: 481px) and (max-width: 768px) {
-  .inforRoom {
-    width: 70%;
-  }
-}
-
-/* 
-@media screen and (min-width: 320px) and (max-width: 480px) {
-  h1,
-  h2, h3 {
-    font-size: 25px;
-  }
-
-  .logo {
-    margin-bottom: 400px;
-  }
-
-  .logo img {
-    width: 30%;
-  }
-
-  .inforRoom {
-    width: 85%;
-    display: flex;
-    justify-content: center;
-  }
-  .roomAll {
-    justify-content: center;
-    width: 100%;
-  }
-  .roomCard {
-    width: 7%;
-    height: 50px;
-    border-radius: 8px;
-  }
-  .roomCard img {
-    width: 25px;
-  }
-
-  p {
-    font-size: 13px;
-  }
-}
-
-@media screen and (min-width: 481px) and (max-width: 768px) {
-  h1,
-  h2 {
-    font-size: 15px;
-  }
-
-  .logo {
-    margin-bottom: 570px;
-  }
-
-  .logo img {
-    width: 30%;
-  }
-
-  .inforRoom {
-    width: 90%;
-    display: flex;
-    justify-content: center;
-  }
-  .roomAll {
-    justify-content: center;
-    width: 100%;
-  }
-  .roomCard {
-    width: 150px;
-    height: 50px;
-    border-radius: 8px;
-  }
-  .roomCard img {
-    width: 25px;
-  }
-
-  p {
-    font-size: 13px;
-  }
-}
-
-@media screen and (min-width: 769px) and (max-width: 1024px) {
-  h1,
-  h2 {
-    font-size: 15px;
-  }
-
-  .logo {
-    margin-bottom: 570px;
-  }
-
-  .logo img {
-    width: 30%;
-  }
-
-  .inforRoom {
-    width: 90%;
-    display: flex;
-    justify-content: center;
-  }
-  .roomAll {
-    justify-content: center;
-    width: 100%;
-  }
-  .roomCard {
-    width: 150px;
-    height: 50px;
-    border-radius: 8px;
-  }
-  .roomCard img {
-    width: 25px;
-  }
-
-  p {
-    font-size: 13px;
-  }
-}
-
-@media screen and (min-width: 1201px) {
-  h1,
-  h2 {
-    font-size: 25px;
-  }
-
-  .logo {
-    margin-bottom: 420px;
-  }
-
-  .logo img {
-    width: 20%;
-  }
-
-  .inforRoom {
-    width: 50%;
-    display: flex;
-    justify-content: center;
-  }
-  .roomAll {
-    justify-content: center;
-    width: 100%;
-  }
-  .roomCard {
-    width: 120px;
-    height: 130px;
-    border-radius: 8px;
-    padding: 10px;
-  }
-  .roomCard img {
-    width: 50px;
-  }
-
-  p {
-    font-size: 25px;
-  }
-} */
