@@ -27,9 +27,13 @@ class RoomRepositoryRedis extends RoomRepository {
   }
 
   async getRoom(id) {
-    const key = `room:${id}`;
-    const result = await redis.hgetall(key);
-    return RoomAdapter.create(result);
+    try {
+      const key = `room:${id}`;
+      const result = await redis.hgetall(key);
+      return RoomAdapter.create(result);
+    } catch(e) {
+      return Promise.reject(new Error('we need more errors!'));
+    }
   }
 
   async createRoom(data) {

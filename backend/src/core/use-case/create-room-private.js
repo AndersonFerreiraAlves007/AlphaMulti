@@ -4,6 +4,9 @@ const {
 const {
   makeid
 } = require('../utils/code');
+const {
+  MINUTES_START_GAME
+} = require('../../utils/constants');
 
 class GetDataRoom {
   constructor (playerRepository, roomRepository, playerNotification, timeNotification) {
@@ -19,7 +22,7 @@ class GetDataRoom {
     if(player.roomId) return null;
     if(player) {
       const room = await this.roomRepository.createRoom({
-        createdAt: new Date().getTime(),
+        createdAt: new Date().getTime() + MINUTES_START_GAME * 1000 * 60,
         startGameAt: 0,
         startLastTurnAt: 0,
         direction: 1,

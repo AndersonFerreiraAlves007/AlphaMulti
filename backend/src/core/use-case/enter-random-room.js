@@ -8,6 +8,12 @@ const {
 const {
   makeid
 } = require('../utils/code');
+const {
+  randomColor
+} = require('../utils/radomColor');
+const {
+  MINUTES_START_GAME
+} = require('../../utils/constants');
 
 class EnterRandomRoom {
   constructor (playerRepository, roomRepository, playerNotification, timeNotification) {
@@ -28,7 +34,7 @@ class EnterRandomRoom {
         } else {
           const code = makeid(5);
           room = await this.roomRepository.createRoom({
-            createdAt: new Date().getTime(),
+            createdAt: new Date().getTime() + MINUTES_START_GAME * 1000 * 60,
             startGameAt: 0,
             startLastTurnAt: 0,
             direction: 1,
@@ -63,7 +69,7 @@ class EnterRandomRoom {
           });
 
         
-          if(cardInitial.color === COLOR_ESPECIAL) cardInitial.color = 'red';
+          if(cardInitial.color === COLOR_ESPECIAL) cardInitial.color = randomColor();
           room.deck.discard(cardInitial);
 
           await this.roomRepository.updateRoom(room.id, {

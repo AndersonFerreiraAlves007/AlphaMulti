@@ -1,6 +1,8 @@
 import { Globals } from './globals.js';
 
+let idInterval2;
 const renderWaitingRoomPage = () => {
+  clearInterval(idInterval2);
   const room = Globals.room;
 
   const page = document.getElementById('page');
@@ -61,6 +63,17 @@ const renderWaitingRoomPage = () => {
   // const imgLogo = document.createElement('img');
   // imgLogo.classList.add('room--logo');
   // imgLogo.src = './src/assets/img/logo.png';
+  const h1 = document.createElement('h2');
+  h1.innerText = `01:00 para iniciar a partida`;
+
+  idInterval2 = setInterval(() => {
+    const time = new Date(room.createdAt).getTime() - new Date().getTime();
+    const minutes = parseInt(time / (1000 * 60));
+    const seconds = parseInt((time % (1000 * 60)) / 1000);
+    h1.innerText = `${minutes < 10 ? `0${minutes}` : minutes}:${
+      seconds < 10 ? `0${seconds}` : seconds
+    } para iniciar a partida`;
+  }, 1000);
 
   const title = document.createElement('p');
   title.innerText = 'Esperando outros jogadores...';
@@ -141,7 +154,7 @@ const renderWaitingRoomPage = () => {
   cardRoom.classList.add('img__cards');
   cardRoom.src = './src/assets/img/cartas-room.png';
 
-  main.append(title, h2, divAllusers);
+  main.append(h1, title, h2, divAllusers);
   page.append(main, cardRoom, divButtons, imgBackground);
 };
 export { renderWaitingRoomPage };

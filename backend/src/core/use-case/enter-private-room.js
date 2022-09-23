@@ -8,6 +8,9 @@ const {
 const {
   MINUTES_PLAY_TURN
 } = require('../../utils/constants');
+const {
+  randomColor
+} = require('../utils/radomColor');
 
 class EnterPrivateRoom {
   constructor (playerRepository, roomRepository, playerNotification, timeNotification) {
@@ -40,7 +43,7 @@ class EnterPrivateRoom {
               item.order = index + 1;
             });
  
-            if(cardInitial.color === COLOR_ESPECIAL) cardInitial.color = 'red';
+            if(cardInitial.color === COLOR_ESPECIAL) cardInitial.color = randomColor();
             room.deck.discard(cardInitial);
             await this.roomRepository.updateRoom(room.id, {
               startGameAt: new Date().getTime(),

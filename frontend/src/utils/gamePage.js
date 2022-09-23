@@ -768,7 +768,7 @@ function createUserInfoT(container, player, side, positionRoom, startLastTurnAt)
     avatarImg.classList.add("gp__player-turn");
     const timeToPlaySpanTag = document.createElement('span');
     timeToPlaySpanTag.classList.add('gp__time-to-play');
-    timeToPlaySpanTag.innerText = '1:00';
+    timeToPlaySpanTag.innerText = '0:12';
 
     userTextDiv.append(timeToPlaySpanTag);
 
