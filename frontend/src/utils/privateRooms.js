@@ -70,7 +70,7 @@ const renderPrivateRooms = async () => {
     const roomCard = document.createElement('div');
     roomCard.classList.add('roomCard');
     const roomName = document.createElement('h3');
-    roomName.append(document.createTextNode(`${item.name} (${item.numberPlayers}/4)`));
+    roomName.append(document.createTextNode(`Jogadores ${item.name} (${item.numberPlayers}/4)`));
     roomCard.append(roomName);
     const roomCode = document.createElement('h4');
     roomCode.append(document.createTextNode(`Código: ${item.code}`));
