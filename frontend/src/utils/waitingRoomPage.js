@@ -58,12 +58,12 @@ const renderWaitingRoomPage = () => {
   const main = document.createElement('main');
   main.classList.add('main__waiting--room');
 
-  const imgLogo = document.createElement('img');
-  imgLogo.classList.add('room--logo');
+  // const imgLogo = document.createElement('img');
+  // imgLogo.classList.add('room--logo');
   // imgLogo.src = './src/assets/img/logo.png';
 
   const title = document.createElement('p');
-  title.innerText = 'Esperando os outros jogadores entrarem na sala...';
+  title.innerText = 'Esperando outros jogadores...';
 
   const h2 = document.createElement('h2');
   h2.innerText = `Entraram (${room.players.length}/4)`;
@@ -141,7 +141,7 @@ const renderWaitingRoomPage = () => {
   cardRoom.classList.add('img__cards');
   cardRoom.src = './src/assets/img/cartas-room.png';
 
-  main.append(imgLogo, title, h2, divAllusers);
+  main.append(title, h2, divAllusers);
   page.append(main, cardRoom, divButtons, imgBackground);
 };
 export { renderWaitingRoomPage };

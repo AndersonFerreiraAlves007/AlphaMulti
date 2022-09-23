@@ -42,7 +42,7 @@
 
 .main__waiting--room {
   color: var(--whiteFixed);
-  width: 41%;
+  width: 80%;
   height: fit-content;
   display: flex;
   position: relative;
@@ -56,15 +56,14 @@
 
 .main__waiting--room>p {
   font-weight: 700;
-  padding-top: 50px;
   text-align: center;
-  color: var(--black);
-  font-size: 20px;
-
+  color: var(--grey-1);
+  font-size: 18px;
 }
 
 .main__waiting--room h2 {
-  padding-bottom: 20px;
+  font-size: 20px;
+  padding-bottom: 10px;
   color: var(--black);
 }
 
@@ -77,22 +76,19 @@
 .div__users {
   display: flex;
   flex-wrap: wrap;
-  padding: 10px 40px;
-  /* gap: 10px 0px; */
+  padding: 10px;
   justify-content: space-between;
-  gap: 40px;
-
+  gap: 20px;
 }
 
 .div_user {
   width: 80px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   gap: 10px;
   padding: 10px;
-  border-radius: 8px;
+  border-radius: 4px;
   background-color: var(--blue-user);
 }
 
@@ -103,11 +99,42 @@
 .div_user>p {
   font-weight: 700;
   text-align: center;
-  font-size: 16px;
+  font-size: 11px;
   color: var(--black);
 }
 
-@media screen and (min-width: 320px) and (max-width: 480px) {
+@media (min-width: 1024px) {
+
+  .main__waiting--room {
+    width: 800px;
+    height: 400px;
+  }
+
+  .main__waiting--room>p {
+    font-size: 22px;
+  }
+
+  .div_user {
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 4px;
+  }
+
+  .div_user img {
+    width: 100px;
+  }
+
+  .div_user>p {
+    font-size: 14px;
+  }
+}
+
+/* @media screen and (min-width: 320px) and (max-width: 480px) {
   .buttons__configure--waiting img {
     width: 50px;
   }
@@ -121,9 +148,9 @@
     text-align: center;
     font-size: 20px;
   }
-}
+} */
 
-@media screen and (min-width: 481px) and (max-width: 768px) {
+/* @media screen and (min-width: 481px) and (max-width: 768px) {
   .buttons__configure--waiting img {
     width: 60px;
   }
@@ -141,9 +168,9 @@
   .main__waiting--room h2 {
     font-size: 25px;
   }
-}
+} */
 
-@media screen and (min-width: 769px) and (max-width: 1200px) {
+/* @media screen and (min-width: 769px) and (max-width: 1200px) {
   .div_user {
     width: 120px;
   }
@@ -160,9 +187,9 @@
     font-size: 25px;
     ;
   }
-}
+} */
 
-@media screen and (min-width: 1440px) {
+/* @media screen and (min-width: 1440px) {
   .main__waiting--room>p {
     font-size: 25px;
     ;
@@ -175,7 +202,7 @@
   .div_user>p {
     font-size: 20px;
   }
-}
+} */
 
 /* @media (max-width: 836px) {
    .buttons__configure--waiting img {
@@ -204,19 +231,3 @@
     height: fit-content;
   } */
 /* }
-
-@media (min-width: 1024px) {
-  .room--logo {
-    width: 300px;
-    position: absolute;
-    top: -90px;
-  }
-
-  .div_user img {
-    width: 50px;
-  }
-
-  .div_user>p {
-    font-size: 14px;
-  }
-} */
