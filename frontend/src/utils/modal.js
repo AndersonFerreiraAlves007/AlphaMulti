@@ -111,7 +111,7 @@ class Modal {
     const modal = document.createElement('section');
     modal.classList.add('modal');
 
-   /*  const logo = document.createElement('img');
+    /*  const logo = document.createElement('img');
     logo.classList.add('logo');
     logo.src = './src/assets/img/logo.png'; */
 
@@ -125,7 +125,7 @@ class Modal {
 
     const username = document.createElement('p');
     //avatar.classList.add('avatar');
-    username.innerText = playerWiner.username  || 'Adriaa'
+    username.innerText = playerWiner.username || 'Adriaa';
 
     const divScore = document.createElement('div');
     divScore.classList.add('score');
@@ -142,7 +142,7 @@ class Modal {
       callBack();
     });
 
-    modal.append(/* logo,  */title, avatar, username, divScore, btnExit);
+    modal.append(/* logo,  */ title, avatar, username, divScore, btnExit);
     backgroundModal.append(modal);
     body.append(backgroundModal);
   };
@@ -158,32 +158,32 @@ class Modal {
     title.innerText = 'Criar sala';
 
     const modal = document.createElement('section');
-    modal.classList.add('modal');
-
-    /* const logo = document.createElement('img');
-    logo.classList.add('logo');
-    logo.src = './src/assets/img/logo.png'; */
+    modal.classList.add('modal--create-room');
 
     const nameInput = document.createElement('input');
     nameInput.setAttribute('placeholder', 'Nome da sala');
     const passwordInput = document.createElement('input');
     passwordInput.setAttribute('placeholder', 'Senha da sala');
+    passwordInput.type = 'password';
+
+    const divButtons = document.createElement('div');
 
     const btnCreate = document.createElement('button');
     btnCreate.innerText = 'Criar Sala';
     btnCreate.addEventListener('click', () => {
       callback(nameInput.value, passwordInput.value);
-      this.closeVictoryModal();
+      this.closeCreateRoomModal();
     });
 
     const btnExit = document.createElement('button');
     btnExit.innerText = 'Sair';
     btnExit.addEventListener('click', () => {
-      this.closeVictoryModal();
+      this.closeCreateRoomModal();
     });
+    divButtons.append(btnCreate, btnExit);
 
-    modal.append(title)
-    modal.append(nameInput, passwordInput, btnCreate, btnExit);
+    modal.append(title);
+    modal.append(nameInput, passwordInput, divButtons);
     backgroundModal.append(modal);
     body.append(backgroundModal);
   };
@@ -197,7 +197,7 @@ class Modal {
     const modal = document.createElement('section');
     modal.classList.add('modal');
 
-/*     const logo = document.createElement('img');
+    /*     const logo = document.createElement('img');
     logo.classList.add('logo');
     logo.src = './src/assets/img/logo.png'; */
 
@@ -206,7 +206,6 @@ class Modal {
     const title = document.createElement('h1');
     title.classList.add('h1__criar');
     title.innerText = 'Entrar na sala';
-
 
     const passwordInput = document.createElement('input');
     passwordInput.setAttribute('placeholder', 'Senha da sala');
@@ -249,6 +248,13 @@ class Modal {
     modal.remove();
     backgroundModal.remove();
     //window.location.replace('../splashScreen/index.html');
+  }
+
+  static closeCreateRoomModal() {
+    const backgroundModal = document.querySelector('.background-modal');
+    const modal = document.querySelector('.modal--create-room');
+    modal.remove();
+    backgroundModal.remove();
   }
 }
 

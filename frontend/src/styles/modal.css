@@ -40,9 +40,68 @@
   overflow: hidden;
 }
 
+.modal--create-room {
+  width: 350px;
+  height: fit-content;
+  overflow-y: auto;
+  color: var(--whiteFixed);
+  padding: 32px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  background-color: var(--primary-color-1);
+  position: fixed;
+  margin-top: 112px;
+  border-radius: 8px;
+  border: none;
+  animation: showAnimationn 1s;
+  overflow: hidden;
+  box-shadow: 3px 3px 5px var(--grey-2);
+}
+
+.modal--create-room input {
+  font-family: "Catamaran", sans-serif;
+  height: 50px;
+  width: 80%;
+  border: 5px;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.modal--create-room div {
+  display: flex;
+  gap: 20px;
+}
+
+.modal--create-room button {
+  width: 100px;
+  height: 40px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--grey-1);
+  padding: 5px 10px;
+  background-color: var(--green);
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px var(--grey-2);
+}
+
+.modal--create-room button:nth-child(2) {
+  background-color: var(--red);
+}
+
+.modal--create-room button:hover {
+  color: var(--whiteFixed);
+}
+
 .modal input {
   font-family: "Catamaran", sans-serif;
-
   height: 10%;
   width: 80%;
   border: 5px;
@@ -191,6 +250,11 @@
 
 @media (min-width: 496px) {
   .modal {
+    width: 500px;
+    margin: 0;
+  }
+
+  .modal--create-room {
     width: 500px;
     margin: 0;
   }
