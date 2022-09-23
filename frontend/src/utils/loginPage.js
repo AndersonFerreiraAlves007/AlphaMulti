@@ -24,104 +24,100 @@ const renderLoginPage = () => {
   main.classList.add('login');
 
   const backLogin = document.createElement('img');
-  backLogin.classList.add('back__login');
+  backLogin.classList.add('background__login');
   backLogin.setAttribute('src', './src/assets/img/background.png');
 
-  const cartasLogin = document.createElement('img');
-  cartasLogin.classList.add('cartas__login');
-  cartasLogin.setAttribute('src', './src/assets/img/cartas-login.png');
+  const cardsLogin = document.createElement('img');
+  cardsLogin.classList.add('cards__login');
+  cardsLogin.setAttribute('src', './src/assets/img/cartas-login.png');
 
-  const buttonsCofigure = document.createElement('div');
-  buttonsCofigure.classList.add('buttons__configure--loginPage');
+  const buttonsConfigure = document.createElement('div');
+  buttonsConfigure.classList.add('buttons__configure--loginPage');
 
-  const buttonSound = document.createElement('input');
+  const btnSound = document.createElement('input');
   const audio = document.getElementById('audio-background');
-  buttonSound.classList.add('button__sound');
-  buttonSound.setAttribute('type', 'image');
+  btnSound.classList.add('button__sound');
+  btnSound.setAttribute('type', 'image');
 
   if (audio.paused) {
-    buttonSound.src = './src/assets/img/mute.png';
+    btnSound.src = './src/assets/img/mute.png';
   } else {
-    buttonSound.src = './src/assets/img/button-sound.png';
+    btnSound.src = './src/assets/img/button-sound.png';
   }
 
-  buttonSound.addEventListener('click', () => {
+  btnSound.addEventListener('click', () => {
     if (audio.paused) {
       audio.volume = 0.1;
       audio.play();
       audio.loop = true;
-      buttonSound.src = './src/assets/img/button-sound.png';
+      btnSound.src = './src/assets/img/button-sound.png';
     } else {
       audio.pause();
-      buttonSound.src = './src/assets/img/mute.png';
+      btnSound.src = './src/assets/img/mute.png';
     }
   });
 
-  const buttosClose = document.createElement('input');
-  buttosClose.classList.add('button__close');
-  buttosClose.setAttribute('type', 'image');
-  buttosClose.setAttribute('src', './src/assets/img/button-close.png');
-  buttosClose.addEventListener('click', () => {
+  const btnClose = document.createElement('input');
+  btnClose.classList.add('button__close');
+  btnClose.setAttribute('type', 'image');
+  btnClose.setAttribute('src', './src/assets/img/button-close.png');
+  btnClose.addEventListener('click', () => {
     window.location.reload();
   });
 
-  buttonsCofigure.append(buttonSound, buttosClose);
+  buttonsConfigure.append(btnSound, btnClose);
 
-  const divLogoLogin = document.createElement('div');
-  divLogoLogin.classList.add('div__logo__login');
+  // const divLogoLogin = document.createElement('div');
+  // divLogoLogin.classList.add('div__logo__login');
 
-  const logoLogin = document.createElement('img');
-  logoLogin.classList.add('logo__login');
+  // const logoLogin = document.createElement('img');
+  // logoLogin.classList.add('logo__login');
   // logoLogin.setAttribute('src', './src/assets/img/logo.png');
 
-  divLogoLogin.append(logoLogin);
+  // divLogoLogin.append(logoLogin);
 
-  const containerPaiLogin = document.createElement('div');
-  containerPaiLogin.classList.add('container__pai__login');
+  // const divLoginBox = document.createElement('div');
+  // divLoginBox.classList.add('div__login--box');
 
-  const containerBlue = document.createElement('img');
-  containerBlue.classList.add('container__blue');
-  containerBlue.setAttribute('src', './src/assets/img/back-login.png');
+  const divContainerBlue = document.createElement('div');
+  divContainerBlue.classList.add('div__container--blue');
 
-  const containerLogin = document.createElement('div');
-  containerLogin.classList.add('container__login');
+  const divContainerLogin = document.createElement('div');
+  divContainerLogin.classList.add('div__container--login');
 
   const inputLogin = document.createElement('input');
   inputLogin.classList.add('input__login');
   inputLogin.setAttribute('type', 'text');
   inputLogin.setAttribute('placeholder', 'Insira seu nome');
 
-  const containerUsuario = document.createElement('div');
-  containerUsuario.classList.add('container__usuario');
+  const divUser = document.createElement('div');
+  divUser.classList.add('div__user');
 
-  const imgUsuario = document.createElement('img');
-  imgUsuario.classList.add('img__usuario');
-  imgUsuario.setAttribute('src', './src/assets/img/users/user1.svg');
+  const imgUser = document.createElement('img');
+  imgUser.classList.add('img__user');
+  imgUser.setAttribute('src', './src/assets/img/users/user1.svg');
 
-  const buttonEsquerda = document.createElement('input');
-  buttonEsquerda.classList.add('button__esquerda');
-  buttonEsquerda.setAttribute('type', 'image');
-  buttonEsquerda.setAttribute('src', './src/assets/img/button-esquerda.svg');
-  buttonEsquerda.addEventListener('click', () => {
+  const btnLeft = document.createElement('img');
+  btnLeft.classList.add('button__left');
+  btnLeft.src = './src/assets/img/button-esquerda.svg';
+  btnLeft.addEventListener('click', () => {
     if (indexAvatar === 0) indexAvatar = 9;
     else indexAvatar = indexAvatar - 1;
-    imgUsuario.setAttribute('src', avatares[indexAvatar]);
+    imgUser.setAttribute('src', avatares[indexAvatar]);
   });
 
-  const buttonDireita = document.createElement('input');
-  buttonDireita.classList.add('button__direita');
-  buttonDireita.setAttribute('type', 'image');
-  buttonDireita.setAttribute('src', './src/assets/img/button-direita.svg');
-  buttonDireita.addEventListener('click', () => {
+  const btnRight = document.createElement('img');
+  btnRight.classList.add('button__right');
+  btnRight.src = './src/assets/img/button-direita.svg';
+  btnRight.addEventListener('click', () => {
     if (indexAvatar === 9) indexAvatar = 0;
     else indexAvatar = indexAvatar + 1;
-    imgUsuario.setAttribute('src', avatares[indexAvatar]);
+    imgUser.setAttribute('src', avatares[indexAvatar]);
   });
 
-  const buttonPlay = document.createElement('input');
+  const buttonPlay = document.createElement('img');
   buttonPlay.classList.add('button__play');
-  buttonPlay.setAttribute('type', 'image');
-  buttonPlay.setAttribute('src', './src/assets/img/button-play.svg');
+  buttonPlay.src = './src/assets/img/button-play.svg';
   buttonPlay.addEventListener('click', () => {
     const username = inputLogin.value;
     sessionStorage.setItem('username', username);
@@ -170,20 +166,20 @@ const renderLoginPage = () => {
     navigate('roomOptions');
   });
 
-  containerUsuario.append(buttonEsquerda, imgUsuario, buttonDireita);
+  divUser.append(btnLeft, imgUser, btnRight);
 
-  containerLogin.append(inputLogin, containerUsuario, buttonPlay);
+  divContainerLogin.append(inputLogin, divUser, buttonPlay);
 
-  containerPaiLogin.append(containerBlue, containerLogin);
+  divContainerBlue.append(divContainerLogin);
 
-  main.append(backLogin, cartasLogin, buttonsCofigure, divLogoLogin, containerPaiLogin);
+  main.append(backLogin, cardsLogin, buttonsConfigure, divContainerBlue);
 
   document.getElementById('page').append(main);
 
   /*  document.getElementById('page').innerHTML = `
     <main>
-      <img class="back__login" src="./src/assets/img/background.png">
-      <img class="cartas__login" src="./src/assets/img/cartas-login.png">
+      <img class="background__login" src="./src/assets/img/background.png">
+      <img class="cards__login" src="./src/assets/img/cartas-login.png">
       <div class="buttons__configure">
         <input class="button__sound" type="image" src="./src/assets/img/button-sound.png"> 
         <input class="button__close" type="image" src="./src/assets/img/button-close.png">  
@@ -191,14 +187,14 @@ const renderLoginPage = () => {
       <div class="div__logo__login">
         <img class="logo__login" src="./src/assets/img/logo.png">
       </div>
-      <div class="container__pai__login">
-        <img class="container__blue" src="./src/assets/img/back-login.png">
-        <div class="container__login">
+      <div class="div__login--box">
+        <img class="div__container--blue" src="./src/assets/img/back-login.png">
+        <div class="div__container--login">
           <input type="text" class="input__login" placeholder="Insira seu nome">
-          <div class="container__usuario">
-            <input class="button__esquerda" type="image" src="./src/assets/img/button-esquerda.svg"> 
-            <img class="img__usuario" src="./src/assets/img/users/user1.svg"> 
-            <input class="button__direita" type="image" src="./src/assets/img/button-direita.svg">  
+          <div class="div__user">
+            <input class="button__left" type="image" src="./src/assets/img/button-esquerda.svg"> 
+            <img class="img__user" src="./src/assets/img/users/user1.svg"> 
+            <input class="button__right" type="image" src="./src/assets/img/button-direita.svg">  
           </div>
           <input class="button__play" type="image" src="./src/assets/img/button-play.svg">  
         </div>  
