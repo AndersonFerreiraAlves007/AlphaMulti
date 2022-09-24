@@ -16,7 +16,7 @@ const renderSplashScreenPage = () => {
   main.append(btnTutorial);
 
   const logo = document.createElement('img');
-  logo.classList.add('logo__splash');
+  logo.classList.add('logo__splash', 'animate__animated', 'animate__backInUp');
   logo.setAttribute('src', './src/assets/img/logo.png');
 
   const back = document.createElement('img');

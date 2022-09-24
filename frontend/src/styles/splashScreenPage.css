@@ -8,6 +8,10 @@
   cursor: pointer;
 }
 
+.animate__animated.animate__backInUp {
+  --animate-duration: 2s;
+}
+
 .splash {
   display: flex;
   width: 100%;
