@@ -24,6 +24,8 @@ class PlayTurnTimeout {
   async execute (roomId, position, turn) {
     try {
       const room = await this.roomRepository.getRoom(roomId);
+      console.log(turn);
+      console.log(room);
       if(room) {
         if(room.position === position && room.turn === turn) {
           if(room.isRun) {
@@ -121,7 +123,7 @@ class PlayTurnTimeout {
                 }
                 const humans = await this.playerRepository.getPlayersHumanRoom(room.id);
                 for(let i = 0; i < humans.length; i++) {
-                  await this.playerRepository.updatePlayer(humans.id, {
+                  await this.playerRepository.updatePlayer(humans[i].id, {
                     roomId: '',
                     cards: '',
                     order: -1

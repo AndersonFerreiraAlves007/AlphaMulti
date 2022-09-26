@@ -45,15 +45,17 @@ class EnterPrivateRoom {
  
             if(cardInitial.color === COLOR_ESPECIAL) cardInitial.color = randomColor();
             room.deck.discard(cardInitial);
+            room.turn = room.turn + 1;
+            room.position = 1;
             await this.roomRepository.updateRoom(room.id, {
               startGameAt: new Date().getTime(),
               startLastTurnAt: new Date().getTime() + MINUTES_PLAY_TURN * 60 * 1000,
               direction: CLOCKWISE,
               isRun: true,
-              position: 1,
+              position: room.position,
               cards: room.deck.toStringCards(),
               cardsDiscarded: room.deck.toStringCardsDiscarded(),
-              turn: 1
+              turn: room.turn
             });
             for(let i = 0; i < players.length; i++) {
               await this.playerRepository.updatePlayer(players[i].id, {
@@ -61,6 +63,7 @@ class EnterPrivateRoom {
                 order: players[i].order,
               });
             }
+            this.timeNotification.makeMove(room.id, room.position, room.turn);
             this.playerNotification.startGame(room.id);
             this.playerNotification.changeRoomsAvaliables();
           } 

@@ -11,7 +11,7 @@ class RoomRepositoryRedis extends RoomRepository {
     for(let i = 0; i < ids.length; i++) {
       const room = await redis.hgetall(ids[i]);
 
-      if(!room.isRun === 'true' && room.type === ROOM_PUBLIC) rooms.push(RoomAdapter.create(room));
+      if(!(room.isRun === 'true') && room.type === ROOM_PUBLIC) rooms.push(RoomAdapter.create(room));
     }
     return rooms;
   }

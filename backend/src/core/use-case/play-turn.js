@@ -117,7 +117,7 @@ class PlayTurn {
                   }
                   const humans = await this.playerRepository.getPlayersHumanRoom(room.id);
                   for(let i = 0; i < humans.length; i++) {
-                    await this.playerRepository.updatePlayer(humans.id, {
+                    await this.playerRepository.updatePlayer(humans[i].id, {
                       roomId: '',
                       cards: '',
                       order: -1

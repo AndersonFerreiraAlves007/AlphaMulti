@@ -16,7 +16,8 @@ class Room {
     type = 'public', 
     password = '',
     name = '', 
-    code = ''
+    code = '',
+    turn
   ) {
     this.id = id;
     this.createdAt = createdAt;
@@ -31,6 +32,7 @@ class Room {
     this.password = password;
     this.name = name;
     this.code = code;
+    this.turn = turn;
   }
 
   setNextPosition() {
