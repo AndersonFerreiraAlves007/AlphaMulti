@@ -31,11 +31,6 @@ ws.on('connection', client => {
         avatar: payload.avatar
       });
       break;
-    case 'enterRandomRoom':
-      GameController.enterRandomRoom({
-        playerId: payload.playerId,
-      }, {});
-      break;
     case 'leaveRoom':
       GameController.leaveRoom({
         playerId: payload.playerId,
@@ -58,6 +53,12 @@ ws.on('connection', client => {
         playerId: payload.playerId,
         roomId: payload.roomId,
         password: payload.password,
+      }, {});
+      break;
+    case 'enterPublicRoom':
+      GameController.enterPublicRoom({
+        playerId: payload.playerId,
+        roomId: payload.roomId,
       }, {});
       break;
     default:

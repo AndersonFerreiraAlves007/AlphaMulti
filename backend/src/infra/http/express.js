@@ -59,6 +59,10 @@ app.get('/get-rooms-privates', ExpressAdapter.create(GameController.getRoomsPriv
 
 app.post('/create-room-private', ExpressAdapter.create(GameController.createRoomPrivate));
 
+app.get('/get-rooms-publics', ExpressAdapter.create(GameController.getRoomsPublics));
+
+app.post('/create-room-public', ExpressAdapter.create(GameController.createRoomPublic));
+
 const server = http.createServer(app);
  
 server.listen(SERVER_PORT, err => { 

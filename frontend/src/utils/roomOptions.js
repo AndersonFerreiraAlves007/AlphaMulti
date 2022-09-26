@@ -62,14 +62,13 @@ const renderRoomOptions = () => {
   divRooms.classList.add('rooms');
   const divRoom1 = document.createElement('div');
   const room1Title = document.createElement('p');
-  room1Title.innerText = 'Salas Aleatórias';
+  room1Title.innerText = 'Salas Públicas';
   const room1Img = document.createElement('img');
   room1Img.src = './src/assets/img/public-room.svg';
   divRoom1.append(room1Title, room1Img);
 
   divRoom1.addEventListener('click', () => {
-    divRoom1.style.pointerEvents = 'none';
-    Globals.serverCommunication.enterRadomRoom();
+    navigate('publicRooms');
   });
 
   const divRoom2 = document.createElement('div');
@@ -83,7 +82,7 @@ const renderRoomOptions = () => {
     navigate('privateRooms');
   });
 
-  divRooms.append(/* divRoom1,  */divRoom2);
+  divRooms.append(divRoom1, divRoom2);
   main.append(imglogo, title, divRooms);
   roomFistPage.append(imgBackground, divButtons, main, imgCards);
   page.append(roomFistPage);

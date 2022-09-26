@@ -11,7 +11,11 @@ setInterval(async () => {
         GameController.startGameTimeout({roomId: data.data.roomId});
         break;
       case 'makeMove':
-        GameController.playTurnTimeout({roomId: data.data.roomId, position: data.data.position});
+        GameController.playTurnTimeout({
+          roomId: data.data.roomId, 
+          position: data.data.position,
+          turn: data.data.turn
+        });
         break;
       }
       await redis.lrem('works_cron', 0, tasks[i]);

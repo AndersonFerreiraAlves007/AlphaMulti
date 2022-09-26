@@ -14,12 +14,13 @@ class TimeNotificationWs extends TimeNotification {
     await redis.rpush('works_cron', data);
   }
 
-  async makeMove(roomId, position) {
+  async makeMove(roomId, position, turn) {
     const data = JSON.stringify({
       type: 'makeMove',
       data: {
         roomId,
         position,
+        turn,
         expiresIn: new Date().getTime() + MINUTES_PLAY_TURN * 1000 * 60
       }
     });

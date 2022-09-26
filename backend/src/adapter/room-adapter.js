@@ -37,7 +37,8 @@ class RoomAdapter {
       data.type,
       data.password,
       data.name,
-      data.code
+      data.code,
+      Number(data.turn)
     );
   }
 

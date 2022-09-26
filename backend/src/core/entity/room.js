@@ -33,11 +33,6 @@ class Room {
     this.code = code;
   }
 
-  getScore(players) {
-    const time = (new Date().getTime() - this.createdAt.getTime())/(1000 * 60);
-    return time * 2 + players.length;
-  }
-
   setNextPosition() {
     if(this.direction > 0) {
       if(this.position >= 1 && this.position < MAX_PLAYERS_ROOM) this.position += 1;

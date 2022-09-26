@@ -5,7 +5,7 @@ const RoomAdapter = require('../../adapter/room-adapter');
 const { ROOM_PUBLIC, ROOM_PRIVATE } = require('../../core/utils/constants');
 
 class RoomRepositoryRedis extends RoomRepository {
-  async getRoomAvaliables() {
+  async getRoomPublicAvaliables() {
     const ids = await redis.lrange('rooms', 0, -1);
     const rooms = [];
     for(let i = 0; i < ids.length; i++) {

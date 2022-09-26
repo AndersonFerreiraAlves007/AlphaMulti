@@ -21,11 +21,11 @@ class PlayTurnTimeout {
     this.timeNotification = timeNotification;
   }
 
-  async execute (roomId, position) {
+  async execute (roomId, position, turn) {
     try {
       const room = await this.roomRepository.getRoom(roomId);
       if(room) {
-        if(room.position === position) {
+        if(room.position === position && room.turn === turn) {
           if(room.isRun) {
             const players = await this.playerRepository.getPlayersRoom(room.id);
             const currentPlayer = players.find(item => item.order === room.position);
@@ -89,15 +89,17 @@ class PlayTurnTimeout {
               await this.playerRepository.updatePlayer(currentPlayer.id, {
                 cards: currentPlayer.toStringCards(), 
               });
-
+              room.turn = room.turn + 1;
               await this.roomRepository.updateRoom(room.id, {
                 startLastTurnAt: new Date().getTime() + MINUTES_PLAY_TURN * 60 * 1000,
                 direction: room.direction,
                 position: room.position,
                 cards: room.deck.toStringCards(),
                 cardsDiscarded: room.deck.toStringCardsDiscarded(),
+                amount: room.amount,
+                turn: room.turn
               });
-
+             
               const players = await this.playerRepository.getPlayersRoom(room.id);
               let winer = null;
               for(let i = 0; i < players.length; i++) {
@@ -127,8 +129,9 @@ class PlayTurnTimeout {
                 }
                 await this.roomRepository.deleteRoom(room.id);
                 this.playerNotification.endGame(room.id, winer ? winer.id : '');
+                //this.playerNotification.changeRoomsAvaliables();
               } else {
-                this.timeNotification.makeMove(room.id, room.position);
+                this.timeNotification.makeMove(room.id, room.position, room.turn);
                 this.playerNotification.makeMove(room.id);
               }
             

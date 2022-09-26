@@ -26,6 +26,7 @@ class Logout {
               await this.playerRepository.deletePlayer(bots[i].id);
             }
             await this.roomRepository.deleteRoom(room.id);
+            this.playerNotification.changeRoomsAvaliables();
           } else {
             if(room.isRun) {
               const bot = await this.playerRepository.createPlayer(v4(), {

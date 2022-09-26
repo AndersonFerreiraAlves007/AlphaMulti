@@ -188,6 +188,44 @@ class Modal {
     body.append(backgroundModal);
   };
 
+  static showCreateRoomPublicModal = (callback) => {
+    const body = document.querySelector('body');
+
+    const backgroundModal = document.createElement('div');
+    backgroundModal.classList.add('background-modal');
+
+    const title = document.createElement('h1');
+    title.classList.add('h1__criar');
+    title.innerText = 'Criar sala';
+
+    const modal = document.createElement('section');
+    modal.classList.add('modal--create-room');
+
+    const nameInput = document.createElement('input');
+    nameInput.setAttribute('placeholder', 'Nome da sala');
+
+    const divButtons = document.createElement('div');
+
+    const btnCreate = document.createElement('button');
+    btnCreate.innerText = 'Criar Sala';
+    btnCreate.addEventListener('click', () => {
+      callback(nameInput.value);
+      this.closeCreateRoomModal();
+    });
+
+    const btnExit = document.createElement('button');
+    btnExit.innerText = 'Sair';
+    btnExit.addEventListener('click', () => {
+      this.closeCreateRoomModal();
+    });
+    divButtons.append(btnCreate, btnExit);
+
+    modal.append(title);
+    modal.append(nameInput, divButtons);
+    backgroundModal.append(modal);
+    body.append(backgroundModal);
+  };
+
   static showEnterRoomModal = (name, callback) => {
     const body = document.querySelector('body');
 

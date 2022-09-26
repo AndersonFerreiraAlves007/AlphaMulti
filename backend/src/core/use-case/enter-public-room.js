@@ -3,7 +3,7 @@ const {
   INITIAL_CARDS_PLAYER,
   CLOCKWISE,
   COLOR_ESPECIAL,
-  ROOM_PRIVATE
+  ROOM_PUBLIC
 } = require('../utils/constants');
 const {
   MINUTES_PLAY_TURN
@@ -20,12 +20,12 @@ class EnterPrivateRoom {
     this.timeNotification = timeNotification;
   }
 
-  async execute (playerId, roomId, password) {
+  async execute (playerId, roomId) {
     let player = await this.playerRepository.getPlayer(playerId);
     if(player) {
       if(!player.roomId) {
         const room = await this.roomRepository.getRoom(roomId);
-        if(!room.isRun && room.type === ROOM_PRIVATE && room.password === password) {
+        if(!room.isRun && room.type === ROOM_PUBLIC) {
           await this.playerRepository.updatePlayer(player.id, {
             roomId: room.id
           });
@@ -45,17 +45,15 @@ class EnterPrivateRoom {
  
             if(cardInitial.color === COLOR_ESPECIAL) cardInitial.color = randomColor();
             room.deck.discard(cardInitial);
-            room.turn = room.turn + 1;
-            room.position = 1;
             await this.roomRepository.updateRoom(room.id, {
               startGameAt: new Date().getTime(),
               startLastTurnAt: new Date().getTime() + MINUTES_PLAY_TURN * 60 * 1000,
               direction: CLOCKWISE,
               isRun: true,
-              position: room.position,
+              position: 1,
               cards: room.deck.toStringCards(),
               cardsDiscarded: room.deck.toStringCardsDiscarded(),
-              turn: room.turn
+              turn: 1
             });
             for(let i = 0; i < players.length; i++) {
               await this.playerRepository.updatePlayer(players[i].id, {
@@ -63,7 +61,6 @@ class EnterPrivateRoom {
                 order: players[i].order,
               });
             }
-            this.timeNotification.makeMove(room.id, room.position, room.turn);
             this.playerNotification.startGame(room.id);
             this.playerNotification.changeRoomsAvaliables();
           } 

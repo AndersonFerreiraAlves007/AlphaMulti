@@ -11,6 +11,16 @@ async function getIdsPlayersRooms(roomId) {
   return idsPlayersRooms;
 }
 
+async function getIdsPlayersWithoutRoom() {
+  const ids = await redis.lrange('players', 0, -1);
+  const idsPlayersRooms = [];
+  for(let i = 0; i < ids.length; i++) {
+    const player = await redis.hgetall(ids[i]);
+    if(player.roomId === '') idsPlayersRooms.push(player.id);
+  }
+  return idsPlayersRooms;
+}
+
 class PlayerNotificationWS extends PlayerNotification {
   constructor(ws) {
     super();
@@ -45,6 +55,20 @@ class PlayerNotificationWS extends PlayerNotification {
       }
     });
   }
+
+  async sendMessagePlayersWithoutRoom(type, payload = {}) {
+    const players = await getIdsPlayersWithoutRoom();
+    this.ws.clients.forEach(client => {
+      if(players.includes(client.playerId)) {
+        client.send(JSON.stringify({
+          type,
+          payload: {
+            ...payload
+          }
+        }));
+      }
+    });
+  }
   
   async startGame(roomId) {
     await this.sendMessageRoom(roomId, 'startGame');
@@ -65,6 +89,10 @@ class PlayerNotificationWS extends PlayerNotification {
 
   async makeMove(roomId) {
     await this.sendMessageRoom(roomId, 'makeMove');
+  }
+
+  async changeRoomsAvaliables() {
+    await this.sendMessagePlayersWithoutRoom('changeRoomsAvaliables');
   }
 }
 

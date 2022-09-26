@@ -163,6 +163,18 @@ const renderLoginPage = () => {
       Globals.room = room;
       navigate('game');
     });
+
+    Globals.serverCommunication.addEventListener('changeRoomsAvaliables', () => {
+      switch (Globals.screen) {
+        case 'privateRooms':
+          navigate('privateRooms');
+          break;
+        case 'publicRooms':
+          navigate('publicRooms');
+          break;
+      }
+    });
+
     navigate('roomOptions');
   });
 

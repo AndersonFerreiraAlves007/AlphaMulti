@@ -8,6 +8,8 @@ class PlayerNotification {
   async levePlayer(roomId) {}
 
   async makeMove(roomId) {}
+
+  async changeRoomsAvaliables() {}
 }
 
 module.exports = PlayerNotification;

@@ -774,8 +774,10 @@ function createUserInfoT(container, player, side, positionRoom, startLastTurnAt)
 
     idInterval = setInterval(() => {
       const time = new Date(startLastTurnAt).getTime() - new Date().getTime();
-      const minutes = parseInt(time / (1000 * 60));
-      const seconds = parseInt((time % (1000 * 60)) / 1000);
+      let minutes = parseInt(time / (1000 * 60));
+      minutes = minutes >= 0 ? minutes : 0 
+      let seconds = parseInt((time % (1000 * 60)) / 1000);
+      seconds = seconds >= 0 ? seconds : 0
       timeToPlaySpanTag.innerText = `${minutes < 10 ? `0${minutes}` : minutes}:${
         seconds < 10 ? `0${seconds}` : seconds
       }`;

@@ -1,5 +1,5 @@
 const {
-  ROOM_PRIVATE
+  ROOM_PUBLIC
 } = require('../utils/constants');
 const {
   makeid
@@ -16,7 +16,7 @@ class GetDataRoom {
     this.timeNotification = timeNotification;
   }
 
-  async execute (playerId, nameRoom, passwordRoom) {
+  async execute (playerId, nameRoom) {
     const player = await this.playerRepository.getPlayer(playerId);
     if(!player) return null;
     if(player.roomId) return null;
@@ -31,8 +31,8 @@ class GetDataRoom {
         position: 1,
         cardsDiscarded: '',
         amount: 0,
-        type: ROOM_PRIVATE,
-        password: passwordRoom,
+        type: ROOM_PUBLIC,
+        password: '',
         name: nameRoom,
         code: makeid(5),
         turn: 0

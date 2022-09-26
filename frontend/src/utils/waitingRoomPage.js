@@ -68,8 +68,10 @@ const renderWaitingRoomPage = () => {
 
   idInterval2 = setInterval(() => {
     const time = new Date(room.createdAt).getTime() - new Date().getTime();
-    const minutes = parseInt(time / (1000 * 60));
-    const seconds = parseInt((time % (1000 * 60)) / 1000);
+    let minutes = parseInt(time / (1000 * 60));
+    minutes = minutes >= 0 ? minutes : 0 
+    let seconds = parseInt((time % (1000 * 60)) / 1000);
+    seconds = seconds >= 0 ? seconds : 0
     h1.innerText = `${minutes < 10 ? `0${minutes}` : minutes}:${
       seconds < 10 ? `0${seconds}` : seconds
     } para iniciar a partida`;

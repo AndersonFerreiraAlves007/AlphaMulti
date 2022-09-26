@@ -1,5 +1,5 @@
 class RoomRepository {
-  async getRoomAvaliables() {}
+  async getRoomPublicAvaliables() {}
 
   async getRoomPrivateAvaliables() {}
 

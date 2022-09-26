@@ -88,13 +88,15 @@ class PlayTurn {
                 await this.playerRepository.updatePlayer(player.id, {
                   cards: player.toStringCards(),  
                 });
+                room.turn = room.turn + 1;
                 await this.roomRepository.updateRoom(room.id, {
                   startLastTurnAt: new Date().getTime() + MINUTES_PLAY_TURN * 60 * 1000,
                   direction: room.direction,
                   position: room.position,
                   cards: room.deck.toStringCards(),
                   cardsDiscarded: room.deck.toStringCardsDiscarded(),
-                  amount: room.amount
+                  amount: room.amount,
+                  turn: room.turn
                 });
                 const players = await this.playerRepository.getPlayersRoom(room.id);
                 let winer = null;
@@ -123,8 +125,9 @@ class PlayTurn {
                   }
                   await this.roomRepository.deleteRoom(room.id);
                   this.playerNotification.endGame(room.id, winer ? winer.id : '');
+                  //this.playerNotification.changeRoomsAvaliables();
                 } else {
-                  this.timeNotification.makeMove(room.id, room.position);
+                  this.timeNotification.makeMove(room.id, room.position, room.turn);
                   this.playerNotification.makeMove(room.id);
                 }
                 

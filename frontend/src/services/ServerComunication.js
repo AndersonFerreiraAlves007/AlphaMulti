@@ -94,6 +94,10 @@ class ServerCommunication {
           }))
           break
         }
+        case 'changeRoomsAvaliables': {
+          this.events.changeRoomsAvaliables.forEach(callback => callback())
+          break
+        }
       }
     }
 
@@ -109,6 +113,7 @@ class ServerCommunication {
       enterPlayer: [],
       levePlayer: [],
       makeMove: [],
+      changeRoomsAvaliables: [],
     }
   }
 
@@ -132,6 +137,12 @@ class ServerCommunication {
     return data
   }
 
+  async getRoomsPublic() {
+    const response = await fetch(`${this.url}/get-rooms-publics`)
+    const data = await response.json()
+    return data
+  }
+
   async createRoomPrivate(name, password) {
     const response = await fetch(`${this.url}/create-room-private`, {
       method: "POST",
@@ -142,6 +153,21 @@ class ServerCommunication {
         playerId: sessionStorage.getItem('playerId'),
         name,
         password
+      })
+    })
+    const data = await response.json()
+    return data
+  }
+
+  async createRoomPublic(name) {
+    const response = await fetch(`${this.url}/create-room-public`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        playerId: sessionStorage.getItem('playerId'),
+        name
       })
     })
     const data = await response.json()
@@ -170,15 +196,6 @@ class ServerCommunication {
     //sessionStorage.removeItem('roomId')
   }
 
-  enterRadomRoom() {
-    this.ws.send(JSON.stringify({
-      type: 'enterRandomRoom',
-      payload: {
-        playerId: sessionStorage.getItem('playerId')
-      }
-    }))
-  }
-
   enterPrivateRoom(roomId, password) {
     this.ws.send(JSON.stringify({
       type: 'enterPrivateRoom',
@@ -186,6 +203,16 @@ class ServerCommunication {
         playerId: sessionStorage.getItem('playerId'),
         roomId,
         password
+      }
+    }))
+  }
+
+  enterPublicRoom(roomId) {
+    this.ws.send(JSON.stringify({
+      type: 'enterPublicRoom',
+      payload: {
+        playerId: sessionStorage.getItem('playerId'),
+        roomId,
       }
     }))
   }
@@ -217,6 +244,9 @@ class ServerCommunication {
         break;
       case 'makeMove':
         this.events.makeMove.push(calback)
+        break;
+      case 'changeRoomsAvaliables':
+        this.events.changeRoomsAvaliables.push(calback)
         break;
       default:
         throw 'Este evento é inexistente!'
