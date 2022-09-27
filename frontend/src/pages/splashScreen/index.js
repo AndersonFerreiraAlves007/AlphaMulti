@@ -11,7 +11,7 @@ const renderSplashScreenPage = () => {
   btnTutorial.src = './src/assets/img/help.svg';
 
   btnTutorial.addEventListener('click', () => {
-    SoundPlayer.click()
+    //SoundPlayer.click()
     Modal.showTutorialModal();
   });
 
@@ -29,7 +29,8 @@ const renderSplashScreenPage = () => {
   btn.classList.add('button__splash');
   btn.setAttribute('src', './src/assets/img/button-splash.svg');
   btn.addEventListener('click', () => {
-    SoundPlayer.play()
+    //SoundPlayer.play()
+    SoundPlayer.toogleStatusAllAudios()
     navigate('login');
   });
 
