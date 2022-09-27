@@ -19,7 +19,11 @@ jobs:
             git pull
             export NVM_DIR="$HOME/.nvm" 
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-            npm i
+            cd backend
+            npm install
+            cd ..
+            cd frontend
+            npm install
             cd ${{ secrets.ECOSYSTEM_FOLDER_PATH }} 
             pm2 delete ecosystem.config.js
             pm2 start ecosystem.config.js

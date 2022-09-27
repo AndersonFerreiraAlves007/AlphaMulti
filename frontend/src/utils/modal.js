@@ -177,8 +177,8 @@ class Modal {
     btnCreate.innerText = 'Criar Sala';
     btnCreate.addEventListener('click', () => {
       SoundPlayer.click()
-      if(true) {
-        callback(nameInput.value, passwordInput.value);
+      if(/^[A-Za-z][A-Za-z0-9_]{2,20}$/.test(nameInput.value.trim()) && /^[A-Za-z0-9]{3,20}$/.test(passwordInput.value.trim())) {
+        callback(nameInput.value.trim(), passwordInput.value.trim());
         this.closeCreateRoomModal();
       } else {
         
@@ -221,8 +221,8 @@ class Modal {
     btnCreate.innerText = 'Criar Sala';
     btnCreate.addEventListener('click', () => {
       SoundPlayer.click()
-      if(true) {
-        callback(nameInput.value);
+      if(/^[A-Za-z][A-Za-z0-9_]{2,20}$/.test(nameInput.value.trim())) {
+        callback(nameInput.value.trim());
         this.closeCreateRoomModal();
       } else {
 
