@@ -8,9 +8,10 @@ app.get('/src/utils/constants.js', (req, res) => {
   res.send(
       `
         const HOST_API = "${process.env.HOST_API}";
-
+        const isSsl = ${process.env.NODE_ENV === 'production' ? 'true' : 'false'};
         export {
-            HOST_API
+            HOST_API,
+            isSsl
         }
       `
   )

@@ -3,7 +3,7 @@ import { ServerCommunication } from '../../services/ServerComunication.js';
 import { Globals } from '../../utils/globals.js';
 import { Modal } from '../../utils/modal.js';
 import { SoundPlayer } from '../../utils/sound.js';
-import { HOST_API } from '../../utils/constants.js'
+import { HOST_API, isSsl } from '../../utils/constants.js'
 
 const avatares = [
   './src/assets/img/users/user1.svg',
@@ -113,7 +113,7 @@ const renderLoginPage = () => {
     if(/^[A-Za-z][A-Za-z0-9_]{2,20}$/.test(username.trim())) {
       sessionStorage.setItem('username', username.trim());
       sessionStorage.setItem('avatar', avatares[indexAvatar]);
-      Globals.serverCommunication = new ServerCommunication(HOST_API);
+      Globals.serverCommunication = new ServerCommunication(HOST_API, isSsl);
       Globals.serverCommunication.addEventListener('startGame', (data) => {
         const { player, room } = data;
         Globals.player = player;
