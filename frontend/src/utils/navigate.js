@@ -1,10 +1,10 @@
-import { renderGamePage } from './gamePage.js'
-import { renderLoginPage } from './loginPage.js'
-import { renderPrivateRooms } from './privateRooms.js'
-import { renderPublicRooms } from './publicRooms.js'
-import { renderRoomOptions } from './roomOptions.js'
-import { renderSplashScreenPage } from './splashScreenPage.js'
-import { renderWaitingRoomPage } from './waitingRoomPage.js'
+import { renderGamePage } from '../pages/game/index.js'
+import { renderLoginPage } from '../pages/login/index.js'
+import { renderPrivateRooms } from '../pages/privateRooms/index.js'
+import { renderPublicRooms } from '../pages/publicRooms/index.js'
+import { renderRoomOptions } from '../pages/roomOptions/index.js'
+import { renderSplashScreenPage } from '../pages/splashScreen/index.js'
+import { renderWaitingRoomPage } from '../pages/waitingRoom/index.js'
 import { Globals } from './globals.js'
 
 function clearContent() {

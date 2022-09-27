@@ -1,5 +1,6 @@
-import { navigate } from './navigate.js';
-import { Globals } from './globals.js';
+import { navigate } from '../../utils/navigate.js';
+import { Globals } from '../../utils/globals.js';
+import { SoundPlayer } from '../../utils/sound.js';
 
 const renderRoomOptions = () => {
   const page = document.getElementById('page');
@@ -17,32 +18,29 @@ const renderRoomOptions = () => {
   const divButtons = document.createElement('div');
   divButtons.classList.add('buttons__configure');
   const btnSound = document.createElement('input');
-  const audio = document.getElementById('audio-background');
   btnSound.classList.add('button__sound');
   btnSound.setAttribute('type', 'image');
 
-  if (audio.paused) {
+  if (!Globals.soundStatus) {
     btnSound.src = './src/assets/img/mute.png';
   } else {
     btnSound.src = './src/assets/img/button-sound.png';
   }
 
   btnSound.addEventListener('click', () => {
-    if (audio.paused) {
-      audio.volume = 0.1;
-      audio.play();
-      audio.loop = true;
+    if (!Globals.soundStatus) {
       btnSound.src = './src/assets/img/button-sound.png';
     } else {
-      audio.pause();
       btnSound.src = './src/assets/img/mute.png';
     }
+    SoundPlayer.toogleStatusAllAudios()
   });
 
   const btnClose = document.createElement('img');
   btnClose.classList.add('button__close');
   btnClose.src = './src/assets/img/button-close.png';
   btnClose.addEventListener('click', () => {
+    SoundPlayer.click()
     window.location.reload();
   });
   divButtons.append(btnSound, btnClose);
@@ -53,7 +51,6 @@ const renderRoomOptions = () => {
 
   const imglogo = document.createElement('img');
   imglogo.classList.add('room--logo');
-  // imglogo.src = './src/assets/img/logo.png';
 
   const title = document.createElement('p');
   title.innerText = 'Escolha uma opção';
@@ -68,6 +65,7 @@ const renderRoomOptions = () => {
   divRoom1.append(room1Title, room1Img);
 
   divRoom1.addEventListener('click', () => {
+    SoundPlayer.click()
     navigate('publicRooms');
   });
 
@@ -79,6 +77,7 @@ const renderRoomOptions = () => {
   divRoom2.append(room2Title, room2Img);
 
   divRoom2.addEventListener('click', () => {
+    SoundPlayer.click()
     navigate('privateRooms');
   });
 

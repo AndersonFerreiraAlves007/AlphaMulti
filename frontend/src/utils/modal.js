@@ -1,3 +1,6 @@
+import { Globals } from './globals.js';
+import { SoundPlayer } from './sound.js'
+
 class Modal {
   static showTutorialModal = () => {
     const body = document.querySelector('body');
@@ -6,6 +9,7 @@ class Modal {
     backgroundModal.classList.add('background-modal');
 
     backgroundModal.addEventListener('click', () => {
+      SoundPlayer.click()
       this.closeTutorialModal();
     });
 
@@ -70,6 +74,7 @@ class Modal {
     const divRed = document.createElement('div');
     divRed.classList.add('color', 'red');
     divRed.addEventListener('click', () => {
+      SoundPlayer.click()
       callBack('r');
       this.closeColorModal();
     });
@@ -77,6 +82,7 @@ class Modal {
     const divYellow = document.createElement('div');
     divYellow.classList.add('color', 'yellow');
     divYellow.addEventListener('click', () => {
+      SoundPlayer.click()
       callBack('y');
       this.closeColorModal();
     });
@@ -84,6 +90,7 @@ class Modal {
     const divGreen = document.createElement('div');
     divGreen.classList.add('color', 'green');
     divGreen.addEventListener('click', () => {
+      SoundPlayer.click()
       callBack('g');
       this.closeColorModal();
     });
@@ -91,6 +98,7 @@ class Modal {
     const divBlue = document.createElement('div');
     divBlue.classList.add('color', 'blue');
     divBlue.addEventListener('click', () => {
+      SoundPlayer.click()
       callBack('b');
       this.closeColorModal();
     });
@@ -103,6 +111,7 @@ class Modal {
   }
 
   static showVictoryModal = (playerWiner, callBack = () => {}) => {
+    SoundPlayer.wind()
     const body = document.querySelector('body');
 
     const backgroundModal = document.createElement('div');
@@ -110,10 +119,6 @@ class Modal {
 
     const modal = document.createElement('section');
     modal.classList.add('modal');
-
-    /*  const logo = document.createElement('img');
-    logo.classList.add('logo');
-    logo.src = './src/assets/img/logo.png'; */
 
     const title = document.createElement('img');
     title.classList.add('title');
@@ -124,7 +129,6 @@ class Modal {
     avatar.src = playerWiner.avatar || './src/assets/img/users/user1.svg';
 
     const username = document.createElement('p');
-    //avatar.classList.add('avatar');
     username.innerText = playerWiner.username || 'Adriaa';
 
     const divScore = document.createElement('div');
@@ -138,6 +142,7 @@ class Modal {
     const btnExit = document.createElement('button');
     btnExit.innerText = 'Sair';
     btnExit.addEventListener('click', () => {
+      SoundPlayer.click()
       this.closeVictoryModal();
       callBack();
     });
@@ -171,13 +176,19 @@ class Modal {
     const btnCreate = document.createElement('button');
     btnCreate.innerText = 'Criar Sala';
     btnCreate.addEventListener('click', () => {
-      callback(nameInput.value, passwordInput.value);
-      this.closeCreateRoomModal();
+      SoundPlayer.click()
+      if(true) {
+        callback(nameInput.value, passwordInput.value);
+        this.closeCreateRoomModal();
+      } else {
+        
+      }
     });
 
     const btnExit = document.createElement('button');
     btnExit.innerText = 'Sair';
     btnExit.addEventListener('click', () => {
+      SoundPlayer.click()
       this.closeCreateRoomModal();
     });
     divButtons.append(btnCreate, btnExit);
@@ -209,13 +220,19 @@ class Modal {
     const btnCreate = document.createElement('button');
     btnCreate.innerText = 'Criar Sala';
     btnCreate.addEventListener('click', () => {
-      callback(nameInput.value);
-      this.closeCreateRoomModal();
+      SoundPlayer.click()
+      if(true) {
+        callback(nameInput.value);
+        this.closeCreateRoomModal();
+      } else {
+
+      }
     });
 
     const btnExit = document.createElement('button');
     btnExit.innerText = 'Sair';
     btnExit.addEventListener('click', () => {
+      SoundPlayer.click()
       this.closeCreateRoomModal();
     });
     divButtons.append(btnCreate, btnExit);
@@ -248,6 +265,7 @@ class Modal {
     const btnEnter = document.createElement('button');
     btnEnter.innerText = 'Entrar';
     btnEnter.addEventListener('click', () => {
+      SoundPlayer.click()
       callback(passwordInput.value);
       this.closeCreateRoomModal();
     });
@@ -255,6 +273,7 @@ class Modal {
     const btnExit = document.createElement('button');
     btnExit.innerText = 'Sair';
     btnExit.addEventListener('click', () => {
+      SoundPlayer.click()
       this.closeCreateRoomModal();
     });
 
@@ -284,7 +303,6 @@ class Modal {
     const modal = document.querySelector('.modal');
     modal.remove();
     backgroundModal.remove();
-    //window.location.replace('../splashScreen/index.html');
   }
 
   static closeCreateRoomModal() {

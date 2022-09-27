@@ -1,5 +1,6 @@
-import { Modal } from './modal.js';
-import { Globals } from './globals.js';
+import { Modal } from '../../utils/modal.js';
+import { Globals } from '../../utils/globals.js';
+import { SoundPlayer } from '../../utils/sound.js';
 
 const renderPublicRooms = async () => {
   const roonsPrivates = await Globals.serverCommunication.getRoomsPublic();
@@ -15,31 +16,28 @@ const renderPublicRooms = async () => {
   const divButtons = document.createElement('div');
   divButtons.classList.add('buttons__configure');
   const btnSound = document.createElement('img');
-  const audio = document.getElementById('audio-background');
   btnSound.classList.add('button__sound');
 
-  if (audio.paused) {
+  if (!Globals.soundStatus) {
     btnSound.src = './src/assets/img/mute.png';
   } else {
     btnSound.src = './src/assets/img/button-sound.png';
   }
 
   btnSound.addEventListener('click', () => {
-    if (audio.paused) {
-      audio.volume = 0.1;
-      audio.play();
-      audio.loop = true;
+    if (!Globals.soundStatus) {
       btnSound.src = './src/assets/img/button-sound.png';
     } else {
-      audio.pause();
       btnSound.src = './src/assets/img/mute.png';
     }
+    SoundPlayer.toogleStatusAllAudios()
   });
 
   const btnClose = document.createElement('img');
   btnClose.classList.add('button__close');
   btnClose.src = './src/assets/img/button-close.png';
   btnClose.addEventListener('click', () => {
+    SoundPlayer.click()
     window.location.reload();
   });
   divButtons.append(btnSound, btnClose);
@@ -50,14 +48,6 @@ const renderPublicRooms = async () => {
 
   const divInfo = document.createElement('div');
   divInfo.classList.add('inforRoom');
-
-  /* const divLogo = document.createElement('div');
-  divLogo.classList.add('div__logo--private');
-  const logo = document.createElement('img');
-  logo.classList.add('img__logo--private');
-  logo.setAttribute('src', './src/assets/img/logo.png');
-  divLogo.append(logo);
-  divInfo.append(divLogo); */
 
   const title = document.createElement('h1');
   title.append(document.createTextNode('Salas Públicas'));
@@ -78,6 +68,7 @@ const renderPublicRooms = async () => {
     const enterBtn = document.createElement('button');
     enterBtn.append(document.createTextNode('Entrar'));
     enterBtn.addEventListener('click', () => {
+      SoundPlayer.click()
       Globals.serverCommunication.enterPublicRoom(item.id);
     });
     roomCard.append(enterBtn);
@@ -89,6 +80,7 @@ const renderPublicRooms = async () => {
   createRoom.setAttribute('type', 'button');
   createRoom.append(document.createTextNode('Criar sala'));
   createRoom.addEventListener('click', () => {
+    SoundPlayer.click()
     Modal.showCreateRoomPublicModal((name) => {
       Globals.serverCommunication.createRoomPublic(name);
     });

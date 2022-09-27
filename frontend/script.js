@@ -1,6 +1,8 @@
 import { navigate } from './src/utils/navigate.js';
-/* import { Modal } from './src/utils/modal.js'; */
+import { Globals } from './src/utils/globals.js';
+import { SoundPlayer } from './src/utils/sound.js';
 
 navigate('splashScreen');
-/* renderRoom(); */
-/* Modal.showVictoryModal(); */
+
+Globals.soundStatus = false
+/* SoundPlayer.toogleStatusAllAudios() */

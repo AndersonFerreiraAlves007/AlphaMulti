@@ -1,5 +1,6 @@
-import { Modal } from './modal.js';
-import { navigate } from './navigate.js';
+import { Modal } from '../../utils/modal.js';
+import { navigate } from '../../utils/navigate.js';
+import { SoundPlayer } from '../../utils/sound.js';
 
 const renderSplashScreenPage = () => {
   const main = document.createElement('main');
@@ -10,6 +11,7 @@ const renderSplashScreenPage = () => {
   btnTutorial.src = './src/assets/img/help.svg';
 
   btnTutorial.addEventListener('click', () => {
+    SoundPlayer.click()
     Modal.showTutorialModal();
   });
 
@@ -27,6 +29,7 @@ const renderSplashScreenPage = () => {
   btn.classList.add('button__splash');
   btn.setAttribute('src', './src/assets/img/button-splash.svg');
   btn.addEventListener('click', () => {
+    SoundPlayer.play()
     navigate('login');
   });
 

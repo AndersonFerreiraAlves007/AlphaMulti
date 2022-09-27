@@ -1,15 +1,3 @@
-/* function heartbeat() {
-  clearTimeout(this.pingTimeout);
-
-  // Use `WebSocket#terminate()`, which immediately destroys the connection,
-  // instead of `WebSocket#close()`, which waits for the close timer.
-  // Delay should be equal to the interval at which your server
-  // sends out pings plus a conservative assumption of the latency.
-  this.pingTimeout = setTimeout(() => {
-    this.terminate();
-  }, 30000 + 1000);
-} */
-
 class ServerCommunication {
   constructor(host, isSsl = false) {
     this.url = `${isSsl ? 'https://' : 'http://'}${host}`
@@ -46,9 +34,6 @@ class ServerCommunication {
           break
         }
         case 'endGame': {
-          /* const dataPlayer = await this.getDataPlayer()
-          const dataRoom = await this.getDataRoom() */
-          console.log('endGame')
           this.events.endGame.forEach(callback => callback({
             winer: msg.payload.winer
           }))
@@ -65,8 +50,6 @@ class ServerCommunication {
           break
         }
         case 'levePlayer': {
-          console.log('levePlayer')
-          console.log(msg)
           if(msg.payload.playerId === sessionStorage.getItem('playerId')) {
             sessionStorage.removeItem('roomId')
             this.events.levePlayer.forEach(callback => callback({
@@ -101,12 +84,6 @@ class ServerCommunication {
       }
     }
 
-    /* this.ws.on('open', heartbeat);
-    this.ws.on('ping', heartbeat);
-    this.ws.on('close', function clear() {
-      clearTimeout(this.pingTimeout);
-    }); */
-
     this.events = {
       startGame: [],
       endGame: [],
@@ -116,8 +93,6 @@ class ServerCommunication {
       changeRoomsAvaliables: [],
     }
   }
-
-  // métodos que podem ser usados
 
   async getDataPlayer() {
     const response = await fetch(`${this.url}/get-data-player/${sessionStorage.getItem('playerId')}`)
@@ -257,13 +232,3 @@ class ServerCommunication {
 export {
   ServerCommunication
 }
-
-/* const serverCommunication = new ServerCommunication() */
-
-/* serverCommunication.addEventListener('endGame', (data) {
-  const { player, room } = data
-
-  //algum código
-}) */
-
-/* export default serverCommunication */

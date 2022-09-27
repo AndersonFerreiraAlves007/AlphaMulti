@@ -1,4 +1,5 @@
-import { Globals } from './globals.js';
+import { Globals } from '../../utils/globals.js';
+import { SoundPlayer } from '../../utils/sound.js';
 
 let idInterval2;
 const renderWaitingRoomPage = () => {
@@ -16,34 +17,28 @@ const renderWaitingRoomPage = () => {
   divButtons.classList.add('buttons__configure--waiting');
 
   const btnSound = document.createElement('img');
-  const audio = document.getElementById('audio-background');
   btnSound.classList.add('button__sound');
 
-  if (audio.paused) {
+  if (!Globals.soundStatus) {
     btnSound.src = './src/assets/img/mute.png';
   } else {
     btnSound.src = './src/assets/img/button-sound.png';
   }
 
   btnSound.addEventListener('click', () => {
-    if (audio.paused) {
-      audio.volume = 0.1;
-      audio.play();
-      audio.loop = true;
+    if (!Globals.soundStatus) {
       btnSound.src = './src/assets/img/button-sound.png';
     } else {
-      audio.pause();
       btnSound.src = './src/assets/img/mute.png';
     }
+    SoundPlayer.toogleStatusAllAudios()
   });
 
   const btnClose = document.createElement('img');
   btnClose.classList.add('button__close');
   btnClose.src = './src/assets/img/button-close.png';
   btnClose.addEventListener('click', () => {
-    /* Globals.serverCommunication.close()
-    Globals.serverCommunication = null */
-    //navigate('login')
+    SoundPlayer.click()
     window.location.reload();
   });
 
@@ -51,8 +46,8 @@ const renderWaitingRoomPage = () => {
   btnBack.classList.add('button__back');
   btnBack.src = './src/assets/img/back-icon.svg';
   btnBack.addEventListener('click', () => {
+    SoundPlayer.click()
     Globals.serverCommunication.leaveRoom();
-    //navigate('roomOptions')
   });
 
   divButtons.append(btnSound, btnClose, btnBack);
@@ -60,9 +55,6 @@ const renderWaitingRoomPage = () => {
   const main = document.createElement('main');
   main.classList.add('main__waiting--room');
 
-  // const imgLogo = document.createElement('img');
-  // imgLogo.classList.add('room--logo');
-  // imgLogo.src = './src/assets/img/logo.png';
   const h1 = document.createElement('h2');
   h1.innerText = `01:00 para iniciar a partida`;
 
