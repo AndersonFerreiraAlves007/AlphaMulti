@@ -122,6 +122,7 @@ class PlayTurnTimeout {
                   await this.playerRepository.deletePlayer(bots[i].id);
                 }
                 const humans = await this.playerRepository.getPlayersHumanRoom(room.id);
+                await this.playerNotification.endGame(room.id, winer ? winer.id : '');
                 for(let i = 0; i < humans.length; i++) {
                   await this.playerRepository.updatePlayer(humans[i].id, {
                     roomId: '',
@@ -130,7 +131,7 @@ class PlayTurnTimeout {
                   });
                 }
                 await this.roomRepository.deleteRoom(room.id);
-                this.playerNotification.endGame(room.id, winer ? winer.id : '');
+                
                 //this.playerNotification.changeRoomsAvaliables();
               } else {
                 this.timeNotification.makeMove(room.id, room.position, room.turn);

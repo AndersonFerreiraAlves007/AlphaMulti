@@ -75,6 +75,7 @@ class PlayerNotificationWS extends PlayerNotification {
   }
 
   async endGame(roomId, winer) {
+    console.log('end game', roomId, winer);
     await this.sendMessageRoom(roomId, 'endGame', { winer });
   }
 

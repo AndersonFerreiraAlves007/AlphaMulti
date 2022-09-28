@@ -110,7 +110,7 @@ const renderLoginPage = () => {
   buttonPlay.addEventListener('click', () => {
     SoundPlayer.click()
     const username = inputLogin.value;
-    if(/^[A-Za-z][A-Za-z0-9_]{2,20}$/.test(username.trim())) {
+    if(/^[A-Za-z][A-Za-z0-9_ ]{2,20}$/.test(username.trim())) {
       sessionStorage.setItem('username', username.trim());
       sessionStorage.setItem('avatar', avatares[indexAvatar]);
       Globals.serverCommunication = new ServerCommunication(HOST_API, isSsl);

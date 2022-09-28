@@ -103,6 +103,14 @@
   color: var(--black);
 }
 
+.button__back{
+  width: 40px;
+  position: fixed;
+  top: 25px;
+  left: 25px;
+  cursor: pointer;
+}
+
 @media (min-width: 1024px) {
 
   .main__waiting--room {
