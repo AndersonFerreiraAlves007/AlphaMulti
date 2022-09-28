@@ -35,7 +35,8 @@ class ServerCommunication {
         }
         case 'endGame': {
           this.events.endGame.forEach(callback => callback({
-            winer: msg.payload.winer
+            winer: msg.payload.winer,
+            score: msg.payload.score
           }))
           break
         }

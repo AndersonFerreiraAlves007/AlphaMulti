@@ -122,8 +122,9 @@ const renderLoginPage = () => {
       });
 
       Globals.serverCommunication.addEventListener('endGame', (data) => {
-        const { winer } = data;
+        const { winer, score } = data;
         const playerWiner = Globals.room.players.find((item) => item.id === winer);
+        playerWiner.score = score
         Modal.showVictoryModal(playerWiner, () => {
           navigate('roomOptions');
         });

@@ -112,9 +112,9 @@ class PlayTurnTimeout {
                 }
               }
               if(winer) {
-
+                const newScore = winer.score + POINTS_WINER;
                 await this.playerRepository.updatePlayer(winer.id, {
-                  score: winer.score + POINTS_WINER,
+                  score: newScore,
                 });
 
                 const bots = await this.playerRepository.getPlayersBotRoom(room.id);
@@ -122,7 +122,7 @@ class PlayTurnTimeout {
                   await this.playerRepository.deletePlayer(bots[i].id);
                 }
                 const humans = await this.playerRepository.getPlayersHumanRoom(room.id);
-                await this.playerNotification.endGame(room.id, winer ? winer.id : '');
+                await this.playerNotification.endGame(room.id, winer ? winer.id : '', newScore);
                 for(let i = 0; i < humans.length; i++) {
                   await this.playerRepository.updatePlayer(humans[i].id, {
                     roomId: '',
