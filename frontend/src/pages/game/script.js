@@ -543,6 +543,7 @@ function createUserInfoT(container, player, side) {
   divUserInfo.classList.add("gp__user-info");
   const avatarImg = document.createElement('img');
   avatarImg.classList.add("gp__avatar");
+  avatarImg.classList.add("gp__player-turn");
   avatarImg.setAttribute("src", "../../assets/img/users/user1.svg");
   const userTextDiv = document.createElement('div');
   userTextDiv.classList.add("gp__user-text-info");
